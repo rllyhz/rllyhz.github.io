@@ -23,6 +23,10 @@ body {
   font-family: "Monserrat", sans-serif;
 }
 
+::selection {
+  background-color: #224022;
+}
+
 *, *::after, *::before {
   box-sizing: border-box;
 }
@@ -120,6 +124,12 @@ body, .container   {
   margin-top: 3vh;
   text-align: center;
   font-size: 1.6rem;
+}
+
+.just-proud-of-myself p::selection,
+.just-proud-of-myself p a::selection {
+  background-color: #5b855b;
+  color: white;
 }
 
 .just-proud-of-myself a {
