@@ -5,6 +5,7 @@
   /* --tagline-text-color: #e5e2fd; */
   --description-text-color: #638363;
   --default-text-color: #224022;
+  --modal-header-background-color: #3073BB;
 }
 
 html {
@@ -177,11 +178,63 @@ nav .container a:hover {
 }
 
 
+
+/* MODAL */
+
+#modalContainer {
+  background-color:rgba(0, 0, 0, 0.5);
+  position:absolute;
+  z-index: 3;
+  width:100%;
+  height:100%;
+  top:-20%;
+  left:0px;
+  z-index:10000;
+}
+
+#alertBox {
+  width:60%;
+  margin: 30vh auto 0;
+  border-radius: 12px;
+  background-color: white;
+  overflow: hidden;
+}
+
+#alertBox h1 {
+  font:bold 0.9em verdana,arial;
+  background-color: var(--modal-header-background-color);
+  color: white;
+  font-size: 2rem;
+  padding:2rem 0 2rem 5rem;
+}
+
+#alertBox p {
+  margin: 3rem 0;
+  padding: 0 12rem;
+  font-size: 1.6rem;
+}
+
+#alertBox #closeBtn {
+  display:block;
+  width: 10rem;
+  margin: 0 auto 1rem;
+  padding: 1rem 2.6rem;
+  border-radius: 3px;
+  background-color: var(--modal-header-background-color);
+  color: white;
+  font-size: 1.6rem;
+  text-align: center;
+}
+
+
+
+
+
 /*
  * RESPONSIVITY MEDIA QUERIES
  */
 
-@media only screen and (max-width: 769px) {
+ @media only screen and (max-width: 769px) {
   nav .container a {
     font-size: 1.2rem;
   }
@@ -217,6 +270,14 @@ nav .container a:hover {
     margin-top: 5vh;
     font-size: 2.2rem;
     margin-left: 36vw;
+  }
+
+  #alertBox {
+    width:80%;
+  }
+
+  #alertBox p {
+    padding: 0 6rem;
   }
 }
 
