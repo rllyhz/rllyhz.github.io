@@ -24,6 +24,11 @@ body {
   overflow: hidden;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 ::selection {
   background-color: #224022;
 }
@@ -35,6 +40,26 @@ body {
 h1,h2,h3,h4,h5,h6,div,span,svg,p {
   margin: 0;
   padding: 0;
+}
+
+nav {
+  position: absolute;
+  top: -8%;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 10vh;
+  color: var(--tagline-text-color);
+  filter: brightness(.8);
+  font-size: 1.2rem;
+}
+
+nav .container a {
+  transition: filter 200ms ease-in-out;
+}
+
+nav .container a:hover {
+  filter: brightness(.65);
 }
 
 .container {
@@ -167,7 +192,7 @@ h1,h2,h3,h4,h5,h6,div,span,svg,p {
     right: -10%;
   }
   
-  .my-awesome-portfolio .hi-there {
+  .my-awesome-portfolio .hi-there, .my-awesome-portfolio .hi-there a{
     font-size: 7rem;
   }
   
@@ -235,7 +260,7 @@ h1,h2,h3,h4,h5,h6,div,span,svg,p {
     right: -10%;
   }
   
-  .my-awesome-portfolio .hi-there {
+  .my-awesome-portfolio .hi-there, .my-awesome-portfolio .hi-there a{
     font-size: 5rem;
   }
   
