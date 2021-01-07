@@ -54,8 +54,17 @@ nav {
   font-size: 1.2rem;
 }
 
+nav .container {
+  display: flex;
+  justify-content: flex-end;
+}
+
 nav .container a {
   transition: filter 200ms ease-in-out;
+}
+
+nav .container a:not(:last-child) {
+  margin-right: 2rem;
 }
 
 nav .container a:hover {
