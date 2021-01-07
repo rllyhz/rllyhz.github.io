@@ -189,9 +189,37 @@ h1,h2,h3,h4,h5,h6,div,span,svg,p {
 }
 
 
-@media only screen and (max-width: 420px) {
+@media only screen and (max-width: 520px) {
   .illustration {
+    width: 50%;
+  }
+
+  .illustration:first-child {
+    bottom: 30%;
+    left: -16%;
+  }
+  
+  .illustration:nth-child(2) {
+    bottom: 38%;
+    left: 12%;
+  }
+}
+
+
+@media only screen and (max-width: 420px) {
+  .illustration:first-child {
     display: none;
+  }
+
+  .illustration:nth-child(2) {
+    width: 76%;
+    left: -10%;
+    bottom: 50%;
+  }
+
+  .illustration:nth-child(3) {
+    top: -14%;
+    right: -10%;
   }
   
   .my-awesome-portfolio .hi-there {
