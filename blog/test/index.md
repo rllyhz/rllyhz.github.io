@@ -1,3 +1,3 @@
 ## Test blog!
 
-[back](./blog)
+[back](https://rllyhz.github.io/blog/)

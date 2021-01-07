@@ -1,3 +1,3 @@
 ## Hello there!
 
-- [Test blog](./blog/test)
+- [Test blog](https://rllyhz.github.io/blog/test)
