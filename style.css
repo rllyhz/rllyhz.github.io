@@ -1,0 +1,191 @@
+:root {
+  --background-color: #182D18;
+  --background-color-dark: #0D1B0D;
+  --tagline-text-color: #D6D1FF;
+  /* --tagline-text-color: #e5e2fd; */
+  --description-text-color: #638363;
+  --default-text-color: #224022;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  min-height: 100vh;
+  position: relative;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-image: linear-gradient(to bottom, var(--background-color), var(--background-color-dark));
+  background-repeat: no-repeat;
+  color: var(--default-text-color);
+  font-family: "Monserrat", sans-serif;
+  overflow: hidden;
+}
+
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+h1,h2,h3,h4,h5,h6,div,span,svg,p {
+  margin: 0;
+  padding: 0;
+}
+
+.illustration {
+  width: 36%;
+  height: 36%;
+  position: absolute;
+  z-index: -1;
+}
+
+.illustration:first-child {
+  bottom: 10%;
+  left: -8%;
+}
+
+.illustration:nth-child(2) {
+  bottom: 48%;
+  left: 8%;
+}
+
+.illustration:nth-child(3) {
+  top: -26%;
+  right: -12%;
+}
+
+.illustration img {
+  width: 100%;
+}
+
+.container {
+  width: 78%;
+  margin: 0 auto;
+}
+
+.my-awesome-portfolio {
+  margin-top: 12vh;
+}
+
+.my-awesome-portfolio .hi-there {
+  font-size: 10rem;
+  font-weight: 900;
+  color: var(--tagline-text-color);
+  text-shadow: 3px 3px 6px var(--background-color-dark);
+  transition: text-shadow 150ms ease-in-out;
+}
+
+.my-awesome-portfolio .hi-there:hover {
+  text-shadow: 3px 3px 6px #D6D1FF22;
+}
+
+.my-awesome-portfolio .description-of-me {
+  margin-top: 5vh;
+  margin-left: 40vw;
+  letter-spacing: 0.36rem;
+  font-size: 2.4rem;
+  font-weight: lighter;
+  font-style: italic;
+  color: var(--description-text-color);
+  text-shadow: 2px 2px 8px rgb(138, 135, 160, .4);
+}
+
+.social-media-container {
+  width: 50%;
+  margin: 14vh auto 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-media-container .social-media-to-follow {
+  flex: 0 1 2rem;
+  cursor: pointer;
+  transition: filter 200ms ease-in-out;
+}
+
+.social-media-container .social-media-to-follow:not(:last-child) {
+  margin-right: 1rem;
+}
+
+.social-media-container .social-media-to-follow:hover {
+  filter: blur(1px);
+}
+
+.just-proud-of-myself {
+  margin-top: 3vh;
+  text-align: center;
+  font-size: 1.6rem;
+}
+
+.just-proud-of-myself a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 200ms ease-in-out;
+}
+
+.just-proud-of-myself a:hover {
+  color: var(--tagline-text-color);
+}
+
+
+/*
+ * RESPONSIVITY MEDIA QUERIES
+ */
+
+@media only screen and (max-width: 769px) {
+  .illustration {
+    width: 50%;
+  }
+
+  .illustration:first-child {
+    bottom: 20%;
+    left: -8%;
+  }
+  
+  .illustration:nth-child(2) {
+    bottom: 38%;
+    left: 12%;
+  }
+  
+  .illustration:nth-child(3) {
+    top: -20%;
+    right: -10%;
+  }
+  
+  .my-awesome-portfolio .hi-there {
+    font-size: 7rem;
+  }
+  
+  .my-awesome-portfolio .description-of-me {
+    margin-top: 5vh;
+    font-size: 2.2rem;
+  }
+}
+
+
+
+@media only screen and (max-width: 420px) {
+  .illustration {
+    display: none;
+  }
+  
+  .my-awesome-portfolio .hi-there {
+    font-size: 5rem;
+  }
+  
+  .my-awesome-portfolio .description-of-me {
+    margin-top: 5vh;
+    font-size: 1.4rem;
+    margin-left: 30vw;
+  }
+}
+
+@media only screen and (max-width: 380px) {
+  .my-awesome-portfolio .description-of-me {
+    margin-top: 5vh;
+    font-size: 1.4rem;
+    margin-left: 20vw;
+  }
+}
