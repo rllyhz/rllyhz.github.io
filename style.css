@@ -21,6 +21,7 @@ body {
   background-repeat: no-repeat;
   color: var(--default-text-color);
   font-family: "Monserrat", sans-serif;
+  overflow: hidden;
 }
 
 ::selection {
@@ -39,10 +40,6 @@ h1,h2,h3,h4,h5,h6,div,span,svg,p {
 .container {
   width: 78%;
   margin: 0 auto;
-}
-
-body, .container   {
-  overflow: hidden;
 }
 
 .illustration {
@@ -75,15 +72,18 @@ body, .container   {
   margin-top: 12vh;
 }
 
-.my-awesome-portfolio .hi-there {
+.my-awesome-portfolio .hi-there,
+.my-awesome-portfolio .hi-there a {
   font-size: 10rem;
   font-weight: 900;
   color: var(--tagline-text-color);
   text-shadow: 3px 3px 6px var(--background-color-dark);
   transition: text-shadow 150ms ease-in-out;
+  text-decoration: none;
 }
 
-.my-awesome-portfolio .hi-there:hover {
+.my-awesome-portfolio .hi-there:hover,
+.my-awesome-portfolio .hi-there a:hover {
   text-shadow: 3px 3px 6px #D6D1FF22;
 }
 
