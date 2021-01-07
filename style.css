@@ -117,8 +117,8 @@ nav .container a:hover {
   text-decoration: none;
 }
 
-.my-awesome-portfolio .hi-there:hover,
-.my-awesome-portfolio .hi-there a:hover {
+.my-awesome-portfolio .hi-there:hover a,
+.my-awesome-portfolio .hi-there:hover {
   text-shadow: 3px 3px 6px #D6D1FF22;
 }
 
