@@ -51,7 +51,7 @@ nav {
   height: 10vh;
   color: var(--tagline-text-color);
   filter: brightness(.8);
-  font-size: 1.2rem;
+  font-size: 1.6rem;
 }
 
 nav .container {
@@ -64,7 +64,7 @@ nav .container a {
 }
 
 nav .container a:not(:last-child) {
-  margin-right: 2rem;
+  margin-right: 3.8rem;
 }
 
 nav .container a:hover {
@@ -182,6 +182,14 @@ nav .container a:hover {
  */
 
 @media only screen and (max-width: 769px) {
+  nav .container a {
+    font-size: 1.2rem;
+  }
+
+  nav .container a:not(:last-child) {
+    margin-right: 1.8rem;
+  }
+
   .illustration {
     width: 50%;
   }
