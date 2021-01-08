@@ -21,7 +21,7 @@ body {
   background-image: linear-gradient(to bottom, var(--background-color), var(--background-color-dark));
   background-repeat: no-repeat;
   color: var(--default-text-color);
-  font-family: "Monserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   overflow: hidden;
 }
 
