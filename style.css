@@ -345,7 +345,7 @@ nav .container a:hover {
   
   .my-awesome-portfolio .description-of-me {
     margin-top: 5vh;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     margin-left: 30vw;
   }
 }
@@ -353,7 +353,7 @@ nav .container a:hover {
 @media only screen and (max-width: 380px) {
   .my-awesome-portfolio .description-of-me {
     margin-top: 5vh;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     margin-left: 20vw;
   }
 }
