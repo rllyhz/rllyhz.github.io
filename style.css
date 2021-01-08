@@ -320,6 +320,12 @@ nav .container a:hover {
     bottom: 38%;
     left: 12%;
   }
+
+  .my-awesome-portfolio .description-of-me {
+    margin-top: 5vh;
+    font-size: 1.3rem;
+    margin-left: 30vw;
+  }
 }
 
 
@@ -345,7 +351,7 @@ nav .container a:hover {
   
   .my-awesome-portfolio .description-of-me {
     margin-top: 5vh;
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     margin-left: 30vw;
   }
 }
