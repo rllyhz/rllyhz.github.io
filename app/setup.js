@@ -109,7 +109,7 @@ const sendEmail = (name, senderEmail, message) => {
       alert("Email sent successfully!")
       fullnameInput.value = ""
       emailInput.value = ""
-      message.value = ""
+      messageInput.value = ""
     });
 }
 
