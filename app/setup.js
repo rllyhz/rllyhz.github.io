@@ -86,7 +86,7 @@ btnSendEmail.addEventListener("click", e => {
 
 btnSeeMore.addEventListener("click", e => {
   e.preventDefault()
-  window.customAlert("Sorry...😣 \nThe project pages are still maintained. But, will be on fire very soon. 🔥")
+  alert("Sorry...😣 \nThe project pages are still maintained. But, will be on fire very soon. 🔥")
 })
 
 const sendEmail = (name, senderEmail, message) => {
