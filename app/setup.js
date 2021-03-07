@@ -67,14 +67,17 @@ sr.reveal('.contact__input', { interval: 200 });
 
 
 const btnSendEmail = document.querySelector("#send-email-button"),
-  btnSeeMore = document.querySelector("#see-more-button")
+  btnSeeMore = document.querySelector("#see-more-button"),
+  fullnameInput = document.querySelector("#your-full-name"),
+  emailInput = document.querySelector("#your-email"),
+  messageInput = document.querySelector("#your-message")
 
 btnSendEmail.addEventListener("click", e => {
   e.preventDefault()
 
-  const fullname = document.querySelector("#your-full-name").value
-  const email = document.querySelector("#your-email").value
-  const message = document.querySelector("#your-message").value
+  const fullname = fullnameInput.value
+  const email = emailInput.value
+  const message = messageInput.value
 
   if (!fullname || !email || !message) {
     alert("Please fill the available fields")
@@ -104,6 +107,9 @@ const sendEmail = (name, senderEmail, message) => {
   })
     .then(function (msg) {
       alert("Email sent successfully!")
+      fullnameInput.value = ""
+      emailInput.value = ""
+      message.value = ""
     });
 }
 
