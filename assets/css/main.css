@@ -397,6 +397,13 @@ textarea {
   font-size: .8rem;
 }
 
+@media screen and (max-height: 650px) {
+  .home__img {
+    margin-top: 2rem;
+    width: 62.5%;
+  }
+}
+
 /* ===== MEDIA QUERIES=====*/
 @media screen and (min-width: 768px){
   body{
