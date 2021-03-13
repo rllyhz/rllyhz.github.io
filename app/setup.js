@@ -115,7 +115,6 @@ btnSeeMore.addEventListener("click", e => {
 })
 
 function MakeBtnDisabled(btn, disabled = true) {
-  btn.style.background
   if (disabled) {
     btn.value = "Loading..."
     btn.style.background = 'rgba(0,0,0,.2)'
