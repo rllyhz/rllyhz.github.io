@@ -22,7 +22,7 @@
   <link rel="stylesheet" href="./assets/css/main.css">
 
   <!-- SCRIPTS -->
-  <script src="https://smtpjs.com/v3/smtp.js" defer></script>
+  <!-- <script src="https://smtpjs.com/v3/smtp.js" defer></script> -->
 
   <!-- SCROLL REVEAL -->
   <script src="https://unpkg.com/scrollreveal" defer></script>
@@ -201,10 +201,12 @@
       <h2 class="section-title">Contact</h2>
 
       <div class="contact__container bd-grid">
-        <form action="" class="contact__form">
-          <input type="text" placeholder="Full name (required)" class="contact__input" id="your-full-name">
-          <input type="mail" placeholder="Email (required)" class="contact__input" id="your-email">
-          <textarea name="" cols="0" rows="10" class="contact__input" id="your-message"></textarea>
+        <form action="" class="contact__form" name="contact-me-form" id="contact-me-form">
+          <input type="text" name="fullname" placeholder="Full name (required)" class="contact__input"
+            id="your-full-name">
+          <input type="email" name="email" placeholder="Email (required)" class="contact__input" id="your-email">
+          <textarea name="message" cols="0" rows="6" class="contact__input" id="your-message"
+            placeholder="Your message (required)"></textarea>
           <input type="submit" value="Send" class="contact__button button" id="send-email-button">
         </form>
       </div>

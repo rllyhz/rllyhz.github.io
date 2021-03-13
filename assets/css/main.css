@@ -350,7 +350,7 @@ textarea {
   border-radius: .5rem;
   border: 1.5px solid var(--color);
   outline: none;
-  margin-bottom: var(--mb-4);
+  margin-bottom: var(--mb-2);
 }
 .contact__button{
   display: block;

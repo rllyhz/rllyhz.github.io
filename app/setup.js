@@ -66,13 +66,18 @@ sr.reveal('.work__img', { interval: 200 });
 sr.reveal('.contact__input', { interval: 200 });
 
 
-const btnSendEmail = document.querySelector("#send-email-button"),
-  btnSeeMore = document.querySelector("#see-more-button"),
+const btnSeeMore = document.querySelector("#see-more-button"),
+  btnSendEmail = document.querySelector("#send-email-button"),
   fullnameInput = document.querySelector("#your-full-name"),
   emailInput = document.querySelector("#your-email"),
   messageInput = document.querySelector("#your-message")
 
-btnSendEmail.addEventListener("click", e => {
+let btnSendEmailBackgroundColor = getComputedStyle(btnSendEmail).backgroundColor
+
+const scriptURL = "https://script.google.com/macros/s/AKfycbxQZdJ7qa-S4G_OvE9TGJZ5lZGM92cX2G9Cj0UBi3fioq3gQYGMQNL_bu3F7t82EfyL/exec";
+const form = document.forms["contact-me-form"];
+
+form.addEventListener('submit', e => {
   e.preventDefault()
 
   const fullname = fullnameInput.value
@@ -80,37 +85,48 @@ btnSendEmail.addEventListener("click", e => {
   const message = messageInput.value
 
   if (!fullname || !email || !message) {
-    alert("Please fill the available fields")
+    alert("Please fill the required fields!")
     return
   }
 
-  sendEmail(fullname, email, message)
+  MakeBtnDisabled(btnSendEmail, true)
+
+  fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+    .then(response => {
+      fullnameInput.value = ""
+      emailInput.value = ""
+      messageInput.value = ""
+
+      MakeBtnDisabled(btnSendEmail, false)
+      alert("💌 Email successfully sent!")
+      console.log('Success!', response)
+    })
+
+    .catch(error => {
+      MakeBtnDisabled(btnSendEmail, false)
+      alert("Failed to send email! 😕")
+      console.error('Error!', error.message)
+    })
 })
 
 btnSeeMore.addEventListener("click", e => {
   e.preventDefault()
-  alert("Sorry...😣 \nThe project pages are still maintained. But, will be on fire very soon. 🔥")
+  alert("Sorry...😣 \n\nThe project pages are still maintained. But, will be on fire very soon. 🔥")
 })
 
-const sendEmail = (name, senderEmail, message) => {
-  const myEmail = "xyzreceivermfssawfmessagerrt@gmail.com"
-  const password = "zzsefnklDDklnf#q90u$$7cbb"
-
-  Email.send({
-    Host: "smtp.gmail.com",
-    Username: `${name}`,
-    Password: password,
-    To: myEmail,
-    From: senderEmail,
-    Subject: "Message from rllyhz.github.io",
-    Body: message,
-  })
-    .then(function (msg) {
-      alert("Email sent successfully!")
-      fullnameInput.value = ""
-      emailInput.value = ""
-      messageInput.value = ""
-    });
+function MakeBtnDisabled(btn, disabled = true) {
+  btn.style.background
+  if (disabled) {
+    btn.value = "Loading..."
+    btn.style.background = 'rgba(0,0,0,.2)'
+    btn.style.cursor = 'wait'
+    btn.disabled = true
+  } else {
+    btn.value = "Send"
+    btn.style.background = btnSendEmailBackgroundColor
+    btn.style.cursor = 'pointer'
+    btn.disabled = false
+  }
 }
 
 
