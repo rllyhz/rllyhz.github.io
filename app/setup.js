@@ -77,7 +77,7 @@ let btnSendEmailBackgroundColor = getComputedStyle(btnSendEmail).backgroundColor
 const scriptURL = "https://script.google.com/macros/s/AKfycbxQZdJ7qa-S4G_OvE9TGJZ5lZGM92cX2G9Cj0UBi3fioq3gQYGMQNL_bu3F7t82EfyL/exec";
 const form = document.forms["contact-me-form"];
 
-form.addEventListener('submit', e => {
+form.addEventListener('submit', async e => {
   e.preventDefault()
 
   const fullname = fullnameInput.value
@@ -91,7 +91,9 @@ form.addEventListener('submit', e => {
 
   MakeBtnDisabled(btnSendEmail, true)
 
-  fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+  const userDetails = await getUserDetails()
+
+  fetch(scriptURL, { method: 'POST', body: getDataForm(form, userDetails) })
     .then(response => {
       fullnameInput.value = ""
       emailInput.value = ""
@@ -128,8 +130,9 @@ function MakeBtnDisabled(btn, disabled = true) {
   }
 }
 
-
-
+async function run() {
+  detailUsers = await getDetailUsers()
+}
 /*
 
 Copyright 2021 Rully Ihza Mahendra

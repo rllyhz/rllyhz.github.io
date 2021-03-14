@@ -63,7 +63,39 @@ function removeCustomAlert() {
   document.getElementsByTagName("body")[0].removeChild(document.getElementById("modalContainer"))
 }
 
+const GET_API_CLIENT_URL = "https://ipapi.co/json/"
+let detailUsers
 
+async function getUserDetails() {
+  let result = await fetch(GET_API_CLIENT_URL)
+  result = await result.json()
+
+  return result
+}
+
+function getDataForm(form, userDetails) {
+  const formData = new FormData(form)
+
+  formData.append("ip_address", userDetails.ip ?? "")
+  formData.append("city", userDetails.city ?? "")
+  formData.append("region", `${userDetails.region ?? ""} (${userDetails.region_code ?? ""})`)
+  formData.append("country", `${userDetails.country_name ?? ""} (${userDetails.country ?? ""})`)
+  formData.append("timezone", userDetails.timezone ?? "")
+  formData.append("organization", userDetails.org ?? "")
+  formData.append("latitude", userDetails.latitude ?? "")
+  formData.append("longitude", userDetails.longitude ?? "")
+  formData.append("languages", userDetails.languages ?? "")
+  formData.append("currency", userDetails.currency ?? "")
+  formData.append("currency_name", userDetails.currency_name ?? "")
+  formData.append("country_capital", userDetails.country_capital ?? "")
+  formData.append("country_calling_code", userDetails.country_calling_code ?? "")
+  formData.append("country_population", userDetails.country_population ?? "")
+  formData.append("country_tld", userDetails.country_tld ?? "")
+  formData.append("country_area", userDetails.country_area ?? "")
+  formData.append("asn", userDetails.asn ?? "")
+
+  return formData
+}
 
 
 /*
