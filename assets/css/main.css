@@ -327,10 +327,10 @@ textarea {
   z-index: var(--z-back);
 }
 .skills__android{
-  width: 90%;
+  width: 92%;
 }
 .skills__web{
-  width: 92%;
+  width: 84%;
 }
 .skills__multiplatform{
   width: 82%;
@@ -339,7 +339,7 @@ textarea {
   width: 81%;
 }
 .skills__ui{
-  width: 69%;
+  width: 78%;
 }
 .skills__img{
   border-radius: .5rem;
