@@ -147,7 +147,8 @@ textarea {
     width: 80%;
     height: 100%;
     padding: 2rem;
-    background-color: var(--second-color);
+    background: linear-gradient(to top, blueviolet, var(--second-color));
+    background: linear-gradient(to top, blueviolet, var(--second-color));
     transition: .5s;
   }
 }
@@ -165,18 +166,36 @@ textarea {
   position: absolute;
   content: "";
   width: 100%;
-  height: 0.18rem;
+  height: 0.26rem;
   left: 0;
-  top: 2rem;
-  background-color: var(--first-color);
+  top: 1.8rem;
+  background: linear-gradient(45deg, blueviolet, violet);
+  background: -webkit-linear-gradient(45deg, blueviolet, violet);
+  border-radius: 8px;
 }
 .nav__logo{
-  color: var(--second-color);
+  background: linear-gradient(45deg, blueviolet, violet);
+  background: -webkit-linear-gradient(45deg, blueviolet, violet);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: filter 200ms ease-in-out;
+}
+.nav__logo:hover {
+  filter: hue-rotate(30deg);
 }
 .nav__toggle{
-  color: var(--second-color);
   font-size: 1.5rem;
   cursor: pointer;
+  background: linear-gradient(45deg, blueviolet, violet);
+  background: -webkit-linear-gradient(45deg, blueviolet, violet);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: filter 200ms ease-in-out;
+}
+.nav__toggle:hover {
+  filter: hue-rotate(30deg);
 }
 
 /*Active menu*/
@@ -184,10 +203,12 @@ textarea {
   position: absolute;
   content: "";
   width: 100%;
-  height: 0.18rem;
+  height: 0.26rem;
   left: 0;
-  top: 2rem;
-  background-color: var(--first-color);
+  top: 1.8rem;
+  background: linear-gradient(45deg, blueviolet, violet);
+  background: -webkit-linear-gradient(45deg, blueviolet, violet);
+  border-radius: 8px;
 }
 
 /*=== Show menu ===*/
@@ -208,7 +229,11 @@ textarea {
   margin-bottom: var(--mb-5);
 }
 .home__title-color{
-  color: var(--first-color);
+  background: linear-gradient(45deg, blueviolet, violet);
+  background: -webkit-linear-gradient(45deg, blueviolet, violet);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .home__social{
   display: flex;
@@ -280,12 +305,12 @@ textarea {
   padding: .5rem 1rem;
   margin-bottom: var(--mb-4);
   border-radius: .5rem;
-  box-shadow: 0 4px 25px rgba(14,36,49,.15);
+  box-shadow: 0 3px 4px rgba(14,36,49,.08);
 }
 .skills__icon{
   font-size: 2rem;
   margin-right: var(--mb-2);
-  color: var(--first-color);
+  color: blueviolet;
 }
 .skills__names{
   display: flex;
@@ -295,7 +320,8 @@ textarea {
   position: absolute;
   left: 0;
   bottom: 0;
-  background-color: var(--first-color);
+  background: linear-gradient(45deg, blueviolet, violet);
+  background: -webkit-linear-gradient(45deg, blueviolet, violet);
   height: .25rem;
   border-radius: .5rem;
   z-index: var(--z-back);
@@ -305,6 +331,9 @@ textarea {
 }
 .skills__web{
   width: 92%;
+}
+.skills__multiplatform{
+  width: 82%;
 }
 .skills__reactjs{
   width: 81%;
