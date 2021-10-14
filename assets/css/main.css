@@ -327,19 +327,19 @@ textarea {
   z-index: var(--z-back);
 }
 .skills__android{
-  width: 92%;
+  width: 100%;
 }
 .skills__web{
-  width: 84%;
+  width: 100%;
 }
 .skills__multiplatform{
-  width: 82%;
+  width: 100%;
 }
 .skills__reactjs{
-  width: 81%;
+  width: 100%;
 }
 .skills__ui{
-  width: 78%;
+  width: 100%;
 }
 .skills__img{
   border-radius: .5rem;
