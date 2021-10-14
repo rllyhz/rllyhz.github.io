@@ -6,6 +6,9 @@
  */
 
 
+// STILL BEING UNDER MAINTANANCE ALERT
+alert("Sorry for any bad experiences.. 🙇‍♂️ \nThis page is still being under construction mode! 👨‍💻")
+
 
 /*===== MENU SHOW =====*/
 const showMenu = (toggleId, navId) => {
