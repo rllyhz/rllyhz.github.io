@@ -10,6 +10,14 @@ function getElem(cssSelector) {
   return document.querySelector(cssSelector)
 }
 
+function showElem(elem, displayValue = "block") {
+  elem.style.display = displayValue
+}
+
+function hideElem(elem) {
+  elem.style.display = "none"
+}
+
 const CustomAlert = {
   ERROR: "error",
   SUCCESS: "success",
@@ -118,7 +126,7 @@ async function doesImageExist(url) {
 
 async function createProjectCard(project, suffixImagePath) {
   const anchorContainer = document.createElement("a")
-  anchorContainer.setAttribute("href", "")
+  anchorContainer.setAttribute("href", "../projects/detail.html?id=" + project.id)
   anchorContainer.classList.add("work__img")
   
   const img = document.createElement("img")
@@ -139,6 +147,13 @@ async function createProjectCard(project, suffixImagePath) {
 async function addProject(project, suffixImagePath) {
   const projectCard = await createProjectCard(project, suffixImagePath)
   document.querySelector("#work .work__container").appendChild(projectCard)
+}
+
+function getQueryData(key) {
+  const params = new URLSearchParams(window.location.search)
+  const data = params.get(key)
+
+  return data
 }
 
 

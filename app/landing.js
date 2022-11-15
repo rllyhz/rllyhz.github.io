@@ -1,7 +1,7 @@
 const projectCardsContainer = document.querySelector(".work__container.actual")
 const loadingProjectCardsContainer = document.querySelector(".work__container.loading")
 
-projectCardsContainer.style.display = "none"
+hideElem(projectCardsContainer)
 
 const pinnedProjectIds = [0, 2, 1, 11, 10, 6, 5]
 
@@ -17,8 +17,8 @@ fetch("../data/projects.json")
   }
 
   setTimeout(() => {
-    projectCardsContainer.style.display = "grid"
-    loadingProjectCardsContainer.style.display = "none"
+    showElem(projectCardsContainer, "grid")
+    hideElem(loadingProjectCardsContainer)
     console.clear()
   }, 1500)
 })

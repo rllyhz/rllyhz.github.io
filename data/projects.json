@@ -2,10 +2,10 @@
   {
     "id": 0,
     "name": "PullRefresh Compose",
-    "description": "Pull To Refresh functionality for Jetpack Compose",
+    "description": "Pull To Refresh functionality for Jetpack Compose.",
     "type": "library",
     "languages": ["kotlin"],
-    "technologies": ["Jetpack Compose"],
+    "technologies": ["Android", "Jetpack Compose"],
     "url": "https://github.com/rllyhz/pullrefresh-compose",
     "imagePath": "assets/projects/pullrefresh-compose.png"
   },
