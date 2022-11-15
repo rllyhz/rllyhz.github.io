@@ -1,0 +1,112 @@
+[
+  {
+    "id": 0,
+    "name": "PullRefresh Compose",
+    "description": "Pull To Refresh functionality for Jetpack Compose",
+    "type": "library",
+    "languages": ["kotlin"],
+    "technologies": ["Jetpack Compose"],
+    "url": "https://github.com/rllyhz/pullrefresh-compose",
+    "imagePath": "assets/projects/pullrefresh-compose.png"
+  },
+  {
+    "id": 1,
+    "name": "Aplikasi KEM",
+    "description": "This app was created to help improve students' literacy.",
+    "type": "library",
+    "languages": ["dart", "flutter"],
+    "technologies": ["Flutter", "Android", "Cross-Platform App"],
+    "url": "https://github.com/rllyhz/aplikasi-KEM",
+    "imagePath": "assets/projects/aplikasi-kem.png"
+  },
+  {
+    "id": 2,
+    "name": "Image Compressor App",
+    "description": "An android client for compressing image.",
+    "type": "android-app",
+    "languages": ["kotlin"],
+    "technologies": ["Android"],
+    "url": "https://github.com/rllyhz/image-compressor-app-example",
+    "imagePath": "assets/projects/image-compressor-app.png"
+  },
+  {
+    "id": 3,
+    "name": "NoteApp UI",
+    "description": "Note-taking app UI in Android. This project was just only UI design implemented to Android (kotlin and xml) platform. No logics in it.",
+    "type": "android-app",
+    "languages": ["kotlin"],
+    "technologies": ["Android", "Navigation Component"],
+    "url": "https://github.com/rllyhz/note-app-ui",
+    "imagePath": "assets/projects/note-app-ui.png"
+  },
+  {
+    "id": 4,
+    "name": "SunGlassesShow App",
+    "description": "An android client that provides the source for movie, TV and celebrity content. All data is retrieved by using IMDb API.",
+    "type": "android-app",
+    "languages": ["kotlin"],
+    "technologies": ["Android", "CI/CD", "Android Security", "Sql Chiper", "Dynamic Module"],
+    "url": "https://github.com/rllyhz/SunglassesShow-android-expert-Dicoding",
+    "imagePath": "assets/projects/sunglassesshow-app.png"
+  },
+  {
+    "id": 5,
+    "name": "Github Client App",
+    "description": "A simple Github client app.",
+    "type": "android-app",
+    "languages": ["kotlin"],
+    "technologies": ["Android", "MVVM", "Kotlin Flow", "Coroutines", "Retrofit", "Room", "Hilt", "Glide"],
+    "url": "https://github.com/rllyhz/bfaa-final-submission",
+    "imagePath": "assets/projects/github-client-app.png"
+  },
+  {
+    "id": 7,
+    "name": "Simple Restaurant App",
+    "description": "A simple restaurant client app.",
+    "type": "android-app",
+    "languages": ["dart", "flutter"],
+    "technologies": ["Flutter", "Android", "Cross-Platform App"],
+    "url": "https://github.com/rllyhz/FoodUApp-flutter-fundamental-Dicoding",
+    "imagePath": "assets/projects/restaurant-app.png"
+  },
+  {
+    "id": 8,
+    "name": "CalculateUs App",
+    "description": "A simple scientific calculator app.",
+    "type": "android-app",
+    "languages": ["kotlin"],
+    "technologies": ["Android"],
+    "url": "https://github.com/rllyhz/simple-scientific-calculator",
+    "imagePath": "assets/projects/calculate-us-app.png"
+  },
+  {
+    "id": 9,
+    "name": "Angkoot App",
+    "description": "Angkoot is an app that has a purpose to digitalize Angkot Transportation in Surabaya, Indonesia. The services that Angkoot provides now are fare prediction for the order, trip distance estimation, and user registration. This project was built for a capstone project during Bangkit 2021 program.",
+    "type": "android-app",
+    "languages": ["kotlin"],
+    "technologies": ["Android", "Google Location", "Google APi", "Google Places", "Navigation Component"],
+    "url": "https://github.com/rllyhz/pullrefresh-compose",
+    "imagePath": "assets/projects/pullrefresh-compose.png"
+  },
+  {
+    "id": 10,
+    "name": "Klasifikasi Status Gizi",
+    "description": "A web based app that is responsible for classifying nutrition status of children using KNN algorithm.",
+    "type": "android-app",
+    "languages": ["php", "js", "html", "css"],
+    "technologies": ["Web", "MariaDB", "KNN Algorithm"],
+    "url": "https://github.com/rllyhz/klasifikasi-status-gizi-menggunakan-algoritma-knn",
+    "imagePath": "assets/projects/web-app-status-gizi.png"
+  },
+  {
+    "id": 11,
+    "name": "SortVisual",
+    "description": "A web based app that is responsible for visualizing various sorting algorithms in just one click.",
+    "type": "android-app",
+    "languages": ["js", "html", "css"],
+    "technologies": ["Web", "Scss"],
+    "url": "https://github.com/rllyhz/sortvisual",
+    "imagePath": "assets/projects/sort-visual.png"
+  }
+]
