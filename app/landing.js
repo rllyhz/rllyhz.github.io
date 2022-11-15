@@ -24,4 +24,11 @@ fetch("../data/projects.json")
 })
 
 // STILL BEING UNDER MAINTANANCE ALERT
-alert("Sorry for any bad experiences.. 🙇‍♂️ \nThis page is still being under construction mode! 👨‍💻")
+const hasVisitedKey = "rllyhz.github.io-has-visited"
+let hasVisited = window.localStorage.getItem(hasVisitedKey)
+hasVisited = JSON.parse(hasVisited);
+
+if (!hasVisited) {
+  alert("Sorry for any bad experiences.. 🙇‍♂️ \nThis page is still being under construction mode! 👨‍💻")
+  window.localStorage.setItem(hasVisitedKey, true)
+}
