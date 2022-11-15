@@ -6,7 +6,7 @@ fetch("../data/projects.json")
   if (projects) {
     projects.forEach((project, index) => {
       if (pinnedProjectIds.includes(index)) {
-        addProject(project)
+        addProject(project, "./")
       }
     });
   }

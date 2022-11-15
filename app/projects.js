@@ -3,7 +3,7 @@ fetch("../data/projects.json")
 .then(projects => {
   if (projects) {
     projects.forEach(project => {
-      addProject(project)
+      addProject(project, "../")
     });
   }
 

@@ -116,15 +116,15 @@ async function doesImageExist(url) {
   }
 }
 
-async function createProjectCard(project) {
+async function createProjectCard(project, suffixImagePath) {
   const anchorContainer = document.createElement("a")
   anchorContainer.classList.add("work__img")
   
   const img = document.createElement("img")
-  const imageExist = await doesImageExist("../" + project.imagePath)
+  const imageExist = await doesImageExist(suffixImagePath + project.imagePath)
 
   if (project.imagePath && imageExist) {
-    img.setAttribute("src", "../" + project.imagePath)
+    img.setAttribute("src", suffixImagePath + project.imagePath)
   } else {
     img.setAttribute("src", "../assets/img/work-photo-placeholder.png")
   }
@@ -135,8 +135,8 @@ async function createProjectCard(project) {
   return anchorContainer
 }
 
-async function addProject(project) {
-  const projectCard = await createProjectCard(project)
+async function addProject(project, suffixImagePath) {
+  const projectCard = await createProjectCard(project, suffixImagePath)
   document.querySelector("#work .work__container").appendChild(projectCard)
 }
 
