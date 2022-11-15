@@ -1,3 +1,8 @@
+const projectCardsContainer = document.querySelector(".work__container.actual")
+const loadingProjectCardsContainer = document.querySelector(".work__container.loading")
+
+projectCardsContainer.style.display = "none"
+
 const pinnedProjectIds = [0, 2, 1, 11, 10, 6, 5]
 
 fetch("../data/projects.json")
@@ -10,7 +15,8 @@ fetch("../data/projects.json")
       }
     });
   }
-
+  loadingProjectCardsContainer.style.display = "none"
+  projectCardsContainer.style.display = "grid"
   console.clear()
 })
 

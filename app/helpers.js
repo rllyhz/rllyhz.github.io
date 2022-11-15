@@ -118,6 +118,7 @@ async function doesImageExist(url) {
 
 async function createProjectCard(project, suffixImagePath) {
   const anchorContainer = document.createElement("a")
+  anchorContainer.setAttribute("href", "")
   anchorContainer.classList.add("work__img")
   
   const img = document.createElement("img")
