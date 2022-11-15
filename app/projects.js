@@ -1,5 +1,5 @@
-const projectCardsContainer = document.querySelector(".work__container.actual")
-const loadingProjectCardsContainer = document.querySelector(".work__container.loading")
+const projectCardsContainer = getElem(".work__container.actual")
+const loadingProjectCardsContainer = getElem(".work__container.loading")
 
 hideElem(projectCardsContainer)
 
