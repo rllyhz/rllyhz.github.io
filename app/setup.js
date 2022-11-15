@@ -66,7 +66,7 @@ sr.reveal('.skills__img', { delay: 600 });
 //sr.reveal('.work__img', { interval: 200 });
 
 /*SCROLL CONTACT*/
-sr.reveal('.contact__input', { interval: 200 });
+// sr.reveal('.contact__input', { interval: 200 });
 
 
 const btnSeeMore = document.querySelector("#see-more-button"),
@@ -77,7 +77,7 @@ const btnSeeMore = document.querySelector("#see-more-button"),
 
 let btnSendEmailBackgroundColor = getComputedStyle(btnSendEmail).backgroundColor
 
-const scriptURL = "https://script.google.com/macros/s/AKfycbxQZdJ7qa-S4G_OvE9TGJZ5lZGM92cX2G9Cj0UBi3fioq3gQYGMQNL_bu3F7t82EfyL/exec";
+const scriptURL = "https://script.google.com/macros/s/AKfycbzOIDWk20JB87H-Nl0in0ezxDhpFktSSLZDsAJRZk0fqrRdbhQKAkPL_7gTLTql9Azz/exec";
 const form = document.forms["contact-me-form"];
 
 form.addEventListener('submit', async e => {

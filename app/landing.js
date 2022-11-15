@@ -15,8 +15,8 @@ fetch("../data/projects.json")
       }
     });
   }
-  loadingProjectCardsContainer.style.display = "none"
   projectCardsContainer.style.display = "grid"
+  loadingProjectCardsContainer.style.display = "none"
   console.clear()
 })
 
