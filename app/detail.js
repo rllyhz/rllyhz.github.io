@@ -15,7 +15,8 @@ const dataId = getQueryData("id")
 
 if (!dataId) {
   alert("❌⛔ You're not allowed!")
-  window.location.assign("../projects/index.html")
+  // window.location.assign("../projects/index.html")
+  window.history.back()
 }
 
 fetch("../data/projects.json")
