@@ -12,7 +12,9 @@ fetch("../data/projects.json")
     });
   }
 
-  projectCardsContainer.style.display = "grid"
-  loadingProjectCardsContainer.style.display = "none"
-  console.clear()
+  setTimeout(() => {
+    projectCardsContainer.style.display = "grid"
+    loadingProjectCardsContainer.style.display = "none"
+    console.clear()
+  }, 1500)
 })

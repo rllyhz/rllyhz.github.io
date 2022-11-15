@@ -346,6 +346,9 @@ textarea {
 }
 
 /* ===== WORK =====*/
+.work.section {
+  min-height: 30vh;
+}
 .work__container{
   row-gap: 2rem;
 }
