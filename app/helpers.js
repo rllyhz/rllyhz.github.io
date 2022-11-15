@@ -98,6 +98,49 @@ function getDataForm(form, userDetails) {
 }
 
 
+async function doesImageExist(url) {
+  try {
+    const response = await fetch(url, {
+      method: 'HEAD',
+      cache: 'no-cache'
+    });
+
+    console.clear()
+
+    return response.status === 200;
+
+  } catch(error) {
+    // console.log(error);
+    console.clear()
+    return false;
+  }
+}
+
+async function createProjectCard(project) {
+  const anchorContainer = document.createElement("a")
+  anchorContainer.classList.add("work__img")
+  
+  const img = document.createElement("img")
+  const imageExist = await doesImageExist("../" + project.imagePath)
+
+  if (project.imagePath && imageExist) {
+    img.setAttribute("src", "../" + project.imagePath)
+  } else {
+    img.setAttribute("src", "../assets/img/work-photo-placeholder.png")
+  }
+  img.setAttribute("alt", project.name)
+
+  anchorContainer.appendChild(img)
+
+  return anchorContainer
+}
+
+async function addProject(project) {
+  const projectCard = await createProjectCard(project)
+  document.querySelector("#work .work__container").appendChild(projectCard)
+}
+
+
 /*
 
 Copyright 2021 Rully Ihza Mahendra

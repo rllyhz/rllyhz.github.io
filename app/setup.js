@@ -7,7 +7,7 @@
 
 
 // STILL BEING UNDER MAINTANANCE ALERT
-alert("Sorry for any bad experiences.. 🙇‍♂️ \nThis page is still being under construction mode! 👨‍💻")
+// alert("Sorry for any bad experiences.. 🙇‍♂️ \nThis page is still being under construction mode! 👨‍💻")
 
 
 /*===== MENU SHOW =====*/
@@ -114,10 +114,10 @@ form.addEventListener('submit', async e => {
     })
 })
 
-btnSeeMore.addEventListener("click", e => {
-  e.preventDefault()
-  alert("Sorry...😣 \n\nThe project pages are still maintained. But, will be on fire very soon. 🔥")
-})
+// btnSeeMore.addEventListener("click", e => {
+//   e.preventDefault()
+//   alert("Sorry...😣 \n\nThe project pages are still maintained. But, will be on fire very soon. 🔥")
+// })
 
 function MakeBtnDisabled(btn, disabled = true) {
   if (disabled) {
