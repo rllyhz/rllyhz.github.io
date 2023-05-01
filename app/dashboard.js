@@ -226,6 +226,8 @@ function showHasDataUI(data = []) {
 function activateImportExportButtons() {
   getElem('.input-upload-file').addEventListener('change', (_) => {
     uploadedProjectsFile = getElem('.input-upload-file').files[0];
+    getElem('.upload-container .preview-container p:last-child').innerHTML = '=> ' + uploadedProjectsFile.name;
+    getElem('.upload-container .preview-container p:last-child').style.color = 'green';
   });
 
   getElem('.btn-upload').addEventListener('click', (_) => {

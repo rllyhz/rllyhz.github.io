@@ -109,7 +109,7 @@ body {
   align-items: center;
   background-color: var(--loading-color);
   padding: 1rem;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 .upload-container,
 .option-import-container {
