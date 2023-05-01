@@ -28,6 +28,8 @@ fetch(getProjectsEndpointUrl)
       hideElem(loadingProjectCardsContainer)
       console.clear()
     }, 1500)
+  } else {
+    alert('Sorry :( \nCurrently no projects to showcase');
   }
 })
 
