@@ -16,7 +16,14 @@ const dataId = getQueryData("id")
 if (!dataId) {
   alert("❌⛔ You're not allowed!")
   // window.location.assign("../projects/index.html")
-  window.history.back()
+  window.history.back();
+}
+
+const authData = getAuthData();
+
+if (authData && authData.isLoggedIn) {
+  getElem('.nav__menu .nav__list .nav__item a').innerText = 'Edit';
+  getElem('.nav__menu .nav__list .nav__item a').href = '/projects/edit.html?id=' + dataId;
 }
 
 fetch("../data/projects.json")

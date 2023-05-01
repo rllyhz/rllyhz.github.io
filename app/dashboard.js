@@ -40,7 +40,14 @@ fetch(getConfigurationEndpointUrl)
       actualResult: await res.json(),
     };
   })
+  .catch(err => {
+    console.log(err);
+    showErrorUI();
+  })
   .then(res => {
+    if (!res) {
+      return;
+    };
     console.clear();
     if (res.errorNotAllowed) {
       saveAuthData({}, false);
@@ -77,6 +84,15 @@ fetch(getConfigurationEndpointUrl)
     }
   });
 
+function showErrorUI() {
+  getElem('.dashboard').innerHTML = '';
+  const errorContainerElem = document.createElement('div');
+  errorContainerElem.classList.add('error-container');
+  const errorMessageElem = document.createElement('p');
+  errorMessageElem.innerText = 'Sorry, it went wrong :( \nPlease check your connection first.';
+  errorContainerElem.appendChild(errorMessageElem);
+  getElem('.dashboard').appendChild(errorContainerElem);
+}
 
 function showLoadingUI() {
   getElem('.dashboard').innerHTML = '';
