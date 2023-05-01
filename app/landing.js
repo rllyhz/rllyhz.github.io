@@ -5,22 +5,30 @@ hideElem(projectCardsContainer)
 
 const pinnedProjectIds = [0, 2, 1, 11, 10, 6, 5]
 
-fetch("../data/projects.json")
+const getProjectsEndpointUrl = getEndpointPath('/projects');
+
+fetch(getProjectsEndpointUrl)
 .then(res => res.json())
-.then(projects => {
-  if (projects) {
-    projects.forEach((project, index) => {
+.catch(err => {
+  console.clear();
+  alert('Sorry, it went wrong :( \nPlease check your connection first!')
+})
+.then(res => {
+  if (!res) return;
+  if (!res.error && res.data.total > 0) {
+    console.log(res);
+    res.data.projects.forEach((project, index) => {
       if (pinnedProjectIds.includes(index)) {
         addProject(project, "./")
       }
     });
-  }
 
-  setTimeout(() => {
-    showElem(projectCardsContainer, "grid")
-    hideElem(loadingProjectCardsContainer)
-    console.clear()
-  }, 1500)
+    setTimeout(() => {
+      showElem(projectCardsContainer, "grid")
+      hideElem(loadingProjectCardsContainer)
+      console.clear()
+    }, 1500)
+  }
 })
 
 // STILL BEING UNDER MAINTANANCE ALERT
