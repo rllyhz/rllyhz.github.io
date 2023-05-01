@@ -1,0 +1,14 @@
+.login-container {
+  margin: 1rem;
+}
+.login-container .login-form {
+  /* width: 60vw; */
+  margin: 0 auto;
+}
+
+@media only screen and (min-width: 720px) {
+  .login-container .login-form {
+    margin-top: 3rem;
+    width: 60vw;
+  }
+}

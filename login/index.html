@@ -20,6 +20,7 @@
   
     <!-- MY STYLES -->
     <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/login.css">
   
     <!-- SCRIPTS -->
     <!-- <script src="https://smtpjs.com/v3/smtp.js" defer></script> -->
@@ -29,9 +30,9 @@
     <!-- MAIN JS -->
     <script src="../app/helpers.js" defer></script>
     <script src="../app/setup.js" defer></script>
-    <script src="../app/projects.js" defer></script>
+    <script src="../app/login.js" defer></script>
   
-    <title>Rully Ihza Mahendra 💻⚡</title>
+    <title>Rully Ihza Mahendra 💻⚡| Login</title>
   
     <!-- Temp Styles -->
     <style>
@@ -70,22 +71,18 @@
   <main class="l-main">
     <!--===== WORK =====-->
     <section class="work section" id="work">
-      <h2 class="section-title">Projects</h2>
-
-      <div class="work__container bd-grid actual">
-        <!-- <a href="" class="work__img">
-          <img src="assets/img/work-photo-placeholder.png" alt="">
-        </a> -->
-      </div>
-      <div class="work__container bd-grid loading">
-        <div class="work__img loading"></div>
-        <div class="work__img loading"></div>
-        <div class="work__img loading"></div>
-        <div class="work__img loading"></div>
-        <div class="work__img loading"></div>
-        <div class="work__img loading"></div>
-      </div>
-      
+      <div class="work__container bd-flex">
+        <div class="login-container">
+          <div class="login-form">
+            <form action="" class="login__form" name="login-form" id="login-form">
+              <input type="text" name="username" placeholder="Username (required)" class="contact__input"
+                id="your-username">
+              <input type="password" name="password" placeholder="Password (required)" class="contact__input" id="your-password">
+              <input type="submit" value="Login" class="contact__button button" id="login-button">
+            </form>
+          </div>
+        </div>
+      </div>      
     </section>
   </main>
 

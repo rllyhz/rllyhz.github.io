@@ -156,6 +156,52 @@ function getQueryData(key) {
   return data
 }
 
+const hasVisitedKey = "rllyhz.github.io-has-visited"
+function getHasVisitedValue() {
+  return JSON.parse(window.localStorage.getItem(hasVisitedKey));
+}
+function setVisitedValue(hasVisited = false) {
+  window.localStorage.setItem(hasVisitedKey, hasVisited);
+}
+
+const authDataKey = "rllyhz.github.io-auth-data"
+function saveAuthData(userData = {}, isLoggedIn = true) {
+  const authData = {
+    id: userData.id,
+    name: userData.name,
+    username: userData.username,
+    token: userData.token,
+    isLoggedIn,
+  };
+  localStorage.setItem(authDataKey, JSON.stringify(authData));
+}
+
+function getAuthData() {
+  return JSON.parse(localStorage.getItem(authDataKey));
+}
+
+function parseBoolean(value = 'false') {
+  return (value.toLowerCase() == 'true') ? true : false;
+}
+
+function getGreetingUserTemplate(name) {
+  const today = new Date();
+  const currHours = today.getHours();
+  let gretting;
+  if (currHours < 12) {
+    gretting = "Good Morning";
+  } else if (currHours < 18) {
+    gretting = "Good Afternoon";
+  } else {
+    gretting = "Good Evening"
+  }
+  return `${gretting}, ${getFirstName(name)}! 👋`;
+}
+
+function getFirstName(fullname = '') {
+  return fullname.split(' ')[0];
+}
+
 
 /*
 

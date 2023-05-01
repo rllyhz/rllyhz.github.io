@@ -70,15 +70,29 @@ sr.reveal('.skills__img', { delay: 600 });
 
 
 const btnSeeMore = document.querySelector("#see-more-button"),
-  btnSendEmail = document.querySelector("#send-email-button"),
   fullnameInput = document.querySelector("#your-full-name"),
   emailInput = document.querySelector("#your-email"),
-  messageInput = document.querySelector("#your-message")
+  messageInput = document.querySelector("#your-message"),
+  btnSendEmail = document.querySelector("#send-email-button"),
+  btnLogin = getElem('#login-button'),
+  usernameInput = getElem('#your-username'),
+  passwordInput = getElem('#your-password');
 
-let btnSendEmailBackgroundColor = getComputedStyle(btnSendEmail).backgroundColor
+let btnBackgroundColor = null;
+if (btnSendEmail) {
+  btnBackgroundColor = getComputedStyle(btnSendEmail).backgroundColor
+}
+if (btnLogin) {
+  btnBackgroundColor = getComputedStyle(btnLogin).backgroundColor
+}
 
 const scriptURL = "https://script.google.com/macros/s/AKfycbzOIDWk20JB87H-Nl0in0ezxDhpFktSSLZDsAJRZk0fqrRdbhQKAkPL_7gTLTql9Azz/exec";
-const form = document.forms["contact-me-form"];
+let form = null;
+if (document.forms["contact-me-form"]) {
+  form = document.forms["contact-me-form"];
+} else {
+  form = document.createElement('form');
+}
 
 form.addEventListener('submit', async e => {
   e.preventDefault()
@@ -104,13 +118,15 @@ form.addEventListener('submit', async e => {
 
       MakeBtnDisabled(btnSendEmail, false)
       alert("💌 Email successfully sent!")
-      console.log('Success!', response)
+      // console.log('Success!', response)
+      console.clear();
     })
 
     .catch(error => {
       MakeBtnDisabled(btnSendEmail, false)
       alert("Failed to send email! 😕")
-      console.error('Error!', error.message)
+      // console.error('Error!', error.message)
+      console.clear();
     })
 })
 
@@ -119,15 +135,15 @@ form.addEventListener('submit', async e => {
 //   alert("Sorry...😣 \n\nThe project pages are still maintained. But, will be on fire very soon. 🔥")
 // })
 
-function MakeBtnDisabled(btn, disabled = true) {
+function MakeBtnDisabled(btn, disabled = true, label = 'Send') {
   if (disabled) {
     btn.value = "Loading..."
     btn.style.background = 'rgba(0,0,0,.2)'
     btn.style.cursor = 'wait'
     btn.disabled = true
   } else {
-    btn.value = "Send"
-    btn.style.background = btnSendEmailBackgroundColor
+    btn.value = label;
+    btn.style.background = btnBackgroundColor
     btn.style.cursor = 'pointer'
     btn.disabled = false
   }
