@@ -32,6 +32,7 @@ fetch(getProjectsEndpointUrl)
       console.clear()
     }, 1500)
   } else {
+    getElem('.see-more.button').remove();
     alert('Sorry :( \nCurrently no projects to showcase');
   }
 })
