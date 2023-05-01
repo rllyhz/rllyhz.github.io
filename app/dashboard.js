@@ -29,7 +29,7 @@ const importEndpointUrl = 'https://rllyzhz-github-pages.netlify.app/.netlify/fun
 const importEndpointUrlTest = 'http://localhost:9000/.netlify/functions/api/import';
 
 
-fetch(getConfigurationEndpointUrlTest)
+fetch(getConfigurationEndpointUrl)
   .then(async (res) => {
     let shouldRedirectToLogin = false;
     if (res.status >= 400 && res.status < 500) {
@@ -270,7 +270,7 @@ function importProjects(projects = []) {
   formData.append('projects', JSON.stringify(projects));
   formData.append('replaceAll', getElem('.option-import-container input').checked);
 
-  fetch(importEndpointUrlTest, {
+  fetch(importEndpointUrl, {
     method: 'POST',
     body: new URLSearchParams(formData),
   }).then(async res => {
