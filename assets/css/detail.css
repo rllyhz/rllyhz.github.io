@@ -3,6 +3,13 @@ img {
   height: 100%;
 }
 
+.error-container {
+  min-height: 40vh;
+}
+.error-container .error-message {
+  text-align: center;
+}
+
 .work__container {
   margin: 2rem;
 }
