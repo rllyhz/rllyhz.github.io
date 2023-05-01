@@ -202,6 +202,31 @@ function getFirstName(fullname = '') {
   return fullname.split(' ')[0];
 }
 
+function loadURLToInputFiled(url){
+  getImgURL(url, (imgBlob) => {
+    // Load img blob to input
+    // WIP: UTF8 character error
+    let fileName = 'projects.json'
+    let file = new File([imgBlob], fileName,{type:"image/jpeg", lastModified:new Date().getTime()}, 'utf-8');
+    let container = new DataTransfer(); 
+    container.items.add(file);
+    document.querySelector('#file_input').files = container.files;
+    
+  })
+}
+
+function getFilePath(url, callback) {
+  var xhr = new XMLHttpRequest();
+  xhr.onload = function() {
+    if (typeof callback === 'function') {
+      callback(xhr.response);
+    }
+  };
+  xhr.open('GET', url);
+  xhr.responseType = 'blob';
+  xhr.send();
+}
+
 
 /*
 

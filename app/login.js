@@ -25,7 +25,7 @@ loginForm.addEventListener('submit', (e) => {
 
   const formData = new FormData(loginForm);
 
-  fetch(loginEndpointUrl, {
+  fetch(loginEndpointUrlTest, {
     method: 'POST',
     body: new URLSearchParams(formData),
   })
