@@ -19,14 +19,11 @@ let dashboardBtnBackgroundColor = null;
 const username = authData.username;
 const token = authData.token;
 const lastConfigurationValues = {};
-const getConfigurationEndpointUrl = `https://rllyzhz-github-pages.netlify.app/.netlify/functions/api/configuration?username=${username}&token=${token}`;
-const getConfigurationEndpointUrlTest = `http://localhost:9000/.netlify/functions/api/configuration?username=${username}&token=${token}`;
-const setConfigurationEndpointUrl = 'https://rllyzhz-github-pages.netlify.app/.netlify/functions/api/configure';
-const setConfigurationEndpointUrlTest = 'http://localhost:9000/.netlify/functions/api/configure';
-const exportEndpointUrl = `https://rllyzhz-github-pages.netlify.app/.netlify/functions/api/export?username=${username}&token=${token}`;
-const exportEndpointUrlTest = `http://localhost:9000/.netlify/functions/api/export?username=${username}&token=${token}`;
-const importEndpointUrl = 'https://rllyzhz-github-pages.netlify.app/.netlify/functions/api/import';
-const importEndpointUrlTest = 'http://localhost:9000/.netlify/functions/api/import';
+
+const getConfigurationEndpointUrl = getEndpointPath(`/configuration?username=${username}&token=${token}`);
+const setConfigurationEndpointUrl = getEndpointPath('/configure');
+const exportEndpointUrl = getEndpointPath(`/export?username=${username}&token=${token}`);
+const importEndpointUrl = getEndpointPath('/import');
 
 
 fetch(getConfigurationEndpointUrl)
@@ -41,7 +38,8 @@ fetch(getConfigurationEndpointUrl)
     };
   })
   .catch(err => {
-    console.log(err);
+    console.clear();
+    console.log(err.message);
     showErrorUI();
   })
   .then(res => {
@@ -270,7 +268,12 @@ function activateImportExportButtons() {
 
     fetch(uploadedFileUrl)
       .then(res => res.json())
+      .catch(err => {
+        console.clear();
+        alert('Error when uploading projects file!')
+      })
       .then(projects => {
+        if (!projects) return;
         console.clear();
         importProjects(projects);
       });
@@ -291,7 +294,13 @@ function importProjects(projects = []) {
   fetch(importEndpointUrl, {
     method: 'POST',
     body: new URLSearchParams(formData),
-  }).then(async res => {
+  })
+  .catch(err => {
+    console.clear();
+    alert('Sorry, it went wrong :( \nCheck your connection first!')
+  })
+  .then(async res => {
+    if (!res) return;
     let shouldRedirectToLogin = false;
     let errorProjectFormat = false;
     if (res.status == 401 || (res.status == 400 && res.message == 'Wrong username or token!')) {
@@ -308,6 +317,7 @@ function importProjects(projects = []) {
     .then(res => {
       console.clear();
       showLoadingOnButton(getElem('.btn-import'), false, 'Import');
+      if (!res) return;
       if (res.errorNotAllowed) {
         saveAuthData({}, false);
         redirectToLogin();
@@ -318,6 +328,7 @@ function importProjects(projects = []) {
         alert('Sorry, something went wrong:( \nTry again.');
       } else {
         alert('Successfully import the projects!');
+        reloadPage();
       }
     });
 }
@@ -356,6 +367,8 @@ function updateConfiguration(newConfiguration = {}) {
     return;
   }
 
+  showLoadingOnButton(getElem('.btn-update'));
+
   const formData = new FormData();
   formData.append('username', authData.username);
   formData.append('token', authData.token);
@@ -368,7 +381,13 @@ function updateConfiguration(newConfiguration = {}) {
     method: 'POST',
     body: new URLSearchParams(formData),
   })
+  .catch(err => {
+    console.clear();
+    alert('Sorry, it went wrong :( \nPlease check your connection first!')
+  })
   .then(async (res) => {
+    console.clear();
+    if (!res) return;
     let shouldRedirectToLogin = false;
     if (res.status >= 400 && res.status < 500) {
       shouldRedirectToLogin = true;
@@ -380,6 +399,8 @@ function updateConfiguration(newConfiguration = {}) {
   })
   .then(res => {
     console.clear();
+    showLoadingOnButton(getElem('.btn-update'), false, 'Update');
+    if (!res) return;
     if (res.errorNotAllowed) {
       saveAuthData({}, false);
       redirectToLogin();

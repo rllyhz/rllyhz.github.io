@@ -1,0 +1,28 @@
+[
+  {
+    "name": "Project 1",
+    "description": "Description Project 1",
+    "imagePath": "assets/projects/work-photo-placeholder.png",
+    "languages": ["Kotlin", "HTML", "CSS"],
+    "technologies": ["Android", "Web"],
+    "type": "multiplatform-app",
+    "url": "https://github.com/rllyhz/"
+  },
+  {
+    "name": "Project 2",
+    "description": "Description Project 2",
+    "imagePath": "assets/projects/work-photo-placeholder.png",
+    "languages": ["Kotlin", "HTML", "CSS"],
+    "technologies": ["Android", "Web"],
+    "type": "multiplatform-app",
+    "url": "https://github.com/rllyhz/"
+  },
+  {
+    "name": "Project 3",
+    "description": "Description Project 3",
+    "languages": ["Kotlin", "HTML", "CSS"],
+    "technologies": ["Android", "Web"],
+    "type": "multiplatform-app",
+    "url": "https://github.com/rllyhz/"
+  }
+]

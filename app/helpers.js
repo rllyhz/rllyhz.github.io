@@ -4,7 +4,24 @@
  * instagram: rllyhz <https://instagram.com/rllyhz>
  * twitter: rullyihza_ <https://twitter.com/rullyihza_>
  */
+const testingMode = false;
 
+function getBaseUrlAPI() {
+  return testingMode
+    ? 'http://localhost:9000/.netlify/functions/api'
+      : 'https://rllyzhz-github-pages.netlify.app/.netlify/functions/api';
+}
+
+function getEndpointPath(path = '/') {
+  let validPath = path.trim();
+  if (validPath.startsWith('/')) {
+    validPath = validPath.slice(1, validPath.length);
+  }
+  if (validPath.endsWith('/')) {
+    validPath = validPath.slice(0, validPath.length - 1);
+  }
+  return `${getBaseUrlAPI()}/${validPath}`;
+}
 
 function getElem(cssSelector) {
   return document.querySelector(cssSelector)

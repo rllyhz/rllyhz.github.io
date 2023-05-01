@@ -5,9 +5,9 @@ if (authData && authData.isLoggedIn) {
   location.href = '/dashboard'
 }
 
+const loginEndpointUrl = getEndpointPath('/login');
+
 const loginForm = document.forms["login-form"];
-const loginEndpointUrl = 'https://rllyzhz-github-pages.netlify.app/.netlify/functions/api/login';
-const loginEndpointUrlTest = 'http://localhost:9000/.netlify/functions/api/login';
 
 loginForm.addEventListener('submit', (e) => {
   e.preventDefault();
