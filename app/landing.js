@@ -14,8 +14,11 @@ fetch(getProjectsEndpointUrl)
   alert('Sorry, it went wrong :( \nPlease check your connection first!')
 })
 .then(res => {
+  console.clear();
   if (!res) return;
-  if (!res.error && res.data.total > 0) {
+  if (res.error && res.message == 'Sorry :( The API is currently under maintanance!') {
+    showUnderMaintananceMode();
+  } else if (!res.error && res.data.total > 0) {
     console.log(res);
     res.data.projects.forEach((project, index) => {
       if (pinnedProjectIds.includes(index)) {
@@ -34,7 +37,9 @@ fetch(getProjectsEndpointUrl)
 })
 
 // STILL BEING UNDER MAINTANANCE ALERT
-if (!getHasVisitedValue()) {
-  alert("Sorry for any bad experiences.. 🙇‍♂️ \nThis page is still being under construction mode! 👨‍💻")
-  setVisitedValue(true);
+function showUnderMaintananceMode() {
+  if (!getHasVisitedValue()) {
+    alert("Sorry for any bad experiences.. 🙇‍♂️ \nThis page is still being under maintanance mode! 👨‍💻")
+    setVisitedValue(true);
+  }
 }
