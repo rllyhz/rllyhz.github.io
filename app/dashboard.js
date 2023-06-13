@@ -13,7 +13,8 @@ getElem('#btn-logout').addEventListener('click', (e) => {
   }
 });
 
-let uploadedProjectsFile = null;
+let uploadedProjectsJsonFile = null;
+let uploadedProjectImageFiles = null;
 let dashboardBtnBackgroundColor = null;
 
 const username = authData.username;
@@ -22,8 +23,12 @@ const lastConfigurationValues = {};
 
 const getConfigurationEndpointUrl = getEndpointPath(`/configuration?username=${username}&token=${token}`);
 const setConfigurationEndpointUrl = getEndpointPath('/configure');
-const exportEndpointUrl = getEndpointPath(`/export?username=${username}&token=${token}`);
-const importEndpointUrl = getEndpointPath('/import');
+const exportProjectsEndpointUrl = getEndpointPath(`/export?username=${username}&token=${token}`);
+const importProjectEndpointUrl = getEndpointPath('/import');
+const exportProjectImagesEndpointUrl = getEndpointPath(`/export_project_images?username=${username}&token=${token}`);
+const importProjectImagesEndpointUrl = getEndpointPath('/import_project_images');
+const getProjectImagesEndpointUrl = getEndpointPath('/images/projects');
+const deleteProjectImagesEndpointUrl = getEndpointPath(`/images/projects?username=${username}&token=${token}`);
 
 
 fetch(getConfigurationEndpointUrl)
@@ -124,6 +129,7 @@ function showHasDataUI(data = []) {
   const configurationContainerElem = document.createElement('div');
   configurationContainerElem.classList.add('configuration-container');
 
+  // CONFIGURATION
   data.forEach(dt => {
     const _configurationItem = document.createElement('div');
     _configurationItem.classList.add('configuration-item');
@@ -163,70 +169,54 @@ function showHasDataUI(data = []) {
 
   dashboardContainerElem.appendChild(configurationContainerElem);
   dashboardContainerElem.appendChild(actionContainerElem);
+  // END OF CONFIGURATION
 
-  const importExportTitleElem = document.createElement('h3');
-  importExportTitleElem.classList.add('import-export-title');
-  importExportTitleElem.innerText = 'Import/Export Projects';
-  dashboardContainerElem.appendChild(importExportTitleElem);
+  // IMPORT EXPORT PROJECTS
+  const [
+    importExportProjetsTitle,
+    importExportProjetsController,
+    importExportProjetsAction
+  ] = createImportExportUI({
+    title: 'Import/Export Projects',
+    uploadLabel: 'Upload projects json file',
+    uploadResultPreview: '=> Ex: projects.json',
+    uploadResultClassName: 'projects-result-preview',
+    uploadAcceptFileType: '.json',
+    uploadInputClassName: 'input-file-projects',
+    uploadButtonClassName: 'btn-upload-projects',
+    optionLabel: 'Replacing existing projects',
+    optionClassName: 'option-projects',
+    btnImportClassName: 'btn-import-projects',
+    btnExportClassName: 'btn-export-projects',
+  });
+  dashboardContainerElem.appendChild(importExportProjetsTitle);
+  dashboardContainerElem.appendChild(importExportProjetsController);
+  dashboardContainerElem.appendChild(importExportProjetsAction);
+  // END OF IMPORT EXPORT PROJECTS
 
-  const inputUploadFileElem = document.createElement('input');
-  inputUploadFileElem.type = 'file';
-  inputUploadFileElem.accept = '.json';
-  inputUploadFileElem.classList.add('input-upload-file');
-  const btnUploadProjectsFileElem = document.createElement('button');
-  btnUploadProjectsFileElem.type = 'button';
-  btnUploadProjectsFileElem.innerText = 'Upload';
-  btnUploadProjectsFileElem.classList.add('btn-upload');
-
-  const uploadLabelElem = document.createElement('p');
-  uploadLabelElem.innerText = 'Upload json file';
-  const uploadResultElem = document.createElement('p');
-  uploadResultElem.innerText = '=> Ex: projects.json';
-  const previewContainerElem = document.createElement('div');
-  previewContainerElem.classList.add('preview-container');
-  previewContainerElem.appendChild(uploadLabelElem);
-  previewContainerElem.appendChild(uploadResultElem);
-
-  const uploadContainerElem = document.createElement('div');
-  uploadContainerElem.classList.add('upload-container');
-  uploadContainerElem.appendChild(previewContainerElem);
-  uploadContainerElem.appendChild(document.createElement('div'));
-  uploadContainerElem.appendChild(inputUploadFileElem);
-  uploadContainerElem.appendChild(btnUploadProjectsFileElem);
-
-  const optionLabelElem = document.createElement('p');
-  optionLabelElem.innerText = 'Replace existing projects';
-  const checkedOptionImportElem = document.createElement('input');
-  checkedOptionImportElem.type = 'checkbox';
-
-  const optionImportContainerElem = document.createElement('div');
-  optionImportContainerElem.classList.add('option-import-container');
-  optionImportContainerElem.appendChild(optionLabelElem);
-  optionImportContainerElem.appendChild(document.createElement('div'));
-  optionImportContainerElem.appendChild(checkedOptionImportElem);
-
-  const importContainerElem = document.createElement('div');
-  importContainerElem.classList.add('import-container');
-  importContainerElem.appendChild(uploadContainerElem);
-  importContainerElem.appendChild(optionImportContainerElem);
-
-  dashboardContainerElem.appendChild(importContainerElem);
-
-  const btnImportElem = document.createElement('button');
-  btnImportElem.type = 'button';
-  btnImportElem.innerText = 'Import';
-  btnImportElem.classList.add('btn-import');
-  const btnExportElem = document.createElement('button');
-  btnExportElem.type = 'button';
-  btnExportElem.innerText = 'Export';
-  btnExportElem.classList.add('btn-export');
-
-  const importExportActionContainerElem = document.createElement('div');
-  importExportActionContainerElem.classList.add('import-export-action-container');
-  importExportActionContainerElem.appendChild(btnExportElem);
-  importExportActionContainerElem.appendChild(btnImportElem);
-
-  dashboardContainerElem.appendChild(importExportActionContainerElem);
+  // IMPORT EXPORT PROJECT IMAGES
+  const [
+    importExportProjetImagesTitle,
+    importExportProjetImagesController,
+    importExportProjetImagesAction
+  ] = createImportExportUI({
+    title: 'Import/Export Project Images',
+    uploadLabel: 'Upload project image files',
+    uploadResultPreview: '=> Ex: image.png',
+    uploadResultClassName: 'images-result-preview',
+    multipleUpload: true,
+    uploadAcceptFileType: '.jpeg,.png,.jpg',
+    uploadInputClassName: 'input-file-images',
+    uploadButtonClassName: 'btn-upload-images',
+    optionLabel: 'Replacing existing project images',
+    optionClassName: 'option-images',
+    btnImportClassName: 'btn-import-images',
+    btnExportClassName: 'btn-export-images',
+  });
+  dashboardContainerElem.appendChild(importExportProjetImagesTitle);
+  dashboardContainerElem.appendChild(importExportProjetImagesController);
+  dashboardContainerElem.appendChild(importExportProjetImagesAction);
+  // END OF IMPORT EXPORT PROJECT IMAGES
 
   // show dashboard
   getElem('.dashboard').appendChild(dashboardContainerElem);
@@ -238,33 +228,30 @@ function showHasDataUI(data = []) {
 }
 
 function activateImportExportButtons() {
-  getElem('.input-upload-file').addEventListener('change', (_) => {
-    uploadedProjectsFile = getElem('.input-upload-file').files[0];
-    getElem('.upload-container .preview-container p:last-child').innerHTML = '=> ' + uploadedProjectsFile.name;
-    getElem('.upload-container .preview-container p:last-child').style.color = 'green';
+  // PROJECTS
+  getElem('.input-file-projects').addEventListener('change', (_) => {
+    uploadedProjectsJsonFile = getElem('.input-file-projects').files[0];
+    getElem('.projects-result-preview').innerHTML = '=> ' + uploadedProjectsJsonFile.name;
+    getElem('.projects-result-preview').style.color = 'green';
   });
-
-  getElem('.btn-upload').addEventListener('click', (_) => {
-    getElem('.input-upload-file').click();
+  getElem('.btn-upload-projects').addEventListener('click', (_) => {
+    getElem('.input-file-projects').click();
   });
-
-  getElem('.btn-export').addEventListener('click', (_) => {
+  getElem('.btn-export-projects').addEventListener('click', (_) => {
     const anchorElem = document.createElement('a');
-    anchorElem.href = exportEndpointUrl;
+    anchorElem.href = exportProjectsEndpointUrl;
     anchorElem.target = '_blank';
     anchorElem.click();
     delete anchorElem;
   });
-
-  getElem('.btn-import').addEventListener('click', (_) => {
-    if (uploadedProjectsFile == null) {
+  getElem('.btn-import-projects').addEventListener('click', (_) => {
+    if (uploadedProjectsJsonFile == null) {
       alert('Upload a JSON file first!');
       return;
     }
+    showLoadingOnButton(getElem('.btn-import-projects'));
 
-    showLoadingOnButton(getElem('.btn-import'));
-
-    const uploadedFileUrl = URL.createObjectURL(uploadedProjectsFile);
+    const uploadedFileUrl = URL.createObjectURL(uploadedProjectsJsonFile);
 
     fetch(uploadedFileUrl)
       .then(res => res.json())
@@ -278,20 +265,132 @@ function activateImportExportButtons() {
         importProjects(projects);
       });
   });
+
+  // PROJECT IMAGES
+  getElem('.input-file-images').addEventListener('change', (_) => {
+    uploadedProjectImageFiles = getElem('.input-file-images').files;
+    if (uploadedProjectImageFiles.length == 1) {
+      getElem('.images-result-preview').innerHTML = '=> ' + uploadedProjectImageFiles[0].name;
+    } else {
+      getElem('.images-result-preview').innerHTML = '=> ' + uploadedProjectImageFiles.length + ' files';
+    }
+    getElem('.images-result-preview').style.color = 'green';
+  });
+  getElem('.btn-upload-images').addEventListener('click', (_) => {
+    // getElem('.input-file-images').click();
+    alert('This feature hasn\'t implemented yet');
+  });
+  getElem('.btn-export-images').addEventListener('click', (_) => {
+    // const anchorElem = document.createElement('a');
+    // anchorElem.href = exportProjectImagesEndpointUrl;
+    // anchorElem.target = '_blank';
+    // anchorElem.click();
+    // delete anchorElem;
+    alert('This feature hasn\'t implemented yet');
+  });
+  getElem('.btn-import-images').addEventListener('click', async (_) => {
+    alert('This feature hasn\'t implemented yet');
+    return;
+    
+    if (uploadedProjectImageFiles == null) {
+      alert('Upload image files first!');
+      return;
+    }
+    showLoadingOnButton(getElem('.btn-import-images'));
+
+    if (uploadedProjectImageFiles.length <= 0) {
+      alert('Image file must not be empty!');
+      showLoadingOnButton(getElem('.btn-import-images'), false, 'Import');
+      return;
+    }
+    importProjectImages(uploadedProjectImageFiles);
+  });
+  // 
+}
+
+async function importProjectImages(images) {
+  const isReplaceAll = getElem('.option-images').checked;
+  let failed = false;
+
+  if (isReplaceAll && isReplaceAll == true) {
+    try {
+      const result = await fetch(deleteProjectImagesEndpointUrl, { method: 'DELETE' });
+      const data = await result.json();
+      failed = data.error;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  if (failed) {
+    alert('Failed to upload images');
+    return;
+  };
+
+  const formData = new FormData();
+  formData.append('username', authData.username);
+  formData.append('token', authData.token);
+
+  for (let index = 0; index < images.length; index++) {
+    const image = images[index];
+    formData.append('images', image);
+  }
+
+  fetch(importProjectImagesEndpointUrl, {
+    method: 'POST',
+    body: formData,
+  })
+  .catch(err => {
+    console.clear();
+    alert('Sorry, it went wrong :( \nCheck your connection first!')
+  })
+  .then(async res => {
+    if (!res) return;
+    let shouldRedirectToLogin = false;
+    let errorProjectFormat = false;
+    if (res.status == 401 || (res.status == 400 && res.message == 'Wrong username or token!')) {
+      shouldRedirectToLogin = true;
+    } else if (res.status == 400 && res.message != 'You must provide your username and token!') {
+      errorProjectFormat = true;
+    }
+    return {
+      errorNotAllowed: shouldRedirectToLogin,
+      errorProjectFormat,
+      actualResult: await res.json(),
+    };
+  })
+    .then(res => {
+      console.clear();
+      showLoadingOnButton(getElem('.btn-import-images'), false, 'Import');
+      if (!res) return;
+      if (res.errorNotAllowed) {
+        saveAuthData({}, false);
+        redirectToLogin();
+        console.log(res.actualResult.message);
+      } else if (res.errorProjectFormat) {
+        alert(res.actualResult.message);
+      } else if (res.actualResult.error) {
+        alert('Sorry, something went wrong:( \nTry again.');
+      } else {
+        alert('Successfully uploaded images!');
+        reloadPage();
+      }
+    });
 }
 
 function importProjects(projects = []) {
   if (projects.length <= 0) {
     alert('Project must not be empty!');
+    showLoadingOnButton(getElem('.btn-import-projects'), false, 'Import');
     return;
   }
   const formData = new FormData();
   formData.append('username', authData.username);
   formData.append('token', authData.token);
   formData.append('projects', JSON.stringify(projects));
-  formData.append('replaceAll', getElem('.option-import-container input').checked);
+  formData.append('replaceAll', getElem('.option-projects').checked);
 
-  fetch(importEndpointUrl, {
+  fetch(importProjectEndpointUrl, {
     method: 'POST',
     body: new URLSearchParams(formData),
   })
@@ -316,7 +415,7 @@ function importProjects(projects = []) {
   })
     .then(res => {
       console.clear();
-      showLoadingOnButton(getElem('.btn-import'), false, 'Import');
+      showLoadingOnButton(getElem('.btn-import-projects'), false, 'Import');
       if (!res) return;
       if (res.errorNotAllowed) {
         saveAuthData({}, false);
