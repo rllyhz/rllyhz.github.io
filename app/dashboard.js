@@ -15,7 +15,6 @@ getElem('#btn-logout').addEventListener('click', (e) => {
 
 let uploadedProjectsJsonFile = null;
 let uploadedProjectImageFiles = null;
-let dashboardBtnBackgroundColor = null;
 
 const username = authData.username;
 const token = authData.token;
@@ -500,21 +499,6 @@ function toggleConfigurationItemUI(valueElem) {
     valueElem.dataset.value = 'true';
     valueElem.innerText = 'Yes';
     if (!valueElem.classList.contains('true')) valueElem.classList.add('true');
-  }
-}
-
-function showLoadingOnButton(btn, disabled = true, label = 'Export') {
-  if (disabled) {
-    dashboardBtnBackgroundColor = getComputedStyle(btn).backgroundColor;
-    btn.innerText = "Loading...";
-    btn.style.background = 'rgba(0,0,0,.2)';
-    btn.style.cursor = 'wait';
-    btn.disabled = true;
-  } else {
-    btn.innerText = label;
-    btn.style.background = dashboardBtnBackgroundColor;
-    btn.style.cursor = 'pointer';
-    btn.disabled = false;
   }
 }
 

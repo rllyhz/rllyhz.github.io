@@ -1,7 +1,16 @@
 const projectCardsContainer = getElem(".work__container.actual")
 const loadingProjectCardsContainer = getElem(".work__container.loading")
+const menu = getElem('.nav__menu .nav__list .nav__item .nav__link')
 
 hideElem(projectCardsContainer)
+
+const authData = getAuthData();
+
+if (authData && authData.isLoggedIn) {  
+  menu.href = `${getBaseUrl()}/projects/add.html`;
+  menu.innerText = 'Add Project';
+}
+
 
 const getProjectsEndpointUrl = getEndpointPath('/projects');
 

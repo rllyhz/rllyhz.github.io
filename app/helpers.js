@@ -43,6 +43,22 @@ function hideElem(elem) {
   elem.style.display = "none"
 }
 
+let dashboardBtnBackgroundColor = null;
+function showLoadingOnButton(btn, disabled = true, label = 'Export') {
+  if (disabled) {
+    dashboardBtnBackgroundColor = getComputedStyle(btn).backgroundColor;
+    btn.innerText = "Loading...";
+    btn.style.background = 'rgba(0,0,0,.2)';
+    btn.style.cursor = 'wait';
+    btn.disabled = true;
+  } else {
+    btn.innerText = label;
+    btn.style.background = dashboardBtnBackgroundColor ??= getComputedStyle(btn).backgroundColor;
+    btn.style.cursor = 'pointer';
+    btn.disabled = false;
+  }
+}
+
 const CustomAlert = {
   ERROR: "error",
   SUCCESS: "success",
