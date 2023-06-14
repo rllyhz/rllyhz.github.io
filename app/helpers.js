@@ -6,6 +6,10 @@
  */
 const testingMode = false;
 
+function getCloudinaryAPI(apiKey, apiSecret, cloudName) {
+  return `https://${apiKey}:${apiSecret}@api.cloudinary.com/v1_1/${cloudName}/resources/image/upload`;
+}
+
 function getBaseUrlAPI() {
   return testingMode
     ? 'http://localhost:9000/.netlify/functions/api'
@@ -188,6 +192,7 @@ function saveAuthData(userData = {}, isLoggedIn = true) {
     name: userData.name,
     username: userData.username,
     token: userData.token,
+    cloudinary: userData.cloudinary,
     isLoggedIn,
   };
   localStorage.setItem(authDataKey, JSON.stringify(authData));

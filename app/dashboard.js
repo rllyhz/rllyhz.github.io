@@ -25,8 +25,8 @@ const getConfigurationEndpointUrl = getEndpointPath(`/configuration?username=${u
 const setConfigurationEndpointUrl = getEndpointPath('/configure');
 const exportProjectsEndpointUrl = getEndpointPath(`/export?username=${username}&token=${token}`);
 const importProjectEndpointUrl = getEndpointPath('/import');
-const exportProjectImagesEndpointUrl = getEndpointPath(`/export_project_images?username=${username}&token=${token}`);
-const importProjectImagesEndpointUrl = getEndpointPath('/import_project_images');
+const exportProjectImagesEndpointUrl = getEndpointPath(`/images/projects/export?username=${username}&token=${token}`);
+const uploadProjectImagesEndpointUrl = (replaceAll = false) => getEndpointPath(`/images/projects?username=${username}&token=${token}&replaceAll=${replaceAll}`);
 const getProjectImagesEndpointUrl = getEndpointPath('/images/projects');
 const deleteProjectImagesEndpointUrl = getEndpointPath(`/images/projects?username=${username}&token=${token}`);
 
@@ -206,16 +206,38 @@ function showHasDataUI(data = []) {
     uploadResultClassName: 'images-result-preview',
     multipleUpload: true,
     uploadAcceptFileType: '.jpeg,.png,.jpg',
+    uploadInputNameField: 'images',
     uploadInputClassName: 'input-file-images',
     uploadButtonClassName: 'btn-upload-images',
     optionLabel: 'Replacing existing project images',
+    optionNameField: 'replaceAll',
     optionClassName: 'option-images',
     btnImportClassName: 'btn-import-images',
     btnExportClassName: 'btn-export-images',
+    formBehavior: true,
   });
+  const formUploadProjectImages = document.createElement('form');
+  formUploadProjectImages.id = 'project-images-form';
+  formUploadProjectImages.action = uploadProjectImagesEndpointUrl();
+  formUploadProjectImages.method = 'POST';
+  formUploadProjectImages.enctype = 'multipart/form-data';
+  const usernameInput = document.createElement('input');
+  usernameInput.placeholder = 'username';
+  usernameInput.name = 'username';
+  usernameInput.value = authData.username;
+  usernameInput.style.display = 'none';
+  const tokenInput = document.createElement('input');
+  tokenInput.placeholder = 'token';
+  tokenInput.name = 'token';
+  tokenInput.value = authData.token;
+  tokenInput.style.display = 'none';
+  formUploadProjectImages.appendChild(importExportProjetImagesController);
+  formUploadProjectImages.appendChild(importExportProjetImagesAction);
+  formUploadProjectImages.appendChild(usernameInput);
+  formUploadProjectImages.appendChild(tokenInput);
+
   dashboardContainerElem.appendChild(importExportProjetImagesTitle);
-  dashboardContainerElem.appendChild(importExportProjetImagesController);
-  dashboardContainerElem.appendChild(importExportProjetImagesAction);
+  dashboardContainerElem.appendChild(formUploadProjectImages);
   // END OF IMPORT EXPORT PROJECT IMAGES
 
   // show dashboard
@@ -255,7 +277,7 @@ function activateImportExportButtons() {
 
     fetch(uploadedFileUrl)
       .then(res => res.json())
-      .catch(err => {
+      .catch(_ => {
         console.clear();
         alert('Error when uploading projects file!')
       })
@@ -277,105 +299,51 @@ function activateImportExportButtons() {
     getElem('.images-result-preview').style.color = 'green';
   });
   getElem('.btn-upload-images').addEventListener('click', (_) => {
-    // getElem('.input-file-images').click();
-    alert('This feature hasn\'t implemented yet');
+    getElem('.input-file-images').click();
   });
   getElem('.btn-export-images').addEventListener('click', (_) => {
-    // const anchorElem = document.createElement('a');
-    // anchorElem.href = exportProjectImagesEndpointUrl;
-    // anchorElem.target = '_blank';
-    // anchorElem.click();
-    // delete anchorElem;
-    alert('This feature hasn\'t implemented yet');
+    const anchorElem = document.createElement('a');
+    anchorElem.href = exportProjectImagesEndpointUrl;
+    anchorElem.target = '_blank';
+    anchorElem.click();
+    delete anchorElem;
   });
-  getElem('.btn-import-images').addEventListener('click', async (_) => {
-    alert('This feature hasn\'t implemented yet');
-    return;
-    
-    if (uploadedProjectImageFiles == null) {
+  getElem('.btn-import-images').addEventListener('click', async (e) => {
+    e.preventDefault();
+
+    if (uploadedProjectImageFiles == null || uploadedProjectImageFiles.length <= 0) {
       alert('Upload image files first!');
       return;
     }
+
     showLoadingOnButton(getElem('.btn-import-images'));
 
-    if (uploadedProjectImageFiles.length <= 0) {
-      alert('Image file must not be empty!');
-      showLoadingOnButton(getElem('.btn-import-images'), false, 'Import');
-      return;
+    const formElem = getElem('#project-images-form');
+    const formData = new FormData(formElem);
+    const isReplaceAll = getElem('input[name="replaceAll"]').checked;
+
+    const result = await fetch(uploadProjectImagesEndpointUrl(isReplaceAll), {
+      method: 'POST',
+      body: formData,
+    });
+
+    if (result.status == 200 && result.ok) {
+      const data = await result.json();
+      if (data.error) {
+        alert('Failed to upload images');
+      } else {
+        alert('Succesfully uploaded images');
+      }
+    } else {
+      alert('Failed to upload images');
     }
-    importProjectImages(uploadedProjectImageFiles);
+
+    uploadedProjectImageFiles = null;
+    getElem('.images-result-preview').innerHTML = '=> Ex: image.png';
+    getElem('input[name="replaceAll"]').checked = false;
+    showLoadingOnButton(getElem('.btn-import-images'), false, 'Import');
   });
   // 
-}
-
-async function importProjectImages(images) {
-  const isReplaceAll = getElem('.option-images').checked;
-  let failed = false;
-
-  if (isReplaceAll && isReplaceAll == true) {
-    try {
-      const result = await fetch(deleteProjectImagesEndpointUrl, { method: 'DELETE' });
-      const data = await result.json();
-      failed = data.error;
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  if (failed) {
-    alert('Failed to upload images');
-    return;
-  };
-
-  const formData = new FormData();
-  formData.append('username', authData.username);
-  formData.append('token', authData.token);
-
-  for (let index = 0; index < images.length; index++) {
-    const image = images[index];
-    formData.append('images', image);
-  }
-
-  fetch(importProjectImagesEndpointUrl, {
-    method: 'POST',
-    body: formData,
-  })
-  .catch(err => {
-    console.clear();
-    alert('Sorry, it went wrong :( \nCheck your connection first!')
-  })
-  .then(async res => {
-    if (!res) return;
-    let shouldRedirectToLogin = false;
-    let errorProjectFormat = false;
-    if (res.status == 401 || (res.status == 400 && res.message == 'Wrong username or token!')) {
-      shouldRedirectToLogin = true;
-    } else if (res.status == 400 && res.message != 'You must provide your username and token!') {
-      errorProjectFormat = true;
-    }
-    return {
-      errorNotAllowed: shouldRedirectToLogin,
-      errorProjectFormat,
-      actualResult: await res.json(),
-    };
-  })
-    .then(res => {
-      console.clear();
-      showLoadingOnButton(getElem('.btn-import-images'), false, 'Import');
-      if (!res) return;
-      if (res.errorNotAllowed) {
-        saveAuthData({}, false);
-        redirectToLogin();
-        console.log(res.actualResult.message);
-      } else if (res.errorProjectFormat) {
-        alert(res.actualResult.message);
-      } else if (res.actualResult.error) {
-        alert('Sorry, something went wrong:( \nTry again.');
-      } else {
-        alert('Successfully uploaded images!');
-        reloadPage();
-      }
-    });
 }
 
 function importProjects(projects = []) {
