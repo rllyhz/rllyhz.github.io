@@ -25,42 +25,36 @@ if (authData && authData.isLoggedIn) {
   getElem('.nav__menu .nav__list .nav__item a').href = '/projects/edit.html?id=' + dataId;
 }
 
-const getProjectDetailEndpointUrl = getEndpointPath(`/projects/${dataId}`);
+const getProjectDetailEndpointUrl = getEndpointPath(`/projects/${dataId}?username=${authData.username}&token=${authData.token}`);
 
-fetch(getProjectDetailEndpointUrl)
-.catch(err => {
-  console.clear();
-  initErrorUI(true);
-  return;
-})
-.then(async res => {
-  console.clear();
-  if (!res) return;
-  if (res.status == 404) {
-    alert("❌⛔ Project not found!")
+initDetailUI();
+
+async function initDetailUI() {
+  const result = await fetch(getProjectDetailEndpointUrl);
+  let resultData = null;
+
+  if (result.ok && result.status == 200) {
+    resultData = await result.json();
+  } else if (result.status == 401) {
+    saveAuthData({}, false);
+    alert('You\'re not allowed to access this page');
+    window.location.href = getBaseUrl() + '/login';
+  } else if (result.status == 404) {
+    alert("❌⛔ Project not found!");
     window.history.back();
-    return null;
-  } else {
-    return await res.json();
   }
-})
-.then(res => {
-  console.clear();
-  if (!res) return;
-  if (res.error) {
+
+  if (resultData == null || resultData.error) {
     initErrorUI(false);
   } else {
-    const project = res.data.project;
-    initUI(project);
+    await initUI(resultData.data.project);
     setTimeout(() => {
       hideElem(loadingContainer);
       showElem(contentContainer, "flex");
       console.clear();
     }, 800);
-    return;
   }
-  return;
-})
+}
 
 function initErrorUI(isConnnectionFailed = false) {
   hideElem(loadingContainer);
@@ -95,12 +89,14 @@ async function initUI(project) {
   nameLinkElem.setAttribute("href", project.url)
   imageLinkElem.setAttribute("href", project.url)
 
-  const imageExist = await doesImageExist("../" + project.imagePath)
+  const imageExist = await doesImageExist(`${getBaseUrl()}/${project.imagePath}`);
+
+  imageElem.setAttribute('loading', 'lazy');
 
   if (project.imagePath && imageExist) {
-    imageElem.setAttribute("src", "../" + project.imagePath)
+    imageElem.setAttribute("src",  `${getBaseUrl()}/${project.imagePath}`);
   } else {
-    imageElem.setAttribute("src", "../assets/img/work-photo-placeholder.png")
+    imageElem.setAttribute("src", getBaseUrl() +"/assets/img/work-photo-placeholder.png");
   }
-  imageElem.setAttribute("alt", project.name)
+  imageElem.setAttribute("alt", project.name);
 }
