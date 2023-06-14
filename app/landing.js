@@ -1,9 +1,9 @@
-const projectCardsContainer = getElem(".work__container.actual")
-const loadingProjectCardsContainer = getElem(".work__container.loading")
+const projectCardsContainer = getElem(".work__container.actual");
+const loadingProjectCardsContainer = getElem(".work__container.loading");
 
-hideElem(projectCardsContainer)
+const pinnedProjectIds = [0, 2, 1, 3, 5, 4];
 
-const pinnedProjectIds = [0, 2, 1, 11, 10, 6, 5]
+hideElem(projectCardsContainer);
 
 const getProjectsEndpointUrl = getEndpointPath('/projects');
 
@@ -11,7 +11,7 @@ fetch(getProjectsEndpointUrl)
 .then(res => res.json())
 .catch(err => {
   console.clear();
-  alert('Sorry, it went wrong :( \nPlease check your connection first!')
+  alert('Sorry, it went wrong :( \nPlease check your connection first!');
 })
 .then(res => {
   console.clear();
@@ -19,17 +19,18 @@ fetch(getProjectsEndpointUrl)
   if (res.error && res.message == 'Sorry :( The API is currently under maintanance!') {
     showUnderMaintananceMode();
   } else if (!res.error && res.data.total > 0) {
-    console.log(res);
+    // console.log(res);
     res.data.projects.forEach((project, index) => {
       if (pinnedProjectIds.includes(index)) {
-        addProject(project, "./")
+        addProject(project, "./");
+        console.log(project);
       }
     });
 
     setTimeout(() => {
-      showElem(projectCardsContainer, "grid")
-      hideElem(loadingProjectCardsContainer)
-      console.clear()
+      showElem(projectCardsContainer, "grid");
+      hideElem(loadingProjectCardsContainer);
+      console.clear();
     }, 1500)
   } else {
     getElem('.see-more.button').remove();

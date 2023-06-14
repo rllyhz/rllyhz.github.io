@@ -10,6 +10,10 @@ function getCloudinaryAPI(apiKey, apiSecret, cloudName) {
   return `https://${apiKey}:${apiSecret}@api.cloudinary.com/v1_1/${cloudName}/resources/image/upload`;
 }
 
+function getBaseUrl() {
+  return location.origin;
+}
+
 function getBaseUrlAPI() {
   return testingMode
     ? 'http://localhost:9000/.netlify/functions/api'
@@ -128,21 +132,25 @@ function getDataForm(form, userDetails) {
 
 
 async function doesImageExist(url) {
+  let _imageExists = false;
+
   try {
     const response = await fetch(url, {
-      method: 'HEAD',
+      method: 'GET',
       cache: 'no-cache'
     });
 
-    console.clear()
+    console.clear();
 
-    return response.status === 200;
+    _imageExists = response.status === 200;
 
   } catch(error) {
-    // console.log(error);
+    console.log(error);
     console.clear()
-    return false;
+    _imageExists = false;
   }
+
+  return _imageExists;
 }
 
 async function createProjectCard(project, suffixImagePath) {
@@ -150,24 +158,42 @@ async function createProjectCard(project, suffixImagePath) {
   anchorContainer.setAttribute("href", "../projects/detail.html?id=" + project.id)
   anchorContainer.classList.add("work__img")
   
-  const img = document.createElement("img")
-  const imageExist = await doesImageExist(suffixImagePath + project.imagePath)
+  const img = document.createElement("img");
+  img.setAttribute('loading', 'lazy');
+  const imageExist = await doesImageExist(`${getBaseUrl()}/${project.imagePath}`);
 
   if (project.imagePath && imageExist) {
-    img.setAttribute("src", suffixImagePath + project.imagePath)
+    img.setAttribute("src", `${getBaseUrl()}/${project.imagePath}`);
   } else {
-    img.setAttribute("src", "../assets/img/work-photo-placeholder.png")
+    img.setAttribute("src", getBaseUrl() +"/assets/img/work-photo-placeholder.png");
   }
   img.setAttribute("alt", project.name)
 
-  anchorContainer.appendChild(img)
+  anchorContainer.appendChild(img);
 
-  return anchorContainer
+  return anchorContainer;
 }
 
 async function addProject(project, suffixImagePath) {
   const projectCard = await createProjectCard(project, suffixImagePath)
   document.querySelector("#work .work__container").appendChild(projectCard)
+}
+
+function enableLazyloadedImages() {
+  if (!document.querySelector('.blur-load')) return;
+  document.querySelectorAll('.blur-load').forEach(container => {
+    const img = container.querySelector(img);
+
+    function loaded() {
+      // show img
+      container.classList.add('loaded');
+    }
+    if (img.complete) {
+      loaded()
+    } else {
+      img.addEventListener('load', loaded);
+    }
+  });
 }
 
 function getQueryData(key) {

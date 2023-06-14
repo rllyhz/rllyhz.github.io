@@ -358,9 +358,18 @@ textarea {
   border-radius: .5rem;
   overflow: hidden;
 }
+.work__img .blur-load {
+  background-image: url("../img/work-photo-placeholder.png");
+  background-size: cover;
+  background-position: center;
+}
 .work__img img{
   transition: 1s;
   cursor: pointer;
+  opacity: 0;
+}
+.work__img img {
+  opacity: 1;
 }
 .work__img img:hover{
   transform: scale(1.1);
