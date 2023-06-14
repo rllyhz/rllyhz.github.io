@@ -4,7 +4,7 @@
  * instagram: rllyhz <https://instagram.com/rllyhz>
  * twitter: rullyihza_ <https://twitter.com/rullyihza_>
  */
-const testingMode = false;
+const testingMode = true;
 
 function getCloudinaryAPI(apiKey, apiSecret, cloudName) {
   return `https://${apiKey}:${apiSecret}@api.cloudinary.com/v1_1/${cloudName}/resources/image/upload`;

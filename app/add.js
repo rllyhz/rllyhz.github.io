@@ -134,9 +134,9 @@ getElem('form.add-form').addEventListener('submit', async (e) => {
   if (result.ok && (result.status == 200 || result.status == 201)) {
     data = await result.json();
   } else if (result.status == 401) {
-    // saveAuthData({}, false);
+    saveAuthData({}, false);
     alert('You\'re not allowed to access this page');
-    // window.location.href = getBaseUrl() + '/login';
+    window.location.href = getBaseUrl() + '/login';
     return;
   }
 
