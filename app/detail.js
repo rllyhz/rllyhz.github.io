@@ -21,8 +21,19 @@ if (!dataId) {
 const authData = getAuthData();
 
 if (authData && authData.isLoggedIn) {
+  // edit btn
   getElem('.nav__menu .nav__list .nav__item a').innerText = 'Edit';
-  getElem('.nav__menu .nav__list .nav__item a').href = '/projects/edit.html?id=' + dataId;
+  getElem('.nav__menu .nav__list .nav__item a').href = getBaseUrl() + '/projects/edit.html?id=' + dataId;
+
+  // delete btn
+  const deleteButton = document.createElement('a');
+  deleteButton.classList.add('nav__link');
+  const containerDeleteButton = document.createElement('li');
+  containerDeleteButton.className = 'nav__item delete';
+  containerDeleteButton.appendChild(deleteButton);
+  deleteButton.innerText = 'Delete';
+  deleteButton.href = getBaseUrl() + '/projects/delete.html?id=' + dataId;
+  getElem('.nav__menu .nav__list').appendChild(containerDeleteButton);
 }
 
 const getProjectDetailEndpointUrl = getEndpointPath(`/projects/${dataId}?username=${authData.username}&token=${authData.token}`);

@@ -112,8 +112,9 @@ getElem('form.add-form').addEventListener('submit', async (e) => {
   if (data == null || data.error) {
     alert('Failed to add new project');
   } else {
-    resetFormUI();
     alert('Successfully added new project');
+    // resetFormUI();
+    window.location.href = getBaseUrl() + '/projects/add.html';
   }
   showLoadingOnButton(getElem('.btn.btn-add'), false, 'Add');
 });
@@ -126,7 +127,9 @@ function resetFormUI() {
   getElem('input[name="languages"]').value = '';
   getElem('input[name="technologies"]').value = '';
   getElem('.form-chips.languages .selected-chips').innerHTML = '';
+  selectedLanguageChips = [];
   getElem('.form-chips.technologies .selected-chips').innerHTML = '';
+  selectedTechnologyChips = [];
   document.querySelectorAll('.chips .chip-item.selected').forEach((chipItem) => {
     chipItem.classList.remove('selected');
   });
