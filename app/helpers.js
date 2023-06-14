@@ -4,7 +4,38 @@
  * instagram: rllyhz <https://instagram.com/rllyhz>
  * twitter: rullyihza_ <https://twitter.com/rullyihza_>
  */
-const testingMode = true;
+const testingMode = false;
+
+const languages = [
+  'HTML', 'CSS', 'JS', 'Java',
+  'Kotlin',
+];
+const technologies = [
+  'Web', 'Android', 'Desktop', 'Multi-Platform',
+  'Automation', 'AI', 'Machine Learning'
+];
+const projectTypes = [
+  {
+    type: 'web',
+    name: 'WebApp'
+  },
+  {
+    type: 'android',
+    name: 'Android App'
+  },
+  {
+    type: 'multiplatform-app',
+    name: 'Multi-Platform App'
+  },
+  {
+    type: 'desktop',
+    name: 'Desktop'
+  },
+  {
+    type: 'scripting',
+    name: 'Scripting'
+  },
+];
 
 function getCloudinaryAPI(apiKey, apiSecret, cloudName) {
   return `https://${apiKey}:${apiSecret}@api.cloudinary.com/v1_1/${cloudName}/resources/image/upload`;

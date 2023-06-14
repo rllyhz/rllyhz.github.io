@@ -7,42 +7,11 @@ if (!authData || !authData.isLoggedIn) {
 }
 
 const menu = getElem('.nav__menu .nav__list .nav__item .nav__link');
-menu.innerText = 'Projects';
+menu.innerText = 'Back';
 menu.addEventListener('click', (e) => {
   e.preventDefault();
   window.history.back();
 });
-
-const languages = [
-  'HTML', 'CSS', 'JS', 'Java',
-  'Kotlin',
-];
-const technologies = [
-  'Web', 'Android', 'Desktop', 'Multi-Platform',
-  'Automation', 'AI', 'Machine Learning'
-];
-const projectTypes = [
-  {
-    type: 'web',
-    name: 'WebApp'
-  },
-  {
-    type: 'android',
-    name: 'Android App'
-  },
-  {
-    type: 'multiplatform-app',
-    name: 'Multi-Platform App'
-  },
-  {
-    type: 'desktop',
-    name: 'Desktop'
-  },
-  {
-    type: 'scripting',
-    name: 'Scripting'
-  },
-];
 
 // --------------------------------------------------
 // INIT FORM
@@ -79,7 +48,7 @@ document.querySelectorAll('.form-chips.languages .chip-item').forEach((chipItem)
 });
 
 // --------------------------------------------------
-// LANGUAGES
+// TECHNOLOGIES
 let technologyChips = '';
 let selectedTechnologyChips = [];
 
