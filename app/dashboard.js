@@ -4,12 +4,31 @@ if (!authData || !authData.isLoggedIn || !authData.token || !authData.username) 
   redirectToLogin();
 }
 
-getElem('#btn-logout').addEventListener('click', (e) => {
+getElem('#btn-logout').addEventListener('click', async (e) => {
   e.preventDefault();
   const confirmed = confirm('Are you sure want to logout?');
   if (confirmed) {
-    saveAuthData({}, false);
-    location.replace('/login'); 
+    try {
+      const result = await fetch(getEndpointPath("/auth/logout"), {
+        method: "DELETE",
+        headers: {
+          'Authorization': `Bearer ${authData.token}`,
+        },
+      });
+
+      if (result.ok && result.status === 200) {
+        alert("Successfully logout");
+        saveAuthData({}, false);
+        location.replace('/login'); 
+      } else if (!result.ok && result.status === 404) {
+        saveAuthData({}, false);
+        redirectToLogin();
+      } else {
+        alert("Failed to logout");
+      }
+    } catch (e) {
+      alert("Failed to logout");
+    }
   }
 });
 
