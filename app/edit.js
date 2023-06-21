@@ -20,7 +20,7 @@ menu.addEventListener('click', (e) => {
   window.history.back();
 });
 
-const getProjectDetailEndpointUrl = getEndpointPath(`/projects/${dataId}?username=${authData.username}&token=${authData.token}`);
+const getProjectDetailEndpointUrl = getEndpointPath(`/projects/${dataId}`);
 let selectedLanguageChips = [];
 let selectedTechnologyChips = [];
 
@@ -46,7 +46,7 @@ async function initEditUI() {
   } else if (resultData.error) {
     initErrorUI(false);
   } else {
-    initEditFormUI(resultData.data.project);
+    initEditFormUI(resultData.project);
   }
 }
 
@@ -109,7 +109,7 @@ function initEditFormUI(detailProject) {
       </div>
       <div class="form-control">
         <label for="name" aria-label="name">Project Name</label>
-        <input type="text" id="name" placeholder="Android App" name="name" value="${detailProject.name}" />
+        <input type="text" id="name" placeholder="Android App" name="name" value="${detailProject.title}" />
       </div>
       <div class="form-control">
         <label for="description" aria-label="description">Project Description</label>

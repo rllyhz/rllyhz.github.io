@@ -36,7 +36,7 @@ if (authData && authData.isLoggedIn) {
   getElem('.nav__menu .nav__list').appendChild(containerDeleteButton);
 }
 
-const getProjectDetailEndpointUrl = getEndpointPath(`/projects/${dataId}?username=${authData.username}&token=${authData.token}`);
+const getProjectDetailEndpointUrl = getEndpointPath(`/projects/${dataId}`);
 
 initDetailUI();
 
@@ -58,7 +58,7 @@ async function initDetailUI() {
   if (resultData == null || resultData.error) {
     initErrorUI(false);
   } else {
-    await initUI(resultData.data.project);
+    await initUI(resultData.project);
     setTimeout(() => {
       hideElem(loadingContainer);
       showElem(contentContainer, "flex");

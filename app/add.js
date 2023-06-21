@@ -79,7 +79,7 @@ getElem('form.add-form').addEventListener('submit', async (e) => {
   const formData = new FormData(getElem('form.add-form'));
   
   if (
-    formData.get('name') == '' || formData.get('description') == '' || formData.get('type') == '' ||
+    formData.get('title') == '' || formData.get('description') == '' || formData.get('type') == '' ||
     formData.get('imagePath') == '' || formData.get('languages') == '' ||
     formData.get('technologies') == '' || formData.get('url') == ''
   ) {
@@ -89,14 +89,24 @@ getElem('form.add-form').addEventListener('submit', async (e) => {
 
   showLoadingOnButton(getElem('.btn.btn-add'));
 
-  // add credentials
-  formData.append('username', authData.username);
-  formData.append('token', authData.token);
+  const project = {
+    title: formData.get('title'),
+    description: formData.get('description'),
+    imagePath: formData.get('imagePath'),
+    type: formData.get('type'),
+    url: formData.get('url'),
+    languages: formData.get('languages'),
+    technologies: formData.get('technologies'),
+  };
 
   const addNewProjectUrl = getElem('form.add-form').action;
   const result = await fetch(addNewProjectUrl, {
     method: 'POST',
-    body: new URLSearchParams(formData),
+    body: JSON.stringify(project),
+    headers: new Headers({
+      'Authorization': `Bearer ${authData.token}`,
+      'Content-Type': 'application/json'
+    }),
   });
   let data = null;
 

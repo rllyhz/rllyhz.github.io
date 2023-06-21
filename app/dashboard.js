@@ -20,17 +20,23 @@ const username = authData.username;
 const token = authData.token;
 const lastConfigurationValues = {};
 
-const getConfigurationEndpointUrl = getEndpointPath(`/configuration?username=${username}&token=${token}`);
-const setConfigurationEndpointUrl = getEndpointPath('/configure');
-const exportProjectsEndpointUrl = getEndpointPath(`/export?username=${username}&token=${token}`);
-const importProjectEndpointUrl = getEndpointPath('/import');
+const getConfigurationEndpointUrl = getEndpointPath('/configuration');
+const setConfigurationEndpointUrl = getEndpointPath('/configuration');
+const exportProjectsEndpointUrl = getEndpointPath(`/data/projects/export?token=${authData.token}`);
+const importProjectEndpointUrl = getEndpointPath('/data/projects/import');
 const exportProjectImagesEndpointUrl = getEndpointPath(`/images/projects/export?username=${username}&token=${token}`);
 const uploadProjectImagesEndpointUrl = (replaceAll = false) => getEndpointPath(`/images/projects?username=${username}&token=${token}&replaceAll=${replaceAll}`);
 const getProjectImagesEndpointUrl = getEndpointPath('/images/projects');
 const deleteProjectImagesEndpointUrl = getEndpointPath(`/images/projects?username=${username}&token=${token}`);
 
 
-fetch(getConfigurationEndpointUrl)
+fetch(getConfigurationEndpointUrl, {
+  method: "GET",
+  headers: new Headers({
+    'Authorization': `Bearer ${authData.token}`,
+    'Content-Type': 'application/json'
+  }),
+})
   .then(async (res) => {
     let shouldRedirectToLogin = false;
     if (res.status >= 400 && res.status < 500) {
@@ -58,9 +64,14 @@ fetch(getConfigurationEndpointUrl)
       alert('Sorry, something went wrong:( \nTry again.');
       reloadPage();
     } else {
-      const lockUsersManage = res.actualResult.data.lockUsersManage;
-      const lockTokenDataManage = res.actualResult.data.lockTokenDataManage;
-      const underMaintanance = res.actualResult.data.underMaintanance;
+      const {
+        lockUsersManage,
+        lockProjectsManage,
+        underMaintenance,
+        tokenExpiresInHours,
+        pinnedProjectsOrder
+      } = res.actualResult.configuration;
+
       const data = [
         {
           label: 'Lock Users Manage',
@@ -68,14 +79,24 @@ fetch(getConfigurationEndpointUrl)
           value: lockUsersManage,
         },
         {
-          label: 'Lock Token Data Manage',
-          key: 'lockTokenDataManage',
-          value: lockTokenDataManage,
+          label: 'Lock Projects Manage',
+          key: 'lockProjectsManage',
+          value: lockProjectsManage,
         },
         {
-          label: 'Under Maintanance',
-          key: 'underMaintanance',
-          value: underMaintanance,
+          label: 'Under Maintenance',
+          key: 'underMaintenance',
+          value: underMaintenance,
+        },
+        {
+          label: 'Token Expires In Hours',
+          key: 'tokenExpiresInHours',
+          value: tokenExpiresInHours,
+        },
+        {
+          label: 'Pinned Projects Order',
+          key: 'pinnedProjectsOrder',
+          value: pinnedProjectsOrder,
         },
       ];
       data.forEach(dt => {
@@ -113,7 +134,7 @@ function showHasDataUI(data = []) {
 
   const greetingUserElem = document.createElement('h2');
   greetingUserElem.classList.add('greeting-user');
-  greetingUserElem.innerText = getGreetingUserTemplate(authData.name ?? '??');
+  greetingUserElem.innerText = getGreetingUserTemplate(authData.username ?? '??');
   dashboardContainerElem.appendChild(greetingUserElem);
 
   const lineElem = document.createElement('span');
@@ -130,32 +151,34 @@ function showHasDataUI(data = []) {
 
   // CONFIGURATION
   data.forEach(dt => {
-    const _configurationItem = document.createElement('div');
-    _configurationItem.classList.add('configuration-item');
-    
-    const _labelElem = document.createElement('p');
-    _labelElem.innerText = dt.label;
-    _labelElem.dataset.key = dt.key;
-    _configurationItem.appendChild(_labelElem);
+    if (dt.key !== "tokenExpiresInHours" && dt.key !== "pinnedProjectsOrder") {
+      const _configurationItem = document.createElement('div');
+      _configurationItem.classList.add('configuration-item');
+      
+      const _labelElem = document.createElement('p');
+      _labelElem.innerText = dt.label;
+      _labelElem.dataset.key = dt.key;
+      _configurationItem.appendChild(_labelElem);
 
-    const _valueElem = document.createElement('p');
-    if (dt.value == true) {
-      _valueElem.innerText = 'Yes';
-      _valueElem.dataset.value = 'true';
-      _valueElem.classList.add('true');
-    } else {
-      _valueElem.innerText = 'No';
-      _valueElem.dataset.value = 'false';
+      const _valueElem = document.createElement('p');
+      if (dt.value == true) {
+        _valueElem.innerText = 'Yes';
+        _valueElem.dataset.value = 'true';
+        _valueElem.classList.add('true');
+      } else {
+        _valueElem.innerText = 'No';
+        _valueElem.dataset.value = 'false';
+      }
+      _configurationItem.appendChild(_valueElem);
+
+      const _toggleButton = document.createElement('button');
+      _toggleButton.innerText = 'Toggle';
+      _toggleButton.classList.add('btn-toggle');
+      _toggleButton.type = 'button';
+      _configurationItem.appendChild(_toggleButton);
+
+      configurationContainerElem.appendChild(_configurationItem);
     }
-    _configurationItem.appendChild(_valueElem);
-
-    const _toggleButton = document.createElement('button');
-    _toggleButton.innerText = 'Toggle';
-    _toggleButton.classList.add('btn-toggle');
-    _toggleButton.type = 'button';
-    _configurationItem.appendChild(_toggleButton);
-
-    configurationContainerElem.appendChild(_configurationItem);
   });
   
   const btnUpdateElem = document.createElement('button');
@@ -301,6 +324,8 @@ function activateImportExportButtons() {
     getElem('.input-file-images').click();
   });
   getElem('.btn-export-images').addEventListener('click', (_) => {
+    alert("This feature not implemented yet");
+    return;
     const anchorElem = document.createElement('a');
     anchorElem.href = exportProjectImagesEndpointUrl;
     anchorElem.target = '_blank';
@@ -309,6 +334,9 @@ function activateImportExportButtons() {
   });
   getElem('.btn-import-images').addEventListener('click', async (e) => {
     e.preventDefault();
+
+    alert("This feature not implemented yet");
+    return;
 
     if (uploadedProjectImageFiles == null || uploadedProjectImageFiles.length <= 0) {
       alert('Upload image files first!');
@@ -351,15 +379,17 @@ function importProjects(projects = []) {
     showLoadingOnButton(getElem('.btn-import-projects'), false, 'Import');
     return;
   }
-  const formData = new FormData();
-  formData.append('username', authData.username);
-  formData.append('token', authData.token);
-  formData.append('projects', JSON.stringify(projects));
-  formData.append('replaceAll', getElem('.option-projects').checked);
 
   fetch(importProjectEndpointUrl, {
     method: 'POST',
-    body: new URLSearchParams(formData),
+    body: JSON.stringify({
+      projects,
+      replaceAll: getElem('.option-projects').checked,
+    }),
+    headers: new Headers({
+      'Authorization': `Bearer ${authData.token}`,
+      'Content-Type': 'application/json'
+    }),
   })
   .catch(err => {
     console.clear();
@@ -435,17 +465,27 @@ function updateConfiguration(newConfiguration = {}) {
 
   showLoadingOnButton(getElem('.btn-update'));
 
-  const formData = new FormData();
-  formData.append('username', authData.username);
-  formData.append('token', authData.token);
+  const newConfigurationData = {};
 
-  Object.keys(newConfiguration).forEach(key => {
-    formData.append(key, newConfiguration[key]);
+  Object.keys(lastConfigurationValues).forEach(key => {
+    if (newConfiguration[key] !== undefined) {
+      newConfigurationData[key] = newConfiguration[key];
+    } else {
+      if (key === "pinnedProjectsOrder") {
+        newConfigurationData[key] = lastConfigurationValues[key].join(", ");
+      } else {
+        newConfigurationData[key] = lastConfigurationValues[key];
+      }
+    }
   });
 
   fetch(setConfigurationEndpointUrl, {
-    method: 'POST',
-    body: new URLSearchParams(formData),
+    method: 'PUT',
+    body: JSON.stringify(newConfigurationData),
+    headers: new Headers({
+      'Authorization': `Bearer ${authData.token}`,
+      'Content-Type': 'application/json'
+    }),
   })
   .catch(err => {
     console.clear();

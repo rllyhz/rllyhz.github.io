@@ -25,9 +25,9 @@ fetch(getProjectsEndpointUrl)
   if (!res) return;
   if (res.error && res.message == 'Sorry :( The API is currently under maintanance!') {
     showUnderMaintananceMode();
-  } else if (!res.error && res.data.total > 0) {
+  } else if (!res.error && res.total > 0) {
     console.log(res);
-    res.data.projects.forEach((project) => {
+    res.projects.forEach((project) => {
       addProject(project, "../");
     });
 

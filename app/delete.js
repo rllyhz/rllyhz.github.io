@@ -15,11 +15,22 @@ if (!authData || !authData.isLoggedIn) {
 
 const deleteProjectEndpointUrl = getEndpointPath(`/projects/${dataId}?username=${authData.username}&token=${authData.token}`);
 
-deleteProject();
+const confirmedToDelete = confirm("Are you sure want to delete?");
+
+if (confirmedToDelete) {
+  deleteProject();
+} else {
+  window.history.back();
+}
 
 async function deleteProject() {
   let resultData = null;
-  const result = await fetch(deleteProjectEndpointUrl, { method: 'DELETE' });
+  const result = await fetch(deleteProjectEndpointUrl, {
+    method: 'DELETE',
+    headers: new Headers({
+      'Authorization': `Bearer ${authData.token}`
+    }),
+  });
 
   if (result.ok && result.status == 200) {
     resultData = await result.json();

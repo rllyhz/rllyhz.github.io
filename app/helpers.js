@@ -7,12 +7,14 @@
 const testingMode = false;
 
 const languages = [
-  'HTML', 'CSS', 'JS', 'Java',
-  'Kotlin',
+  'HTML', 'CSS', 'JavaScript', 'TypeScript', 'Java',
+  'Kotlin', "Swift", "Dart", "Python", "PHP", "C",
+  "C++", "C#", "Golang", "Ruby", "R", "XML",
+  "SQL",
 ];
 const technologies = [
-  'Web', 'Android', 'Desktop', 'Multi-Platform',
-  'Automation', 'AI', 'Machine Learning'
+  'Web', 'Android', 'Desktop', 'Multi-Platform', "Flutter",
+  'Automation', 'AI', 'Machine Learning', "IoT",
 ];
 const projectTypes = [
   {
@@ -30,6 +32,10 @@ const projectTypes = [
   {
     type: 'desktop',
     name: 'Desktop'
+  },
+  {
+    type: 'api',
+    name: 'API'
   },
   {
     type: 'scripting',
@@ -261,10 +267,9 @@ function setVisitedValue(hasVisited = false) {
 const authDataKey = "rllyhz.github.io-auth-data"
 function saveAuthData(userData = {}, isLoggedIn = true) {
   const authData = {
-    id: userData.id,
-    name: userData.name,
     username: userData.username,
     token: userData.token,
+    tokenCreatedAt: userData.tokenCreatedAt,
     cloudinary: userData.cloudinary,
     isLoggedIn,
   };
