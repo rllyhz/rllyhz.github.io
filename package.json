@@ -1,0 +1,29 @@
+{
+  "name": "rllyhz.github.io",
+  "version": "2.0.0",
+  "description": "Github Pages V2",
+  "main": "index.js",
+  "scripts": {
+    "test": "karma test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rllyhz/rllyhz.github.io.git"
+  },
+  "keywords": [
+    "github-pages",
+    "front-end",
+    "webpack"
+  ],
+  "author": "rllyhz <rullyihza00@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rllyhz/rllyhz.github.io/issues"
+  },
+  "homepage": "https://github.com/rllyhz/rllyhz.github.io#readme",
+  "devDependencies": {
+    "eslint": "^8.43.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.27.5"
+  }
+}
