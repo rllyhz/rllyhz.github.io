@@ -1,21 +1,18 @@
 import logger from "../../../utils/logger";
-import { toPublicPath } from "../../../utils/route-helper";
+// import { toPublicPath } from "../../../utils/route-helper";
 import UIState from "../../../utils/ui-state";
+import WelcomeUI from "../../components/WelcomeUI";
 import Dom from "../../core/Dom";
 
 export default class LandingPage {
   static async render(uiStateObservable) {
     uiStateObservable.emit(UIState.LOADING);
 
-    logger.info("Landing page rendered");
+    Dom.appendRootPage(
+      document.createElement(WelcomeUI.tagName),
+    );
 
-    setTimeout(() => {
-      const testElem = Dom.createElement({
-        tagName: "img",
-      });
-      testElem.src = toPublicPath("/images/landing/about.png");
-      Dom.appendRootPage(testElem);
-      uiStateObservable.emit(UIState.SUCCESS);
-    }, 2000);
+    uiStateObservable.emit(UIState.SUCCESS);
+    logger.info("Landing page rendered");
   }
 }
