@@ -9,6 +9,14 @@ const createRootPage = () => {
   return rootPageElem;
 };
 
+const rootLoadingPageElementId = "loading-page";
+const getRootLoadingPage = () => getElem(`#${rootLoadingPageElementId}`);
+const createRootLoadingPage = () => {
+  const rootPageElem = document.createElement("div");
+  rootPageElem.id = rootLoadingPageElementId;
+  return rootPageElem;
+};
+
 const appendBody = (newNode) => {
   document.body.appendChild(newNode);
 };
@@ -55,6 +63,22 @@ const createElement = ({
   return newElement;
 };
 
+const appendChild = (node, child) => {
+  if (node) node.appendChild(child);
+};
+
+const apppendBody = (child) => {
+  document.body.appendChild(child);
+};
+
+const appendRootPage = (child) => {
+  appendChild(getRootPage(), child);
+};
+
+const appendRootLoadingPage = (child) => {
+  appendChild(getRootLoadingPage(), child);
+};
+
 export {
   getElem,
   getElems,
@@ -62,5 +86,10 @@ export {
   appendPage,
   getRootPage,
   createRootPage,
+  getRootLoadingPage,
+  createRootLoadingPage,
   createElement,
+  apppendBody,
+  appendRootPage,
+  appendRootLoadingPage,
 };

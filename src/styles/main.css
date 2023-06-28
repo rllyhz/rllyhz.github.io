@@ -91,13 +91,25 @@ html{
 body{
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
-  color: var(--white-color);
+  color: var(--dark-color);
   background-color: var(--white-color);
   margin: 0;
 }
 
-#root-page {
+img {
+  width: 100%;
+  object-fit: cover;
+}
+
+#root-page,
+#loading-page {
+  margin-top: calc(var(--header-height) + 2rem);
   min-height: 100vh;
+}
+
+#loading-page {
+  display: flex;
+  justify-content: center;
 }
 
 /*

@@ -1,10 +1,11 @@
 import logger from "./logger";
 
-class Observable {
-  constructor({ observeAtFirstLaunch = false, initialValue = null }) {
+class SingleObservable {
+  #observer = null;
+
+  constructor({ initialValue = null }) {
     this.currentValue = initialValue;
-    this.observeAtFirstLaunch = observeAtFirstLaunch;
-    this.observers = [];
+    this.#observer = null;
     this.isReleased = false;
   }
 
@@ -14,10 +15,49 @@ class Observable {
       return;
     }
 
-    this.observers.push(observer);
+    if (this.#observer !== null) {
+      logger.warn("Observer already existed on single observable. Could not set observer.");
+      return;
+    }
+
+    this.#observer = observer;
+  }
+
+  emit(newValue) {
+    if (this.isReleased) return this;
+
+    this.currentValue = newValue;
+    this.#observer(newValue);
+
+    return this;
+  }
+
+  release() {
+    this.isReleased = true;
+    this.currentValue = null;
+    this.#observer = null;
+  }
+}
+
+class Observable {
+  #observers = [];
+
+  constructor({ observeAtFirstLaunch = false, initialValue = null }) {
+    this.currentValue = initialValue;
+    this.observeAtFirstLaunch = observeAtFirstLaunch;
+    this.isReleased = false;
+  }
+
+  observe(observer) {
+    if (typeof observer !== "function") {
+      logger.error("Observer must be a function");
+      return;
+    }
+
+    this.#observers.push(observer);
 
     if (this.observeAtFirstLaunch) {
-      this.observers[this.observers.length - 1](this.value);
+      this.#observers[this.#observers.length - 1](this.value);
     }
   }
 
@@ -26,7 +66,7 @@ class Observable {
 
     this.currentValue = newValue;
 
-    this.observers.forEach((obsvr) => {
+    this.#observers.forEach((obsvr) => {
       if (!this.isReleased) obsvr(newValue);
     });
 
@@ -36,15 +76,19 @@ class Observable {
   release() {
     this.isReleased = true;
     this.currentValue = null;
-    this.observers.length = 0;
+    this.#observers.length = 0;
   }
 }
 
-const observableOf = (value) => new Observable({
+const observableOf = (value = null) => new Observable({
   initialValue: value, observeAtFirstLaunch: false,
 });
 
+const singleObservableOf = (value = null) => new SingleObservable({ initialValue: value });
+
 export {
   Observable,
+  SingleObservable,
+  singleObservableOf,
   observableOf,
 };

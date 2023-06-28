@@ -4,6 +4,7 @@ const styles = css`
   header {
     width: 100vw;
     margin: 0;
+    background-color: white;
     position: fixed;
     top: 0;
     box-shadow: 1px 1px 12px #eaeaea;
