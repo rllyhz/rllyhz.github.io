@@ -8,6 +8,7 @@ import {
   createRootPage,
   appendRootPageWithContainer,
   replaceChildrenRootPageWithContainer,
+  appendChild as _appendChild,
   appendBody,
   appendRootLoadingPage,
   containerAppTagName,
@@ -27,6 +28,8 @@ const Dom = {
   }) => _create({
     tagName, id, classNames, data, dataset, styles, innerText,
   }),
+
+  appendChild: _appendChild,
 
   appendBody,
 

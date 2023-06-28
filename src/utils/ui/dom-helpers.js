@@ -90,6 +90,7 @@ export {
   containerAppTagName,
   createRootLoadingPage,
   createElement,
+  appendChild,
   appendBody,
   appendRootPage,
   appendRootPageWithContainer,

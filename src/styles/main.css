@@ -17,8 +17,9 @@
 /*===== Colors =====*/
 :root{
   --primary-color: blueviolet;
-  --secondary-color: #f440dc;
-  --accent-color: #f44340;
+  --secondary-color: violet;
+  --accent-color: #f440dc;
+  --tertier-color: #f44340;
   --dark-color: #310e2f;
   --loading-color: rgb(245, 234, 255);
   --white-color: #fefefe;
