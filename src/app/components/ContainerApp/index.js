@@ -1,8 +1,8 @@
 import styles from "./styles";
-import { containerAppTagName } from "../../../utils/ui/dom-helpers";
+import Dom from "../../core/Dom";
 
 export default class ContainerApp extends HTMLElement {
-  static tagName = containerAppTagName;
+  static tagName = Dom.containerAppTagName;
 
   constructor() {
     super();

@@ -8,13 +8,7 @@ import { singleObservableOf } from "../../utils/extension";
 import FooterApp from "../components/FooterApp";
 import HeaderApp from "../components/HeaderApp";
 import Loading from "../components/Loading";
-import {
-  appendRootLoadingPage,
-  createRootLoadingPage,
-  createRootPage,
-  getRootLoadingPage,
-  getRootPage,
-} from "../../utils/ui/dom-helpers";
+import Dom from "../core/Dom";
 import ContainerApp from "../components/ContainerApp";
 
 export default class App {
@@ -51,12 +45,12 @@ export default class App {
     const header = document.createElement(HeaderApp.tagName);
     const footer = document.createElement(FooterApp.tagName);
 
-    const rootLoading = createRootLoadingPage();
+    const rootLoading = Dom.createRootLoadingPage();
     const loading = document.createElement(Loading.tagName);
     loading.dataset.padding = "5rem";
     rootLoading.appendChild(loading);
 
-    const rootPage = createRootPage();
+    const rootPage = Dom.createRootPage();
     const containerApp = document.createElement(ContainerApp.tagName);
     rootPage.appendChild(containerApp);
 
@@ -89,16 +83,18 @@ export default class App {
   static uiStateListener(uiState) {
     if (uiState === UIState.LOADING) {
       if (App.customLoading !== null) {
-        getRootLoadingPage().innerHTML = "";
-        appendRootLoadingPage(App.customLoading);
+        Dom.getRootLoadingPage().innerHTML = "";
+        Dom.appendRootLoadingPage(App.customLoading);
       }
 
-      getRootLoadingPage().style.display = "block";
-      getRootPage().style.display = "none";
+      Dom.getRootLoadingPage().style.display = "block";
+      Dom.getRootPage().style.display = "none";
     } else {
-      getRootLoadingPage().style.display = "none";
-      getRootPage().style.display = "block";
+      Dom.getRootLoadingPage().style.display = "none";
+      Dom.getRootPage().style.display = "block";
     }
+
+    window.scrollTo(0, 0);
   }
 
   static updateAppShell() {
