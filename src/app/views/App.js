@@ -3,6 +3,10 @@ import logger from "../../utils/logger";
 import Routes from "../routes/routes";
 import Router from "../routes/router";
 import NotFoundPage from "./pages/NotFoundPage";
+import { EventType } from "../../utils/ui/event-helpers";
+import FooterApp from "../components/FooterApp";
+import HeaderApp from "../components/HeaderApp";
+import { createRootPage } from "../../utils/ui/dom-helpers";
 
 export default class App {
   static async init() {
@@ -11,6 +15,8 @@ export default class App {
   }
 
   static async renderPage() {
+    document.body.innerHTML = "";
+
     const { data, activePath } = Router.getExpectedRoute();
     const activePage = Routes.resolve(activePath);
 
@@ -21,9 +27,23 @@ export default class App {
       return;
     }
 
-    logger.log(activePage);
+    const header = document.createElement(HeaderApp.tagName);
+    const footer = document.createElement(FooterApp.tagName);
+    const main = createRootPage();
+    document.body.appendChild(header);
+    document.body.appendChild(main);
+    document.body.appendChild(footer);
 
-    await activePage.render(data);
+    header.addEventListener(EventType.drawerMode, (event) => {
+      // lock scrolling content
+      if (event.detail.isOpen) {
+        document.body.style.overflowY = "hidden";
+      } else {
+        document.body.style.overflowY = "auto";
+      }
+    });
+
+    await activePage.render([header, main, footer], data);
   }
 
   static updateAppShell() {

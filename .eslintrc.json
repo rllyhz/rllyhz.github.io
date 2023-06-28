@@ -19,6 +19,7 @@
         "quotes": ["error", "double"],
         "linebreak-style": "off",
         "max-classes-per-file": "off",
-        "no-plusplus":"off"
+        "no-plusplus":"off",
+        "class-methods-use-this": "off"
     }
 }
