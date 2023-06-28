@@ -1,6 +1,7 @@
 import { getCssVariableValue } from "../../core/Style";
 import styles from "./styles";
 import { EventType, broadcastEvent } from "../../../utils/ui/event-helpers";
+import { isOnMobileScreen } from "../../../utils/ui/viewport-helpers";
 import { toPath } from "../../../utils/route-helper";
 
 export default class HeaderApp extends HTMLElement {
@@ -36,6 +37,9 @@ export default class HeaderApp extends HTMLElement {
             behavior: "smooth",
           });
         }
+        if (isOnMobileScreen()) {
+          this.shadowRoot.getElementById("nav-toggle").click();
+        }
       });
     });
   }
@@ -59,7 +63,7 @@ export default class HeaderApp extends HTMLElement {
   };
 
   _render() {
-    const firstColor = getCssVariableValue("--first-color");
+    const firstColor = getCssVariableValue("--primary-color");
 
     this.shadowRoot.innerHTML = `
       ${styles}

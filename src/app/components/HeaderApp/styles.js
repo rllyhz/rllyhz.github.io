@@ -2,37 +2,41 @@ import { css } from "../../core/Style";
 
 const styles = css`
   header {
-    width: 100vw;
+    width: 100%;
     margin: 0;
     background-color: white;
     position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     box-shadow: 1px 1px 12px #eaeaea;
     z-index: 100;
-  }
-
-  a {
-    text-decoration: none;
-    color: var(--dark-color);
   }
 
   nav {
     width: var(--nav-width-in-sm);
     padding: 1rem 0;
     height: var(--header-height);
-    margin: auto;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+
+  a {
+    margin: 0;
+    text-decoration: none;
+    color: var(--dark-color);
   }
 
   a.nav-logo {
     font-weight: 600;
     background: -webkit-linear-gradient(45deg, var(--primary-color), var(--secondary-color));
     background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-    background-clip: text;
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
     transition: filter var(--duration-short) ease-in-out;
   }
   a.nav-logo:hover {

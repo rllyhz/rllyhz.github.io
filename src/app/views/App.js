@@ -1,7 +1,6 @@
 import "regenerator-runtime"; /* for async await transpile */
 import logger from "../../utils/logger";
-import Routes from "../routes/routes";
-import Router from "../routes/router";
+import { Routes, Router } from "../routes";
 import NotFoundPage from "./pages/NotFoundPage";
 import { EventType } from "../../utils/ui/event-helpers";
 import UIState from "../../utils/ui-state";
@@ -16,6 +15,7 @@ import {
   getRootLoadingPage,
   getRootPage,
 } from "../../utils/ui/dom-helpers";
+import ContainerApp from "../components/ContainerApp";
 
 export default class App {
   static uiStateObservable = singleObservableOf(UIState.LOADING);
@@ -25,11 +25,17 @@ export default class App {
   static customLoading = null;
 
   static async init() {
-    logger.info("App init.");
+    logger.info("Initializing app");
+
+    App.firstTimeRendering = true;
+    App.customLoading = null;
+
     App.renderPage();
   }
 
   static async renderPage() {
+    logger.info("Rendering page");
+
     document.body.innerHTML = "";
 
     const { data, activePath } = Router.getExpectedRoute();
@@ -51,6 +57,9 @@ export default class App {
     rootLoading.appendChild(loading);
 
     const rootPage = createRootPage();
+    const containerApp = document.createElement(ContainerApp.tagName);
+    rootPage.appendChild(containerApp);
+
     document.body.appendChild(header);
     document.body.appendChild(rootLoading);
     document.body.appendChild(rootPage);
@@ -80,7 +89,7 @@ export default class App {
   static uiStateListener(uiState) {
     if (uiState === UIState.LOADING) {
       if (App.customLoading !== null) {
-        getRootLoadingPage().children.length = 0;
+        getRootLoadingPage().innerHTML = "";
         appendRootLoadingPage(App.customLoading);
       }
 

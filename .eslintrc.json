@@ -21,6 +21,7 @@
         "max-classes-per-file": "off",
         "no-plusplus":"off",
         "class-methods-use-this": "off",
-        "no-param-reassign": "off"
+        "no-param-reassign": "off",
+        "import/no-cycle": [2, { "maxDepth": 1 }]
     }
 }
