@@ -19,17 +19,17 @@ export default class FooterApp extends HTMLElement {
         <p class="appreciation">Thank you</p>
         <p class="connect-with-me">Get connection with me</p>
         <div class="social">
-          <a href="${Social.facebook}" target="_blank">
-            <box-icon type='logo' name='facebook' color="white"></box-icon>
+          <a href="${Social.facebook}" target="_blank" title="facebook">
+            <box-icon type='logo' name='facebook' color="var(--white-color)"></box-icon>
           </a>
-          <a href="${Social.instagram}" target="_blank">
-            <box-icon type='logo' name='instagram' color="white"></box-icon>
+          <a href="${Social.instagram}" target="_blank" title="instagram">
+            <box-icon type='logo' name='instagram' color="var(--white-color)"></box-icon>
           </a>
-          <a href="${Social.twitter}" target="_blank">
-            <box-icon type='logo' name='twitter' color="white"></box-icon>
+          <a href="${Social.twitter}" target="_blank" title="twitter">
+            <box-icon type='logo' name='twitter' color="var(--white-color)"></box-icon>
           </a>
         </div>
-        <p class="built-by-me">Built with <box-icon type='solid' name='heart' color="white" size="16px"></box-icon> by Rully Ihza Mahendra</p>
+        <p class="built-by-me">Built with <box-icon type='solid' name='heart' color="var(--white-color)" size="16px"></box-icon> by Rully Ihza Mahendra</p>
         <p class="copyright">© ${yearNow} copyright all right reserved</p>
       </footer>
     `;
