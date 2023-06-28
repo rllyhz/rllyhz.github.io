@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { Config } from "../globals/config";
 
 const log = (message) => {

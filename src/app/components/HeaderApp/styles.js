@@ -27,8 +27,8 @@ const styles = css`
 
   a.nav-logo {
     font-weight: 600;
-    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
     background: -webkit-linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -49,8 +49,8 @@ const styles = css`
     width: 65vw;
     height: 95vh;
     padding: 2rem;
-    background: linear-gradient(to top, var(--primary-color), var(--second-color));
-    background: -webkit-linear-gradient(to top, var(--primary-color), var(--second-color));
+    background: -webkit-linear-gradient(to top, var(--primary-color), var(--dark-color));
+    background: linear-gradient(to top, var(--primary-color), var(--dark-color));
     transition: .3s;
     list-style: none;
   }
