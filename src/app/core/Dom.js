@@ -14,6 +14,11 @@ import {
   containerAppTagName,
 } from "../../utils/ui/dom-helpers";
 
+import {
+  createHorizontalSpacer,
+  createVerticalSpacer,
+} from "../../utils/ui/component-helpers";
+
 const Dom = {
   containerAppTagName,
 
@@ -23,10 +28,10 @@ const Dom = {
 
   createElement: ({
     tagName = "div", id = "", classNames = "",
-    dataset = {}, data = {}, styles = {},
+    datasets = {}, props = {}, styles = {},
     innerText = "",
   }) => _create({
-    tagName, id, classNames, data, dataset, styles, innerText,
+    tagName, id, classNames, props, datasets, styles, innerText,
   }),
 
   appendChild: _appendChild,
@@ -42,6 +47,10 @@ const Dom = {
   createRootPage,
   appendRootPage: (newNode) => appendRootPageWithContainer(newNode),
   replaceRootPageChildrenNode: (newNode) => replaceChildrenRootPageWithContainer(newNode),
+
+  // Components
+  createHorizontalSpacer,
+  createVerticalSpacer,
 };
 
 export default Dom;

@@ -21,7 +21,7 @@ const createRootLoadingPage = () => {
 
 const createElement = ({
   tagName = "div", id = "", classNames = "",
-  dataset = {}, data = {}, styles = {},
+  datasets = {}, props = {}, styles = {},
   innerText = "",
 }) => {
   const newElement = document.createElement(tagName);
@@ -29,8 +29,8 @@ const createElement = ({
   if (classNames.length > 0) newElement.classList.add(classNames);
   if (id.length > 0) newElement.id = id;
 
-  if (typeof dataset === "object" && Object.entries(dataset).length > 0) {
-    Object.entries(dataset).forEach((keyValue) => {
+  if (typeof datasets === "object" && Object.entries(datasets).length > 0) {
+    Object.entries(datasets).forEach((keyValue) => {
       const [key, value] = keyValue;
       newElement.dataset[key] = value;
     });
@@ -43,10 +43,10 @@ const createElement = ({
     });
   }
 
-  if (typeof data === "object" && Object.entries(data).length > 0) {
-    Object.entries(data).forEach((keyValue) => {
+  if (typeof props === "object" && Object.entries(props).length > 0) {
+    Object.entries(props).forEach((keyValue) => {
       const [key, value] = keyValue;
-      newElement[key] = value;
+      newElement.setAttribute(key, value);
     });
   }
 
