@@ -14,12 +14,6 @@ import {
   containerAppTagName,
 } from "../../utils/ui/dom-helpers";
 
-import {
-  createHorizontalSpacer,
-  createVerticalSpacer,
-  createTitleApp,
-} from "../../utils/ui/component-helpers";
-
 const Dom = {
   containerAppTagName,
 
@@ -48,11 +42,6 @@ const Dom = {
   createRootPage,
   appendRootPage: (newNode) => appendRootPageWithContainer(newNode),
   replaceRootPageChildrenNode: (newNode) => replaceChildrenRootPageWithContainer(newNode),
-
-  // Components
-  createHorizontalSpacer,
-  createVerticalSpacer,
-  createTitleApp,
 };
 
 export default Dom;

@@ -1,4 +1,5 @@
 import TitleApp from "../../app/components/TitleApp";
+import WelcomeUI from "../../app/components/WelcomeUI";
 import { createElement } from "./dom-helpers";
 
 const createSpacer = ({ orientation = "horizontal", size = "1rem" }) => createElement({
@@ -22,6 +23,10 @@ const createVerticalSpacer = (size = "1rem") => createSpacer({
   size,
 });
 
+const createWelcomeUI = () => createElement({
+  tagName: WelcomeUI.tagName,
+});
+
 const createTitleApp = ({
   text = "",
   align = "center",
@@ -41,5 +46,6 @@ const createTitleApp = ({
 export {
   createHorizontalSpacer,
   createVerticalSpacer,
+  createWelcomeUI,
   createTitleApp,
 };
