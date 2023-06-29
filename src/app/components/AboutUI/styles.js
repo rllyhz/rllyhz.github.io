@@ -19,6 +19,7 @@ export default css`
     border-radius: 8px;
   }
   .about {
+    margin-top: 1rem;
     text-align: center;
   }
   .about a {

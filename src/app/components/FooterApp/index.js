@@ -36,4 +36,6 @@ export default class FooterApp extends HTMLElement {
   }
 }
 
-customElements.define(FooterApp.tagName, FooterApp);
+if (!customElements.get(FooterApp.tagName)) {
+  customElements.define(FooterApp.tagName, FooterApp);
+}

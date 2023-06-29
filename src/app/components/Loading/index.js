@@ -44,4 +44,6 @@ export default class Loading extends HTMLElement {
   }
 }
 
-customElements.define(Loading.tagName, Loading);
+if (!customElements.get(Loading.tagName)) {
+  customElements.define(Loading.tagName, Loading);
+}

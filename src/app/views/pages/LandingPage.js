@@ -8,6 +8,9 @@ export default class LandingPage {
     uiStateObservable.emit(UIState.LOADING);
 
     // ====================================
+    Dom.appendRootPage(
+      Dom.createElement({ tagName: "span", id: "home" }),
+    );
     // Welcome UI
     Dom.appendRootPage(
       Component.createWelcomeUI(),
@@ -19,7 +22,7 @@ export default class LandingPage {
     );
     // Title for About
     Dom.appendRootPage(
-      Component.createTitleApp({ text: "About", color: "var(--accent-color)" }),
+      Component.createTitleApp({ text: "About", color: "var(--primary-color)", id: "about" }),
     );
     Dom.appendRootPage(
       Component.createVerticalSpacer("2rem"),
@@ -36,12 +39,15 @@ export default class LandingPage {
     );
     // Title for Skills
     Dom.appendRootPage(
-      Component.createTitleApp({ text: "Skills", color: "var(--accent-color)" }),
+      Component.createTitleApp({ text: "Skills", color: "var(--primary-color)", id: "skills" }),
     );
     Dom.appendRootPage(
-      Component.createVerticalSpacer("1rem"),
+      Component.createVerticalSpacer("2rem"),
     );
     // Skills Section
+    Dom.appendRootPage(
+      Component.createSkillsUI(),
+    );
 
     // ====================================
     // Spacer
@@ -50,7 +56,7 @@ export default class LandingPage {
     );
     // Title for Work
     Dom.appendRootPage(
-      Component.createTitleApp({ text: "Work", color: "var(--accent-color)" }),
+      Component.createTitleApp({ text: "Work", color: "var(--primary-color)", id: "work" }),
     );
     Dom.appendRootPage(
       Component.createVerticalSpacer("1rem"),
@@ -64,7 +70,7 @@ export default class LandingPage {
     );
     // Title for Contact
     Dom.appendRootPage(
-      Component.createTitleApp({ text: "Contact", color: "var(--accent-color)" }),
+      Component.createTitleApp({ text: "Contact", color: "var(--primary-color)", id: "contact" }),
     );
 
     // Contact Section

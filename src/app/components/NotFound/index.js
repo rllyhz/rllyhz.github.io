@@ -37,4 +37,6 @@ export default class NotFound extends HTMLElement {
   }
 }
 
-customElements.define(NotFound.tagName, NotFound);
+if (!customElements.get(NotFound.tagName)) {
+  customElements.define(NotFound.tagName, NotFound);
+}

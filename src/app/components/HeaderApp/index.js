@@ -2,7 +2,9 @@ import { getCssVariableValue } from "../../core/Style";
 import styles from "./styles";
 import { EventType, broadcastEvent } from "../../../utils/ui/event-helpers";
 import { isOnMobileScreen } from "../../../utils/ui/viewport-helpers";
+import logger from "../../../utils/logger";
 import { toPath } from "../../../utils/route-helper";
+import Dom from "../../core/Dom";
 
 export default class HeaderApp extends HTMLElement {
   static tagName = "header-app";
@@ -31,15 +33,26 @@ export default class HeaderApp extends HTMLElement {
     );
     this.shadowRoot.querySelectorAll(".nav-list .nav-item[data-scroll='true']").forEach((navItem) => {
       navItem.addEventListener("click", () => {
-        const target = navItem.children[0].dataset.path;
-        if (document.querySelector(target)) {
-          document.querySelector(target).scrollIntoView({
+        const { target } = navItem.children[0].dataset;
+        const targetElem = Dom.getRootPage()
+          .querySelector(Dom.containerAppTagName).shadowRoot.querySelector(target);
+
+        if (targetElem) {
+          targetElem.style.scrollMargin = "100px";
+          targetElem.scrollIntoView({
             behavior: "smooth",
+            block: "start",
           });
+        } else {
+          logger.error(`Failed to scroll to the element with target ${target}`);
         }
+
+        // toggle menu on mobile screen
         if (isOnMobileScreen()) {
           this.shadowRoot.getElementById("nav-toggle").click();
         }
+        // update active menu
+        this.updateActiveMenu(target);
       });
     });
   }
@@ -62,6 +75,18 @@ export default class HeaderApp extends HTMLElement {
     }
   };
 
+  updateActiveMenu(target) {
+    const targetElem = this.shadowRoot.querySelector(`.nav-list .nav-item .nav-link[data-target="${target}"]`);
+    if (targetElem) {
+      this.shadowRoot.querySelectorAll(".nav-list .nav-item").forEach((navItem) => {
+        navItem.classList.remove("active");
+      });
+      targetElem.parentElement.classList.add("active");
+    } else {
+      logger.error(`Failed to set the active status on menu target ${target}`);
+    }
+  }
+
   _render() {
     const firstColor = getCssVariableValue("--primary-color");
 
@@ -73,19 +98,19 @@ export default class HeaderApp extends HTMLElement {
           <div class="nav-list-container">
             <ul class="nav-list">
               <li class="nav-item active" data-scroll="true">
-                <a class="nav-link" data-path="#home">Home</a>
+                <a class="nav-link" data-target="#home">Home</a>
               </li>
               <li class="nav-item" data-scroll="true">
-                <a class="nav-link" data-path="#about">About</a>
+                <a class="nav-link" data-target="#about">About</a>
               </li>
               <li class="nav-item" data-scroll="true">
-                <a class="nav-link" data-path="#skills">Skills</a>
+                <a class="nav-link" data-target="#skills">Skills</a>
               </li>
               <li class="nav-item" data-scroll="true">
-                <a class="nav-link" data-path="#work"">Work</a>
+                <a class="nav-link" data-target="#work"">Work</a>
               </li>
               <li class="nav-item" data-scroll="true">
-                <a class="nav-link" data-path="#contact">Contact</a>
+                <a class="nav-link" data-target="#contact">Contact</a>
               </li>
             </ul>
           </div>
@@ -98,4 +123,6 @@ export default class HeaderApp extends HTMLElement {
   }
 }
 
-customElements.define(HeaderApp.tagName, HeaderApp);
+if (!customElements.get(HeaderApp.tagName)) {
+  customElements.define(HeaderApp.tagName, HeaderApp);
+}

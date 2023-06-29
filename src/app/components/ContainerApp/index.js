@@ -27,4 +27,6 @@ export default class ContainerApp extends HTMLElement {
   }
 }
 
-customElements.define(ContainerApp.tagName, ContainerApp);
+if (!customElements.get(ContainerApp.tagName)) {
+  customElements.define(ContainerApp.tagName, ContainerApp);
+}

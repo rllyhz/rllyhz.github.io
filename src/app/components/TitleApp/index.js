@@ -57,7 +57,7 @@ export default class TitleApp extends HTMLElement {
 
     if (size === "medium") {
       fontSize = "1.5rem";
-      fontWeight = 500;
+      fontWeight = 600;
     } else if (size === "big") {
       fontSize = "2rem";
       fontWeight = 700;
@@ -72,4 +72,6 @@ export default class TitleApp extends HTMLElement {
   }
 }
 
-customElements.define(TitleApp.tagName, TitleApp);
+if (!customElements.get(TitleApp.tagName)) {
+  customElements.define(TitleApp.tagName, TitleApp);
+}

@@ -1,4 +1,5 @@
 import AboutUI from "../../app/components/AboutUI";
+import SkillsUI from "../../app/components/SkillsUI";
 import TitleApp from "../../app/components/TitleApp";
 import WelcomeUI from "../../app/components/WelcomeUI";
 import { createElement } from "./dom-helpers";
@@ -41,8 +42,10 @@ const createTitleApp = ({
   align = "center",
   size = "big",
   classNames = "",
+  id = "",
 }) => createElement({
   tagName: TitleApp.tagName,
+  id,
   classNames,
   props: {
     variant: "h2",
@@ -61,10 +64,15 @@ const createAboutUI = () => createElement({
   tagName: AboutUI.tagName,
 });
 
+const createSkillsUI = () => createElement({
+  tagName: SkillsUI.tagName,
+});
+
 export {
   createHorizontalSpacer,
   createVerticalSpacer,
   createTitleApp,
   createWelcomeUI,
   createAboutUI,
+  createSkillsUI,
 };

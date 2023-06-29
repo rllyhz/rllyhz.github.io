@@ -4,6 +4,7 @@ import {
   createTitleApp,
   createWelcomeUI,
   createAboutUI,
+  createSkillsUI,
 } from "../../utils/ui/component-helpers";
 
 const Component = {
@@ -12,6 +13,7 @@ const Component = {
   createTitleApp,
   createWelcomeUI,
   createAboutUI,
+  createSkillsUI,
 };
 
 export default Component;
