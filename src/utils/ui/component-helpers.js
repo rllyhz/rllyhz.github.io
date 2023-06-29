@@ -1,3 +1,4 @@
+import TitleApp from "../../app/components/TitleApp";
 import { createElement } from "./dom-helpers";
 
 const createSpacer = ({ orientation = "horizontal", size = "1rem" }) => createElement({
@@ -21,7 +22,24 @@ const createVerticalSpacer = (size = "1rem") => createSpacer({
   size,
 });
 
+const createTitleApp = ({
+  text = "",
+  align = "center",
+  size = "big",
+  classNames = "",
+}) => createElement({
+  tagName: TitleApp.tagName,
+  classNames,
+  props: {
+    variant: "h2",
+    size,
+    align,
+    text,
+  },
+});
+
 export {
   createHorizontalSpacer,
   createVerticalSpacer,
+  createTitleApp,
 };

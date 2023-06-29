@@ -17,6 +17,7 @@ import {
 import {
   createHorizontalSpacer,
   createVerticalSpacer,
+  createTitleApp,
 } from "../../utils/ui/component-helpers";
 
 const Dom = {
@@ -51,6 +52,7 @@ const Dom = {
   // Components
   createHorizontalSpacer,
   createVerticalSpacer,
+  createTitleApp,
 };
 
 export default Dom;
