@@ -1,15 +1,17 @@
 import {
   createHorizontalSpacer,
   createVerticalSpacer,
-  createWelcomeUI,
   createTitleApp,
+  createWelcomeUI,
+  createAboutUI,
 } from "../../utils/ui/component-helpers";
 
 const Component = {
   createHorizontalSpacer,
   createVerticalSpacer,
-  createWelcomeUI,
   createTitleApp,
+  createWelcomeUI,
+  createAboutUI,
 };
 
 export default Component;

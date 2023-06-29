@@ -1,30 +1,38 @@
+import AboutUI from "../../app/components/AboutUI";
 import TitleApp from "../../app/components/TitleApp";
 import WelcomeUI from "../../app/components/WelcomeUI";
 import { createElement } from "./dom-helpers";
+import { isOnMobileScreen } from "./viewport-helpers";
 
-const createSpacer = ({ orientation = "horizontal", size = "1rem" }) => createElement({
-  tagName: "div",
-  props: {
-    title: "spacer",
-  },
-  styles: {
-    width: orientation === "horizontal" ? size : "unset",
-    height: orientation === "vertical" ? size : "unset",
-  },
-});
+const createSpacer = ({ orientation = "horizontal", size = "1rem", sizeOnMobile = null }) => {
+  let actualSize = size;
 
-const createHorizontalSpacer = (size = "1rem") => createSpacer({
+  if (sizeOnMobile !== null && isOnMobileScreen()) {
+    actualSize = sizeOnMobile;
+  }
+
+  return createElement({
+    tagName: "div",
+    props: {
+      title: "spacer",
+    },
+    styles: {
+      width: orientation === "horizontal" ? actualSize : "unset",
+      height: orientation === "vertical" ? actualSize : "unset",
+    },
+  });
+};
+
+const createHorizontalSpacer = (size = "1rem", sizeOnMobile = null) => createSpacer({
   orientation: "horizontal",
   size,
+  sizeOnMobile,
 });
 
-const createVerticalSpacer = (size = "1rem") => createSpacer({
+const createVerticalSpacer = (size = "1rem", sizeOnMobile = null) => createSpacer({
   orientation: "vertical",
   size,
-});
-
-const createWelcomeUI = () => createElement({
-  tagName: WelcomeUI.tagName,
+  sizeOnMobile,
 });
 
 const createTitleApp = ({
@@ -45,9 +53,18 @@ const createTitleApp = ({
   },
 });
 
+const createWelcomeUI = () => createElement({
+  tagName: WelcomeUI.tagName,
+});
+
+const createAboutUI = () => createElement({
+  tagName: AboutUI.tagName,
+});
+
 export {
   createHorizontalSpacer,
   createVerticalSpacer,
-  createWelcomeUI,
   createTitleApp,
+  createWelcomeUI,
+  createAboutUI,
 };
