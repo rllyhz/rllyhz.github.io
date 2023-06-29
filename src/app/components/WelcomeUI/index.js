@@ -31,9 +31,11 @@ export default class WelcomeUI extends HTMLElement {
         </a>
       </div>
 
-      <img src="${toPublicPath("/images/landing/profile.png")}" class="profile" alt="Profile Picture" />
+      <img loading="lazy" src="${toPublicPath("/images/landing/profile.png")}" class="profile" alt="Profile Picture" />
     `;
   }
 }
 
-customElements.define(WelcomeUI.tagName, WelcomeUI);
+if (!customElements.get(WelcomeUI.tagName)) {
+  customElements.define(WelcomeUI.tagName, WelcomeUI);
+}
