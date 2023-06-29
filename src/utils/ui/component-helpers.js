@@ -29,6 +29,7 @@ const createWelcomeUI = () => createElement({
 
 const createTitleApp = ({
   text = "",
+  color = "inherit",
   align = "center",
   size = "big",
   classNames = "",
@@ -37,6 +38,7 @@ const createTitleApp = ({
   classNames,
   props: {
     variant: "h2",
+    color,
     size,
     align,
     text,
