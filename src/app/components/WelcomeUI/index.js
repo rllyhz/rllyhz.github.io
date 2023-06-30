@@ -1,6 +1,7 @@
 import styles from "./styles";
 import { Social } from "../../../globals/consts";
 import { toPublicPath } from "../../../utils/route-helper";
+import CustomButton from "../CustomButton";
 
 export default class WelcomeUI extends HTMLElement {
   static tagName = "welcome-ui";
@@ -17,7 +18,12 @@ export default class WelcomeUI extends HTMLElement {
 
       <h1>Hello, <br/>I am <span class='heading-color'>Rully</span> <br/>Android Dev</h1>
 
-      <a href="mailto:${Social.email}" class="button-email">Contact me</a>
+      <${CustomButton.tagName}
+        text="Contact me"
+        is-link
+        href="mailto:${Social.email}"
+        size="big"
+        ></${CustomButton.tagName}>
 
       <div class="social-connection">
         <a href="${Social.linkedIn}" target="_blank" title="linkedin">

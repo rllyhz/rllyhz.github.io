@@ -18,23 +18,6 @@ export default css`
     transition: filter var(--duration-short) ease-in-out;
   }
 
-  a.button-email {
-    text-decoration: none;
-    border: none;
-    background-color: var(--accent-color);
-    padding: .75rem 2.5rem;
-    color: var(--white-color);
-    font-family: "Poppins", sans-serif;
-    font-weight: 600;
-    font-size: 1rem;
-    border-radius: .5rem;
-    box-shadow: 0 0 0 unset;
-    transition: all var(--duration-medium) ease-in-out;
-  }
-  a.button-email:hover {
-    box-shadow: 2px 8px 24px rgba(174, 174, 174, .65);
-  }
-
   .social-connection {
     display: flex;
     flex-direction: column;

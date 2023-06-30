@@ -7,9 +7,9 @@ export default class CustomButton extends HTMLElement {
 
   #size = "";
 
-  #bgColor = "var(--primary-color)";
+  #bgColor = "var(--accent-color)";
 
-  #color = "var(--primary-color)";
+  #color = "var(--white-color)";
 
   #link = "";
 
