@@ -73,8 +73,9 @@ export default class LandingPage {
     Dom.appendRootPage(
       Component.createVerticalSpacer("3rem"),
     );
-
-    Dom.appendRootPage(
+    // See more btn
+    const btnMoreContainer = Component.createCustomFlexEndContainer();
+    btnMoreContainer.appendChild(
       Component.createCustomButton({
         text: "See more",
         size: "big",
@@ -82,6 +83,7 @@ export default class LandingPage {
         href: toPath("/projects"),
       }),
     );
+    Dom.appendRootPage(btnMoreContainer);
 
     // ====================================
     // Spacer
@@ -92,8 +94,48 @@ export default class LandingPage {
     Dom.appendRootPage(
       Component.createTitleApp({ text: "Contact", color: "var(--primary-color)", id: "contact" }),
     );
-
+    Dom.appendRootPage(
+      Component.createVerticalSpacer("2rem"),
+    );
     // Contact Section
+    const contactFormContainer = Component.createCustomCenterContainer("75%");
+    contactFormContainer.appendChild(
+      Component.createCustomInputText({
+        name: "fullname",
+        placeholder: "Fullname (required)",
+      }),
+    );
+    contactFormContainer.appendChild(Component.createVerticalSpacer("1rem"));
+    contactFormContainer.appendChild(
+      Component.createCustomInputText({
+        name: "email",
+        placeholder: "Email (required)",
+      }),
+    );
+    contactFormContainer.appendChild(Component.createVerticalSpacer("1rem"));
+    contactFormContainer.appendChild(
+      Component.createCustomInputText({
+        name: "message",
+        placeholder: "Your message (required)",
+        multiLineText: "true",
+        rows: "6",
+      }),
+    );
+    contactFormContainer.appendChild(Component.createVerticalSpacer("3rem"));
+    const btnSendContainer = Component.createCustomFlexEndContainer();
+    btnSendContainer.appendChild(
+      Component.createCustomButton({
+        text: "Send",
+        size: "big",
+      }),
+    );
+    contactFormContainer.appendChild(btnSendContainer);
+
+    Dom.appendRootPage(contactFormContainer);
+
+    Dom.appendRootPage(
+      Component.createVerticalSpacer("5rem"),
+    );
 
     uiStateObservable.emit(UIState.SUCCESS);
 

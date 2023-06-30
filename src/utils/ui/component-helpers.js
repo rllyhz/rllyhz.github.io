@@ -1,5 +1,6 @@
 import AboutUI from "../../app/components/AboutUI";
 import CustomButton from "../../app/components/CustomButton";
+import CustomInputText from "../../app/components/CustomInputText";
 import SkillsUI from "../../app/components/SkillsUI";
 import TitleApp from "../../app/components/TitleApp";
 import WelcomeUI from "../../app/components/WelcomeUI";
@@ -45,6 +46,7 @@ const createTitleApp = ({
   size = "big",
   classNames = "",
   id = "",
+  styles,
 }) => createElement({
   tagName: TitleApp.tagName,
   id,
@@ -56,16 +58,38 @@ const createTitleApp = ({
     align,
     text,
   },
+  styles,
 });
 
 const createCustomButton = ({
   text, size, bgColor = "var(--accent-color)", color = "var(--white-color)",
-  isLink = false, href = "", type,
+  isLink = false, href = "", type, styles,
 }) => createElement({
   tagName: CustomButton.tagName,
   props: {
     text, size, "bg-color": bgColor, color, "is-link": isLink, href, type,
   },
+  styles,
+});
+
+const createCustomInputText = ({
+  multiLineText = "false", obscureText = "false", placeholder = "", value = "", name = "",
+  title = "", rows = "", cols = "", id = "", resize = "vertical", styles,
+}) => createElement({
+  tagName: CustomInputText.tagName,
+  props: {
+    "multi-line": multiLineText,
+    obscure: obscureText,
+    placeholder,
+    value,
+    name,
+    title,
+    rows,
+    cols,
+    resize,
+    id,
+  },
+  styles,
 });
 
 const createWelcomeUI = () => createElement({
@@ -89,6 +113,7 @@ export {
   createVerticalSpacer,
   createTitleApp,
   createCustomButton,
+  createCustomInputText,
   createWelcomeUI,
   createAboutUI,
   createSkillsUI,

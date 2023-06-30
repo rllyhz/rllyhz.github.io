@@ -29,7 +29,7 @@ export default class ProjectItem extends HTMLElement {
       this.#url = newValue;
     } else if (name === "imagePath") {
       this.#imagePath = newValue;
-    } if (name === "heading") {
+    } else if (name === "heading") {
       this.#headingVariant = newValue;
     }
 
