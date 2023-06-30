@@ -2,6 +2,8 @@ import logger from "../../../utils/logger";
 import UIState from "../../../utils/ui-state";
 import Dom from "../../core/Dom";
 import Component from "../../core/Component";
+import { createDummyProjects } from "../../../utils/dummy_data/projects";
+import { toPath } from "../../../utils/route-helper";
 
 export default class LandingPage {
   static async render(uiStateObservable) {
@@ -59,9 +61,27 @@ export default class LandingPage {
       Component.createTitleApp({ text: "Work", color: "var(--primary-color)", id: "work" }),
     );
     Dom.appendRootPage(
-      Component.createVerticalSpacer("1rem"),
+      Component.createVerticalSpacer("2rem"),
     );
     // Work Section
+    const workUIElem = Component.createWorkUI();
+    Dom.appendRootPage(workUIElem);
+
+    const projects = createDummyProjects(6);
+    workUIElem.projects = projects;
+
+    Dom.appendRootPage(
+      Component.createVerticalSpacer("3rem"),
+    );
+
+    Dom.appendRootPage(
+      Component.createCustomButton({
+        text: "See more",
+        size: "big",
+        isLink: true,
+        href: toPath("/projects"),
+      }),
+    );
 
     // ====================================
     // Spacer

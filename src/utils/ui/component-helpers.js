@@ -1,7 +1,9 @@
 import AboutUI from "../../app/components/AboutUI";
+import CustomButton from "../../app/components/CustomButton";
 import SkillsUI from "../../app/components/SkillsUI";
 import TitleApp from "../../app/components/TitleApp";
 import WelcomeUI from "../../app/components/WelcomeUI";
+import WorkUI from "../../app/components/WorkUI";
 import { createElement } from "./dom-helpers";
 import { isOnMobileScreen } from "./viewport-helpers";
 
@@ -56,6 +58,16 @@ const createTitleApp = ({
   },
 });
 
+const createCustomButton = ({
+  text, size, bgColor = "var(--accent-color)", color = "var(--white-color)",
+  isLink = false, href = "", type,
+}) => createElement({
+  tagName: CustomButton.tagName,
+  props: {
+    text, size, "bg-color": bgColor, color, "is-link": isLink, href, type,
+  },
+});
+
 const createWelcomeUI = () => createElement({
   tagName: WelcomeUI.tagName,
 });
@@ -68,11 +80,17 @@ const createSkillsUI = () => createElement({
   tagName: SkillsUI.tagName,
 });
 
+const createWorkUI = () => createElement({
+  tagName: WorkUI.tagName,
+});
+
 export {
   createHorizontalSpacer,
   createVerticalSpacer,
   createTitleApp,
+  createCustomButton,
   createWelcomeUI,
   createAboutUI,
   createSkillsUI,
+  createWorkUI,
 };
