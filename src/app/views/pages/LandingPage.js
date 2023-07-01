@@ -4,27 +4,40 @@ import Dom from "../../core/Dom";
 import Component from "../../core/Component";
 import { createPreviewEmptyProjects } from "../../../utils/dummy_data/projects";
 import { toPath } from "../../../utils/route-helper";
-import Api from "../../core/Api";
-import { API } from "../../../globals/consts";
+import { getPinnedProjects, sendEmail } from "../../process/landing";
+import { validateEmail } from "../../../utils/data-helpers";
+import { CustomAlertBuilder } from "../../components/CustomAlert";
 
 export default class LandingPage {
   static async render(uiStateObservable) {
     uiStateObservable.emit(UIState.LOADING);
 
-    Api.get(API.getPinnedProjects)
-      .onSuccess((data) => {
+    getPinnedProjects({
+      onSuccess: (data) => {
         logger.info(data);
+
+        // No Projects
+        if (data.projects.length <= 0) {
+          CustomAlertBuilder
+            .setTitle("Sorry ☹️")
+            .setMessage("Currently no projects to show!")
+            .setType("info")
+            .setSize("small")
+            .build()
+            .show();
+        }
+
         uiStateObservable.emit(UIState.SUCCESS);
         LandingPage.showHasData(data.projects);
         logger.info("Landing page rendered");
-      })
-      .onFailed((status, err) => {
+      },
+      onFailed: (status, err) => {
         logger.error(status, err);
-        uiStateObservable.emit(UIState.SUCCESS);
+        uiStateObservable.emit(UIState.ERROR);
         LandingPage.showHasData();
         logger.info("Landing page rendered");
-      })
-      .execute();
+      },
+    });
   }
 
   static showHasData(projects = []) {
@@ -124,36 +137,32 @@ export default class LandingPage {
     );
     // Contact Section
     const contactFormContainer = Component.createCustomCenterContainer("75%");
-    contactFormContainer.appendChild(
-      Component.createCustomInputText({
-        name: "fullname",
-        placeholder: "Fullname (required)",
-      }),
-    );
+    const nameInput = Component.createCustomInputText({
+      name: "fullname",
+      placeholder: "Fullname (required)",
+    });
+    const emailInput = Component.createCustomInputText({
+      name: "email",
+      placeholder: "Email (required)",
+    });
+    const messageInput = Component.createCustomInputText({
+      name: "message",
+      placeholder: "Your message (required)",
+      multiLineText: "true",
+      rows: "6",
+    });
+    const btnSend = Component.createCustomButton({
+      text: "Send",
+      size: "big",
+    });
+    contactFormContainer.appendChild(nameInput);
     contactFormContainer.appendChild(Component.createVerticalSpacer("1rem"));
-    contactFormContainer.appendChild(
-      Component.createCustomInputText({
-        name: "email",
-        placeholder: "Email (required)",
-      }),
-    );
+    contactFormContainer.appendChild(emailInput);
     contactFormContainer.appendChild(Component.createVerticalSpacer("1rem"));
-    contactFormContainer.appendChild(
-      Component.createCustomInputText({
-        name: "message",
-        placeholder: "Your message (required)",
-        multiLineText: "true",
-        rows: "6",
-      }),
-    );
+    contactFormContainer.appendChild(messageInput);
     contactFormContainer.appendChild(Component.createVerticalSpacer("3rem"));
     const btnSendContainer = Component.createCustomFlexEndContainer();
-    btnSendContainer.appendChild(
-      Component.createCustomButton({
-        text: "Send",
-        size: "big",
-      }),
-    );
+    btnSendContainer.appendChild(btnSend);
     contactFormContainer.appendChild(btnSendContainer);
 
     Dom.appendRootPage(contactFormContainer);
@@ -161,5 +170,71 @@ export default class LandingPage {
     Dom.appendRootPage(
       Component.createVerticalSpacer("5rem"),
     );
+
+    // Click send listener
+    let isSendingEmail = false;
+    btnSend.addEventListener("click", () => {
+      if (isSendingEmail) return;
+
+      const fullname = nameInput.value;
+      const email = emailInput.value;
+      const message = messageInput.value;
+
+      if (!fullname || !email || !message) {
+        CustomAlertBuilder
+          .setTitle("Not Allowed")
+          .setMessage("Please fill in all the required fields!")
+          .setType("warning")
+          .setSize("small")
+          .build()
+          .show();
+        return;
+      }
+      if (!validateEmail(email)) {
+        CustomAlertBuilder
+          .setTitle("Not Allowed")
+          .setMessage("Please enter a valid email!")
+          .setType("warning")
+          .setSize("small")
+          .build()
+          .show();
+        return;
+      }
+
+      isSendingEmail = true;
+      btnSend.loading = true;
+
+      sendEmail({
+        body: { fullname, email, message },
+        onFailed: () => {
+          CustomAlertBuilder
+            .setTitle("Oppss...")
+            .setMessage("Failed to send email! 😕")
+            .setType("error")
+            .setSize("small")
+            .build()
+            .show();
+
+          isSendingEmail = false;
+          btnSend.loading = false;
+        },
+        onSuccess: () => {
+          nameInput.value = "";
+          emailInput.value = "";
+          messageInput.value = "";
+
+          CustomAlertBuilder
+            .setTitle("Email successfully sent 💌")
+            .setMessage("Thank you for contacting me.")
+            .setType("success")
+            .setSize("small")
+            .build()
+            .show();
+
+          isSendingEmail = false;
+          btnSend.loading = false;
+        },
+      });
+    });
   }
 }

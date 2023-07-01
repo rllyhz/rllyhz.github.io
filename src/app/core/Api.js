@@ -45,9 +45,10 @@ class ApiBuilder {
       logger.error(`${this.method}: ${this.endpointUrl}`);
       this.onFailedCallback(408, err);
     }).then(
-      (res) => {
+      async (res) => {
         if (res.ok && res.status === 200) {
-          this.onSuccessCallback(res.json());
+          const data = await res.json();
+          this.onSuccessCallback(data);
         } else {
           this.onFailedCallback(res.status, "Error");
         }
@@ -56,7 +57,7 @@ class ApiBuilder {
   }
 }
 
-const Api = {
+const Api2 = {
   get: (endpointUrl, body = null, headers = undefined) => new ApiBuilder(
     endpointUrl,
     "GET",
@@ -87,9 +88,44 @@ const Api = {
     body,
     headers,
   ),
-
-  // helpers
-  createBearerToken: (token) => `Bearer ${token}`,
 };
 
-export default Api;
+const FetchHandler = async (endpointUrl, method, body, headers) => {
+  try {
+    const response = await fetch(endpointUrl, { method, body, headers });
+
+    if (response.ok && response.status === 200) {
+      const data = await response.json();
+      return {
+        success: true,
+        responseData: data,
+      };
+    }
+    return {
+      success: false,
+      responseData: { status: response.status, error: "Error" },
+    };
+  } catch (error) {
+    return {
+      success: false,
+      responseData: { status: 408, error },
+    };
+  }
+};
+
+const Api = {
+  get: async (endpointUrl, body = null, headers = undefined) => FetchHandler(endpointUrl, "GET", body, headers),
+  post: async (endpointUrl, body, headers = undefined) => FetchHandler(endpointUrl, "POST", body, headers),
+  put: async (endpointUrl, body, headers = undefined) => FetchHandler(endpointUrl, "PUT", body, headers),
+  patch: async (endpointUrl, body, headers = undefined) => FetchHandler(endpointUrl, "PATCH", body, headers),
+  delete: async (endpointUrl, body = null, headers = undefined) => FetchHandler(endpointUrl, "DELETE", body, headers),
+};
+
+// helpers
+const createBearerToken = (token) => `Bearer ${token}`;
+
+export {
+  Api,
+  Api2,
+  createBearerToken,
+};

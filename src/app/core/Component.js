@@ -22,9 +22,9 @@ const createCustomCenterContainer = (width = "90%") => createElement({
 const createCustomFlexContainer = ({
   justifyContent,
   alignItems,
-  flexDirection,
-  margin,
-  padding,
+  flexDirection = "row",
+  margin = "0",
+  padding = "0",
 }) => createElement({
   tagName: "div",
   styles: {

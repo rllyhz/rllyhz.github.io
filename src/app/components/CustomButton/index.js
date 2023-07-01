@@ -5,9 +5,13 @@ export default class CustomButton extends HTMLElement {
 
   #text = "";
 
+  #oldText = "";
+
   #size = "";
 
   #bgColor = "var(--accent-color)";
+
+  #oldBgColor = "";
 
   #color = "var(--white-color)";
 
@@ -42,6 +46,20 @@ export default class CustomButton extends HTMLElement {
       this.#link = newValue;
     } else if (name === "type") {
       this.#type = newValue ?? "button";
+    }
+
+    this._render();
+  }
+
+  set loading(isLoading = true) {
+    if (isLoading) {
+      this.#oldText = this.#text;
+      this.#text = "Loading...";
+      this.#oldBgColor = this.#bgColor;
+      this.#bgColor = "grey";
+    } else {
+      this.#text = this.#oldText;
+      this.#bgColor = this.#oldBgColor;
     }
 
     this._render();

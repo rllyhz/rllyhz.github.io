@@ -63,6 +63,7 @@
   --z-fixed: 50;
   --z-header: 100;
   --z-drawer: 200;
+  --z-alert: 300;
 }
 
 /* Sizes */
@@ -112,6 +113,12 @@ img {
 #loading-page {
   display: flex;
   justify-content: center;
+}
+
+#alert-page {
+  position: absolute;
+    top: 50%;
+    left: 50%;
 }
 
 /*

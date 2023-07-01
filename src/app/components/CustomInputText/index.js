@@ -61,6 +61,14 @@ export default class CustomInputText extends HTMLElement {
     this.attachShadow({ mode: "open" });
   }
 
+  set value(newValue = "") {
+    this.shadowRoot.querySelector(this.#multiLine ? "textarea" : "input").value = newValue;
+  }
+
+  get value() {
+    return this.shadowRoot.querySelector(this.#multiLine ? "textarea" : "input").value;
+  }
+
   _render() {
     this.style.display = "block";
     this.shadowRoot.innerHTML = !this.#multiLine ? `
