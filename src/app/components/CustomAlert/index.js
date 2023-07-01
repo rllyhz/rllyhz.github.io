@@ -136,6 +136,19 @@ class CustomAlertBuilder {
 class CustomAlert extends HTMLElement {
   static tagName = "custom-alert";
 
+  static TYPE = {
+    SUCCESS: "success",
+    INFO: "info",
+    WARNING: "warning",
+    ERROR: "error",
+  };
+
+  static SIZE = {
+    SMALL: "small",
+    MEDIUM: "medium",
+    BIG: "big",
+  };
+
   #type = "success";
 
   #size = "medium";
@@ -188,9 +201,9 @@ class CustomAlert extends HTMLElement {
     const mediumSize = "45%";
     const smallSize = "35%";
 
-    if (this.#size === "big") {
+    if (this.#size === CustomAlert.SIZE.BIG) {
       this.style.width = isMobile ? xlargeSize : largeSize;
-    } else if (this.#size === "medium") {
+    } else if (this.#size === CustomAlert.SIZE.MEDIUM) {
       this.style.width = isMobile ? largeSize : mediumSize;
     } else {
       this.style.width = isMobile ? largeSize : smallSize;
@@ -202,13 +215,13 @@ class CustomAlert extends HTMLElement {
     let icon = `<box-icon name='error-circle' color="#CF7070" size="2.5rem">
     </box-icon>`;
 
-    if (this.#type === "success") {
+    if (this.#type === CustomAlert.TYPE.SUCCESS) {
       icon = `<box-icon name='check-circle' color="#70D270" size="2.5rem">
     </box-icon>`;
-    } else if (this.#type === "info") {
+    } else if (this.#type === CustomAlert.TYPE.INFO) {
       icon = `<box-icon name='info-circle' color="#B3B3B3" size="2.5rem">
     </box-icon>`;
-    } else if (this.#type === "warning") {
+    } else if (this.#type === CustomAlert.TYPE.WARNING) {
       icon = `<box-icon name='error-circle' color="#F7D95B" size="2.5rem">
     </box-icon>`;
     }
@@ -223,7 +236,7 @@ class CustomAlert extends HTMLElement {
         <div class="button">
           <${CustomButton.tagName}
             text="Oke"
-            size="medium"
+            size="${CustomAlert.SIZE.MEDIUM}"
             bg-color="grey"
             color="var(--white-color)"
             title="Confirm"

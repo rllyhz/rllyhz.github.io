@@ -1,3 +1,5 @@
+import { StringResource } from "./config";
+
 const API = {
   baseUrl: "https://rllyzhz-github-pages.netlify.app/.netlify/functions/api",
   baseUrlTesting: "http://localhost:9000/.netlify/functions/api",
@@ -16,6 +18,8 @@ const API = {
   importProjects: "/data/projects/import",
   exportProjects: "/data/projects/export",
 };
+
+const Strings = StringResource;
 
 const Social = {
   email: "rullyihza00@gmail.com",
@@ -73,6 +77,7 @@ const Data = {
 
 export {
   API,
+  Strings,
   Social,
   Links,
   Data,

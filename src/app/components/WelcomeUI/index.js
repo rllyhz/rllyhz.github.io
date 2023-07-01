@@ -22,7 +22,7 @@ export default class WelcomeUI extends HTMLElement {
         text="Contact me"
         is-link
         href="mailto:${Social.email}"
-        size="big"
+        size="${CustomButton.SIZE.BIG}"
         ></${CustomButton.tagName}>
 
       <div class="social-connection">

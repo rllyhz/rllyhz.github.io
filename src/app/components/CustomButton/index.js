@@ -3,6 +3,12 @@ import styles from "./styles";
 export default class CustomButton extends HTMLElement {
   static tagName = "custom-button";
 
+  static SIZE = {
+    SMALL: "small",
+    MEDIUM: "medium",
+    BIG: "big",
+  };
+
   #text = "";
 
   #oldText = "";
@@ -41,11 +47,9 @@ export default class CustomButton extends HTMLElement {
     } else if (name === "color") {
       this.#color = newValue;
     } else if (name === "is-link") {
-      this.#showHref = newValue === "" || newValue !== "false";
+      this.#showHref = newValue === "" || newValue !== "false" || !newValue;
     } else if (name === "href") {
       this.#link = newValue;
-    } else if (name === "type") {
-      this.#type = newValue ?? "button";
     }
 
     this._render();

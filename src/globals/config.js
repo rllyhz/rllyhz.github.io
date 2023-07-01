@@ -6,7 +6,70 @@ const Config = {
   STORAGE_AUTH_KEY: "RllyhzGithubPages-V2",
 };
 
-const StringResource = {};
+const StringResource = {
+  App: {
+    Title: "Rllyhz's Github Pages",
+    Author: "Rully Ihza Mahendra",
+  },
+  Menus: {
+    Home: "Home",
+    About: "About",
+    Skills: "Skills",
+    Work: "Work",
+    Contact: "Contact",
+  },
+  Pages: {
+    Titles: {
+      LandingPage: "Home Page",
+      LoginPage: "Login Page",
+      ProjectsPage: "Projects Page",
+      ProjectDetailPage: "Project Detail Page",
+      ProjectUpdatePage: "Project Update Page",
+      DashboardPage: "Dashboard Page",
+    },
+  },
+  Buttons: {
+    ContactMe: "Contact Me",
+    SeeMore: "See More",
+    SendEmail: "Send",
+  },
+  Placeholders: {
+    FullName: "Fullname (required)",
+    Email: "Email (required)",
+    Message: "Your Message (required)",
+  },
+  Alerts: {
+    CurrentlyNoProjects: {
+      Title: "Sorry ☹️",
+      Message: "Currently no projects to show!",
+      ConfirmText: "Oke",
+    },
+    FillOutAllTheRequiredFields: {
+      Title: "Not Allowed",
+      Message: "Please fill in all the required fields!",
+      ConfirmText: "Oke",
+    },
+    InvalidEmailFormat: {
+      Title: "Not Allowed",
+      Message: "Please enter a valid email!",
+      ConfirmText: "Oke",
+    },
+    FailedToSendEmail: {
+      Title: "Oppss...",
+      Message: "Failed to send email! 😕",
+      ConfirmText: "Oke",
+    },
+    SuccessfullySentEmail: {
+      Title: "Email successfully sent 💌",
+      Message: "Thank you for contacting me.",
+      ConfirmText: "Oke",
+    },
+  },
+  ThankYou: "Thank You",
+  GetConnectionWithMe: "Get connection with me",
+  BuiltCopyright: (loveIconTag) => `Built with ${loveIconTag} by Rully Ihza Mahendra`,
+  Copyright: (year) => `© ${year} copyright all right reserved`,
+};
 
 export {
   Config,
