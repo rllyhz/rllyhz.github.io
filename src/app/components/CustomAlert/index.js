@@ -13,6 +13,11 @@ class CustomAlertDetail {
   }
 }
 
+const Callbacks = {
+  confirm: null,
+  cancel: null,
+};
+
 class CustomAlertBuilder {
   static #detail = null;
 
@@ -25,6 +30,10 @@ class CustomAlertBuilder {
   static #size;
 
   static #cancelable = false;
+
+  static #confirmText = "Oke";
+
+  static #cancelText = "Cancel";
 
   static isShowing = false;
 
@@ -52,6 +61,22 @@ class CustomAlertBuilder {
 
   static setSize(size = "medium") {
     CustomAlertBuilder.#size = size;
+    return CustomAlertBuilder;
+  }
+
+  static setConfirm(text, callback = null) {
+    CustomAlertBuilder.#confirmText = text;
+    if (callback === null) {
+      Callbacks.confirm = () => {};
+    } else {
+      Callbacks.confirm = callback;
+    }
+    return CustomAlertBuilder;
+  }
+
+  static setCancel(text, callback = null) {
+    CustomAlertBuilder.#cancelText = text;
+    Callbacks.cancel = callback;
     return CustomAlertBuilder;
   }
 
@@ -103,6 +128,9 @@ class CustomAlertBuilder {
         message="${CustomAlertBuilder.#detail.message}"
         type="${CustomAlertBuilder.#detail.type}"
         size="${CustomAlertBuilder.#detail.size}"
+        cancel-text="${CustomAlertBuilder.#cancelText}"
+        confirm-text="${CustomAlertBuilder.#confirmText}"
+        ${Callbacks.confirm === null ? "single-confirm" : ""}
         >
       </custom-alert>
     `;
@@ -157,13 +185,24 @@ class CustomAlert extends HTMLElement {
 
   #message = "";
 
+  #confirmText = "Oke";
+
+  #cancelText = "Cancel";
+
+  #singleConfirm = false;
+
+  #singleBgColor = "var(--accent-color)";
+
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
   }
 
   static get observedAttributes() {
-    return ["type", "size", "title", "message"];
+    return [
+      "type", "size", "title", "message", "confirm-text", "cancel-text",
+      "single-confirm", "single-bg-color",
+    ];
   }
 
   attributeChangedCallback(name, _, newValue) {
@@ -175,13 +214,37 @@ class CustomAlert extends HTMLElement {
       this.#title = newValue;
     } else if (name === "message") {
       this.#message = newValue;
+    } else if (name === "confirm-text") {
+      this.#confirmText = newValue;
+    } else if (name === "cancel-text") {
+      this.#cancelText = newValue;
+    } else if (name === "single-confirm" && newValue !== "false") {
+      this.#singleConfirm = true;
+    } else if (name === "single-bg-color") {
+      this.#singleBgColor = newValue;
     }
 
     this._render();
   }
 
   connectedCallback() {
-    this.shadowRoot.querySelector(CustomButton.tagName).addEventListener("click", this.removeAlert);
+    this.shadowRoot.querySelector(`${CustomButton.tagName}:first-child`)
+      .addEventListener("click", () => {
+        if (Callbacks.cancel && typeof Callbacks.cancel === "function") {
+          Callbacks.cancel();
+        }
+        this.removeAlert();
+      });
+
+    if (this.shadowRoot.querySelector(`${CustomButton.tagName}:nth-child(2)`)) {
+      this.shadowRoot.querySelector(`${CustomButton.tagName}:nth-child(2)`)
+        .addEventListener("click", () => {
+          if (Callbacks.confirm && typeof Callbacks.confirm === "function") {
+            Callbacks.confirm();
+          }
+          this.removeAlert();
+        });
+    }
   }
 
   removeAlert() {
@@ -192,6 +255,8 @@ class CustomAlert extends HTMLElement {
     }
     if (CustomAlertBuilder.isShowing) backdropAlert.remove();
     CustomAlertBuilder.isShowing = false;
+    Callbacks.confirm = null;
+    Callbacks.cancel = null;
   }
 
   _render() {
@@ -201,12 +266,17 @@ class CustomAlert extends HTMLElement {
     const mediumSize = "45%";
     const smallSize = "35%";
 
+    let buttonsSize = CustomButton.SIZE.MEDIUM;
+
     if (this.#size === CustomAlert.SIZE.BIG) {
       this.style.width = isMobile ? xlargeSize : largeSize;
+      buttonsSize = CustomButton.SIZE.MEDIUM;
     } else if (this.#size === CustomAlert.SIZE.MEDIUM) {
       this.style.width = isMobile ? largeSize : mediumSize;
+      buttonsSize = isMobile ? CustomButton.SIZE.SMALL : CustomButton.SIZE.MEDIUM;
     } else {
       this.style.width = isMobile ? largeSize : smallSize;
+      buttonsSize = CustomButton.SIZE.SMALL;
     }
 
     this.style.marginTop = "20vh";
@@ -226,21 +296,46 @@ class CustomAlert extends HTMLElement {
     </box-icon>`;
     }
 
+    let buttons = null;
+
+    if (this.#singleConfirm) {
+      buttons = `
+        <${CustomButton.tagName}
+        text="${this.#cancelText}"
+        size="${buttonsSize}"
+        bg-color="${this.#singleConfirm && !this.#singleBgColor ? this.#singleBgColor : "grey"}"
+        color="var(--white-color)"
+        title="Confirm"
+        ></${CustomButton.tagName}>
+      `;
+    } else {
+      buttons = `
+      <${CustomButton.tagName}
+        text="${this.#cancelText}"
+        size="${buttonsSize}"
+        bg-color="${this.#singleConfirm && !this.#singleBgColor ? this.#singleBgColor : "grey"}"
+        color="var(--white-color)"
+        title="Confirm"
+        ></${CustomButton.tagName}>
+      <${CustomButton.tagName}
+        text="${this.#confirmText}"
+        size="${buttonsSize}"
+        bg-color="var(--accent-color)"
+        color="var(--white-color)"
+        title="Confirm"
+        ></${CustomButton.tagName}>
+      `;
+    }
+
     this.shadowRoot.innerHTML = `
       ${styles}
       <div class="alert-container">
         <p class="icon">${icon}</p>
         <p class="title">${this.#title}</p>
         <p class="message">${this.#message}</p>
-        
-        <div class="button">
-          <${CustomButton.tagName}
-            text="Oke"
-            size="${CustomAlert.SIZE.MEDIUM}"
-            bg-color="grey"
-            color="var(--white-color)"
-            title="Confirm"
-            ></${CustomButton.tagName}>
+
+        <div class=button-container>
+          ${buttons}
         </div>
       </div>
     `;

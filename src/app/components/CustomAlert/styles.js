@@ -38,10 +38,11 @@ export default css`
     font-size: .9rem;
     font-weight: 300;
   }
-  .alert-container .button {
+  .alert-container .button-container {
     margin: 1.5rem 1.2rem 1.2rem;
     display: flex;
     justify-content: end;
+    column-gap: .35rem;
   }
 
   @keyframes fade {
