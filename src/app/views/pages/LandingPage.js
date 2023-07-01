@@ -2,13 +2,32 @@ import logger from "../../../utils/logger";
 import UIState from "../../../utils/ui-state";
 import Dom from "../../core/Dom";
 import Component from "../../core/Component";
-import { createDummyProjects } from "../../../utils/dummy_data/projects";
+import { createPreviewEmptyProjects } from "../../../utils/dummy_data/projects";
 import { toPath } from "../../../utils/route-helper";
+import Api from "../../core/Api";
+import { API } from "../../../globals/consts";
 
 export default class LandingPage {
   static async render(uiStateObservable) {
     uiStateObservable.emit(UIState.LOADING);
 
+    Api.get(API.getPinnedProjects)
+      .onSuccess((data) => {
+        logger.info(data);
+        uiStateObservable.emit(UIState.SUCCESS);
+        LandingPage.showHasData(data.projects);
+        logger.info("Landing page rendered");
+      })
+      .onFailed((status, err) => {
+        logger.error(status, err);
+        uiStateObservable.emit(UIState.SUCCESS);
+        LandingPage.showHasData();
+        logger.info("Landing page rendered");
+      })
+      .execute();
+  }
+
+  static showHasData(projects = []) {
     // ====================================
     Dom.appendRootPage(
       Dom.createElement({ tagName: "span", id: "home" }),
@@ -67,8 +86,14 @@ export default class LandingPage {
     const workUIElem = Component.createWorkUI();
     Dom.appendRootPage(workUIElem);
 
-    const projects = createDummyProjects(6);
-    workUIElem.projects = projects;
+    let tempProjects = [];
+    if (projects.length > 0) {
+      tempProjects = projects;
+    } else {
+      tempProjects = createPreviewEmptyProjects(6);
+    }
+
+    workUIElem.projects = tempProjects;
 
     Dom.appendRootPage(
       Component.createVerticalSpacer("3rem"),
@@ -136,9 +161,5 @@ export default class LandingPage {
     Dom.appendRootPage(
       Component.createVerticalSpacer("5rem"),
     );
-
-    uiStateObservable.emit(UIState.SUCCESS);
-
-    logger.info("Landing page rendered");
   }
 }

@@ -1,4 +1,5 @@
 import ProjectModel from "../../app/model/ProjectModel";
+import { toPath } from "../route-helper";
 
 const Params = {
   project: ProjectModel,
@@ -12,7 +13,7 @@ const dummyProject = new ProjectModel(
   "Project description",
   "image-path",
   "project-type",
-  "project-url",
+  toPath("/"),
   ["JS"],
   ["Web"],
 );
@@ -31,7 +32,7 @@ const getDummyProject = () => dummyProject;
   */
 const createDummyProjects = (total = 1, author = dummyAuthor) => {
   if (total <= 0) return [];
-  if (total === 1) return dummyProject;
+  if (total === 1) return [dummyProject];
 
   const tempProjects = [];
 
@@ -43,7 +44,37 @@ const createDummyProjects = (total = 1, author = dummyAuthor) => {
         `Project description ${index}`,
         `image-path-${index}`,
         `project-type-${index}`,
-        `project-url-${index}`,
+        toPath("/"),
+        ["JS"],
+        ["Web"],
+      ),
+    );
+  }
+
+  return tempProjects;
+};
+
+/**
+  * Get Preview Empty Projects
+  * @param {number} total
+  * @param {String} author
+  * @returns {ProjectModel[]} projects
+  */
+const createPreviewEmptyProjects = (total = 1, author = "rllyhz") => {
+  if (total <= 0) return [];
+  if (total === 1) return [dummyProject];
+
+  const tempProjects = [];
+
+  for (let index = 1; index <= total; index++) {
+    tempProjects.push(
+      new ProjectModel(
+        "No Title",
+        author,
+        `Project description ${index}`,
+        `image-path-${index}`,
+        `project-type-${index}`,
+        toPath("/"),
         ["JS"],
         ["Web"],
       ),
@@ -57,4 +88,5 @@ export {
   Params,
   getDummyProject,
   createDummyProjects,
+  createPreviewEmptyProjects,
 };

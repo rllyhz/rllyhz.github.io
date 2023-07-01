@@ -1,5 +1,6 @@
 import { Config } from "../../globals/config";
 import { API } from "../../globals/consts";
+import logger from "../../utils/logger";
 import { sanitizePath } from "../../utils/route-helper";
 
 class ApiBuilder {
@@ -34,11 +35,14 @@ class ApiBuilder {
   }
 
   execute() {
+    logger.info(`${this.method}: ${this.endpointUrl}`);
+
     fetch(this.endpointUrl, {
       method: this.method,
       body: this.body,
       headers: this.headers,
     }).catch((err) => {
+      logger.error(`${this.method}: ${this.endpointUrl}`);
       this.onFailedCallback(408, err);
     }).then(
       (res) => {
@@ -53,13 +57,13 @@ class ApiBuilder {
 }
 
 const Api = {
-  get: (endpointUrl, body, headers = undefined) => ApiBuilder(
+  get: (endpointUrl, body = null, headers = undefined) => new ApiBuilder(
     endpointUrl,
     "GET",
     body,
     headers,
   ),
-  post: (endpointUrl, body, headers = undefined) => ApiBuilder(
+  post: (endpointUrl, body, headers = undefined) => new ApiBuilder(
     endpointUrl,
     "POST",
     body,
@@ -71,13 +75,13 @@ const Api = {
     body,
     headers,
   ),
-  patch: (endpointUrl, body, headers = undefined) => ApiBuilder(
+  patch: (endpointUrl, body, headers = undefined) => new ApiBuilder(
     endpointUrl,
     "PATCH",
     body,
     headers,
   ),
-  delete: (endpointUrl, body = null, headers = undefined) => ApiBuilder(
+  delete: (endpointUrl, body = null, headers = undefined) => new ApiBuilder(
     endpointUrl,
     "DELETE",
     body,
