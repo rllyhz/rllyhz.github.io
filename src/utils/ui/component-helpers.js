@@ -2,7 +2,7 @@ import AboutUI from "../../app/components/AboutUI";
 import CustomButton from "../../app/components/CustomButton";
 import CustomInputText from "../../app/components/CustomInputText";
 import SkillsUI from "../../app/components/SkillsUI";
-import TitleApp from "../../app/components/TitleApp";
+import CustomTitle from "../../app/components/CustomTitle";
 import WelcomeUI from "../../app/components/WelcomeUI";
 import WorkUI from "../../app/components/WorkUI";
 import { createElement } from "./dom-helpers";
@@ -39,20 +39,20 @@ const createVerticalSpacer = (size = "1rem", sizeOnMobile = null) => createSpace
   sizeOnMobile,
 });
 
-const createTitleApp = ({
+const createCustomTitle = ({
   text = "",
-  color = "inherit",
-  align = "center",
-  size = "big",
+  color = "",
+  align = CustomTitle.ALIGN.START,
+  size = CustomTitle.SIZE.SMALL,
   classNames = "",
   id = "",
   styles,
 }) => createElement({
-  tagName: TitleApp.tagName,
+  tagName: CustomTitle.tagName,
   id,
   classNames,
   props: {
-    variant: "h2",
+    variant: CustomTitle.VARIANT.H1,
     color,
     size,
     align,
@@ -111,7 +111,7 @@ const createWorkUI = () => createElement({
 export {
   createHorizontalSpacer,
   createVerticalSpacer,
-  createTitleApp,
+  createCustomTitle,
   createCustomButton,
   createCustomInputText,
   createWelcomeUI,

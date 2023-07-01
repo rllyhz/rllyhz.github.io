@@ -1,7 +1,7 @@
 import {
   createHorizontalSpacer,
   createVerticalSpacer,
-  createTitleApp,
+  createCustomTitle,
   createCustomButton,
   createCustomInputText,
   createWelcomeUI,
@@ -10,6 +10,7 @@ import {
   createWorkUI,
 } from "../../utils/ui/component-helpers";
 import { createElement } from "../../utils/ui/dom-helpers";
+import CustomTitle from "../components/CustomTitle";
 
 const createCustomCenterContainer = (width = "90%") => createElement({
   tagName: "div",
@@ -39,6 +40,15 @@ const createCustomFlexContainer = ({
 
 const createCustomFlexEndContainer = () => createCustomFlexContainer({
   justifyContent: "end",
+});
+
+const createTitleApp = ({
+  text, id, styles, classNames,
+  color = "var(--primary-color)",
+  align = CustomTitle.ALIGN.CENTER,
+  size = CustomTitle.SIZE.BIG,
+}) => createCustomTitle({
+  text, id, size, align, styles, classNames, color,
 });
 
 const Component = {
