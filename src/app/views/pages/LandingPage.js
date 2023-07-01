@@ -6,7 +6,9 @@ import { createPreviewEmptyProjects } from "../../../utils/dummy_data/projects";
 import { toPath } from "../../../utils/route-helper";
 import { getPinnedProjects, sendEmail } from "../../process/landing";
 import { validateEmail } from "../../../utils/data-helpers";
-import { CustomAlertBuilder } from "../../components/CustomAlert";
+import { CustomAlert, CustomAlertBuilder } from "../../components/CustomAlert";
+import CustomButton from "../../components/CustomButton";
+import { Strings } from "../../../globals/consts";
 
 export default class LandingPage {
   static async render(uiStateObservable) {
@@ -19,10 +21,10 @@ export default class LandingPage {
         // No Projects
         if (data.projects.length <= 0) {
           CustomAlertBuilder
-            .setTitle("Sorry ☹️")
-            .setMessage("Currently no projects to show!")
-            .setType("info")
-            .setSize("small")
+            .setTitle(Strings.Alerts.CurrentlyNoProjects.Title)
+            .setMessage(Strings.Alerts.CurrentlyNoProjects.Message)
+            .setType(CustomAlert.TYPE.INFO)
+            .setSize(CustomAlert.SIZE.SMALL)
             .build()
             .show();
         }
@@ -42,6 +44,7 @@ export default class LandingPage {
 
   static showHasData(projects = []) {
     // ====================================
+    // For cta link
     Dom.appendRootPage(
       Dom.createElement({ tagName: "span", id: "home" }),
     );
@@ -56,7 +59,7 @@ export default class LandingPage {
     );
     // Title for About
     Dom.appendRootPage(
-      Component.createTitleApp({ text: "About", color: "var(--primary-color)", id: "about" }),
+      Component.createTitleApp({ text: "About", id: "about" }),
     );
     Dom.appendRootPage(
       Component.createVerticalSpacer("2rem"),
@@ -73,7 +76,10 @@ export default class LandingPage {
     );
     // Title for Skills
     Dom.appendRootPage(
-      Component.createTitleApp({ text: "Skills", color: "var(--primary-color)", id: "skills" }),
+      Component.createTitleApp({
+        id: "skills",
+        text: Strings.Menus.Skills,
+      }),
     );
     Dom.appendRootPage(
       Component.createVerticalSpacer("2rem"),
@@ -90,7 +96,10 @@ export default class LandingPage {
     );
     // Title for Work
     Dom.appendRootPage(
-      Component.createTitleApp({ text: "Work", color: "var(--primary-color)", id: "work" }),
+      Component.createTitleApp({
+        id: "work",
+        text: Strings.Menus.Work,
+      }),
     );
     Dom.appendRootPage(
       Component.createVerticalSpacer("2rem"),
@@ -115,8 +124,8 @@ export default class LandingPage {
     const btnMoreContainer = Component.createCustomFlexEndContainer();
     btnMoreContainer.appendChild(
       Component.createCustomButton({
-        text: "See more",
-        size: "big",
+        text: Strings.Buttons.SeeMore,
+        size: CustomButton.SIZE.BIG,
         isLink: true,
         href: toPath("/projects"),
       }),
@@ -130,7 +139,10 @@ export default class LandingPage {
     );
     // Title for Contact
     Dom.appendRootPage(
-      Component.createTitleApp({ text: "Contact", color: "var(--primary-color)", id: "contact" }),
+      Component.createTitleApp({
+        id: "contact",
+        text: Strings.Menus.Contact,
+      }),
     );
     Dom.appendRootPage(
       Component.createVerticalSpacer("2rem"),
@@ -139,21 +151,21 @@ export default class LandingPage {
     const contactFormContainer = Component.createCustomCenterContainer("75%");
     const nameInput = Component.createCustomInputText({
       name: "fullname",
-      placeholder: "Fullname (required)",
+      placeholder: Strings.Placeholders.FullName,
     });
     const emailInput = Component.createCustomInputText({
       name: "email",
-      placeholder: "Email (required)",
+      placeholder: Strings.Placeholders.Email,
     });
     const messageInput = Component.createCustomInputText({
       name: "message",
-      placeholder: "Your message (required)",
+      placeholder: Strings.Placeholders.Message,
       multiLineText: "true",
       rows: "6",
     });
     const btnSend = Component.createCustomButton({
-      text: "Send",
-      size: "big",
+      text: Strings.Buttons.SendEmail,
+      size: CustomButton.SIZE.BIG,
     });
     contactFormContainer.appendChild(nameInput);
     contactFormContainer.appendChild(Component.createVerticalSpacer("1rem"));
@@ -182,20 +194,20 @@ export default class LandingPage {
 
       if (!fullname || !email || !message) {
         CustomAlertBuilder
-          .setTitle("Not Allowed")
-          .setMessage("Please fill in all the required fields!")
-          .setType("warning")
-          .setSize("small")
+          .setTitle(Strings.Alerts.FillOutAllTheRequiredFields.Title)
+          .setMessage(Strings.Alerts.FillOutAllTheRequiredFields.Message)
+          .setType(CustomAlert.TYPE.WARNING)
+          .setSize(CustomAlert.SIZE.SMALL)
           .build()
           .show();
         return;
       }
       if (!validateEmail(email)) {
         CustomAlertBuilder
-          .setTitle("Not Allowed")
-          .setMessage("Please enter a valid email!")
-          .setType("warning")
-          .setSize("small")
+          .setTitle(Strings.Alerts.InvalidEmailFormat.Title)
+          .setMessage(Strings.Alerts.InvalidEmailFormat.Message)
+          .setType(CustomAlert.TYPE.WARNING)
+          .setSize(CustomAlert.SIZE.SMALL)
           .build()
           .show();
         return;
@@ -208,10 +220,10 @@ export default class LandingPage {
         body: { fullname, email, message },
         onFailed: () => {
           CustomAlertBuilder
-            .setTitle("Oppss...")
-            .setMessage("Failed to send email! 😕")
-            .setType("error")
-            .setSize("small")
+            .setTitle(Strings.Alerts.FailedToSendEmail.Title)
+            .setMessage(Strings.Alerts.FailedToSendEmail.Message)
+            .setType(CustomAlert.TYPE.ERROR)
+            .setSize(CustomAlert.SIZE.SMALL)
             .build()
             .show();
 
@@ -224,10 +236,10 @@ export default class LandingPage {
           messageInput.value = "";
 
           CustomAlertBuilder
-            .setTitle("Email successfully sent 💌")
-            .setMessage("Thank you for contacting me.")
-            .setType("success")
-            .setSize("small")
+            .setTitle(Strings.Alerts.SuccessfullySentEmail.Title)
+            .setMessage(Strings.Alerts.SuccessfullySentEmail.Message)
+            .setType(CustomAlert.TYPE.SUCCESS)
+            .setSize(CustomAlert.SIZE.SMALL)
             .build()
             .show();
 
