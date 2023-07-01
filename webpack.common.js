@@ -13,7 +13,7 @@ module.exports = {
     sw: path.resolve(__dirname, "src/scripts/sw.js"),
   },
   output: {
-    filename: "[name].bundle.js",
+    filename: "[name][contenthash].bundle.js",
     path: path.resolve(__dirname, "dist"),
     clean: true,
   },
@@ -50,6 +50,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
+      title: "Rllyhz's Github Pages",
       filename: "index.html",
       template: path.resolve(__dirname, "src/templates/index.html"),
     }),
