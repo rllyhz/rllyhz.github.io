@@ -1,4 +1,19 @@
-const API = {};
+const API = {
+  baseUrl: "https://rllyzhz-github-pages.netlify.app/.netlify/functions/api",
+  baseUrlTesting: "http://localhost:9000/.netlify/functions/api",
+  login: "/auth/login",
+  logout: "/auth/logout",
+  getPinnedProjects: "/pinned-projects",
+  getProjects: "/projects",
+  getProjectById: (id) => `/projects/${id}`,
+  createNewProject: "/projects",
+  updateProjectById: (id) => `/projects/${id}`,
+  deleteProjectById: (id) => `/projects/${id}`,
+  getConfiguration: "/configuration",
+  updateConfiguration: "/configuration",
+  importProjects: "/data/projects/import",
+  exportProjects: "/data/projects/export",
+};
 
 const Social = {
   email: "rullyihza00@gmail.com",
@@ -15,8 +30,48 @@ const Links = {
   bangkit: "https://grow.google/intl/id_id/bangkit/",
 };
 
+const Data = {
+  Languages: [
+    "HTML", "CSS", "JavaScript", "TypeScript", "Java",
+    "Kotlin", "Swift", "Dart", "Python", "PHP", "C",
+    "C++", "C#", "Golang", "Ruby", "R", "XML",
+    "SQL",
+  ],
+  Technologies: [
+    "Web", "Android", "Desktop", "Multi-Platform", "Flutter",
+    "Automation", "AI", "Machine Learning", "IoT",
+  ],
+  ProjectTypes: [
+    {
+      type: "web",
+      name: "WebApp",
+    },
+    {
+      type: "android",
+      name: "Android App",
+    },
+    {
+      type: "multiplatform-app",
+      name: "Multi-Platform App",
+    },
+    {
+      type: "desktop",
+      name: "Desktop",
+    },
+    {
+      type: "api",
+      name: "API",
+    },
+    {
+      type: "scripting",
+      name: "Scripting",
+    },
+  ],
+};
+
 export {
   API,
   Social,
   Links,
+  Data,
 };

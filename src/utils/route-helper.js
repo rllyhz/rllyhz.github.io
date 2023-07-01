@@ -1,4 +1,4 @@
-const _sanitizePath = (path = "") => {
+const sanitizePath = (path = "") => {
   const chars = Array.from(path);
 
   if (chars[0] === "/") chars.shift();
@@ -7,10 +7,11 @@ const _sanitizePath = (path = "") => {
   return chars.join("");
 };
 
-const toPath = (path = "/") => `#/${_sanitizePath(path)}`;
-const toPublicPath = (path = "/") => `/${_sanitizePath(path)}`;
+const toPath = (path = "/") => `#/${sanitizePath(path)}`;
+const toPublicPath = (path = "/") => `/${sanitizePath(path)}`;
 
 export {
+  sanitizePath,
   toPath,
   toPublicPath,
 };
