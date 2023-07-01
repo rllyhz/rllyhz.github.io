@@ -4,6 +4,18 @@ import logger from "../../utils/logger";
 import { sanitizePath } from "../../utils/route-helper";
 
 class ApiBuilder {
+  #onSuccessCallback = null;
+
+  #onFailedCallback = null;
+
+  #endpointUrl = null;
+
+  #method = null;
+
+  #body = null;
+
+  #headers = null;
+
   constructor(
     endpointUrl = "/",
     method = "GET",
@@ -11,46 +23,46 @@ class ApiBuilder {
     headers = undefined,
   ) {
     if (Config.Mode.Production) {
-      this.endpointUrl = `${API.baseUrl}/${sanitizePath(endpointUrl)}`;
+      this.#endpointUrl = `${API.baseUrl}/${sanitizePath(endpointUrl)}`;
     } else {
-      this.endpointUrl = `${API.baseUrlTesting}/${sanitizePath(endpointUrl)}`;
+      this.#endpointUrl = `${API.baseUrlTesting}/${sanitizePath(endpointUrl)}`;
     }
 
-    this.method = method;
-    this.body = body;
-    this.headers = headers;
+    this.#method = method;
+    this.#body = body;
+    this.#headers = headers;
 
-    this.onSuccessCallback = null;
-    this.onFailedCallback = null;
+    this.#onSuccessCallback = null;
+    this.#onFailedCallback = null;
   }
 
   onFailed(callback) {
-    this.onFailedCallback = callback;
+    this.#onFailedCallback = callback;
     return this;
   }
 
   onSuccess(callback) {
-    this.onSuccessCallback = callback;
+    this.#onSuccessCallback = callback;
     return this;
   }
 
   execute() {
     logger.info(`${this.method}: ${this.endpointUrl}`);
 
-    fetch(this.endpointUrl, {
-      method: this.method,
-      body: this.body,
-      headers: this.headers,
+    fetch(this.#endpointUrl, {
+      method: this.#method,
+      body: this.#body,
+      headers: this.#headers,
     }).catch((err) => {
-      logger.error(`${this.method}: ${this.endpointUrl}`);
+      logger.error(`${this.#method}: ${this.#endpointUrl}`);
       this.onFailedCallback(408, err);
     }).then(
       async (res) => {
         if (res.ok && res.status === 200) {
           const data = await res.json();
-          this.onSuccessCallback(data);
+          this.#onSuccessCallback(data);
         } else {
-          this.onFailedCallback(res.status, "Error");
+          this.#onFailedCallback(res.status, "Error");
         }
       },
     );
