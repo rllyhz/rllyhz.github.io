@@ -1,6 +1,6 @@
 import { toPublicPath } from "../../../utils/route-helper";
 import styles from "./styles";
-import TitleApp from "../TitleApp";
+import CustomTitle from "../CustomTitle";
 import { isOnMobileScreen } from "../../../utils/ui/viewport-helpers";
 
 export default class SkillsUI extends HTMLElement {
@@ -36,11 +36,18 @@ export default class SkillsUI extends HTMLElement {
   }
 
   _render() {
-    const align = isOnMobileScreen() ? "center" : "start";
+    const align = isOnMobileScreen() ? CustomTitle.ALIGN.CENTER : CustomTitle.ALIGN.START;
 
     this.shadowRoot.innerHTML = `
       ${styles}
-      <${TitleApp.tagName} variant="h3" align="${align}" text="Professional Skills" size="medium"></${TitleApp.tagName}>
+
+      <${CustomTitle.tagName}
+        variant="${CustomTitle.VARIANT.H3}"
+        align="${align}"
+        text="Professional Skills"
+        size="${CustomTitle.SIZE.MEDIUM}">
+      </${CustomTitle.tagName}>
+
       <div class="container-skills">
         <div class="skills-detail">
           <p class="skills-description">I am working with some of programming skills and all of my projects I've ever done built on top of them. Such as:</p>

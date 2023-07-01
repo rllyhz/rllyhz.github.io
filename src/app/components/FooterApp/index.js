@@ -1,5 +1,5 @@
 import styles from "./styles";
-import { Social } from "../../../globals/consts";
+import { Social, Strings } from "../../../globals/consts";
 
 export default class FooterApp extends HTMLElement {
   static tagName = "footer-app";
@@ -16,8 +16,8 @@ export default class FooterApp extends HTMLElement {
     this.shadowRoot.innerHTML = `
       ${styles}
       <footer>
-        <p class="appreciation">Thank you</p>
-        <p class="connect-with-me">Get connection with me</p>
+        <p class="appreciation">${Strings.ThankYou}</p>
+        <p class="connect-with-me">${Strings.GetConnectionWithMe}</p>
         <div class="social">
           <a href="${Social.facebook}" target="_blank" title="facebook">
             <box-icon type='logo' name='facebook' color="var(--white-color)"></box-icon>
@@ -29,8 +29,12 @@ export default class FooterApp extends HTMLElement {
             <box-icon type='logo' name='twitter' color="var(--white-color)"></box-icon>
           </a>
         </div>
-        <p class="built-by-me">Built with <box-icon type='solid' name='heart' color="var(--white-color)" size="16px"></box-icon> by Rully Ihza Mahendra</p>
-        <p class="copyright">© ${yearNow} copyright all right reserved</p>
+        <p class="built-by-me">
+          ${Strings.BuiltCopyright("<box-icon type='solid' name='heart' color='var(--white-color)' size='16px'></box-icon>")}
+        </p>
+        <p class="copyright">
+          ${Strings.Copyright(yearNow)}
+        </p>
       </footer>
     `;
   }

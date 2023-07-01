@@ -1,5 +1,5 @@
 import styles from "./styles";
-import { Social } from "../../../globals/consts";
+import { Social, Strings } from "../../../globals/consts";
 import { toPublicPath } from "../../../utils/route-helper";
 import CustomButton from "../CustomButton";
 
@@ -19,7 +19,7 @@ export default class WelcomeUI extends HTMLElement {
       <h1>Hello, <br/>I am <span class='heading-color'>Rully</span> <br/>Android Dev</h1>
 
       <${CustomButton.tagName}
-        text="Contact me"
+        text="${Strings.Buttons.ContactMe}"
         is-link
         href="mailto:${Social.email}"
         size="${CustomButton.SIZE.BIG}"

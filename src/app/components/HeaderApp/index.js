@@ -1,10 +1,10 @@
-import { getCssVariableValue } from "../../core/Style";
 import styles from "./styles";
 import { EventType, broadcastEvent } from "../../../utils/ui/event-helpers";
 import { isOnMobileScreen } from "../../../utils/ui/viewport-helpers";
 import logger from "../../../utils/logger";
 import { toPath } from "../../../utils/route-helper";
 import Dom from "../../core/Dom";
+import { Strings } from "../../../globals/consts";
 
 export default class HeaderApp extends HTMLElement {
   static tagName = "header-app";
@@ -88,34 +88,44 @@ export default class HeaderApp extends HTMLElement {
   }
 
   _render() {
-    const firstColor = getCssVariableValue("--primary-color");
-
     this.shadowRoot.innerHTML = `
       ${styles}
       <header>
         <nav>
-          <a href="${toPath("/")}" class="nav-logo">Rully Ihza Mahendra</a>
+          <a href="${toPath("/")}" class="nav-logo">
+            ${Strings.App.Author}
+          </a>
           <div class="nav-list-container">
             <ul class="nav-list">
               <li class="nav-item active" data-scroll="true">
-                <a class="nav-link" data-target="#home">Home</a>
+                <a class="nav-link" data-target="#home">
+                  ${Strings.Menus.Home}
+                </a>
               </li>
               <li class="nav-item" data-scroll="true">
-                <a class="nav-link" data-target="#about">About</a>
+                <a class="nav-link" data-target="#about">
+                  ${Strings.Menus.About}
+                </a>
               </li>
               <li class="nav-item" data-scroll="true">
-                <a class="nav-link" data-target="#skills">Skills</a>
+                <a class="nav-link" data-target="#skills">
+                  ${Strings.Menus.Skills}
+                </a>
               </li>
               <li class="nav-item" data-scroll="true">
-                <a class="nav-link" data-target="#work"">Work</a>
+                <a class="nav-link" data-target="#work"">
+                  ${Strings.Menus.Work}
+                </a>
               </li>
               <li class="nav-item" data-scroll="true">
-                <a class="nav-link" data-target="#contact">Contact</a>
+                <a class="nav-link" data-target="#contact">
+                ${Strings.Menus.Contact}
+                </a>
               </li>
             </ul>
           </div>
           <div class="nav-toggle" id="nav-toggle">
-            <box-icon name='menu-alt-right' color="${firstColor}"></box-icon>
+            <box-icon name='menu-alt-right' color="var(--primary-color)"></box-icon>
           </div>
         </nav>
       </header>
