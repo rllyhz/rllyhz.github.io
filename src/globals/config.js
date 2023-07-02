@@ -85,6 +85,11 @@ const StringResource = {
       ConfirmText: "Oke",
     },
   },
+  NotFoundTemplate: {
+    Title: "404 - Not Found",
+    Message: "Opss... There is nothing here",
+    ButtonText: "Back Home",
+  },
   ThankYou: "Thank You",
   GetConnectionWithMe: "Get connection with me",
   BuiltCopyright: (loveIconTag) => `Built with ${loveIconTag} by Rully Ihza Mahendra`,
