@@ -1,50 +1,15 @@
 import logger from "./logger";
 
-class SingleObservable {
-  #observer = null;
-
-  constructor({ initialValue = null }) {
-    this.currentValue = initialValue;
-    this.#observer = null;
-    this.isReleased = false;
-  }
-
-  observe(observer) {
-    if (typeof observer !== "function") {
-      logger.error("Observer must be a function");
-      return;
-    }
-
-    if (this.#observer !== null) {
-      logger.warn("Observer already existed on single observable. Could not set observer.");
-      return;
-    }
-
-    this.#observer = observer;
-  }
-
-  emit(newValue) {
-    if (this.isReleased) return this;
-
-    this.currentValue = newValue;
-    this.#observer(newValue);
-
-    return this;
-  }
-
-  release() {
-    this.isReleased = true;
-    this.currentValue = null;
-    this.#observer = null;
-  }
-}
-
 class Observable {
   #observers = [];
 
+  #currentValue = null;
+
+  #observeAtFirstLaunch = false;
+
   constructor({ observeAtFirstLaunch = false, initialValue = null }) {
-    this.currentValue = initialValue;
-    this.observeAtFirstLaunch = observeAtFirstLaunch;
+    this.#currentValue = initialValue;
+    this.#observeAtFirstLaunch = observeAtFirstLaunch;
     this.isReleased = false;
   }
 
@@ -56,7 +21,7 @@ class Observable {
 
     this.#observers.push(observer);
 
-    if (this.observeAtFirstLaunch) {
+    if (this.#observeAtFirstLaunch) {
       this.#observers[this.#observers.length - 1](this.value);
     }
   }
@@ -64,7 +29,7 @@ class Observable {
   emit(newValue) {
     if (this.isReleased) return this;
 
-    this.currentValue = newValue;
+    this.#currentValue = newValue;
 
     this.#observers.forEach((obsvr) => {
       if (!this.isReleased) obsvr(newValue);
@@ -73,9 +38,109 @@ class Observable {
     return this;
   }
 
+  getCurrentValue() { return this.#currentValue; }
+
   release() {
     this.isReleased = true;
-    this.currentValue = null;
+    this.#currentValue = null;
+    this.#observers.length = 0;
+  }
+}
+
+class SingleObservable {
+  #observer = null;
+
+  #currentValue = null;
+
+  constructor({ initialValue = null }) {
+    this.#currentValue = initialValue;
+    this.#observer = null;
+    this.isReleased = false;
+  }
+
+  observe(observer) {
+    if (typeof observer !== "function") {
+      logger.error("Observer must be a function");
+      return;
+    }
+
+    if (this.#observer !== null) {
+      logger.warn("Observer already existed on SingleObservable. Could not set new observer.");
+      return;
+    }
+
+    this.#observer = observer;
+  }
+
+  emit(newValue) {
+    if (this.isReleased) return this;
+
+    this.#currentValue = newValue;
+    this.#observer(newValue);
+
+    return this;
+  }
+
+  getCurrentValue() { return this.#currentValue; }
+
+  release() {
+    this.isReleased = true;
+    this.#currentValue = null;
+    this.#observer = null;
+  }
+}
+
+class PrivateObservable {
+  #observers = [];
+
+  #currentValue = null;
+
+  #observeAtFirstLaunch = false;
+
+  #publisher = "";
+
+  constructor({ publisher = "", observeAtFirstLaunch = false, initialValue = null }) {
+    this.#publisher = publisher;
+    this.#currentValue = initialValue;
+    this.#observeAtFirstLaunch = observeAtFirstLaunch;
+    this.isReleased = false;
+  }
+
+  observe(observer) {
+    if (typeof observer !== "function") {
+      logger.error("Observer must be a function");
+      return;
+    }
+
+    this.#observers.push(observer);
+
+    if (this.#observeAtFirstLaunch) {
+      this.#observers[this.#observers.length - 1](this.value);
+    }
+  }
+
+  emit(publisher, newValue) {
+    if (this.#publisher !== publisher) {
+      logger.error("Emitting new value is not allowed. Publisher unknown!");
+      return this;
+    }
+
+    if (this.isReleased) return this;
+
+    this.#currentValue = newValue;
+
+    this.#observers.forEach((obsvr) => {
+      if (!this.isReleased) obsvr(newValue);
+    });
+
+    return this;
+  }
+
+  getCurrentValue() { return this.#currentValue; }
+
+  release() {
+    this.isReleased = true;
+    this.#currentValue = null;
     this.#observers.length = 0;
   }
 }
@@ -86,9 +151,15 @@ const observableOf = (value = null) => new Observable({
 
 const singleObservableOf = (value = null) => new SingleObservable({ initialValue: value });
 
+const privateObservableOf = (publisher, value = null) => new PrivateObservable({
+  publisher, initialValue: value,
+});
+
 export {
   Observable,
   SingleObservable,
-  singleObservableOf,
+  PrivateObservable,
   observableOf,
+  singleObservableOf,
+  privateObservableOf,
 };
