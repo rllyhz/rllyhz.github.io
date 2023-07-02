@@ -1,14 +1,17 @@
 import styles from "./styles";
 import { toPublicPath } from "../../../utils/route-helper";
 import TitleText from "../TitleText";
+import LazyImage from "../LazyImage";
 import { Links } from "../../../globals/consts";
 
 const template = /* html */`
   ${styles}
   <div class="about-container">
     <div class="image">
-      <img src="${toPublicPath("/images/landing/about.png")}"
-        loading="lazy" alt="About Picture" />
+      <${LazyImage.tagName}
+        src="${toPublicPath("/images/landing/about.png")}"
+        alt="About Picture">
+      </${LazyImage.tagName}>
     </div>
     <div class="about">
       <${TitleText.tagName}

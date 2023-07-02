@@ -1,4 +1,4 @@
-import { toPublicPath } from "../../../utils/route-helper";
+import LazyImage from "../LazyImage";
 import template from "./template";
 
 export default class ProjectItem extends HTMLElement {
@@ -46,25 +46,12 @@ export default class ProjectItem extends HTMLElement {
   }
 
   connectedCallback() {
-    const loadingPreviewElem = this.shadowRoot.querySelector(".project-container .loading-preview");
-    const imgElem = this.shadowRoot.querySelector(".project-container .loading-preview img");
+    const container = this.shadowRoot.querySelector(".project-container");
+    const lazyImageElem = this.shadowRoot.querySelector(`.project-container ${LazyImage.tagName}`);
 
-    function loaded() {
-      loadingPreviewElem.classList.add("loaded");
-      loadingPreviewElem.parentElement.style.boxShadow = "4px 2px 24px rgba(87, 87, 87, .2)";
-    }
-    function error() {
-      imgElem.src = toPublicPath("/images/placeholders/work-photo-placeholder.png");
-    }
-
-    imgElem.onload = loaded;
-    imgElem.onerror = error;
-
-    if (imgElem.complete) {
-      loaded();
-    } else {
-      imgElem.addEventListener("load", loaded);
-    }
+    lazyImageElem.setOnLoadedImageCallback(() => {
+      container.style.boxShadow = "4px 2px 24px rgba(87, 87, 87, .2)";
+    });
   }
 
   _render() {

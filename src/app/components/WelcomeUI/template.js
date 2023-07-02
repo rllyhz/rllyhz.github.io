@@ -27,7 +27,11 @@ const template = /* html */`
     </a>
   </div>
 
-  <img loading="lazy" src="${toPublicPath("/images/landing/profile.png")}" class="profile" alt="Profile Picture" />
+  <img 
+    loading="lazy"
+    src="${toPublicPath("/images/landing/profile.png")}"
+    class="profile"
+    alt="Profile Picture" />
 `;
 
 export default template;

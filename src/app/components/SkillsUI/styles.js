@@ -1,8 +1,10 @@
 import { css } from "../../core/Style";
+import LazyImage from "../LazyImage";
 
 const styles = /* css */`
-  img {
+  ${LazyImage.tagName} {
     width: 100%;
+    height: 300px;
     border-radius: 8px;
   }
   .container-skills {
@@ -58,7 +60,7 @@ const styles = /* css */`
     color: var(--primary-color);
   }
 
-  @media only screen and (min-width: 820px) {
+  @media only screen and (min-width: 720px) {
     .container-skills {
       grid-template-columns: repeat(2, 1fr);
       text-align: start;

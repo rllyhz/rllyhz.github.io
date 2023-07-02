@@ -1,4 +1,5 @@
 import { css } from "../../core/Style";
+import LazyImage from "../LazyImage";
 
 const styles = /* css */`
   .project-container {
@@ -11,20 +12,11 @@ const styles = /* css */`
     justify-content: stretch;
     align-items: stretch;
   }
-  .project-container .loading-preview {
-    min-width: 100%;
-    min-height: 100%;
-    background-color: var(--loading-color);
-  }
-  .project-container img {
+  .project-container ${LazyImage.tagName} {
     display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0;
-    transform: scale(1);
-    transition: opacity var(--duration-medium) ease-in-out,
-      transform var(--duration-medium) ease-in-out;
   }
   .project-container .title {
     position: absolute;
@@ -39,13 +31,6 @@ const styles = /* css */`
     background-color: var(--white-color);
     color: var(--dark-color);
     transition: bottom var(--duration-medium) ease-in-out;
-  }
-
-  .project-container .loading-preview.loaded img {
-    opacity: 1;
-  }
-  .project-container:hover img {
-    transform: scale(1.1);
   }
   .project-container:hover .title {
     bottom: 0;

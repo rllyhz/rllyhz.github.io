@@ -1,4 +1,5 @@
 import TitleText from "../TitleText";
+import LazyImage from "../LazyImage";
 import { toPublicPath } from "../../../utils/route-helper";
 import styles from "./styles";
 
@@ -26,7 +27,10 @@ const template = (skillsData, align) => /* html */`
       `).join("")}
     </div>
     <div class="skills-illustration">
-      <img src="${toPublicPath("/images/landing/skills.jpg")}" />
+      <${LazyImage.tagName}
+        src="${toPublicPath("/images/landing/skills.jpg")}"
+        alt="Skills Preview">
+      </${LazyImage.tagName}>
     </div>
   </div>
 `;

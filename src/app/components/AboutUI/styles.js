@@ -1,4 +1,5 @@
 import { css } from "../../core/Style";
+import LazyImage from "../LazyImage";
 
 const styles = /* css */`
   img {
@@ -14,12 +15,13 @@ const styles = /* css */`
     justify-content: center;
     align-items: center;
   }
-  .image img {
+  .image > ${LazyImage.tagName} {
+    aspect-ratio: 1/1.3;
     width: 200px;
     border-radius: 8px;
   }
   .about {
-    margin-top: 1rem;
+    margin-top: 2.4rem;
     text-align: center;
   }
   .about a {
@@ -27,7 +29,7 @@ const styles = /* css */`
   }
 
   @media only screen and (min-width: 620px) {
-    .image img {
+    .image > ${LazyImage.tagName} {
       width: 300px;
     }
   }
@@ -38,6 +40,7 @@ const styles = /* css */`
       align-items: center;
     }
     .about {
+      margin-top: 0;
       text-align: start;
     }
   }
