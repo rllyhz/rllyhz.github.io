@@ -32,6 +32,7 @@ const StringResource = {
     ContactMe: "Contact Me",
     SeeMore: "See More",
     SendEmail: "Send",
+    Retry: "Retry",
   },
   Placeholders: {
     FullName: "Fullname (required)",
@@ -39,6 +40,11 @@ const StringResource = {
     Message: "Your Message (required)",
   },
   Alerts: {
+    FailedToFetchData: {
+      Title: "Oopss...",
+      Message: "Failed to load data!",
+      ConfirmText: "Oke",
+    },
     CurrentlyNoProjects: {
       Title: "Sorry ☹️",
       Message: "Currently no projects to show!",

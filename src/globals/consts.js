@@ -1,6 +1,6 @@
 import { StringResource } from "./config";
 
-const API = {
+const APIUrl = {
   baseUrl: "https://rllyzhz-github-pages.netlify.app/.netlify/functions/api",
   baseUrlTesting: "http://localhost:9000/.netlify/functions/api",
   sendEmailToDocumentSheet: "https://script.google.com/macros/s/AKfycbzOIDWk20JB87H-Nl0in0ezxDhpFktSSLZDsAJRZk0fqrRdbhQKAkPL_7gTLTql9Azz/exec",
@@ -17,6 +17,10 @@ const API = {
   updateConfiguration: "/configuration",
   importProjects: "/data/projects/import",
   exportProjects: "/data/projects/export",
+};
+
+const StatusCode = {
+  TimeOut: 408,
 };
 
 const Strings = StringResource;
@@ -76,7 +80,8 @@ const Data = {
 };
 
 export {
-  API,
+  APIUrl,
+  StatusCode,
   Strings,
   Social,
   Links,
