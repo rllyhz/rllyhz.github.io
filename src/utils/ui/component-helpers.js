@@ -7,6 +7,7 @@ import WelcomeUI from "../../app/components/WelcomeUI";
 import WorkUI from "../../app/components/WorkUI";
 import { createElement } from "./dom-helpers";
 import { isOnMobileScreen } from "./viewport-helpers";
+import ProjectList from "../../app/components/ProjectList";
 
 const createSpacer = ({ orientation = "horizontal", size = "1rem", sizeOnMobile = null }) => {
   let actualSize = size;
@@ -108,6 +109,10 @@ const createWorkUI = () => createElement({
   tagName: WorkUI.tagName,
 });
 
+const createProjectListUI = () => createElement({
+  tagName: ProjectList.tagName,
+});
+
 export {
   createHorizontalSpacer,
   createVerticalSpacer,
@@ -118,4 +123,5 @@ export {
   createAboutUI,
   createSkillsUI,
   createWorkUI,
+  createProjectListUI,
 };

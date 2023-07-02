@@ -8,6 +8,7 @@ import {
   createAboutUI,
   createSkillsUI,
   createWorkUI,
+  createProjectListUI,
 } from "../../utils/ui/component-helpers";
 import { createElement } from "../../utils/ui/dom-helpers";
 import CustomTitle from "../components/CustomTitle";
@@ -64,6 +65,7 @@ const Component = {
   createAboutUI,
   createSkillsUI,
   createWorkUI,
+  createProjectListUI,
 };
 
 export default Component;

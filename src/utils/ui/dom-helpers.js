@@ -22,7 +22,7 @@ const createRootLoadingPage = () => {
 const createElement = ({
   tagName = "div", id = "", classNames = "",
   datasets = {}, props = {}, styles = {},
-  innerText = "",
+  innerText = "", innerHTML = "",
 }) => {
   const newElement = document.createElement(tagName);
 
@@ -52,6 +52,10 @@ const createElement = ({
 
   if (innerText.length > 0) {
     newElement.innerText = innerText;
+  }
+
+  if (innerHTML.length > 0) {
+    newElement.innerHTML = innerHTML;
   }
 
   return newElement;

@@ -23,6 +23,8 @@
   --dark-color: #310e2f;
   --dark-2-color: #5b515a;
   --loading-color: rgb(245, 234, 255);
+  --message-color: rgb(208, 203, 213);
+  --message-dark-color: rgb(163, 160, 167);
   --white-color: #fefefe;
   --black-color: #1a1a1a;
 }

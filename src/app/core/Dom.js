@@ -24,9 +24,9 @@ const Dom = {
   createElement: ({
     tagName = "div", id = "", classNames = "",
     datasets = {}, props = {}, styles = {},
-    innerText = "",
+    innerText = "", innerHTML = "",
   }) => _create({
-    tagName, id, classNames, props, datasets, styles, innerText,
+    tagName, id, classNames, props, datasets, styles, innerText, innerHTML,
   }),
 
   appendChild: _appendChild,
