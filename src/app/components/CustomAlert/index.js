@@ -230,19 +230,23 @@ class CustomAlert extends HTMLElement {
   connectedCallback() {
     this.shadowRoot.querySelector(`${CustomButton.tagName}:first-child`)
       .addEventListener("click", () => {
+        // remove alert
+        this.removeAlert();
+        // run callback
         if (Callbacks.cancel && typeof Callbacks.cancel === "function") {
           Callbacks.cancel();
         }
-        this.removeAlert();
       });
 
     if (this.shadowRoot.querySelector(`${CustomButton.tagName}:nth-child(2)`)) {
       this.shadowRoot.querySelector(`${CustomButton.tagName}:nth-child(2)`)
         .addEventListener("click", () => {
+          // remove alert
+          this.removeAlert();
+          // run callback
           if (Callbacks.confirm && typeof Callbacks.confirm === "function") {
             Callbacks.confirm();
           }
-          this.removeAlert();
         });
     }
   }
