@@ -10,6 +10,15 @@ const StringResource = {
   App: {
     Title: "Rllyhz's Github Pages",
     Author: "Rully Ihza Mahendra",
+    Description: "Rully Ihza Mahendra's Page | I am a Software Enthusiast and Github contributor based in Semarang, Indonesia.",
+    Keywords: "Rully Ihza Mahendra, rllyhz, @rllyhz, Web Developer, Android Developer, Web Design, Software Enthusiast, Github contributor, GitHub, GitHub Pages",
+    Links: [
+      "https://rllyhz.github.io",
+      "https://rllyhz.github.io/#/",
+      "https://rllyhz.github.io/#/login/",
+      "https://rllyhz.github.io/#/dashboard/",
+      "https://rllyhz.github.io/#/projects/",
+    ],
   },
   Menus: {
     Home: "Home",
