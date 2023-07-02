@@ -1,5 +1,5 @@
 import { Config } from "../../globals/config";
-import { API } from "../../globals/consts";
+import { APIUrl, StatusCode } from "../../globals/consts";
 import logger from "../../utils/logger";
 import { sanitizePath } from "../../utils/route-helper";
 
@@ -23,9 +23,9 @@ class ApiBuilder {
     headers = undefined,
   ) {
     if (Config.Mode.Production) {
-      this.#endpointUrl = `${API.baseUrl}/${sanitizePath(endpointUrl)}`;
+      this.#endpointUrl = `${APIUrl.baseUrl}/${sanitizePath(endpointUrl)}`;
     } else {
-      this.#endpointUrl = `${API.baseUrlTesting}/${sanitizePath(endpointUrl)}`;
+      this.#endpointUrl = `${APIUrl.baseUrlTesting}/${sanitizePath(endpointUrl)}`;
     }
 
     this.#method = method;
@@ -53,15 +53,24 @@ class ApiBuilder {
       method: this.#method,
       body: this.#body,
       headers: this.#headers,
-    }).catch((err) => {
+    }).catch((error) => {
       logger.error(`${this.#method}: ${this.#endpointUrl}`);
-      this.onFailedCallback(408, err);
+      return { error };
     }).then(
       async (res) => {
+        if (res.error) {
+          this.#onFailedCallback(StatusCode.TimeOut, res.error);
+          return;
+        }
         if (res.ok && res.status === 200) {
           const data = await res.json();
-          this.#onSuccessCallback(data);
-        } else {
+          if (this.#onSuccessCallback && typeof this.#onSuccessCallback === "function") {
+            this.#onSuccessCallback(data);
+          }
+          return;
+        }
+
+        if (this.#onFailedCallback && typeof this.#onFailedCallback === "function") {
           this.#onFailedCallback(res.status, "Error");
         }
       },
@@ -69,7 +78,7 @@ class ApiBuilder {
   }
 }
 
-const Api2 = {
+const Api = {
   get: (endpointUrl, body = null, headers = undefined) => new ApiBuilder(
     endpointUrl,
     "GET",
@@ -120,12 +129,12 @@ const FetchHandler = async (endpointUrl, method, body, headers) => {
   } catch (error) {
     return {
       success: false,
-      responseData: { status: 408, error },
+      responseData: { status: StatusCode.TimeOut, error },
     };
   }
 };
 
-const Api = {
+const ApiFetch = {
   get: async (endpointUrl, body = null, headers = undefined) => FetchHandler(endpointUrl, "GET", body, headers),
   post: async (endpointUrl, body, headers = undefined) => FetchHandler(endpointUrl, "POST", body, headers),
   put: async (endpointUrl, body, headers = undefined) => FetchHandler(endpointUrl, "PUT", body, headers),
@@ -138,6 +147,6 @@ const createBearerToken = (token) => `Bearer ${token}`;
 
 export {
   Api,
-  Api2,
+  ApiFetch,
   createBearerToken,
 };
