@@ -31,6 +31,15 @@ export default class App {
     logger.info("Rendering page");
 
     document.body.innerHTML = "";
+    document.body.scrollTo({
+      top: "0",
+      behavior: "smooth",
+    });
+
+    if (!window.location.href.includes("#")) {
+      Router.navigateTo("/");
+      return;
+    }
 
     const { data, activePath } = Router.getExpectedRoute();
     const activePage = Routes.resolve(activePath);
