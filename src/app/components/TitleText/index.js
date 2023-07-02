@@ -1,7 +1,7 @@
 import { createStyles } from "./styles";
 
-export default class CustomTitle extends HTMLElement {
-  static tagName = "custom-title";
+export default class TitleText extends HTMLElement {
+  static tagName = "title-text";
 
   static VARIANT = {
     H1: "h1",
@@ -76,10 +76,10 @@ export default class CustomTitle extends HTMLElement {
     let fontSize = "1rem";
     let fontWeight = 300;
 
-    if (size === CustomTitle.SIZE.MEDIUM) {
+    if (size === TitleText.SIZE.MEDIUM) {
       fontSize = "1.5rem";
       fontWeight = 600;
-    } else if (size === CustomTitle.SIZE.BIG) {
+    } else if (size === TitleText.SIZE.BIG) {
       fontSize = "2rem";
       fontWeight = 700;
     }
@@ -93,6 +93,6 @@ export default class CustomTitle extends HTMLElement {
   }
 }
 
-if (!customElements.get(CustomTitle.tagName)) {
-  customElements.define(CustomTitle.tagName, CustomTitle);
+if (!customElements.get(TitleText.tagName)) {
+  customElements.define(TitleText.tagName, TitleText);
 }

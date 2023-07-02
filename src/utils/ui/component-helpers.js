@@ -1,8 +1,8 @@
 import AboutUI from "../../app/components/AboutUI";
-import CustomButton from "../../app/components/CustomButton";
-import CustomInputText from "../../app/components/CustomInputText";
+import ButtonText from "../../app/components/ButtonText";
+import InputText from "../../app/components/InputText";
 import SkillsUI from "../../app/components/SkillsUI";
-import CustomTitle from "../../app/components/CustomTitle";
+import TitleText from "../../app/components/TitleText";
 import WelcomeUI from "../../app/components/WelcomeUI";
 import { createElement } from "./dom-helpers";
 import { isOnMobileScreen } from "./viewport-helpers";
@@ -39,17 +39,17 @@ const createVerticalSpacer = (size = "1rem", sizeOnMobile = null) => createSpace
   sizeOnMobile,
 });
 
-const createCustomTitle = ({
+const createTitleText = ({
   text = "",
   color = "",
   variant = "h1",
-  align = CustomTitle.ALIGN.START,
-  size = CustomTitle.SIZE.SMALL,
+  align = TitleText.ALIGN.START,
+  size = TitleText.SIZE.SMALL,
   classNames = "",
   id = "",
   styles,
 }) => createElement({
-  tagName: CustomTitle.tagName,
+  tagName: TitleText.tagName,
   id,
   classNames,
   props: {
@@ -62,22 +62,22 @@ const createCustomTitle = ({
   styles,
 });
 
-const createCustomButton = ({
+const createButtonText = ({
   text, size, bgColor = "var(--accent-color)", color = "var(--white-color)",
   isLink = false, href = "", type, styles,
 }) => createElement({
-  tagName: CustomButton.tagName,
+  tagName: ButtonText.tagName,
   props: {
     text, size, "bg-color": bgColor, color, "is-link": isLink, href, type,
   },
   styles,
 });
 
-const createCustomInputText = ({
+const createInputText = ({
   multiLineText = "false", obscureText = "false", placeholder = "", value = "", name = "",
   title = "", rows = "", cols = "", id = "", resize = "vertical", styles,
 }) => createElement({
-  tagName: CustomInputText.tagName,
+  tagName: InputText.tagName,
   props: {
     "multi-line": multiLineText,
     obscure: obscureText,
@@ -115,9 +115,9 @@ const createProjectListUI = ({ heading = "h2" }) => createElement({
 export {
   createHorizontalSpacer,
   createVerticalSpacer,
-  createCustomTitle,
-  createCustomButton,
-  createCustomInputText,
+  createTitleText,
+  createButtonText,
+  createInputText,
   createWelcomeUI,
   createAboutUI,
   createSkillsUI,

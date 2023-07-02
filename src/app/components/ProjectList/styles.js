@@ -1,6 +1,6 @@
 import { css } from "../../core/Style";
 
-export default css`
+const styles = /* css */`
   .project-list-container {
     display: grid;
     grid-template-columns: 1fr;
@@ -19,3 +19,5 @@ export default css`
     }
   }
 `;
+
+export default css(styles);

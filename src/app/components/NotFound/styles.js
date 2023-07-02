@@ -1,6 +1,6 @@
 import { css } from "../../core/Style";
 
-export default css`
+const styles = /* css */`
   .not-found-container {
     display: flex;
     justify-content: center;
@@ -29,3 +29,5 @@ export default css`
     margin: 2.5rem 0 0 0;
   }
 `;
+
+export default css(styles);

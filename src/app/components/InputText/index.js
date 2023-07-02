@@ -1,7 +1,7 @@
 import styles from "./styles";
 
 export default class CustomInputText extends HTMLElement {
-  static tagName = "custom-input-text";
+  static tagName = "input-text";
 
   #multiLine = false;
 

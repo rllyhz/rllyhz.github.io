@@ -1,7 +1,7 @@
 import Dom from "../../core/Dom";
 import ProjectModel from "../../model/ProjectModel";
 import ProjectItem from "../ProjectItem";
-import styles from "./styles";
+import template from "./template";
 
 export const _Params = {
   project: ProjectModel,
@@ -69,19 +69,7 @@ export default class ProjectList extends HTMLElement {
   }
 
   _render() {
-    this.shadowRoot.innerHTML = `
-      ${styles}
-      <div class="project-list-container">
-        ${this.#projects.map((project) => (`
-          <${ProjectItem.tagName}
-            title="${project.title}"
-            url="${project.url}"
-            imagePath="${project.imagePath}"
-            heading="${this.#headingVariant}">
-          </${ProjectItem.tagName}>
-        `)).join(" ")}
-      </div>
-    `;
+    this.shadowRoot.innerHTML = template(this.#projects, this.#headingVariant);
   }
 }
 

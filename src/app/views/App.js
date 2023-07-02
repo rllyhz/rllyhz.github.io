@@ -46,8 +46,12 @@ export default class App {
     const footer = document.createElement(FooterApp.tagName);
 
     const rootLoading = Dom.createRootLoadingPage();
-    const loading = document.createElement(Loading.tagName);
-    loading.dataset.padding = "5rem";
+    const loading = Dom.createElement({
+      tagName: Loading.tagName,
+      props: {
+        padding: "5rem",
+      },
+    });
     rootLoading.appendChild(loading);
 
     const rootPage = Dom.createRootPage();

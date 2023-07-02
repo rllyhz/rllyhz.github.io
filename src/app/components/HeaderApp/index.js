@@ -1,18 +1,28 @@
-import styles from "./styles";
 import { EventType, broadcastEvent } from "../../../utils/ui/event-helpers";
 import { isOnMobileScreen } from "../../../utils/ui/viewport-helpers";
 import logger from "../../../utils/logger";
-import { toPath } from "../../../utils/route-helper";
 import Dom from "../../core/Dom";
 import { Strings } from "../../../globals/consts";
+import template from "./template";
 
 export default class HeaderApp extends HTMLElement {
   static tagName = "header-app";
 
+  #originalMenusHTML = null;
+
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
-    this._render();
+    this.shadowRoot.innerHTML = template(
+      Strings.App.Author,
+      Strings.Menus.Home,
+      Strings.Menus.About,
+      Strings.Menus.Skills,
+      Strings.Menus.Work,
+      Strings.Menus.Contact,
+    );
+
+    this.#originalMenusHTML = this.shadowRoot.querySelector(".nav-list").innerHTML;
   }
 
   static get observedAttributes() {
@@ -31,6 +41,18 @@ export default class HeaderApp extends HTMLElement {
       "click",
       this.toggleMenu,
     );
+    this.setClickListenerToAllMenus();
+  }
+
+  disConnectedCallback() {
+    this.shadowRoot.getElementById("nav-toggle").removeEventListener(
+      "click",
+      this.toggleMenu,
+    );
+    this.removeClickListenerFromAllMenus();
+  }
+
+  setClickListenerToAllMenus() {
     this.shadowRoot.querySelectorAll(".nav-list .nav-item[data-scroll='true']").forEach((navItem) => {
       navItem.addEventListener("click", () => {
         const { target } = navItem.children[0].dataset;
@@ -57,11 +79,10 @@ export default class HeaderApp extends HTMLElement {
     });
   }
 
-  disConnectedCallback() {
-    this.shadowRoot.getElementById("nav-toggle").removeEventListener(
-      "click",
-      this.toggleMenu,
-    );
+  removeClickListenerFromAllMenus() {
+    this.shadowRoot.querySelectorAll(".nav-list .nav-item[data-scroll='true']").forEach((navItem) => {
+      navItem.removeEventListener("click");
+    });
   }
 
   toggleMenu = () => {
@@ -87,49 +108,28 @@ export default class HeaderApp extends HTMLElement {
     }
   }
 
-  _render() {
-    this.shadowRoot.innerHTML = `
-      ${styles}
-      <header>
-        <nav>
-          <a href="${toPath("/")}" class="nav-logo">
-            ${Strings.App.Author}
-          </a>
-          <div class="nav-list-container">
-            <ul class="nav-list">
-              <li class="nav-item active" data-scroll="true">
-                <a class="nav-link" data-target="#home">
-                  ${Strings.Menus.Home}
-                </a>
-              </li>
-              <li class="nav-item" data-scroll="true">
-                <a class="nav-link" data-target="#about">
-                  ${Strings.Menus.About}
-                </a>
-              </li>
-              <li class="nav-item" data-scroll="true">
-                <a class="nav-link" data-target="#skills">
-                  ${Strings.Menus.Skills}
-                </a>
-              </li>
-              <li class="nav-item" data-scroll="true">
-                <a class="nav-link" data-target="#work"">
-                  ${Strings.Menus.Work}
-                </a>
-              </li>
-              <li class="nav-item" data-scroll="true">
-                <a class="nav-link" data-target="#contact">
-                ${Strings.Menus.Contact}
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div class="nav-toggle" id="nav-toggle">
-            <box-icon name='menu-alt-right' color="var(--primary-color)"></box-icon>
-          </div>
-        </nav>
-      </header>
-    `;
+  replaceMenusByInnerHTML(html = "") {
+    this.removeClickListenerFromAllMenus();
+    this.clearMenus();
+    this.shadowRoot.querySelector(".nav-list").innerHTML = html;
+  }
+
+  replaceMenusByNodes(menuNodes = []) {
+    this.removeClickListenerFromAllMenus();
+    this.clearMenus();
+
+    menuNodes.forEach((node) => {
+      this.shadowRoot.querySelector(".nav-list").appendChild(node);
+    });
+  }
+
+  clearMenus() {
+    this.shadowRoot.querySelector(".nav-list").innerHTML = "";
+  }
+
+  resetMenus() {
+    this.shadowRoot.querySelector(".nav-list").innerHTML = this.#originalMenusHTML;
+    this.setClickListenerToAllMenus();
   }
 }
 

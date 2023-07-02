@@ -1,6 +1,6 @@
 import { css } from "../../core/Style";
 
-export default css`
+const styles = /* css */`
   input,textarea {
     box-sizing: border-box;
     display: block;
@@ -15,3 +15,5 @@ export default css`
     color: var(--dark-color);
   }
 `;
+
+export default css(styles);

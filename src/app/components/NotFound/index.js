@@ -1,5 +1,5 @@
-import CustomButton from "../CustomButton";
-import styles from "./styles";
+import ButtonText from "../ButtonText";
+import template from "./template";
 
 export default class NotFound extends HTMLElement {
   static tagName = "not-found";
@@ -35,12 +35,12 @@ export default class NotFound extends HTMLElement {
   }
 
   connectedCallback() {
-    this.shadowRoot.querySelector(`.not-found-container > ${CustomButton.tagName}`)
+    this.shadowRoot.querySelector(`.not-found-container > ${ButtonText.tagName}`)
       .addEventListener("click", this.goHome);
   }
 
   disConnectedCallback() {
-    this.shadowRoot.querySelector(`.not-found-container > ${CustomButton.tagName}`)
+    this.shadowRoot.querySelector(`.not-found-container > ${ButtonText.tagName}`)
       .removeEventListener("click", this.goHome);
   }
 
@@ -55,20 +55,13 @@ export default class NotFound extends HTMLElement {
   }
 
   _render() {
-    this.shadowRoot.innerHTML = `
-      ${styles}
-      <div class="not-found-container">
-        <h1>${this.#title}</h1>
-        <p>${this.#message}</p>
-
-        <${CustomButton.tagName}
-          text="${this.#buttonText}"
-          size="${CustomButton.SIZE.MEDIUM}"
-          title=""
-          bg-color="var(--primary-color)">
-        </${CustomButton.tagName}>
-      </div>
-    `;
+    this.shadowRoot.innerHTML = template(
+      this.#title,
+      this.#message,
+      ButtonText.tagName,
+      this.#buttonText,
+      ButtonText.SIZE.MEDIUM,
+    );
   }
 }
 

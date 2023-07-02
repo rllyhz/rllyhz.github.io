@@ -1,6 +1,6 @@
 import { css } from "../../core/Style";
 
-const styles = css`
+const styles = /* css */`
   header {
     width: 100%;
     margin: 0;
@@ -118,4 +118,4 @@ const styles = css`
   }
 `;
 
-export default styles;
+export default css(styles);

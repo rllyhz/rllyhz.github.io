@@ -1,4 +1,4 @@
-import styles from "./styles";
+import template from "./template";
 
 export default class CustomButton extends HTMLElement {
   static tagName = "custom-button";
@@ -72,16 +72,16 @@ export default class CustomButton extends HTMLElement {
   _render() {
     const customTag = this.#showHref ? "a" : "button";
 
-    this.shadowRoot.innerHTML = `
-      ${styles}
-      <${customTag}
-        ${this.#showHref ? `href="${this.#link}"` : `type="${this.#type}"`}
-        class="${this.#size}"
-        style="color: ${this.#color}; background-color: ${this.#bgColor};"
-        >
-          ${this.#text}
-      </${customTag}>
-    `;
+    this.shadowRoot.innerHTML = template(
+      customTag,
+      this.#text,
+      this.#showHref,
+      this.#link,
+      this.#type,
+      this.#size,
+      this.#color,
+      this.#bgColor,
+    );
   }
 }
 

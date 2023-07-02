@@ -6,8 +6,8 @@ import { createPreviewEmptyProjects } from "../../../utils/dummy_data/projects";
 import { toPath } from "../../../utils/route-helper";
 import { sendEmail } from "../../process/landing";
 import { validateEmail } from "../../../utils/data-helpers";
-import { CustomAlert, CustomAlertBuilder } from "../../components/CustomAlert";
-import CustomButton from "../../components/CustomButton";
+import CustomAlert from "../../components/CustomAlert";
+import ButtonText from "../../components/ButtonText";
 import { Strings } from "../../../globals/consts";
 import { getAllPinnedProjectsController } from "../../controllers/landing";
 import { EventState } from "../../../utils/event-helpers";
@@ -21,7 +21,7 @@ export default class LandingPage {
 
     stream.observe((event) => {
       if (event.state === EventState.ERROR) {
-        CustomAlertBuilder
+        CustomAlert.Builder
           .setTitle(Strings.Alerts.FailedToFetchData.Title)
           .setMessage(Strings.Alerts.FailedToFetchData.Message)
           .setType(CustomAlert.TYPE.ERROR)
@@ -34,7 +34,7 @@ export default class LandingPage {
         const { projects } = event.result.data;
 
         if (projects.length <= 0) {
-          CustomAlertBuilder
+          CustomAlert.Builder
             .setTitle(Strings.Alerts.CurrentlyNoProjects.Title)
             .setMessage(Strings.Alerts.CurrentlyNoProjects.Message)
             .setType(CustomAlert.TYPE.INFO)
@@ -131,9 +131,9 @@ export default class LandingPage {
     // See more btn
     const btnMoreContainer = Component.createCustomFlexEndContainer();
     btnMoreContainer.appendChild(
-      Component.createCustomButton({
+      Component.createButtonText({
         text: Strings.Buttons.SeeMore,
-        size: CustomButton.SIZE.BIG,
+        size: ButtonText.SIZE.BIG,
         isLink: true,
         href: toPath("/projects"),
       }),
@@ -157,23 +157,23 @@ export default class LandingPage {
     );
     // Contact Section
     const contactFormContainer = Component.createCustomCenterContainer("75%");
-    const nameInput = Component.createCustomInputText({
+    const nameInput = Component.createInputText({
       name: "fullname",
       placeholder: Strings.Placeholders.FullName,
     });
-    const emailInput = Component.createCustomInputText({
+    const emailInput = Component.createInputText({
       name: "email",
       placeholder: Strings.Placeholders.Email,
     });
-    const messageInput = Component.createCustomInputText({
+    const messageInput = Component.createInputText({
       name: "message",
       placeholder: Strings.Placeholders.Message,
       multiLineText: "true",
       rows: "6",
     });
-    const btnSend = Component.createCustomButton({
+    const btnSend = Component.createButtonText({
       text: Strings.Buttons.SendEmail,
-      size: CustomButton.SIZE.BIG,
+      size: ButtonText.SIZE.BIG,
     });
     contactFormContainer.appendChild(nameInput);
     contactFormContainer.appendChild(Component.createVerticalSpacer("1rem"));
@@ -201,7 +201,7 @@ export default class LandingPage {
       const message = messageInput.value;
 
       if (!fullname || !email || !message) {
-        CustomAlertBuilder
+        CustomAlert.Builder
           .setTitle(Strings.Alerts.FillOutAllTheRequiredFields.Title)
           .setMessage(Strings.Alerts.FillOutAllTheRequiredFields.Message)
           .setType(CustomAlert.TYPE.WARNING)
@@ -211,7 +211,7 @@ export default class LandingPage {
         return;
       }
       if (!validateEmail(email)) {
-        CustomAlertBuilder
+        CustomAlert.Builder
           .setTitle(Strings.Alerts.InvalidEmailFormat.Title)
           .setMessage(Strings.Alerts.InvalidEmailFormat.Message)
           .setType(CustomAlert.TYPE.WARNING)
@@ -227,7 +227,7 @@ export default class LandingPage {
       sendEmail({
         body: { fullname, email, message },
         onFailed: () => {
-          CustomAlertBuilder
+          CustomAlert.Builder
             .setTitle(Strings.Alerts.FailedToSendEmail.Title)
             .setMessage(Strings.Alerts.FailedToSendEmail.Message)
             .setType(CustomAlert.TYPE.ERROR)
@@ -243,7 +243,7 @@ export default class LandingPage {
           emailInput.value = "";
           messageInput.value = "";
 
-          CustomAlertBuilder
+          CustomAlert.Builder
             .setTitle(Strings.Alerts.SuccessfullySentEmail.Title)
             .setMessage(Strings.Alerts.SuccessfullySentEmail.Message)
             .setType(CustomAlert.TYPE.SUCCESS)

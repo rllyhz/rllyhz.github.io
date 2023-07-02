@@ -1,6 +1,6 @@
 import { css } from "../../core/Style";
 
-export default css`
+const styles = /* css */`
   img {
     width: 100%;
   }
@@ -17,3 +17,5 @@ export default css`
     }
   }
 `;
+
+export default css(styles);

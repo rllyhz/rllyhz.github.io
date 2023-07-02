@@ -1,6 +1,6 @@
 import { css } from "../../core/Style";
 
-export default css`
+const styles = /* css */`
   a,button {
     text-decoration: none;
     border: none;
@@ -29,3 +29,5 @@ export default css`
     font-size: 1rem;
   }
 `;
+
+export default css(styles);

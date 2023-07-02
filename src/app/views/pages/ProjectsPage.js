@@ -2,7 +2,7 @@ import { Strings } from "../../../globals/consts";
 import logger from "../../../utils/logger";
 import { EventState } from "../../../utils/event-helpers";
 import UIState from "../../../utils/ui-state";
-import { CustomAlert, CustomAlertBuilder } from "../../components/CustomAlert";
+import CustomAlert from "../../components/CustomAlert";
 import { getProjectsController } from "../../controllers/projects";
 import Component from "../../core/Component";
 import Dom from "../../core/Dom";
@@ -19,7 +19,7 @@ export default class ProjectsPage {
       if (event.state === EventState.ERROR) {
         uiStateObservable.emit(UIState.ERROR);
 
-        CustomAlertBuilder
+        CustomAlert.Builder
           .setType(CustomAlert.TYPE.ERROR)
           .setSize(CustomAlert.SIZE.SMALL)
           .setTitle(Strings.Alerts.FailedToFetchData.Title)

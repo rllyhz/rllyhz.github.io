@@ -1,5 +1,5 @@
 import { toPublicPath } from "../../../utils/route-helper";
-import styles from "./styles";
+import template from "./template";
 
 export default class ProjectItem extends HTMLElement {
   static tagName = "project-item";
@@ -68,15 +68,12 @@ export default class ProjectItem extends HTMLElement {
   }
 
   _render() {
-    this.shadowRoot.innerHTML = `
-      ${styles}
-      <a class="project-container" href="${this.#url}">
-        <div class="loading-preview">
-          <img src="${this.#imagePath}" alt="${this.#title}" loading="lazy" />
-        </div>
-        <${this.#headingVariant} class="title">${this.#title}</${this.#headingVariant}>
-      </a>
-    `;
+    this.shadowRoot.innerHTML = template(
+      this.#headingVariant,
+      this.#title,
+      this.#imagePath,
+      this.#url,
+    );
   }
 }
 

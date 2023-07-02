@@ -1,4 +1,4 @@
-import styles from "./styles";
+import template from "./template";
 
 export default class Loading extends HTMLElement {
   static tagName = "loading-wrapper";
@@ -6,41 +6,30 @@ export default class Loading extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
-    this._render();
+    this.shadowRoot.innerHTML = template;
   }
 
   static get observedAttributes() {
-    return ["data-width", "data-height", "data-padding", "data-margin"];
+    return ["width", "height", "padding", "margin"];
   }
 
   attributeChangedCallback(name, __, newValue) {
     switch (name) {
-      case "data-width":
+      case "width":
         this.style.width = newValue;
         break;
-      case "data-height":
+      case "height":
         this.style.height = newValue;
         break;
-      case "data-margin":
+      case "margin":
         this.style.padding = newValue;
         break;
-      case "data-padding":
+      case "padding":
         this.style.padding = newValue;
         break;
       default:
         break;
     }
-  }
-
-  _render() {
-    this.shadowRoot.innerHTML = `
-      ${styles}
-      <div class="loading-wrapper">
-        <svg class="spinner" viewBox="0 0 50 50">
-          <circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
-        </svg>
-      </div>
-    `;
   }
 }
 

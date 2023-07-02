@@ -1,6 +1,6 @@
 import { EventState } from "../../../utils/event-helpers";
 import UIState from "../../../utils/ui-state";
-import { CustomAlert, CustomAlertBuilder } from "../../components/CustomAlert";
+import CustomAlert from "../../components/CustomAlert";
 import { StatusCode, Strings } from "../../../globals/consts";
 import { getProjectByIdController } from "../../controllers/projects";
 import Router from "../../routes/router";
@@ -13,7 +13,7 @@ export default class ProjectDetailPage {
 
     stream.observe((event) => {
       if (event.state === EventState.ERROR && event.result.error.status === StatusCode.NotFound) {
-        CustomAlertBuilder
+        CustomAlert.Builder
           .setTitle(Strings.Alerts.ProjectDetailNotFound.Title)
           .setMessage(Strings.Alerts.ProjectDetailNotFound.Message)
           .setType(CustomAlert.TYPE.ERROR)
@@ -26,7 +26,7 @@ export default class ProjectDetailPage {
           .show();
         //
       } if (event.state === EventState.ERROR && event.result.error.status === StatusCode.TimeOut) {
-        CustomAlertBuilder
+        CustomAlert.Builder
           .setTitle(Strings.Alerts.FailedToFetchData.Title)
           .setMessage(Strings.Alerts.FailedToFetchData.Message)
           .setType(CustomAlert.TYPE.ERROR)

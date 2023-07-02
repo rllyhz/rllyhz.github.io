@@ -4,7 +4,10 @@ const getCssVariableValue = (variableName) => getPropertyValueOf(document.body, 
 
 const css = (values) => `<style>${values}</style>`;
 
+const html = (values) => `<>${values}</>`;
+
 export {
   getCssVariableValue,
+  html,
   css,
 };

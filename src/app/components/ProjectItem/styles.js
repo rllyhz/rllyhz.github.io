@@ -1,7 +1,6 @@
-// import { toPublicPath } from "../../../utils/route-helper";
 import { css } from "../../core/Style";
 
-export default css`
+const styles = /* css */`
   .project-container {
     min-width: 100%;
     aspect-ratio: 3/2;
@@ -52,3 +51,5 @@ export default css`
     bottom: 0;
   }
 `;
+
+export default css(styles);

@@ -1,5 +1,5 @@
-import styles from "./styles";
 import Dom from "../../core/Dom";
+import template from "./template";
 
 export default class ContainerApp extends HTMLElement {
   static tagName = Dom.containerAppTagName;
@@ -7,14 +7,7 @@ export default class ContainerApp extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
-    this._render();
-  }
-
-  _render() {
-    this.shadowRoot.innerHTML = `
-      ${styles}
-      <div class="container-app"></div>
-    `;
+    this.shadowRoot.innerHTML = template;
   }
 
   addNewChild(newNode) {
