@@ -41,7 +41,7 @@ const StringResource = {
   },
   Alerts: {
     FailedToFetchData: {
-      Title: "Oopss...",
+      Title: "❌ Oopss...",
       Message: "Failed to load data!",
       ConfirmText: "Oke",
     },
