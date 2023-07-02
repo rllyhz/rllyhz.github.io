@@ -54,6 +54,11 @@ const StringResource = {
       Message: "Failed to load data!",
       ConfirmText: "Oke",
     },
+    ProjectDetailNotFound: {
+      Title: "❌ Not Allowed",
+      Message: "Project not found!",
+      ConfirmText: "Oke",
+    },
     CurrentlyNoProjects: {
       Title: "Sorry ☹️",
       Message: "Currently no projects to show!",

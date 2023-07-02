@@ -20,7 +20,19 @@ const APIUrl = {
 };
 
 const StatusCode = {
+  // CLIENT
+  BadRequest: 400,
+  NotAllowed: 401,
+  PaymentRequired: 402,
+  Forbidden: 403,
+  NotFound: 404,
+  MethodNotAllowed: 405,
+  NotAcceptable: 406,
+  ProxyAuthenticationRequired: 407,
   TimeOut: 408,
+  // SERVER
+  InternalServerError: 500,
+  NotImplemented: 501,
 };
 
 const Strings = StringResource;
