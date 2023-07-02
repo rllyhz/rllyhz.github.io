@@ -7,7 +7,6 @@ import {
   createWelcomeUI,
   createAboutUI,
   createSkillsUI,
-  createWorkUI,
   createProjectListUI,
 } from "../../utils/ui/component-helpers";
 import { createElement } from "../../utils/ui/dom-helpers";
@@ -48,8 +47,9 @@ const createTitleApp = ({
   color = "var(--primary-color)",
   align = CustomTitle.ALIGN.CENTER,
   size = CustomTitle.SIZE.BIG,
+  variant = CustomTitle.VARIANT.H2,
 }) => createCustomTitle({
-  text, id, size, align, styles, classNames, color,
+  text, id, size, align, styles, classNames, color, variant,
 });
 
 const Component = {
@@ -64,7 +64,6 @@ const Component = {
   createWelcomeUI,
   createAboutUI,
   createSkillsUI,
-  createWorkUI,
   createProjectListUI,
 };
 

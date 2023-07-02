@@ -24,6 +24,18 @@ export default class ProjectList extends HTMLElement {
     this._render();
   }
 
+  static get observedAttributes() {
+    return ["heading"];
+  }
+
+  attributeChangedCallback(name, _, newValue) {
+    if (name === "heading") {
+      this.#headingVariant = newValue;
+    }
+
+    this._render();
+  }
+
   /**
    * Insert Projects and Re-render
    * @param {ProjectModel[]} newProjects
@@ -65,7 +77,7 @@ export default class ProjectList extends HTMLElement {
             title="${project.title}"
             url="${project.url}"
             imagePath="${project.imagePath}"
-            heading="h4">
+            heading="${this.#headingVariant}">
           </${ProjectItem.tagName}>
         `)).join(" ")}
       </div>

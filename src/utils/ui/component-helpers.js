@@ -4,7 +4,6 @@ import CustomInputText from "../../app/components/CustomInputText";
 import SkillsUI from "../../app/components/SkillsUI";
 import CustomTitle from "../../app/components/CustomTitle";
 import WelcomeUI from "../../app/components/WelcomeUI";
-import WorkUI from "../../app/components/WorkUI";
 import { createElement } from "./dom-helpers";
 import { isOnMobileScreen } from "./viewport-helpers";
 import ProjectList from "../../app/components/ProjectList";
@@ -43,6 +42,7 @@ const createVerticalSpacer = (size = "1rem", sizeOnMobile = null) => createSpace
 const createCustomTitle = ({
   text = "",
   color = "",
+  variant = "h1",
   align = CustomTitle.ALIGN.START,
   size = CustomTitle.SIZE.SMALL,
   classNames = "",
@@ -53,7 +53,7 @@ const createCustomTitle = ({
   id,
   classNames,
   props: {
-    variant: CustomTitle.VARIANT.H1,
+    variant,
     color,
     size,
     align,
@@ -105,12 +105,11 @@ const createSkillsUI = () => createElement({
   tagName: SkillsUI.tagName,
 });
 
-const createWorkUI = () => createElement({
-  tagName: WorkUI.tagName,
-});
-
-const createProjectListUI = () => createElement({
+const createProjectListUI = ({ heading = "h2" }) => createElement({
   tagName: ProjectList.tagName,
+  props: {
+    heading,
+  },
 });
 
 export {
@@ -122,6 +121,5 @@ export {
   createWelcomeUI,
   createAboutUI,
   createSkillsUI,
-  createWorkUI,
   createProjectListUI,
 };
