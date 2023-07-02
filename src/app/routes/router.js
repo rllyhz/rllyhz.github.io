@@ -1,3 +1,5 @@
+import { toPath } from "../../utils/route-helper";
+
 const history = [];
 let _data = null;
 
@@ -46,7 +48,7 @@ const Router = {
   navigateTo(path, data = null) {
     history.unshift(path);
     _data = data;
-    location.href = path;
+    location.href = toPath(path);
   },
 
   navigateUp() {
