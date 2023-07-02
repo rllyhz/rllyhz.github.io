@@ -1,8 +1,8 @@
-import { API } from "../../globals/consts";
-import { Api, Api2 } from "../core/Api";
+import { APIUrl } from "../../globals/consts";
+import { Api, ApiFetch } from "../core/Api";
 
 const getPinnedProjects = ({ onSuccess, onFailed }) => {
-  Api2.get(API.getPinnedProjects)
+  Api.get(APIUrl.getPinnedProjects)
     .onSuccess(onSuccess)
     .onFailed(onFailed)
     .execute();
@@ -15,7 +15,7 @@ const sendEmail = async ({
 }) => {
   let ipDetailsClient = null;
 
-  const { success, responseData } = await Api.get(API.getIPDetailClient);
+  const { success, responseData } = await ApiFetch.get(APIUrl.getIPDetailClient);
 
   if (!success) {
     onFailed(responseData.status, responseData.error);
@@ -49,7 +49,7 @@ const sendEmail = async ({
   formData.append("email", email);
   formData.append("message", message);
 
-  const result = await Api.post(API.sendEmailToDocumentSheet, formData);
+  const result = await ApiFetch.post(APIUrl.sendEmailToDocumentSheet, formData);
 
   if (result.success) {
     onSuccess();

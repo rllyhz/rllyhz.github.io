@@ -4,41 +4,49 @@ import Dom from "../../core/Dom";
 import Component from "../../core/Component";
 import { createPreviewEmptyProjects } from "../../../utils/dummy_data/projects";
 import { toPath } from "../../../utils/route-helper";
-import { getPinnedProjects, sendEmail } from "../../process/landing";
+import { sendEmail } from "../../process/landing";
 import { validateEmail } from "../../../utils/data-helpers";
 import { CustomAlert, CustomAlertBuilder } from "../../components/CustomAlert";
 import CustomButton from "../../components/CustomButton";
 import { Strings } from "../../../globals/consts";
+import { getAllPinnedProjectsController } from "../../controllers/landing";
+import { EventState } from "../../../utils/event-helpers";
 
 export default class LandingPage {
   static async render(uiStateObservable) {
+    // Loading
     uiStateObservable.emit(UIState.LOADING);
 
-    getPinnedProjects({
-      onSuccess: (data) => {
-        logger.info(data);
+    const { stream, retry } = getAllPinnedProjectsController();
 
-        // No Projects
-        if (data.projects.length <= 0) {
+    stream.observe((event) => {
+      if (event.state === EventState.ERROR) {
+        CustomAlertBuilder
+          .setTitle(Strings.Alerts.FailedToFetchData.Title)
+          .setMessage(Strings.Alerts.FailedToFetchData.Message)
+          .setType(CustomAlert.TYPE.ERROR)
+          .setSize(CustomAlert.SIZE.SMALL)
+          .setCancel(Strings.Buttons.Retry, () => { retry(); })
+          .build()
+          .show();
+      } else if (event.state === EventState.HAS_DATA) {
+        uiStateObservable.emit(UIState.SUCCESS);
+        const { projects } = event.result.data;
+
+        if (projects.length <= 0) {
           CustomAlertBuilder
             .setTitle(Strings.Alerts.CurrentlyNoProjects.Title)
             .setMessage(Strings.Alerts.CurrentlyNoProjects.Message)
             .setType(CustomAlert.TYPE.INFO)
             .setSize(CustomAlert.SIZE.SMALL)
+            .setCancel(Strings.Alerts.CurrentlyNoProjects.ConfirmText)
             .build()
             .show();
         }
 
-        uiStateObservable.emit(UIState.SUCCESS);
-        LandingPage.showHasData(data.projects);
+        LandingPage.showHasData(projects);
         logger.info("Landing page rendered");
-      },
-      onFailed: (status, err) => {
-        logger.error(status, err);
-        uiStateObservable.emit(UIState.ERROR);
-        LandingPage.showHasData();
-        logger.info("Landing page rendered");
-      },
+      }
     });
   }
 
@@ -105,7 +113,7 @@ export default class LandingPage {
       Component.createVerticalSpacer("2rem"),
     );
     // Work Section
-    const workUIElem = Component.createWorkUI();
+    const workUIElem = Component.createProjectListUI({ heading: "h4" });
     Dom.appendRootPage(workUIElem);
 
     let tempProjects = [];
