@@ -37,7 +37,7 @@ const Router = {
   getId: () => UrlParser.parseActiveUrlWithoutCombiner().id,
 
   getExpectedRoute() {
-    const data = this.getPathData();
+    const data = this.getId();
     const activePath = this.resolveActivePath();
 
     return { data, activePath };
