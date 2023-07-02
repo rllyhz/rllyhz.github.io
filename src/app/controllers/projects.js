@@ -1,8 +1,8 @@
 import { EventData, EventResult, EventState } from "../../utils/event-helpers";
 import { privateObservableOf } from "../../utils/extension";
-import { getAllProjects } from "../process/projects";
+import { getAllProjects, getProjectById } from "../process/projects";
 
-const publisher = "projects_page";
+const publisher = "projects_owner";
 
 const getProjectsController = () => {
   const resolver = privateObservableOf(publisher, new EventData(EventState.LOADING));
@@ -23,7 +23,25 @@ const getProjectsController = () => {
   return new EventResult(resolver, handler);
 };
 
-const getProjectByIdController = () => {};
+const getProjectByIdController = (id) => {
+  const resolver = privateObservableOf(publisher, new EventData(EventState.LOADING));
+
+  const handler = () => {
+    getProjectById({
+      id,
+      onFailed: (status, error) => {
+        resolver.emit(publisher, new EventData(EventState.ERROR, { error: { status, error } }));
+      },
+      onSuccess: (data) => {
+        resolver.emit(publisher, new EventData(EventState.HAS_DATA, { data }));
+      },
+    });
+  };
+
+  handler();
+
+  return new EventResult(resolver, handler);
+};
 
 export {
   getProjectsController,
