@@ -128,17 +128,20 @@ export default class LandingPage {
     Dom.appendRootPage(
       Component.createVerticalSpacer("3rem"),
     );
-    // See more btn
-    const btnMoreContainer = Component.createCustomFlexEndContainer();
-    btnMoreContainer.appendChild(
-      Component.createButtonText({
-        text: Strings.Buttons.SeeMore,
-        size: ButtonText.SIZE.BIG,
-        isLink: true,
-        href: toPath("/projects"),
-      }),
-    );
-    Dom.appendRootPage(btnMoreContainer);
+
+    if (projects.length > 0) {
+      // See more btn
+      const btnMoreContainer = Component.createCustomFlexEndContainer();
+      btnMoreContainer.appendChild(
+        Component.createButtonText({
+          text: Strings.Buttons.SeeMore,
+          size: ButtonText.SIZE.BIG,
+          isLink: true,
+          href: toPath("/projects"),
+        }),
+      );
+      Dom.appendRootPage(btnMoreContainer);
+    }
 
     // ====================================
     // Spacer
