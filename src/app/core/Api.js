@@ -62,8 +62,10 @@ class ApiBuilder {
           this.#onFailedCallback(StatusCode.TimeOut, res.error);
           return;
         }
+
+        const data = await res.json();
+
         if (res.ok && res.status === 200) {
-          const data = await res.json();
           if (this.#onSuccessCallback && typeof this.#onSuccessCallback === "function") {
             this.#onSuccessCallback(data);
           }
@@ -71,7 +73,7 @@ class ApiBuilder {
         }
 
         if (this.#onFailedCallback && typeof this.#onFailedCallback === "function") {
-          this.#onFailedCallback(res.status, "Error");
+          this.#onFailedCallback(res.status, data);
         }
       },
     );
@@ -114,9 +116,9 @@ const Api = {
 const FetchHandler = async (endpointUrl, method, body, headers) => {
   try {
     const response = await fetch(endpointUrl, { method, body, headers });
+    const data = await response.json();
 
     if (response.ok && response.status === 200) {
-      const data = await response.json();
       return {
         success: true,
         responseData: data,
@@ -124,7 +126,7 @@ const FetchHandler = async (endpointUrl, method, body, headers) => {
     }
     return {
       success: false,
-      responseData: { status: response.status, error: "Error" },
+      responseData: { status: response.status, error: data },
     };
   } catch (error) {
     return {

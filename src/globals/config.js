@@ -1,6 +1,6 @@
 const Config = {
   Mode: {
-    Production: true,
+    Production: false,
   },
   CACHE_NAME: "RllyhzGithubPages-V2",
   STORAGE_AUTH_KEY: "RllyhzGithubPages-V2",
@@ -49,6 +49,21 @@ const StringResource = {
     Message: "Your Message (required)",
   },
   Alerts: {
+    LoginFailed: {
+      Title: "❌ Oopss...",
+      Message: "Failed to login!",
+      ConfirmText: "Oke",
+    },
+    LoginSuccess: {
+      Title: "✅ Success",
+      Message: "Successfully logged in!",
+      ConfirmText: "Oke",
+    },
+    ConnectionTimeOut: {
+      Title: "❌ Oopss...",
+      Message: "Failed to connect. Please check your connection",
+      ConfirmText: "Oke",
+    },
     FailedToFetchData: {
       Title: "❌ Oopss...",
       Message: "Failed to load data!",
