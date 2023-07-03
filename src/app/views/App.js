@@ -106,8 +106,6 @@ export default class App {
       Dom.getRootLoadingPage().style.display = "none";
       Dom.getRootPage().style.display = "block";
     }
-
-    window.scrollTo(0, 0);
   }
 
   static updateAppShell() {
