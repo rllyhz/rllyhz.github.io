@@ -1,7 +1,7 @@
 import template from "./template";
 
-export default class CustomButton extends HTMLElement {
-  static tagName = "custom-button";
+export default class ButtonText extends HTMLElement {
+  static tagName = "button-text";
 
   static SIZE = {
     SMALL: "small",
@@ -85,6 +85,6 @@ export default class CustomButton extends HTMLElement {
   }
 }
 
-if (!customElements.get(CustomButton.tagName)) {
-  customElements.define(CustomButton.tagName, CustomButton);
+if (!customElements.get(ButtonText.tagName)) {
+  customElements.define(ButtonText.tagName, ButtonText);
 }

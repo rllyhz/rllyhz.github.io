@@ -1,6 +1,6 @@
 import styles from "./styles";
 
-export default class CustomInputText extends HTMLElement {
+export default class InputText extends HTMLElement {
   static tagName = "input-text";
 
   #multiLine = false;
@@ -99,6 +99,6 @@ export default class CustomInputText extends HTMLElement {
   }
 }
 
-if (!customElements.get(CustomInputText.tagName)) {
-  customElements.define(CustomInputText.tagName, CustomInputText);
+if (!customElements.get(InputText.tagName)) {
+  customElements.define(InputText.tagName, InputText);
 }
