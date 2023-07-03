@@ -49,6 +49,16 @@ const StringResource = {
     Message: "Your Message (required)",
   },
   Alerts: {
+    ConnectionTimeOut: {
+      Title: "❌ Oopss...",
+      Message: "Failed to connect. Please check your connection",
+      ConfirmText: "Oke",
+    },
+    SomethingWentWrong: {
+      Title: "❌ Oopss...",
+      Message: "Something went wrong unexpectedly",
+      ConfirmText: "Oke",
+    },
     LoginFailed: {
       Title: "❌ Oopss...",
       Message: "Failed to login!",
@@ -59,9 +69,14 @@ const StringResource = {
       Message: "Successfully logged in!",
       ConfirmText: "Oke",
     },
-    ConnectionTimeOut: {
-      Title: "❌ Oopss...",
-      Message: "Failed to connect. Please check your connection",
+    Authenticated: {
+      Title: "Hey 👋",
+      Message: "You already logged in!",
+      ConfirmText: "Oke",
+    },
+    Unauthenticated: {
+      Title: "Hey 👋",
+      Message: "You're not allowed to access this page!",
       ConfirmText: "Oke",
     },
     FailedToFetchData: {
