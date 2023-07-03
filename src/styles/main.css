@@ -22,11 +22,15 @@
   --tertier-color: #f44340;
   --dark-color: #310e2f;
   --dark-2-color: #5b515a;
+  --grey-color: #969696;
+  --grey-light-color: #c8c8c8;
   --loading-color: rgb(245, 234, 255);
   --message-color: rgb(208, 203, 213);
   --message-dark-color: rgb(163, 160, 167);
   --white-color: #fefefe;
   --black-color: #1a1a1a;
+  --text-dark-color: rgb(60, 60, 60);
+  --text-light-color: var(--message-color);
 }
 
 /*===== Typography =====*/

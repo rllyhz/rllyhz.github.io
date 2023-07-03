@@ -23,6 +23,10 @@ const Auth = {
     saveData(Config.STORAGE_AUTH_KEY, data);
   },
 
+  flashAuthenticationData() {
+    this.updateAuthenticationData(false);
+  },
+
   authenticate() {
     const authenticationData = this.getAuthenticationData();
     return authenticationData.isLoggedIn;
