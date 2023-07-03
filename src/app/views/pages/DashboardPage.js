@@ -93,14 +93,11 @@ export default class DashboardPage {
       configuration.tokenExpiresInHours,
     );
 
-    Dom.appendRootPage(
-      Component.createVerticalSpacer("1rem"),
-    );
-
     const container = Component.createCustomCenterContainer("100%");
     const dashboardContainer = Dom.createElement({
       tagName: "div",
       styles: {
+        margin: "1rem 0 2rem",
         boxShadow: "1px 1px 12px rgba(82, 82, 82, .1)",
         borderRadius: "8px",
         padding: "1rem",
