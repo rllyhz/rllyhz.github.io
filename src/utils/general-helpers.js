@@ -17,7 +17,13 @@ const createGreetingUserTemplate = (name) => {
   return `${gretting}, ${getFirstName(name)}! 👋`;
 };
 
+const camelCaseToCapitalize = (text = "") => {
+  const result = String(text).replace(/([A-Z])/g, " $1");
+  return result.charAt(0).toUpperCase() + result.slice(1);
+};
+
 export {
   getFirstName,
   createGreetingUserTemplate,
+  camelCaseToCapitalize,
 };

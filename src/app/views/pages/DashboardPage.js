@@ -7,7 +7,9 @@ import Dom from "../../core/Dom";
 import Component from "../../core/Component";
 import { getConfigurationController } from "../../controllers/dashboard";
 import { EventState } from "../../../utils/event-helpers";
-import { createGreetingUserTemplate } from "../../../utils/general-helper";
+import { createGreetingUserTemplate } from "../../../utils/general-helpers";
+import logger from "../../../utils/logger";
+import ConfigurationModel from "../../model/ConfigurationModel";
 
 export default class DashboardPage {
   static render(uiStateObservable) {
@@ -39,6 +41,7 @@ export default class DashboardPage {
 
       if (event.state === EventState.HAS_DATA) {
         DashboardPage.#showHasData(event.result.data.configuration);
+        logger.info("Dashboard page rendered");
         uiStateObservable.emit(UIState.SUCCESS);
         return;
       }
@@ -82,6 +85,14 @@ export default class DashboardPage {
   }
 
   static #showHasData(configuration) {
+    const tempConfiguration = new ConfigurationModel(
+      configuration.lockUsersManage,
+      configuration.lockProjectsManage,
+      configuration.underMaintenance,
+      configuration.pinnedProjectsOrder,
+      configuration.tokenExpiresInHours,
+    );
+
     Dom.appendRootPage(
       Component.createVerticalSpacer("1rem"),
     );
@@ -94,23 +105,17 @@ export default class DashboardPage {
         borderRadius: "8px",
         padding: "1rem",
       },
-      props: {
-        configuration,
-      },
     });
     container.appendChild(dashboardContainer);
 
+    // =============================================
+    // Greeting User
     dashboardContainer.appendChild(
-      Dom.createElement({
-        tagName: "h1",
-        innerText: createGreetingUserTemplate("Rully"),
-        styles: {
-          margin: "0",
-          fontSize: "1.4rem",
-          fontWeight: "700",
-          textAlign: "center",
-          color: "var(--text-dark-color)",
-        },
+      Component.createDashboardTitle({
+        text: createGreetingUserTemplate(Strings.App.Author),
+        align: "center",
+        size: "big",
+        margin: "0",
       }),
     );
     dashboardContainer.appendChild(
@@ -128,45 +133,123 @@ export default class DashboardPage {
       Component.createVerticalSpacer("2rem"),
     );
 
+    // ==============================================
+    // Configuration
+    const booleanConfigData = [];
+    const otherConfigData = {};
+
+    Object.entries(configuration).forEach(([key, value]) => {
+      if (value === true || value === false) {
+        booleanConfigData.push({ key, value });
+      } else {
+        otherConfigData[key] = value;
+      }
+    });
+
     dashboardContainer.appendChild(
-      Dom.createElement({
-        tagName: "h2",
-        innerText: "Configuration",
-        styles: {
-          margin: "2rem 0 0",
-          fontSize: "1rem",
-          fontWeight: "700",
-          color: "var(--text-dark-color)",
-        },
+      Component.createDashboardTitle({
+        text: "Configuration",
+        size: "medium",
+        margin: "2rem 0 1rem",
       }),
     );
 
+    // Boolean configuration form
+    const configurationFormUI = Component.createBooleanConfigurationFormUI();
+    configurationFormUI.setConfigurationData(
+      booleanConfigData,
+    );
+
+    // Update button
+    const updateBooleanConfigButtonContainer = Component.createCustomFlexEndContainer();
+    const updateBooleanConfigButton = Component.createButtonText({
+      text: "Update", size: "medium",
+    });
+    updateBooleanConfigButtonContainer.appendChild(updateBooleanConfigButton);
+
+    dashboardContainer.appendChild(configurationFormUI);
     dashboardContainer.appendChild(
-      Dom.createElement({
-        tagName: "h2",
-        innerText: "Import/Export Projects",
-        styles: {
-          margin: "2rem 0 0",
-          fontSize: "1rem",
-          fontWeight: "700",
-          color: "var(--text-dark-color)",
-        },
+      Component.createVerticalSpacer("1rem"),
+    );
+    dashboardContainer.appendChild(updateBooleanConfigButtonContainer);
+
+    // Update event listener
+    updateBooleanConfigButton.addEventListener("click", () => {
+      const updatedBooleanConfig = configurationFormUI.resolveUpdatedCheckedValues();
+      if (updatedBooleanConfig !== null && updatedBooleanConfig.length > 0) {
+        booleanConfigData.forEach((data, index) => {
+          tempConfiguration[data.key] = updatedBooleanConfig[index];
+        });
+        this.#updateConfigurationData(tempConfiguration);
+      }
+    });
+
+    dashboardContainer.appendChild(
+      Component.createVerticalSpacer("2rem"),
+    );
+
+    // Mixed configuration form
+    const mixedConfigurationFormUI = Component.createMixedConfigurationFormUI();
+    mixedConfigurationFormUI.setMixedConfigurationData(
+      otherConfigData,
+    );
+
+    // Update button
+    const updateMixedConfigButtonContainer = Component.createCustomFlexEndContainer();
+    const updateMixedConfigButton = Component.createButtonText({
+      text: "Update", size: "medium",
+    });
+    updateMixedConfigButtonContainer.appendChild(updateMixedConfigButton);
+
+    dashboardContainer.appendChild(mixedConfigurationFormUI);
+    dashboardContainer.appendChild(
+      Component.createVerticalSpacer("1rem"),
+    );
+    dashboardContainer.appendChild(updateMixedConfigButtonContainer);
+
+    // Update event listener
+    updateMixedConfigButton.addEventListener("click", () => {
+      const updatedMixedValues = mixedConfigurationFormUI.resolveUpdatedMixedValues();
+      if (updatedMixedValues !== null) {
+        Object.keys(otherConfigData).forEach((key) => {
+          tempConfiguration[key] = updatedMixedValues[key];
+        });
+        this.#updateConfigurationData(tempConfiguration);
+      }
+    });
+
+    // ==============================================
+    // Import/Export Projects
+    dashboardContainer.appendChild(
+      Component.createDashboardTitle({
+        text: "Import/Export Projects",
+        size: "medium",
+        margin: "2rem 0 0",
       }),
     );
 
+    // ==============================================
+    // Import/Export Project Images
     dashboardContainer.appendChild(
-      Dom.createElement({
-        tagName: "h2",
-        innerText: "Import/Export Project Images",
-        styles: {
-          margin: "2rem 0 0",
-          fontSize: "1rem",
-          fontWeight: "700",
-          color: "var(--text-dark-color)",
-        },
+      Component.createDashboardTitle({
+        text: "Import/Export Project Images",
+        size: "medium",
+        margin: "2rem 0 0",
       }),
     );
 
     Dom.appendRootPage(container);
+  }
+
+  static #updateConfigurationData(newConfigurationData) {
+    logger.log(newConfigurationData);
+  }
+
+  static #importProjects(projectJsonFile) {
+    logger.log(projectJsonFile);
+  }
+
+  static #importProjectImages(imageZipFiles) {
+    logger.log(imageZipFiles);
   }
 }

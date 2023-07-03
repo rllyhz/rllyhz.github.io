@@ -10,6 +10,8 @@ import {
   createProjectListUI,
 } from "../../utils/ui/component-helpers";
 import { createElement } from "../../utils/ui/dom-helpers";
+import BooleanConfigurationFormUI from "../components/BooleanConfigurationFormUI";
+import MixedConfigurationFormUI from "../components/MixedConfigurationFormUI";
 import TitleText from "../components/TitleText";
 
 const createCustomCenterContainer = (width = "90%") => createElement({
@@ -52,6 +54,30 @@ const createTitleApp = ({
   text, id, size, align, styles, classNames, color, variant,
 });
 
+const createDashboardTitle = ({
+  margin, padding,
+  text, size = "big", color = "var(--text-dark-color)", align,
+}) => createElement({
+  tagName: size === "big" ? "h1" : "h2",
+  innerText: text,
+  styles: {
+    margin,
+    padding,
+    fontSize: size === "big" ? "1.4rem" : "1rem",
+    textAlign: align,
+    fontWeight: "700",
+    color,
+  },
+});
+
+const createBooleanConfigurationFormUI = () => createElement({
+  tagName: BooleanConfigurationFormUI.tagName,
+});
+
+const createMixedConfigurationFormUI = () => createElement({
+  tagName: MixedConfigurationFormUI.tagName,
+});
+
 const Component = {
   createHorizontalSpacer,
   createVerticalSpacer,
@@ -65,6 +91,9 @@ const Component = {
   createAboutUI,
   createSkillsUI,
   createProjectListUI,
+  createDashboardTitle,
+  createBooleanConfigurationFormUI,
+  createMixedConfigurationFormUI,
 };
 
 export default Component;
