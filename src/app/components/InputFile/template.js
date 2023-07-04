@@ -7,7 +7,7 @@ const template = /* html */`
     <span>=> <span class="preview-label">Ex: image.png</span></span>
   </div>
   <button type="button">Upload</button>
-  <input type="file" name="" id="" />
+  <input type="file" name="" id="" placeholder="Upload image" />
 `;
 
 export default template;
