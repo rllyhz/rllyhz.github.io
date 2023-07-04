@@ -1,5 +1,6 @@
 import logger from "../../utils/logger";
 import { toPath } from "../../utils/route-helper";
+import Routes from "./Routes";
 
 const Route = {
   path: "",
@@ -17,6 +18,8 @@ const Router = (routes = []) => {
     location.href = toPath("/");
     return {
       setNotFoundCallback: () => {},
+      setBeforeEach: () => {},
+      setAfterEach: () => {},
       init: () => {},
     };
   }
@@ -27,6 +30,16 @@ const Router = (routes = []) => {
    * @type {Function}
    */
   let notFoundCallback = null;
+
+  /**
+   * @type {Function}
+   */
+  let beforeEachCallback = null;
+
+  /**
+   * @type {Function}
+   */
+  let afterEachCallback = null;
 
   // url hash
   const { hash } = window.location;
@@ -51,11 +64,25 @@ const Router = (routes = []) => {
   }
 
   /**
-   * Set Not found callback
    * @param {Function} cb
    */
   const setNotFoundCallback = (cb) => {
     notFoundCallback = cb;
+  };
+
+  /**
+   * @param {Function} cb
+   */
+  const setBeforeEach = (cb) => {
+    beforeEachCallback = cb;
+  };
+
+  /**
+   * Set callback after each route getting invoked
+   * @param {Function} cb
+   */
+  const setAfterEach = (cb) => {
+    afterEachCallback = cb;
   };
 
   /**
@@ -75,6 +102,12 @@ const Router = (routes = []) => {
       Route.path = route.path || "";
       Route.cb = route.cb || null;
 
+      // make new rule for route "*" to give the client alternative way
+      // to trigger the default route
+      if (Route.path === Routes.specialPathForDefaultCallback) {
+        return true;
+      }
+
       const regex = new RegExp(`^${Route.path.replace(/:\w+/g, "(\\w+)")}$`);
       return trimmedHash.match(regex);
     });
@@ -91,16 +124,18 @@ const Router = (routes = []) => {
     // Extract dynamic parameters from the hash
     const params = {};
 
-    const regex = new RegExp(`^${matchedRoute.path.replace(/:\w+/g, "(\\w+)")}$`);
-    const paramValues = trimmedHash.match(regex).slice(1);
+    if (matchedRoute.path !== "*") {
+      const regex = new RegExp(`^${matchedRoute.path.replace(/:\w+/g, "(\\w+)")}$`);
+      const paramValues = trimmedHash.match(regex).slice(1);
 
-    const dynamicsParamKeys = matchedRoute.path.match(/:\w+/g);
+      const dynamicsParamKeys = matchedRoute.path.match(/:\w+/g);
 
-    if (dynamicsParamKeys !== null) {
-      const paramKeyValuePairs = dynamicsParamKeys.map((paramKey) => paramKey.slice(1));
-      paramKeyValuePairs.forEach((paramName, index) => {
-        params[paramName] = paramValues[index];
-      });
+      if (dynamicsParamKeys !== null) {
+        const paramKeyValuePairs = dynamicsParamKeys.map((paramKey) => paramKey.slice(1));
+        paramKeyValuePairs.forEach((paramName, index) => {
+          params[paramName] = paramValues[index];
+        });
+      }
     }
 
     // Extract query params if any
@@ -114,12 +149,23 @@ const Router = (routes = []) => {
     }
 
     // run route callback
-    logger.log("Route's callback invoking");
-    if (Route.cb && typeof Route.cb === "function") {
-      const data = { params, query };
-      Route.cb(data);
-    } else {
+    if (!Route.cb || typeof Route.cb !== "function") {
       logger.error(`Could not invoke the callback for route "${Route.path}"!`);
+      return;
+    }
+
+    // invoke before callback
+    if (beforeEachCallback && typeof beforeEachCallback === "function") {
+      beforeEachCallback();
+    }
+
+    const data = { params, query };
+    Route.cb(data);
+    logger.log("Route's callback invoked");
+
+    // invoke after callback
+    if (afterEachCallback && typeof afterEachCallback === "function") {
+      afterEachCallback();
     }
   };
 
@@ -129,6 +175,19 @@ const Router = (routes = []) => {
      * @param {Function} cb
      */
     setNotFoundCallback,
+
+    /**
+     * Set callback before each route getting invoked
+     * @param {Function} cb
+     */
+    setBeforeEach,
+
+    /**
+     * Set callback after each route getting invoked
+     * @param {Function} cb
+     */
+    setAfterEach,
+
     /**
      * Initialize new Router
      */

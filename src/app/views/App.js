@@ -60,6 +60,14 @@ export default class App {
       App.renderPage(NotFoundPage);
     });
 
+    // appRouter.setBeforeEach(() => {
+    //   logger.info("Before each callback");
+    // });
+
+    // appRouter.setAfterEach(() => {
+    //   logger.info("After each callback");
+    // });
+
     appRouter.init();
   }
 
