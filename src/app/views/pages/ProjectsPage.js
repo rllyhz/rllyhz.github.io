@@ -23,7 +23,10 @@ export default class ProjectsPage {
           .setSize(CustomAlert.SIZE.SMALL)
           .setTitle(Strings.Alerts.FailedToFetchData.Title)
           .setMessage(Strings.Alerts.FailedToFetchData.Message)
-          .setCancel("Retry", () => { retry(); })
+          .setCancel("Retry", () => {
+            uiStateObservable.emit(UIState.LOADING);
+            retry();
+          })
           .build()
           .show();
         //

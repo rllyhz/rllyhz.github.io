@@ -18,6 +18,10 @@ const Callbacks = {
 class CustomAlertBuilder {
   static #detail = null;
 
+  static isShowing = false;
+
+  static alertContainerId = "alert-container-id";
+
   static #title;
 
   static #message;
@@ -31,8 +35,6 @@ class CustomAlertBuilder {
   static #confirmText = "Oke";
 
   static #cancelText = "Cancel";
-
-  static isShowing = false;
 
   static getDetail() {
     if (CustomAlertBuilder.#detail === null) {
@@ -105,6 +107,7 @@ class CustomAlertBuilder {
 
     // show
     const alertContainer = Dom.createElement({
+      id: CustomAlertBuilder.alertContainerId,
       tagName: "div",
       styles: {
         position: "fixed",
@@ -139,22 +142,37 @@ class CustomAlertBuilder {
     document.body.appendChild(alertContainer);
     CustomAlertBuilder.isShowing = true;
 
-    // remove handler
+    // remove or cancel handler
     alertContainer.addEventListener("click", (e) => {
       if (!CustomAlertBuilder.#cancelable) return;
 
       const clickedNodeName = e.target.parentNode.nodeName;
 
       if (clickedNodeName === "BODY") { // only container
-        if (document.body.style.overflowY === "hidden") {
-          document.body.style.overflowY = "auto";
-        }
-        if (CustomAlertBuilder.isShowing) alertContainer.remove();
-        CustomAlertBuilder.isShowing = false;
+        CustomAlertBuilder.remove();
       }
     });
 
     this.#detail = null;
+  }
+
+  static reset() {
+    CustomAlertBuilder.#detail = null;
+    CustomAlertBuilder.isShowing = false;
+    Callbacks.confirm = null;
+    Callbacks.cancel = null;
+  }
+
+  static remove() {
+    CustomAlertBuilder.reset();
+
+    if (document.body.style.overflowY === "hidden") {
+      document.body.style.overflowY = "auto";
+    }
+
+    if (document.querySelector(`#${CustomAlertBuilder.alertContainerId}`)) {
+      document.querySelector(`#${CustomAlertBuilder.alertContainerId}`).remove();
+    }
   }
 }
 

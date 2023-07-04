@@ -18,6 +18,7 @@ import DashboardPage from "./pages/DashboardPage";
 import ProjectsPage from "./pages/ProjectsPage";
 import ProjectDetailPage from "./pages/ProjectDetailPage";
 import Routes from "../core/Routes";
+import CustomAlert from "../components/CustomAlert";
 
 export default class App {
   static uiStateObservable = singleObservableOf(UIState.LOADING);
@@ -77,6 +78,11 @@ export default class App {
       return;
     }
 
+    // Reset things from the begining
+    // (including UI elements or states)
+    CustomAlert.Builder.remove();
+
+    // prepare rendering
     logger.info("Rendering page");
 
     document.body.innerHTML = "";
@@ -124,6 +130,7 @@ export default class App {
       App.firstTimeRendering = false;
     }
 
+    // render active page
     await activePage.render(App.uiStateObservable, data || {});
     logger.info("Active Page successfully rendered");
   }

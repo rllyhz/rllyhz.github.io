@@ -96,15 +96,7 @@ export default class CustomAlert extends HTMLElement {
   }
 
   removeAlert() {
-    const backdropAlert = document.body.childNodes[document.body.childNodes.length - 1];
-
-    if (document.body.style.overflowY === "hidden") {
-      document.body.style.overflowY = "auto";
-    }
-    if (CustomAlertBuilder.isShowing) backdropAlert.remove();
-    CustomAlertBuilder.isShowing = false;
-    Callbacks.confirm = null;
-    Callbacks.cancel = null;
+    CustomAlert.Builder.remove();
   }
 
   _render() {

@@ -20,12 +20,16 @@ export default class LandingPage {
 
     stream.observe((event) => {
       if (event.state === EventState.ERROR) {
+        uiStateObservable.emit(UIState.ERROR);
         CustomAlert.Builder
           .setTitle(Strings.Alerts.FailedToFetchData.Title)
           .setMessage(Strings.Alerts.FailedToFetchData.Message)
           .setType(CustomAlert.TYPE.ERROR)
           .setSize(CustomAlert.SIZE.SMALL)
-          .setCancel(Strings.Buttons.Retry, () => { retry(); })
+          .setCancel(Strings.Buttons.Retry, () => {
+            uiStateObservable.emit(UIState.LOADING);
+            retry();
+          })
           .build()
           .show();
       } else if (event.state === EventState.HAS_DATA) {
