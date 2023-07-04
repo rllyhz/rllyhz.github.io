@@ -1,4 +1,3 @@
-import logger from "../../../utils/logger";
 import UIState from "../../../utils/ui-state";
 import Dom from "../../core/Dom";
 import Component from "../../core/Component";
@@ -45,7 +44,6 @@ export default class LandingPage {
         }
 
         LandingPage.showHasData(projects);
-        logger.info("Landing page rendered");
       }
     });
   }

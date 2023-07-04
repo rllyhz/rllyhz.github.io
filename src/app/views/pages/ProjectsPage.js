@@ -1,5 +1,4 @@
 import { Strings } from "../../../globals/consts";
-import logger from "../../../utils/logger";
 import { EventState } from "../../../utils/event-helpers";
 import UIState from "../../../utils/ui-state";
 import CustomAlert from "../../components/CustomAlert";
@@ -27,8 +26,6 @@ export default class ProjectsPage {
           .setCancel("Retry", () => { retry(); })
           .build()
           .show();
-
-        logger.info("Projects page rendered");
         //
       } else if (event.state === EventState.HAS_DATA) {
         uiStateObservable.emit(UIState.SUCCESS);
@@ -39,7 +36,7 @@ export default class ProjectsPage {
         } else {
           ProjectsPage.showHasData(projects);
         }
-        logger.info("Projects page rendered");
+        //
       }
     });
   }

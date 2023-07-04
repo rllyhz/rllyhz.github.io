@@ -1,7 +1,6 @@
 import "regenerator-runtime"; /* for async await transpile */
 import logger from "../../utils/logger";
-import { Routes, Router } from "../routes";
-import NotFoundPage from "./pages/NotFoundPage";
+import Router from "../core/Router";
 import { EventType } from "../../utils/ui/event-helpers";
 import UIState from "../../utils/ui-state";
 import { singleObservableOf } from "../../utils/extension";
@@ -10,6 +9,15 @@ import HeaderApp from "../components/HeaderApp";
 import Loading from "../components/Loading";
 import Dom from "../core/Dom";
 import ContainerApp from "../components/ContainerApp";
+
+// Pages
+import NotFoundPage from "./pages/NotFoundPage";
+import LandingPage from "./pages/LandingPage";
+import LoginPage from "./pages/LoginPage";
+import DashboardPage from "./pages/DashboardPage";
+import ProjectsPage from "./pages/ProjectsPage";
+import ProjectDetailPage from "./pages/ProjectDetailPage";
+import Routes from "../core/Routes";
 
 export default class App {
   static uiStateObservable = singleObservableOf(UIState.LOADING);
@@ -24,10 +32,43 @@ export default class App {
     App.firstTimeRendering = true;
     App.customLoading = null;
 
-    App.renderPage();
+    App.runRouter();
   }
 
-  static async renderPage() {
+  static runRouter() {
+    const appRouter = Router([
+      Routes.create("/", (data) => {
+        App.renderPage(LandingPage, data);
+      }),
+      Routes.create("/login", (data) => {
+        App.renderPage(LoginPage, data);
+      }),
+      Routes.create("/dashboard", (data) => {
+        App.renderPage(DashboardPage, data);
+      }),
+      Routes.create("/projects", (data) => {
+        App.renderPage(ProjectsPage, data);
+      }),
+      Routes.create("/projects/:id", (data) => {
+        App.renderPage(ProjectDetailPage, data);
+      }),
+    ]);
+
+    appRouter.setNotFoundCallback(() => {
+      // 404 not found
+      logger.error("Page not found!");
+      App.renderPage(NotFoundPage);
+    });
+
+    appRouter.init();
+  }
+
+  static async renderPage(activePage, data = null) {
+    if (!activePage || !activePage.render || typeof activePage.render !== "function") {
+      logger.error("Page could be render!");
+      return;
+    }
+
     logger.info("Rendering page");
 
     document.body.innerHTML = "";
@@ -35,21 +76,6 @@ export default class App {
       top: "0",
       behavior: "smooth",
     });
-
-    if (!window.location.href.includes("#")) {
-      Router.navigateTo("/");
-      return;
-    }
-
-    const { data, activePath } = Router.getExpectedRoute();
-    const activePage = Routes.resolve(activePath);
-
-    if (!activePage) {
-      // 404 not found
-      logger.error("Page not found!");
-      NotFoundPage.render();
-      return;
-    }
 
     const header = document.createElement(HeaderApp.tagName);
     const footer = document.createElement(FooterApp.tagName);
@@ -90,7 +116,8 @@ export default class App {
       App.firstTimeRendering = false;
     }
 
-    await activePage.render(App.uiStateObservable, data);
+    await activePage.render(App.uiStateObservable, data || {});
+    logger.info("Active Page successfully rendered");
   }
 
   static uiStateListener(uiState) {

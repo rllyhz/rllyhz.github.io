@@ -4,7 +4,8 @@ import Dom from "../../core/Dom";
 import Component from "../../core/Component";
 import ButtonText from "../../components/ButtonText";
 import CustomAlert from "../../components/CustomAlert";
-import { Router, Routes } from "../../routes";
+import Router from "../../core/Router";
+import Pages from "../../core/Pages";
 import { StatusCode, Strings } from "../../../globals/consts";
 import { login } from "../../process/auth";
 import Auth from "../../core/Auth";
@@ -19,7 +20,7 @@ export default class LoginPage {
         .setTitle(Strings.Alerts.Authenticated.Title)
         .setMessage(Strings.Alerts.Authenticated.Message)
         .setCancel(Strings.Alerts.Authenticated.ConfirmText, () => {
-          Router.navigateTo(Routes.Page.dashboardPage);
+          Router.navigateTo(Pages.dashboardPage);
         })
         .build()
         .show();
@@ -131,7 +132,7 @@ export default class LoginPage {
             .setTitle(Strings.Alerts.LoginSuccess.Title)
             .setMessage(Strings.Alerts.LoginSuccess.Message)
             .setCancel(Strings.Alerts.LoginSuccess.ConfirmText, () => {
-              Router.navigateTo(Routes.Page.dashboardPage);
+              Router.navigateTo(Pages.dashboardPage);
             })
             .build()
             .show();

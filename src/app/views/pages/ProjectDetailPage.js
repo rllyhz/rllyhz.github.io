@@ -3,7 +3,8 @@ import UIState from "../../../utils/ui-state";
 import CustomAlert from "../../components/CustomAlert";
 import { StatusCode, Strings } from "../../../globals/consts";
 import { getProjectByIdController } from "../../controllers/projects";
-import Router from "../../routes/router";
+import Router from "../../core/Router";
+import Pages from "../../core/Pages";
 
 export default class ProjectDetailPage {
   static async render(uiStateObservable, id) {
@@ -20,7 +21,7 @@ export default class ProjectDetailPage {
           .setSize(CustomAlert.SIZE.SMALL)
           .setCancel(Strings.Alerts.ProjectDetailNotFound.ConfirmText, () => {
             // redirect to ProjectPage
-            Router.navigateTo("/projects");
+            Router.navigateTo(Pages.projectsPage);
           })
           .build()
           .show();

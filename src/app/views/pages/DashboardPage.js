@@ -1,6 +1,7 @@
 import CustomAlert from "../../components/CustomAlert";
 import { StatusCode, Strings } from "../../../globals/consts";
-import { Router, Routes } from "../../routes";
+import Router from "../../core/Router";
+import Pages from "../../core/Pages";
 import UIState from "../../../utils/ui-state";
 import Auth from "../../core/Auth";
 import Dom from "../../core/Dom";
@@ -23,7 +24,7 @@ export default class DashboardPage {
         .setTitle(Strings.Alerts.Unauthenticated.Title)
         .setMessage(Strings.Alerts.Unauthenticated.Message)
         .setCancel(Strings.Alerts.Unauthenticated.ConfirmText, () => {
-          Router.navigateTo(Routes.Page.loginPage);
+          Router.navigateTo(Pages.loginPage);
         })
         .build()
         .show();
@@ -41,7 +42,6 @@ export default class DashboardPage {
 
       if (event.state === EventState.HAS_DATA) {
         DashboardPage.#showHasData(event.result.data.configuration);
-        logger.info("Dashboard page rendered");
         uiStateObservable.emit(UIState.SUCCESS);
         return;
       }
@@ -66,7 +66,7 @@ export default class DashboardPage {
           .setTitle(Strings.Alerts.Unauthenticated.Title)
           .setMessage(Strings.Alerts.Unauthenticated.Message)
           .setCancel(Strings.Alerts.Unauthenticated.ConfirmText, () => {
-            Router.navigateTo(Routes.Page.loginPage);
+            Router.navigateTo(Pages.loginPage);
           })
           .build()
           .show();
