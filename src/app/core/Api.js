@@ -47,14 +47,14 @@ class ApiBuilder {
   }
 
   execute() {
-    logger.info(`${this.method}: ${this.endpointUrl}`);
+    logger.info(`[API Call] \n${this.#method}: ${this.#endpointUrl}`);
 
     fetch(this.#endpointUrl, {
       method: this.#method,
       body: this.#body,
       headers: this.#headers,
     }).catch((error) => {
-      logger.error(`${this.#method}: ${this.#endpointUrl}`);
+      logger.error(`[API Call Error] \n${this.#method}: ${this.#endpointUrl}`);
       return { error };
     }).then(
       async (res) => {
@@ -115,6 +115,8 @@ const Api = {
 
 const FetchHandler = async (endpointUrl, method, body, headers) => {
   try {
+    logger.info(`[API Call] \n${method}: ${endpointUrl}`);
+
     const response = await fetch(endpointUrl, { method, body, headers });
     const data = await response.json();
 
@@ -129,6 +131,7 @@ const FetchHandler = async (endpointUrl, method, body, headers) => {
       responseData: { status: response.status, error: data },
     };
   } catch (error) {
+    logger.error(`[API Call Error] \n${method}: ${endpointUrl}`);
     return {
       success: false,
       responseData: { status: StatusCode.TimeOut, error },
