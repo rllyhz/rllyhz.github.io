@@ -9,6 +9,8 @@ export default class ButtonText extends HTMLElement {
     BIG: "big",
   };
 
+  #isLoading = false;
+
   #text = "";
 
   #oldText = "";
@@ -56,7 +58,9 @@ export default class ButtonText extends HTMLElement {
   }
 
   set loading(isLoading = true) {
-    if (isLoading) {
+    this.#isLoading = isLoading;
+
+    if (this.#isLoading) {
       this.#oldText = this.#text;
       this.#text = "Loading...";
       this.#oldBgColor = this.#bgColor;
@@ -67,6 +71,10 @@ export default class ButtonText extends HTMLElement {
     }
 
     this._render();
+  }
+
+  get loading() {
+    return this.#isLoading;
   }
 
   _render() {
