@@ -108,7 +108,10 @@ const Router = (routes = []) => {
         return true;
       }
 
-      const regex = new RegExp(`^${Route.path.replace(/:\w+/g, "(\\w+)")}$`);
+      // SOLVED: This seems not pass when path something like "project-jnsvjk-sd55-ddf-38kn"
+      // from : `^${Route.path.replace(/:\w+/g, "(\\w+)")}$`
+      // to   : `^${Route.path.replace(/:[^\s/]+/g, "([^/]+)")}$`
+      const regex = new RegExp(`^${Route.path.replace(/:[^\s/]+/g, "([^/]+)")}$`);
       return trimmedHash.match(regex);
     });
 
@@ -125,10 +128,10 @@ const Router = (routes = []) => {
     const params = {};
 
     if (matchedRoute.path !== "*") {
-      const regex = new RegExp(`^${matchedRoute.path.replace(/:\w+/g, "(\\w+)")}$`);
+      const regex = new RegExp(`^${matchedRoute.path.replace(/:[^\s/]+/g, "([^/]+)")}$`);
       const paramValues = trimmedHash.match(regex).slice(1);
 
-      const dynamicsParamKeys = matchedRoute.path.match(/:\w+/g);
+      const dynamicsParamKeys = matchedRoute.path.match(/:[^\s/]+/g);
 
       if (dynamicsParamKeys !== null) {
         const paramKeyValuePairs = dynamicsParamKeys.map((paramKey) => paramKey.slice(1));
@@ -201,6 +204,10 @@ Router.navigateTo = (path) => {
 
 Router.navigateUp = () => {
   history.back();
+};
+
+Router.refresh = () => {
+  location.reload();
 };
 
 export default Router;
