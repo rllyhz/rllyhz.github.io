@@ -119,7 +119,7 @@ const Router = (routes = []) => {
       return;
     }
 
-    logger.info("Route found");
+    logger.log("Route found");
 
     // Extract dynamic parameters from the hash
     const params = {};

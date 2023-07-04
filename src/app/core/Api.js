@@ -47,7 +47,7 @@ class ApiBuilder {
   }
 
   execute() {
-    logger.info(`[API Call] \n${this.#method}: ${this.#endpointUrl}`);
+    logger.log(`[API Call] \n${this.#method}: ${this.#endpointUrl}`);
 
     fetch(this.#endpointUrl, {
       method: this.#method,
@@ -115,7 +115,7 @@ const Api = {
 
 const FetchHandler = async (endpointUrl, method, body, headers) => {
   try {
-    logger.info(`[API Call] \n${method}: ${endpointUrl}`);
+    logger.log(`[API Call] \n${method}: ${endpointUrl}`);
 
     const response = await fetch(endpointUrl, { method, body, headers });
     const data = await response.json();

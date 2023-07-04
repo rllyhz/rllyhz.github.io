@@ -29,15 +29,44 @@ const createInfoUI = (type) => {
 
 const createLogUI = () => "color: #808080; padding: 8px;";
 
+const _getCallerFile = () => {
+  let filename = "unknown";
+
+  const _pst = Error.prepareStackTrace;
+
+  Error.prepareStackTrace = (err, stack) => stack;
+
+  try {
+    const err = new Error();
+    let callerfile;
+    const currentfile = err.stack.shift().getFileName();
+
+    while (err.stack.length) {
+      callerfile = err.stack.shift().getFileName();
+
+      if (currentfile !== callerfile) {
+        filename = callerfile;
+        break;
+      }
+    }
+  } catch (err) { /* empty */ }
+
+  Error.prepareStackTrace = _pst;
+
+  return filename;
+};
+
 const log = (message) => {
   if (!Config.Mode.Production) {
-    console.log(`%c${message}`, createLogUI());
+    const filenameCaller = _getCallerFile();
+    console.log(`%c File: ${filenameCaller} \n=> ${message}`, createLogUI());
   }
 };
 
 const info = (message, type = InfoType.Normal) => {
   if (!Config.Mode.Production) {
-    console.info(`%c${message}`, createInfoUI(type));
+    const filenameCaller = _getCallerFile();
+    console.log(`%c File: ${filenameCaller} \n=> ${message}`, createInfoUI(type));
   }
 };
 

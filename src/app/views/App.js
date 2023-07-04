@@ -28,7 +28,7 @@ export default class App {
   static customLoading = null;
 
   static async init() {
-    logger.info("Initializing app");
+    logger.log("Initializing app");
 
     App.firstTimeRendering = true;
     App.customLoading = null;
@@ -62,11 +62,11 @@ export default class App {
     });
 
     // appRouter.setBeforeEach(() => {
-    //   logger.info("Before each callback");
+    //   logger.log("Before each callback");
     // });
 
     // appRouter.setAfterEach(() => {
-    //   logger.info("After each callback");
+    //   logger.log("After each callback");
     // });
 
     appRouter.init();
@@ -83,7 +83,7 @@ export default class App {
     CustomAlert.Builder.remove();
 
     // prepare rendering
-    logger.info("Rendering page");
+    logger.log("Rendering page");
 
     document.body.innerHTML = "";
     document.body.scrollTo({
@@ -132,7 +132,7 @@ export default class App {
 
     // render active page
     await activePage.render(App.uiStateObservable, data || {});
-    logger.info("Active Page successfully rendered");
+    logger.log("Active Page successfully rendered");
   }
 
   static uiStateListener(uiState) {
