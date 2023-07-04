@@ -82,9 +82,23 @@ const error = (message) => {
   }
 };
 
+const inspect = (data) => {
+  if (!Config.Mode.Production) {
+    console.log(data);
+  }
+};
+
+const table = (data) => {
+  if (!Config.Mode.Production) {
+    console.table(data);
+  }
+};
+
 export default {
   log,
   info,
   warn,
   error,
+  inspect,
+  table,
 };
