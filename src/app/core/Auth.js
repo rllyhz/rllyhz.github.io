@@ -1,10 +1,10 @@
 import { Config } from "../../globals/config";
-import { saveData, getData } from "../../utils/storage-helpers";
+import Storage from "./Storage";
 import AuthModel from "../model/AuthModel";
 
 const Auth = {
   getAuthenticationData() {
-    const data = getData(Config.STORAGE_AUTH_KEY);
+    const data = Storage.getData(Config.STORAGE_AUTH_KEY);
     let isLoggedIn = false;
     let token = null;
     let tokenCreatedAt = null;
@@ -20,7 +20,7 @@ const Auth = {
 
   updateAuthenticationData(isLoggedIn = false, token = null, tokenCreatedAt = null) {
     const data = new AuthModel(isLoggedIn, token, tokenCreatedAt);
-    saveData(Config.STORAGE_AUTH_KEY, data);
+    Storage.saveData(Config.STORAGE_AUTH_KEY, data);
   },
 
   flashAuthenticationData() {

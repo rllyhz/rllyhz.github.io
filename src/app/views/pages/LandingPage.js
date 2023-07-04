@@ -10,6 +10,7 @@ import ButtonText from "../../components/ButtonText";
 import { Strings } from "../../../globals/consts";
 import { getAllPinnedProjectsController } from "../../controllers/landing";
 import { EventState } from "../../../utils/event-helpers";
+import Storage from "../../core/Storage";
 
 export default class LandingPage {
   static async render(uiStateObservable) {
@@ -36,7 +37,10 @@ export default class LandingPage {
         uiStateObservable.emit(UIState.SUCCESS);
         const { projects } = event.result.data;
 
-        if (projects.length <= 0) {
+        const isAlreadyFired = Storage.getOneTimeValue(Storage.Keys.landingAlertInfo);
+
+        if (projects.length <= 0 && !isAlreadyFired) {
+          Storage.saveOneTimeValue(Storage.Keys.landingAlertInfo, true);
           CustomAlert.Builder
             .setTitle(Strings.Alerts.CurrentlyNoProjects.Title)
             .setMessage(Strings.Alerts.CurrentlyNoProjects.Message)
