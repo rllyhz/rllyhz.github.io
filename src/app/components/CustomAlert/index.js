@@ -21,9 +21,9 @@ export default class CustomAlert extends HTMLElement {
     BIG: "big",
   };
 
-  #type = "success";
+  #type = "info";
 
-  #size = "medium";
+  #size = "small";
 
   #title = "";
 

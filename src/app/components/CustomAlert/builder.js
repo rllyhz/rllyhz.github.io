@@ -26,9 +26,9 @@ class CustomAlertBuilder {
 
   static #message;
 
-  static #type;
+  static #type = "info";
 
-  static #size;
+  static #size = "small";
 
   static #cancelable = false;
 
@@ -58,7 +58,7 @@ class CustomAlertBuilder {
     return CustomAlertBuilder;
   }
 
-  static setSize(size = "medium") {
+  static setSize(size = "small") {
     CustomAlertBuilder.#size = size;
     return CustomAlertBuilder;
   }
@@ -159,6 +159,8 @@ class CustomAlertBuilder {
   static reset() {
     CustomAlertBuilder.#detail = null;
     CustomAlertBuilder.isShowing = false;
+    CustomAlertBuilder.#type = "info";
+    CustomAlertBuilder.#size = "small";
     Callbacks.confirm = null;
     Callbacks.cancel = null;
   }
