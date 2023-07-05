@@ -1,13 +1,12 @@
 const { merge } = require("webpack-merge");
 const path = require("path");
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
-const CopyWebpackPlugin = require("copy-webpack-plugin");
 const common = require("./webpack.common");
 
 module.exports = merge(common, {
   output: {
     filename: "[name][contenthash].bundle.js",
-    path: path.resolve(__dirname, "published_dist"),
+    path: path.resolve(__dirname, "dist"),
     clean: true,
   },
   mode: "production",
@@ -30,19 +29,5 @@ module.exports = merge(common, {
   },
   plugins: [
     new BundleAnalyzerPlugin(),
-
-    // override this plugin on the common config
-    // to copy assets files to the correct folder (published_dist)
-    new CopyWebpackPlugin({
-      patterns: [
-        {
-          from: path.resolve(__dirname, "src/public/"),
-          to: path.resolve(__dirname, "published_dist/"),
-          globOptions: {
-            // ignore: ["**/images/heros/**"],
-          },
-        },
-      ],
-    }),
   ],
 });
