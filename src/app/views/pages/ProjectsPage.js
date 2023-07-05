@@ -6,6 +6,7 @@ import { getProjectsController } from "../../controllers/projects";
 import Component from "../../core/Component";
 import Dom from "../../core/Dom";
 import { isOnMobileScreen } from "../../../utils/ui/viewport-helpers";
+import { toPath } from "../../../utils/route-helper";
 
 export default class ProjectsPage {
   static async render(uiStateObservable) {
@@ -86,6 +87,14 @@ export default class ProjectsPage {
     const projectList = Component.createProjectListUI({ heading: "h2" });
     Dom.appendRootPage(projectList);
 
-    projectList.projects = projects;
+    projectList.projects = projects.map((project) => ({
+      title: project.title,
+      imagePath: project.imagePath,
+      url: toPath(`/projects/${project.id}`),
+    }));
+
+    Dom.appendRootPage(
+      Component.createVerticalSpacer("3rem"),
+    );
   }
 }

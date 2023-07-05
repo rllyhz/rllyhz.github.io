@@ -124,7 +124,11 @@ export default class LandingPage {
 
     let tempProjects = [];
     if (projects.length > 0) {
-      tempProjects = projects;
+      tempProjects = projects.map((project) => ({
+        title: project.title,
+        imagePath: project.imagePath,
+        url: toPath(`/projects/${project.id}`),
+      }));
     } else {
       tempProjects = createPreviewEmptyProjects(6);
     }
