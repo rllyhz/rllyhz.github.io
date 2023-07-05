@@ -1,6 +1,6 @@
 const Config = {
   Mode: {
-    Production: false,
+    Production: true,
   },
   CACHE_NAME: "RllyhzGithubPages-V2",
   STORAGE_AUTH_KEY: "RllyhzGithubPages-V2",
