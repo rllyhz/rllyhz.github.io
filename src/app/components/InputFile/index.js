@@ -76,32 +76,35 @@ export default class InputFile extends HTMLElement {
     this.#filesChangedCallback = callback;
   }
 
+  #inputListener = () => {
+    const { files } = this.shadowRoot.querySelector("input");
+    if (files.length > 0) {
+      this.shadowRoot
+        .querySelector(".preview span").style.color = this.#uploadedPreviewLabelColor;
+      this.shadowRoot.querySelector(".preview span .preview-label")
+        .innerText = files.length > 1 ? `${files.length} files` : files[0].name;
+    } else {
+      this.shadowRoot
+        .querySelector(".preview span").style.color = this.#previewLabelColor;
+    }
+
+    if (this.#filesChangedCallback && typeof this.#filesChangedCallback === "function") {
+      this.#filesChangedCallback(files);
+    }
+  };
+
+  #buttonListener = () => {
+    this.shadowRoot.querySelector("input").click();
+  };
+
   connectedCallback() {
-    this.shadowRoot.querySelector("input").addEventListener("change", () => {
-      const { files } = this.shadowRoot.querySelector("input");
-      if (files.length > 0) {
-        this.shadowRoot
-          .querySelector(".preview span").style.color = this.#uploadedPreviewLabelColor;
-        this.shadowRoot.querySelector(".preview span .preview-label")
-          .innerText = files.length > 1 ? `${files.length} files` : files[0].name;
-      } else {
-        this.shadowRoot
-          .querySelector(".preview span").style.color = this.#previewLabelColor;
-      }
-
-      if (this.#filesChangedCallback && typeof this.#filesChangedCallback === "function") {
-        this.#filesChangedCallback(files);
-      }
-    });
-
-    this.shadowRoot.querySelector("button").addEventListener("click", () => {
-      this.shadowRoot.querySelector("input").click();
-    });
+    this.shadowRoot.querySelector("input").addEventListener("change", this.#inputListener);
+    this.shadowRoot.querySelector("button").addEventListener("click", this.#buttonListener);
   }
 
   disconnectedCallback() {
-    this.shadowRoot.querySelector("input").removeEventListener("change");
-    this.shadowRoot.querySelector("button").removeEventListener("click");
+    this.shadowRoot.querySelector("input").removeEventListener("change", this.#inputListener);
+    this.shadowRoot.querySelector("button").removeEventListener("click", this.#buttonListener);
   }
 
   get files() {

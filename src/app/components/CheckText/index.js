@@ -39,16 +39,18 @@ export default class CheckText extends HTMLElement {
     this.#valueChangedCallback = callback;
   }
 
+  #inputListener = () => {
+    if (this.#valueChangedCallback && typeof this.#valueChangedCallback === "function") {
+      this.#valueChangedCallback(this.shadowRoot.querySelector("input").checked);
+    }
+  };
+
   connectedCallback() {
-    this.shadowRoot.querySelector("input").addEventListener("change", () => {
-      if (this.#valueChangedCallback && typeof this.#valueChangedCallback === "function") {
-        this.#valueChangedCallback(this.shadowRoot.querySelector("input").checked);
-      }
-    });
+    this.shadowRoot.querySelector("input").addEventListener("change", this.#inputListener);
   }
 
   disconnectedCallback() {
-    this.shadowRoot.querySelector("input").removeEventListener("change");
+    this.shadowRoot.querySelector("input").removeEventListener("change", this.#inputListener);
   }
 
   set checked(isChecked = false) {
