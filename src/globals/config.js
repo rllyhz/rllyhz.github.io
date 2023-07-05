@@ -54,6 +54,11 @@ const StringResource = {
       Message: "Failed to connect. Please check your connection",
       ConfirmText: "Oke",
     },
+    BadRequest: {
+      Title: "❌ Oopss...",
+      Message: "Bad request",
+      ConfirmText: "Oke",
+    },
     SomethingWentWrong: {
       Title: "❌ Oopss...",
       Message: "Something went wrong unexpectedly",
@@ -112,6 +117,41 @@ const StringResource = {
     SuccessfullySentEmail: {
       Title: "Email successfully sent 💌",
       Message: "Thank you for contacting me.",
+      ConfirmText: "Oke",
+    },
+    UploadFilesFirst: {
+      Title: "Hey 🕵️",
+      Message: "Upload a file first",
+      ConfirmText: "Oke",
+    },
+    MustUploadJsonFile: {
+      Title: "Hey 🕵️",
+      Message: "Please upload a json file",
+      ConfirmText: "Oke",
+    },
+    MustUploadZipFile: {
+      Title: "Hey 🕵️",
+      Message: "Please upload a zip file",
+      ConfirmText: "Oke",
+    },
+    InvalidFormatOfProjectsFile: {
+      Title: "Hey 🕵️",
+      Message: "Projects file you uploaded is invalid",
+      ConfirmText: "Oke",
+    },
+    InvalidFormatOfProjectImagesZipFile: {
+      Title: "Hey 🕵️",
+      Message: "Project images zip file you uploaded is invalid",
+      ConfirmText: "Oke",
+    },
+    FailedToImportProjects: {
+      Title: "❌ Oopss...",
+      Message: "Failed to import projects!",
+      ConfirmText: "Oke",
+    },
+    SuccessfullyImportedProjects: {
+      Title: "✅ Success",
+      Message: "Successfully imported projects!",
       ConfirmText: "Oke",
     },
   },

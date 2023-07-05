@@ -13,6 +13,21 @@ const getConfiguration = ({ token, onSuccess, onFailed }) => {
     .execute();
 };
 
+const importProjects = ({
+  token, data, onSuccess, onFailed,
+}) => {
+  const headers = new Headers({
+    Authorization: `Bearer ${token}`,
+    "Content-Type": "application/json",
+  });
+
+  Api.post(APIUrl.importProjects, JSON.stringify(data), headers)
+    .onSuccess(onSuccess)
+    .onFailed(onFailed)
+    .execute();
+};
+
 export {
   getConfiguration,
+  importProjects,
 };

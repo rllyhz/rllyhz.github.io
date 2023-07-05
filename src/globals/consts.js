@@ -67,26 +67,37 @@ const Data = {
     {
       type: "web",
       name: "WebApp",
+      icon: "🌐",
     },
     {
       type: "android",
       name: "Android App",
+      icon: "📱",
+    },
+    {
+      type: "ios",
+      name: "iOS App",
+      icon: "📱",
     },
     {
       type: "multiplatform-app",
       name: "Multi-Platform App",
+      icon: "📱💻",
     },
     {
       type: "desktop",
       name: "Desktop",
+      icon: "💻",
     },
     {
       type: "api",
       name: "API",
+      icon: "🤖",
     },
     {
       type: "scripting",
       name: "Scripting",
+      icon: "📃",
     },
   ],
 };
