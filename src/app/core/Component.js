@@ -11,7 +11,9 @@ import {
 } from "../../utils/ui/component-helpers";
 import { createElement } from "../../utils/ui/dom-helpers";
 import BooleanConfigurationFormUI from "../components/BooleanConfigurationFormUI";
+import ImportFilesFormUI from "../components/ImportFilesFormUI";
 import MixedConfigurationFormUI from "../components/MixedConfigurationFormUI";
+import ProjectDetailUI from "../components/ProjectDetailUI";
 import TitleText from "../components/TitleText";
 
 const createCustomCenterContainer = (width = "90%") => createElement({
@@ -78,6 +80,18 @@ const createMixedConfigurationFormUI = () => createElement({
   tagName: MixedConfigurationFormUI.tagName,
 });
 
+const createImportFilesFormUI = ({ props = {}, styles = {} } = {}) => createElement({
+  tagName: ImportFilesFormUI.tagName,
+  props,
+  styles,
+});
+
+const createProjectDetailUI = ({ props = {}, styles = {} } = {}) => createElement({
+  tagName: ProjectDetailUI.tagName,
+  props,
+  styles,
+});
+
 const Component = {
   createHorizontalSpacer,
   createVerticalSpacer,
@@ -94,6 +108,8 @@ const Component = {
   createDashboardTitle,
   createBooleanConfigurationFormUI,
   createMixedConfigurationFormUI,
+  createImportFilesFormUI,
+  createProjectDetailUI,
 };
 
 export default Component;
