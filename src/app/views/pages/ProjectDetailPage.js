@@ -53,9 +53,6 @@ export default class ProjectDetailPage {
   }
 
   static showHasData(projectDetail) {
-    // TODO create project detail UI
-    logger.inspect(projectDetail);
-
     const projectDetailUI = Component.createProjectDetailUI();
     projectDetailUI.project = projectDetail;
 
