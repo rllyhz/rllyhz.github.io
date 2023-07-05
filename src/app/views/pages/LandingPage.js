@@ -219,6 +219,7 @@ export default class LandingPage {
           .setMessage(Strings.Alerts.FillOutAllTheRequiredFields.Message)
           .setType(CustomAlert.TYPE.WARNING)
           .setSize(CustomAlert.SIZE.SMALL)
+          .setCancel("Oke")
           .build()
           .show();
         return;
@@ -229,6 +230,7 @@ export default class LandingPage {
           .setMessage(Strings.Alerts.InvalidEmailFormat.Message)
           .setType(CustomAlert.TYPE.WARNING)
           .setSize(CustomAlert.SIZE.SMALL)
+          .setCancel("Oke")
           .build()
           .show();
         return;
@@ -245,6 +247,7 @@ export default class LandingPage {
             .setMessage(Strings.Alerts.FailedToSendEmail.Message)
             .setType(CustomAlert.TYPE.ERROR)
             .setSize(CustomAlert.SIZE.SMALL)
+            .setCancel("Oke")
             .build()
             .show();
 
@@ -261,6 +264,7 @@ export default class LandingPage {
             .setMessage(Strings.Alerts.SuccessfullySentEmail.Message)
             .setType(CustomAlert.TYPE.SUCCESS)
             .setSize(CustomAlert.SIZE.SMALL)
+            .setCancel("Oke")
             .build()
             .show();
 
