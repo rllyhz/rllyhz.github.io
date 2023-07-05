@@ -8,7 +8,7 @@ const sanitizePath = (path = "") => {
 };
 
 const toPath = (path = "/") => `#/${sanitizePath(path)}`;
-const toPublicPath = (path = "/") => `/${sanitizePath(path)}`;
+const toPublicPath = (path = "/") => `${sanitizePath(path)}`;
 
 export {
   sanitizePath,
