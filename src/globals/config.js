@@ -74,6 +74,21 @@ const StringResource = {
       Message: "Successfully logged in!",
       ConfirmText: "Oke",
     },
+    LoginConfirm: {
+      Title: "Are you want to logout?",
+      Message: "This process would delete your authentication data and requires you to login back later",
+      ConfirmText: "Yes",
+    },
+    LogoutSuccess: {
+      Title: "✅ Success",
+      Message: "Successfully logged out!",
+      ConfirmText: "Oke",
+    },
+    LogoutFailed: {
+      Title: "❌ Oopss...",
+      Message: "Failed to logout!",
+      ConfirmText: "Oke",
+    },
     Authenticated: {
       Title: "Hey 👋",
       Message: "You already logged in!",
@@ -143,6 +158,11 @@ const StringResource = {
       Title: "Hey 🕵️",
       Message: "Project images zip file you uploaded is invalid",
       ConfirmText: "Oke",
+    },
+    ImportProjectsConfirm: {
+      Title: "Hey 🕵️",
+      Message: "Are you sure want to import the projects?",
+      ConfirmText: "Yes",
     },
     FailedToImportProjects: {
       Title: "❌ Oopss...",
