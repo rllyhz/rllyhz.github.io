@@ -1,6 +1,17 @@
 import { APIUrl } from "../../globals/consts";
 import { Api, createBearerToken } from "../core/Api";
 
+const logout = ({ token, onSuccess, onFailed }) => {
+  const headers = new Headers({
+    Authorization: createBearerToken(token),
+  });
+
+  Api.delete(APIUrl.logout, null, headers)
+    .onSuccess(onSuccess)
+    .onFailed(onFailed)
+    .execute();
+};
+
 const getConfiguration = ({ token, onSuccess, onFailed }) => {
   const headers = new Headers({
     Authorization: createBearerToken(token),
@@ -28,6 +39,7 @@ const importProjects = ({
 };
 
 export {
+  logout,
   getConfiguration,
   importProjects,
 };
