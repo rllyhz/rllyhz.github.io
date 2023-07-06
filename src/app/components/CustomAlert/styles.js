@@ -22,14 +22,27 @@ export default css`
     align-items: center;
     padding: .5rem 0;
   }
+  .alert-container .icon svg {
+    width: 3rem;
+    height: 3rem;
+  }
+  .alert-container .icon svg.error {
+    fill: #ef4444;
+  }
+  .alert-container .icon svg.warning {
+    fill: #eab308;
+  }
+  .alert-container .icon svg.info {
+    fill: #a3a3a3;
+  }
+  .alert-container .icon svg.success {
+    fill: #65a30d;
+  }
   .alert-container .title {
     margin-top: 1rem;
     padding: 0 2rem;
     font-size: 1.2rem;
     font-weight: 500;
-  }
-  .alert-container .title box-icon {
-    margin-bottom: .5rem;
   }
   .alert-container .message {
     margin-top: .5rem;
