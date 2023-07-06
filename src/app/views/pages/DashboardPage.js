@@ -20,6 +20,17 @@ export default class DashboardPage {
   static render(uiStateObservable) {
     uiStateObservable.emit(UIState.LOADING);
 
+    const header = document.querySelector("header-app");
+    header.clearMenus();
+    header.appendMenu(
+      Dom.createElement({
+        tagName: "li",
+        classNames: "nav-item",
+        innerText: "Logout",
+      }),
+      () => { logger.info("Hello from menu"); },
+    );
+
     if (!Auth.authenticate()) {
       Auth.flashAuthenticationData();
 
