@@ -1,0 +1,137 @@
+@import url(https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap);
+/*
+ * © Copyright
+ * Author: Rully Ihza Mahendra
+ * About: Software Enthusiast
+ * Github: https://github.com/rllyhz
+*/
+
+/* IMPORT */
+
+/*===== VARIABLES CSS =====*/
+:root{
+  --header-height: 3rem;
+  --font-semi: 600;
+}
+
+/*===== Colors =====*/
+:root{
+  --primary-color: blueviolet;
+  --secondary-color: violet;
+  --accent-color: #f440dc;
+  --tertier-color: #f44340;
+  --dark-color: #310e2f;
+  --dark-2-color: #5b515a;
+  --grey-color: #969696;
+  --grey-light-color: #c8c8c8;
+  --loading-color: rgb(245, 234, 255);
+  --message-color: rgb(208, 203, 213);
+  --message-dark-color: rgb(163, 160, 167);
+  --white-color: #fefefe;
+  --black-color: #1a1a1a;
+  --text-dark-color: rgb(60, 60, 60);
+  --text-light-color: var(--message-color);
+}
+
+/*===== Typography =====*/
+:root{
+  --body-font: 'Poppins', sans-serif;
+  --normal-font-size: 0.938rem;
+}
+@media screen and (min-width: 768px){
+  :root{
+    --normal-font-size: 1rem;
+  }
+}
+
+/*===== Margins and Paddings =====*/
+:root{
+  --m-1: 0.5rem;
+  --m-2: 1rem;
+  --m-3: 1.5rem;
+  --m-4: 2rem;
+  --m-5: 2.5rem;
+  --m-6: 3rem;
+
+  --p-1: 0.5rem;
+  --p-2: 1rem;
+  --p-3: 1.5rem;
+  --p-4: 2rem;
+  --p-5: 2.5rem;
+  --p-6: 3rem;
+}
+
+/*===== z index =====*/
+:root{
+  --z-back: -10;
+  --z-normal: 1;
+  --z-tooltip: 10;
+  --z-fixed: 50;
+  --z-header: 100;
+  --z-drawer: 200;
+  --z-alert: 300;
+}
+
+/* Sizes */
+:root {
+  --nav-width-in-sm: 92vw;
+  --nav-width-in-md: 85vw;
+  --nav-item-space-size: 1.8rem;
+}
+
+/* Animation Durations */
+:root {
+  --duration-flash: 100ms;
+  --duration-short: 200ms;
+  --duration-medium: 450ms;
+  --duration-long: 750ms;
+  --duration-xlong: 1000ms;
+  --duration-xxlong: 2000ms;
+  --duration-xxxlong: 3000ms;
+}
+
+/*===== BASE =====*/
+*,::before,::after{
+  box-sizing: border-box;
+}
+html{
+  scroll-behavior: smooth;
+}
+body{
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  color: var(--dark-color);
+  background-color: var(--white-color);
+  margin: 0;
+}
+
+img {
+  width: 100%;
+  object-fit: cover;
+}
+
+#root-page,
+#loading-page {
+  margin-top: calc(var(--header-height) + 2rem);
+  min-height: 100vh;
+}
+
+#loading-page {
+  display: flex;
+  justify-content: center;
+}
+
+#alert-page {
+  position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+/*
+ * © Copyright
+ * Author: Rully Ihza Mahendra
+ * About: Software Enthusiast
+ * Github: https://github.com/rllyhz
+*/
+
+/*# sourceMappingURL=app~197747e8.css.map*/
