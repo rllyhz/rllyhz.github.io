@@ -17,6 +17,9 @@ export default class LandingPage {
     // Loading
     uiStateObservable.emit(UIState.LOADING);
 
+    const header = document.querySelector("header-app");
+    header.resetMenus();
+
     const { stream, retry } = getAllPinnedProjectsController();
 
     stream.observe((event) => {

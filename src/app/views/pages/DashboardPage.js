@@ -12,7 +12,7 @@ import { createGreetingUserTemplate } from "../../../utils/general-helpers";
 import logger from "../../../utils/logger";
 import ConfigurationModel from "../../model/ConfigurationModel";
 import { resolveListProjectsFormat } from "../../../utils/data-helpers";
-import { importProjects } from "../../process/dashboard";
+import { importProjects, logout } from "../../process/dashboard";
 
 export default class DashboardPage {
   static #authData = Auth.getAuthenticationData();
@@ -20,11 +20,30 @@ export default class DashboardPage {
   static render(uiStateObservable) {
     uiStateObservable.emit(UIState.LOADING);
 
+    const header = document.querySelector("header-app");
+    header.clearMenus();
+    header.appendMenu(
+      Dom.createElement({
+        tagName: "li",
+        classNames: "nav-item",
+        innerText: "Logout",
+      }),
+      () => {
+        CustomAlert.Builder
+          .setType(CustomAlert.TYPE.INFO)
+          .setTitle(Strings.Alerts.LoginConfirm.Title)
+          .setMessage(Strings.Alerts.LoginConfirm.Message)
+          .build()
+          .setConfirm(Strings.Alerts.LoginConfirm.ConfirmText, () => DashboardPage.#logout())
+          .show();
+      },
+    );
+
     if (!Auth.authenticate()) {
       Auth.flashAuthenticationData();
 
       CustomAlert.Builder
-        .setType(CustomAlert.TYPE.WARNING)
+        .setType(CustomAlert.TYPE.ERROR)
         .setTitle(Strings.Alerts.Unauthenticated.Title)
         .setMessage(Strings.Alerts.Unauthenticated.Message)
         .setCancel(Strings.Alerts.Unauthenticated.ConfirmText, () => {
@@ -266,8 +285,28 @@ export default class DashboardPage {
 
     // Import Export Click event listeners
     importProjectsButton.addEventListener("click", () => {
+      if (importProjectsButton.loading) return;
+
       const { files, shouldReplace } = importProjectsFormUI;
-      DashboardPage.#importProjects(files, shouldReplace, importProjectsButton);
+      if (files.length <= 0) {
+        CustomAlert.Builder
+          .setType(CustomAlert.TYPE.WARNING)
+          .setTitle(Strings.Alerts.UploadFilesFirst.Title)
+          .setMessage(Strings.Alerts.UploadFilesFirst.Message)
+          .setCancel(Strings.Alerts.UploadFilesFirst.ConfirmText)
+          .build()
+          .show();
+        return;
+      }
+
+      CustomAlert.Builder
+        .setTitle(Strings.Alerts.ImportProjectsConfirm.Title)
+        .setMessage(Strings.Alerts.ImportProjectsConfirm.Message)
+        .setConfirm(Strings.Alerts.ImportProjectsConfirm.ConfirmText, () => {
+          DashboardPage.#importProjects(files, shouldReplace, importProjectsButton);
+        })
+        .build()
+        .show();
     });
 
     exportProjectsButton.addEventListener("click", () => {
@@ -330,24 +369,41 @@ export default class DashboardPage {
     Dom.appendRootPage(container);
   }
 
+  static #logout() {
+    logout({
+      token: this.#authData.token,
+      onFailed: () => {
+        logger.error("Failed to logout");
+        CustomAlert.Builder
+          .setType(CustomAlert.TYPE.ERROR)
+          .setTitle(Strings.Alerts.LogoutFailed.Title)
+          .setMessage(Strings.Alerts.LogoutFailed.Message)
+          .setCancel(Strings.Alerts.LogoutFailed.ConfirmText)
+          .build()
+          .show();
+      },
+      onSuccess: () => {
+        logger.error("Successfully logged out");
+        Auth.flashAuthenticationData();
+
+        CustomAlert.Builder
+          .setType(CustomAlert.TYPE.SUCCESS)
+          .setTitle(Strings.Alerts.LogoutSuccess.Title)
+          .setMessage(Strings.Alerts.LogoutSuccess.Message)
+          .setCancel(Strings.Alerts.LogoutSuccess.ConfirmText, () => {
+            Router.navigateTo(Pages.loginPage);
+          })
+          .build()
+          .show();
+      },
+    });
+  }
+
   static #updateConfigurationData(newConfigurationData) {
     logger.table(newConfigurationData);
   }
 
   static async #importProjects(files, shouldReplace, importButton) {
-    if (importButton.loading) return;
-
-    if (files.length <= 0) {
-      CustomAlert.Builder
-        .setType(CustomAlert.TYPE.WARNING)
-        .setTitle(Strings.Alerts.UploadFilesFirst.Title)
-        .setMessage(Strings.Alerts.UploadFilesFirst.Message)
-        .setCancel(Strings.Alerts.UploadFilesFirst.ConfirmText)
-        .build()
-        .show();
-      return;
-    }
-
     const projectsJsonFile = files[0];
     if (projectsJsonFile.type !== "application/json") {
       CustomAlert.Builder

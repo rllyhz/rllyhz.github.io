@@ -10,7 +10,11 @@ const styles = /* css */`
     justify-content: center;
     align-items: center;
   }
-
+  footer svg {
+    fill: var(--white-color);
+    width: 1rem;
+    height: 1rem;
+  }
   footer p {
     margin: 0;
   }
@@ -31,9 +35,12 @@ const styles = /* css */`
 
   footer .social {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     margin-bottom: 2rem;
+  }
+  footer .social > a:first-child {
+    margin-left: -0.5rem;
   }
   footer .social > a:not(:last-child) {
     margin-right: 1rem;
@@ -43,6 +50,11 @@ const styles = /* css */`
   }
   footer .social > a:hover {
     opacity: .8;
+  }
+  footer .social a svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin: 0; padding: 0;
   }
 
   footer .built-by-me {

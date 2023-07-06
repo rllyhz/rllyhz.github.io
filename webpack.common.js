@@ -4,8 +4,6 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const WebpackShellPluginNext = require("webpack-shell-plugin-next");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-// const ImageminWebpackPlugin = require("imagemin-webpack-plugin").default;
-// const ImageminMozjpeg = require("imagemin-mozjpeg");
 
 module.exports = {
   entry: {
@@ -65,21 +63,13 @@ module.exports = {
         },
       ],
     }),
-    // new ImageminWebpackPlugin({
-    //   plugins: [
-    //     ImageminMozjpeg({
-    //       quality: 50,
-    //       progressive: true,
-    //     }),
-    //   ],
-    // }),
     new MiniCssExtractPlugin(),
     new CleanWebpackPlugin(),
 
     // use webpack-shell-plugin because since this webpack config is using
-    // bundle-analyzer-plugin in watch mode (production-mode), if npm command
-    // written like this "npm run build && npm run build-image" in package.json file,
-    // then the second command of it (which is "npm run build-image")
+    // bundle-analyzer-plugin in watch mode (production-mode) on webpack.build.js,
+    // if npm command written like this "npm run build && npm run compress-images"
+    // in package.json file, then the second command of it (which is "npm run compress-images")
     // would never be executed. Alternatively, this would help.
     // https://stackoverflow.com/questions/58325548/how-to-execute-my-own-script-after-every-webpacks-auto-build-in-watch-mode-of-v
     // https://github.com/1337programming/webpack-shell-plugin/issues/73
@@ -90,7 +80,7 @@ module.exports = {
         parallel: false,
       },
       onBuildEnd: {
-        scripts: ["echo Project has built successfully!"],
+        scripts: ["npm run compress-images", "echo Project has built successfully!"],
         blocking: false,
         parallel: false,
       },

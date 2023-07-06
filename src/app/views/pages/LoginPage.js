@@ -14,6 +14,9 @@ export default class LoginPage {
   static async render(uiStateObservable) {
     uiStateObservable.emit(UIState.LOADING);
 
+    const header = document.querySelector("header-app");
+    header.clearMenus();
+
     if (Auth.authenticate()) {
       CustomAlert.Builder
         .setType(CustomAlert.TYPE.INFO)

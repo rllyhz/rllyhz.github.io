@@ -13,6 +13,9 @@ export default class ProjectDetailPage {
   static async render(uiStateObservable, data) {
     uiStateObservable.emit(UIState.LOADING);
 
+    const header = document.querySelector("header-app");
+    header.clearMenus();
+
     const { stream, retry } = getProjectByIdController(data.params.id);
 
     stream.observe((event) => {

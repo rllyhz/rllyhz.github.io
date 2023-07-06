@@ -13,6 +13,9 @@ export default class ProjectsPage {
     // Loading
     uiStateObservable.emit(UIState.LOADING);
 
+    const header = document.querySelector("header-app");
+    header.clearMenus();
+
     const { stream, retry } = getProjectsController();
 
     stream.observe((event) => {

@@ -81,7 +81,7 @@ export default class HeaderApp extends HTMLElement {
 
   removeClickListenerFromAllMenus() {
     this.shadowRoot.querySelectorAll(".nav-list .nav-item[data-scroll='true']").forEach((navItem) => {
-      navItem.removeEventListener("click");
+      navItem.removeEventListener("click", null);
     });
   }
 
@@ -105,6 +105,19 @@ export default class HeaderApp extends HTMLElement {
       targetElem.parentElement.classList.add("active");
     } else {
       logger.error(`Failed to set the active status on menu target ${target}`);
+    }
+  }
+
+  appendMenu(node, clickListener = null) {
+    if (!node || !node.addEventListener) {
+      logger.error(`Could not append menu to the ${HeaderApp.tagName}`);
+      return;
+    }
+
+    this.shadowRoot.querySelector(".nav-list").appendChild(node);
+
+    if (clickListener && typeof clickListener === "function") {
+      node.addEventListener("click", () => clickListener());
     }
   }
 
