@@ -8,7 +8,6 @@
 import "regenerator-runtime";
 
 import "../styles/main.css";
-import "boxicons";
 
 import "lazysizes";
 import "lazysizes/plugins/parent-fit/ls.parent-fit";
