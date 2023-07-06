@@ -24,7 +24,7 @@ export default class DashboardPage {
       Auth.flashAuthenticationData();
 
       CustomAlert.Builder
-        .setType(CustomAlert.TYPE.WARNING)
+        .setType(CustomAlert.TYPE.ERROR)
         .setTitle(Strings.Alerts.Unauthenticated.Title)
         .setMessage(Strings.Alerts.Unauthenticated.Message)
         .setCancel(Strings.Alerts.Unauthenticated.ConfirmText, () => {
