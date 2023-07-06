@@ -91,8 +91,11 @@ const styles = /* css */`
     visibility: visible;
   }
 
-  box-icon {
+  svg {
     cursor: pointer;
+    width: 1.8rem;
+    height: 1.8rem;
+    fill: var(--secondary-color);
   }
 
   @media only screen and (min-width: 820px) {
