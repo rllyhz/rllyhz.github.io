@@ -1,9 +1,9 @@
 import { APIUrl } from "../../globals/consts";
-import { Api } from "../core/Api";
+import { Api, createBearerToken } from "../core/Api";
 
 const getConfiguration = ({ token, onSuccess, onFailed }) => {
   const headers = new Headers({
-    Authorization: `Bearer ${token}`,
+    Authorization: createBearerToken(token),
     "Content-Type": "application/x-www-form-urlencoded",
   });
 
@@ -17,7 +17,7 @@ const importProjects = ({
   token, data, onSuccess, onFailed,
 }) => {
   const headers = new Headers({
-    Authorization: `Bearer ${token}`,
+    Authorization: createBearerToken(token),
     "Content-Type": "application/json",
   });
 
