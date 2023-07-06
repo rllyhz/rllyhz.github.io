@@ -28,6 +28,9 @@ module.exports = merge(common, {
     ],
   },
   plugins: [
-    new BundleAnalyzerPlugin(),
+    new BundleAnalyzerPlugin({
+      analyzerMode: "server",
+      generateStatsFile: true,
+    }),
   ],
 });

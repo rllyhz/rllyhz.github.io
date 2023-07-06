@@ -29,7 +29,12 @@ module.exports = merge(common, {
     ],
   },
   plugins: [
-    new BundleAnalyzerPlugin(),
+    new BundleAnalyzerPlugin({
+      analyzerMode: "disabled",
+      generateStatsFile: true,
+      openAnalyzer: false,
+      statsOptions: { source: false },
+    }),
 
     // override this plugin on the common config
     // to copy assets files to the correct folder (published_dist)
@@ -38,9 +43,6 @@ module.exports = merge(common, {
         {
           from: path.resolve(__dirname, "src/public/"),
           to: path.resolve(__dirname, "published_dist/"),
-          globOptions: {
-            // ignore: ["**/images/heros/**"],
-          },
         },
       ],
     }),
