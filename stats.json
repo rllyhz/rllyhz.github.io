@@ -1,8 +1,8 @@
 {
-  "hash": "859eb01e79b895414a82",
+  "hash": "d55777cfd860fdf30eca",
   "version": "5.88.1",
-  "time": 10103,
-  "builtAt": 1688620465047,
+  "time": 9694,
+  "builtAt": 1691246972620,
   "publicPath": "auto",
   "outputPath": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/published_dist",
   "assetsByChunkName": {
@@ -40,7 +40,7 @@
       "app~e019dbda494688937bc4fdd78263.bundle.js"
     ],
     "app~981768b2": [
-      "app~981768b2026cc0e2a1197958b695.bundle.js"
+      "app~981768b262239c0c5dc8b8feb840.bundle.js"
     ],
     "app~5f6c88c3": [
       "app~5f6c88c333543e3ba31bd006d417.bundle.js"
@@ -49,10 +49,10 @@
       "app~1bd56572d9ba5bb2e78be3718995.bundle.js"
     ],
     "app~0346aa0d": [
-      "app~0346aa0d3ca48108c3bf807adb0c.bundle.js"
+      "app~0346aa0dde4ce25bf4160045ee21.bundle.js"
     ],
     "app~d91a9049": [
-      "app~d91a9049ed459e151a5f260b338a.bundle.js"
+      "app~d91a904966126ee5a82effa103d4.bundle.js"
     ],
     "app~197747e8": [
       "app~197747e8.css"
@@ -243,21 +243,21 @@
     },
     {
       "type": "asset",
-      "name": "app~0346aa0d3ca48108c3bf807adb0c.bundle.js",
-      "size": 31355,
+      "name": "app~0346aa0dde4ce25bf4160045ee21.bundle.js",
+      "size": 31391,
       "emitted": true,
       "comparedForEmit": false,
       "cached": false,
       "info": {
         "immutable": true,
-        "contenthash": "3ca48108c3bf807adb0c",
+        "contenthash": "de4ce25bf4160045ee21",
         "javascriptModule": false,
         "minimized": true,
         "related": {
-          "license": "app~0346aa0d3ca48108c3bf807adb0c.bundle.js.LICENSE.txt",
-          "sourceMap": "app~0346aa0d3ca48108c3bf807adb0c.bundle.js.map"
+          "license": "app~0346aa0dde4ce25bf4160045ee21.bundle.js.LICENSE.txt",
+          "sourceMap": "app~0346aa0dde4ce25bf4160045ee21.bundle.js.map"
         },
-        "size": 31355
+        "size": 31391
       },
       "chunkNames": [
         "app~0346aa0d"
@@ -269,14 +269,14 @@
       "related": [
         {
           "type": "sourceMap",
-          "name": "app~0346aa0d3ca48108c3bf807adb0c.bundle.js.map",
-          "size": 53072,
+          "name": "app~0346aa0dde4ce25bf4160045ee21.bundle.js.map",
+          "size": 53155,
           "emitted": true,
           "comparedForEmit": false,
           "cached": false,
           "info": {
             "development": true,
-            "size": 53072
+            "size": 53155
           },
           "chunkNames": [],
           "chunkIdHints": [],
@@ -293,7 +293,7 @@
         },
         {
           "type": "license",
-          "name": "app~0346aa0d3ca48108c3bf807adb0c.bundle.js.LICENSE.txt",
+          "name": "app~0346aa0dde4ce25bf4160045ee21.bundle.js.LICENSE.txt",
           "size": 149,
           "emitted": true,
           "comparedForEmit": false,
@@ -320,21 +320,21 @@
     },
     {
       "type": "asset",
-      "name": "app~d91a9049ed459e151a5f260b338a.bundle.js",
-      "size": 25940,
+      "name": "app~d91a904966126ee5a82effa103d4.bundle.js",
+      "size": 25881,
       "emitted": true,
       "comparedForEmit": false,
       "cached": false,
       "info": {
         "immutable": true,
-        "contenthash": "ed459e151a5f260b338a",
+        "contenthash": "66126ee5a82effa103d4",
         "javascriptModule": false,
         "minimized": true,
         "related": {
-          "license": "app~d91a9049ed459e151a5f260b338a.bundle.js.LICENSE.txt",
-          "sourceMap": "app~d91a9049ed459e151a5f260b338a.bundle.js.map"
+          "license": "app~d91a904966126ee5a82effa103d4.bundle.js.LICENSE.txt",
+          "sourceMap": "app~d91a904966126ee5a82effa103d4.bundle.js.map"
         },
-        "size": 25940
+        "size": 25881
       },
       "chunkNames": [
         "app~d91a9049"
@@ -346,14 +346,14 @@
       "related": [
         {
           "type": "sourceMap",
-          "name": "app~d91a9049ed459e151a5f260b338a.bundle.js.map",
-          "size": 44710,
+          "name": "app~d91a904966126ee5a82effa103d4.bundle.js.map",
+          "size": 44689,
           "emitted": true,
           "comparedForEmit": false,
           "cached": false,
           "info": {
             "development": true,
-            "size": 44710
+            "size": 44689
           },
           "chunkNames": [],
           "chunkIdHints": [],
@@ -370,7 +370,7 @@
         },
         {
           "type": "license",
-          "name": "app~d91a9049ed459e151a5f260b338a.bundle.js.LICENSE.txt",
+          "name": "app~d91a904966126ee5a82effa103d4.bundle.js.LICENSE.txt",
           "size": 149,
           "emitted": true,
           "comparedForEmit": false,
@@ -838,21 +838,21 @@
     },
     {
       "type": "asset",
-      "name": "app~981768b2026cc0e2a1197958b695.bundle.js",
-      "size": 18349,
+      "name": "app~981768b262239c0c5dc8b8feb840.bundle.js",
+      "size": 18440,
       "emitted": true,
       "comparedForEmit": false,
       "cached": false,
       "info": {
         "immutable": true,
-        "contenthash": "026cc0e2a1197958b695",
+        "contenthash": "62239c0c5dc8b8feb840",
         "javascriptModule": false,
         "minimized": true,
         "related": {
-          "license": "app~981768b2026cc0e2a1197958b695.bundle.js.LICENSE.txt",
-          "sourceMap": "app~981768b2026cc0e2a1197958b695.bundle.js.map"
+          "license": "app~981768b262239c0c5dc8b8feb840.bundle.js.LICENSE.txt",
+          "sourceMap": "app~981768b262239c0c5dc8b8feb840.bundle.js.map"
         },
-        "size": 18349
+        "size": 18440
       },
       "chunkNames": [
         "app~981768b2"
@@ -864,14 +864,14 @@
       "related": [
         {
           "type": "sourceMap",
-          "name": "app~981768b2026cc0e2a1197958b695.bundle.js.map",
-          "size": 28655,
+          "name": "app~981768b262239c0c5dc8b8feb840.bundle.js.map",
+          "size": 28939,
           "emitted": true,
           "comparedForEmit": false,
           "cached": false,
           "info": {
             "development": true,
-            "size": 28655
+            "size": 28939
           },
           "chunkNames": [],
           "chunkIdHints": [],
@@ -888,7 +888,7 @@
         },
         {
           "type": "license",
-          "name": "app~981768b2026cc0e2a1197958b695.bundle.js.LICENSE.txt",
+          "name": "app~981768b262239c0c5dc8b8feb840.bundle.js.LICENSE.txt",
           "size": 149,
           "emitted": true,
           "comparedForEmit": false,
@@ -1187,13 +1187,13 @@
         {
           "type": "sourceMap",
           "name": "sw79c41e3a3db631c03d68.bundle.js.map",
-          "size": 27465,
+          "size": 27487,
           "emitted": true,
           "comparedForEmit": false,
           "cached": false,
           "info": {
             "development": true,
-            "size": 27465
+            "size": 27487
           },
           "chunkNames": [],
           "chunkIdHints": [],
@@ -1757,14 +1757,14 @@
     {
       "type": "asset",
       "name": "../dist/app.webmanifest",
-      "size": 1459,
+      "size": 1453,
       "emitted": true,
       "comparedForEmit": false,
       "cached": false,
       "info": {
         "copied": true,
         "sourceFilename": "src/public/app.webmanifest",
-        "size": 1459
+        "size": 1453
       },
       "chunkNames": [],
       "chunkIdHints": [],
@@ -1778,14 +1778,14 @@
     {
       "type": "asset",
       "name": "app.webmanifest",
-      "size": 1459,
+      "size": 1453,
       "emitted": true,
       "comparedForEmit": false,
       "cached": false,
       "info": {
         "copied": true,
         "sourceFilename": "src/public/app.webmanifest",
-        "size": 1459
+        "size": 1453
       },
       "chunkNames": [],
       "chunkIdHints": [],
@@ -9420,9 +9420,9 @@
       "initial": true,
       "entry": false,
       "recorded": false,
-      "size": 45952,
+      "size": 45897,
       "sizes": {
-        "javascript": 45952
+        "javascript": 45897
       },
       "names": [
         "app~d91a9049"
@@ -9432,12 +9432,12 @@
         "app"
       ],
       "files": [
-        "app~d91a9049ed459e151a5f260b338a.bundle.js"
+        "app~d91a904966126ee5a82effa103d4.bundle.js"
       ],
       "auxiliaryFiles": [
-        "app~d91a9049ed459e151a5f260b338a.bundle.js.map"
+        "app~d91a904966126ee5a82effa103d4.bundle.js.map"
       ],
-      "hash": "5e18764803da9022ae34",
+      "hash": "2c256ba0f7097253559c",
       "childrenByOrder": {},
       "id": 490,
       "siblings": [
@@ -9658,9 +9658,9 @@
           "type": "module",
           "moduleType": "javascript/auto",
           "layer": null,
-          "size": 5279,
+          "size": 5301,
           "sizes": {
-            "javascript": 5279
+            "javascript": 5301
           },
           "built": true,
           "codeGenerated": true,
@@ -9823,7 +9823,7 @@
               "active": true,
               "explanation": "",
               "userRequest": "./config",
-              "loc": "41:14-28",
+              "loc": "42:14-28",
               "moduleId": 857,
               "resolvedModuleId": 857
             },
@@ -9985,9 +9985,9 @@
           "type": "module",
           "moduleType": "javascript/auto",
           "layer": null,
-          "size": 2779,
+          "size": 2702,
           "sizes": {
-            "javascript": 2779
+            "javascript": 2702
           },
           "built": true,
           "codeGenerated": true,
@@ -10869,7 +10869,7 @@
               "active": true,
               "explanation": "",
               "userRequest": "../../globals/consts",
-              "loc": "62:31-62",
+              "loc": "68:19-41",
               "moduleId": 4989,
               "resolvedModuleId": 4989
             },
@@ -11989,7 +11989,7 @@
               "active": true,
               "explanation": "",
               "userRequest": "../../../globals/consts",
-              "loc": "210:41-79",
+              "loc": "210:41-88",
               "moduleId": 7522,
               "resolvedModuleId": 7522
             },
@@ -12003,7 +12003,7 @@
               "active": true,
               "explanation": "",
               "userRequest": "../../../globals/consts",
-              "loc": "210:92-132",
+              "loc": "210:101-150",
               "moduleId": 7522,
               "resolvedModuleId": 7522
             },
@@ -12017,7 +12017,7 @@
               "active": true,
               "explanation": "",
               "userRequest": "../../../globals/consts",
-              "loc": "218:41-83",
+              "loc": "218:41-92",
               "moduleId": 7522,
               "resolvedModuleId": 7522
             },
@@ -12031,7 +12031,7 @@
               "active": true,
               "explanation": "",
               "userRequest": "../../../globals/consts",
-              "loc": "218:96-140",
+              "loc": "218:105-158",
               "moduleId": 7522,
               "resolvedModuleId": 7522
             },
@@ -12529,7 +12529,7 @@
             "Strings"
           ],
           "optimizationBailout": [
-            "Statement (VariableDeclaration) with side effects in source code at 2:0-25:2",
+            "Statement (VariableDeclaration) with side effects in source code at 2:0-26:2",
             "ModuleConcatenation bailout: Cannot concat with ./src/globals/config.js: Module ./src/globals/config.js is referenced from different chunks by these modules: ./src/app/core/Api.js, ./src/app/core/Auth.js, ./src/app/process/auth.js, ./src/utils/logger.js"
           ],
           "depth": 3
@@ -15999,9 +15999,9 @@
       "initial": true,
       "entry": false,
       "recorded": false,
-      "size": 35743,
+      "size": 35846,
       "sizes": {
-        "javascript": 35743
+        "javascript": 35846
       },
       "names": [
         "app~981768b2"
@@ -16011,12 +16011,12 @@
         "app"
       ],
       "files": [
-        "app~981768b2026cc0e2a1197958b695.bundle.js"
+        "app~981768b262239c0c5dc8b8feb840.bundle.js"
       ],
       "auxiliaryFiles": [
-        "app~981768b2026cc0e2a1197958b695.bundle.js.map"
+        "app~981768b262239c0c5dc8b8feb840.bundle.js.map"
       ],
-      "hash": "b19869abd3ba67ba2cfd",
+      "hash": "1aec614556a091b0b723",
       "childrenByOrder": {},
       "id": 651,
       "siblings": [
@@ -16279,9 +16279,9 @@
           "type": "module",
           "moduleType": "javascript/auto",
           "layer": null,
-          "size": 19218,
+          "size": 19321,
           "sizes": {
-            "javascript": 19218
+            "javascript": 19321
           },
           "built": true,
           "codeGenerated": true,
@@ -16365,7 +16365,7 @@
               "active": true,
               "explanation": "",
               "userRequest": "../../process/landing",
-              "loc": "15:0-50",
+              "loc": "15:0-59",
               "moduleId": 7522,
               "resolvedModuleId": 7522
             },
@@ -16379,18 +16379,18 @@
               "active": true,
               "explanation": "",
               "userRequest": "../../process/landing",
-              "loc": "203:8-17",
+              "loc": "203:8-26",
               "moduleId": 7522,
               "resolvedModuleId": 7522
             }
           ],
           "usedExports": [
             "getPinnedProjects",
-            "sendEmail"
+            "sendContactMessage"
           ],
           "providedExports": [
             "getPinnedProjects",
-            "sendEmail"
+            "sendContactMessage"
           ],
           "optimizationBailout": [
             "Dependency (harmony side effect evaluation) with side effects at 5:0-46",
@@ -16705,9 +16705,9 @@
       "initial": true,
       "entry": true,
       "recorded": false,
-      "size": 26988,
+      "size": 27010,
       "sizes": {
-        "javascript": 24444,
+        "javascript": 24466,
         "runtime": 2544
       },
       "names": [
@@ -16723,7 +16723,7 @@
       "auxiliaryFiles": [
         "sw79c41e3a3db631c03d68.bundle.js.map"
       ],
-      "hash": "56f64fa861dbeed5a531",
+      "hash": "e38cf66523d16791a95a",
       "childrenByOrder": {},
       "id": 670,
       "siblings": [
@@ -16736,9 +16736,9 @@
           "type": "module",
           "moduleType": "javascript/esm",
           "layer": null,
-          "size": 24444,
+          "size": 24466,
           "sizes": {
-            "javascript": 24444
+            "javascript": 24466
           },
           "built": true,
           "codeGenerated": true,
@@ -16939,9 +16939,9 @@
               "type": "module",
               "moduleType": "javascript/auto",
               "layer": null,
-              "size": 5279,
+              "size": 5301,
               "sizes": {
-                "javascript": 5279
+                "javascript": 5301
               },
               "built": true,
               "codeGenerated": true,
@@ -17104,7 +17104,7 @@
                   "active": false,
                   "explanation": "",
                   "userRequest": "./config",
-                  "loc": "41:14-28",
+                  "loc": "42:14-28",
                   "moduleId": 857,
                   "resolvedModuleId": 857
                 },
@@ -17663,7 +17663,7 @@
               "active": true,
               "explanation": "",
               "userRequest": "../core/Api",
-              "loc": "62:17-30",
+              "loc": "68:10-18",
               "moduleId": 4989,
               "resolvedModuleId": 4989
             },
@@ -24218,7 +24218,7 @@
               "active": true,
               "explanation": "",
               "userRequest": "../../components/CustomAlert",
-              "loc": "210:142-164",
+              "loc": "210:160-182",
               "moduleId": 7522,
               "resolvedModuleId": 7522
             },
@@ -24232,7 +24232,7 @@
               "active": true,
               "explanation": "",
               "userRequest": "../../components/CustomAlert",
-              "loc": "210:174-196",
+              "loc": "210:192-214",
               "moduleId": 7522,
               "resolvedModuleId": 7522
             },
@@ -24260,7 +24260,7 @@
               "active": true,
               "explanation": "",
               "userRequest": "../../components/CustomAlert",
-              "loc": "218:150-174",
+              "loc": "218:168-192",
               "moduleId": 7522,
               "resolvedModuleId": 7522
             },
@@ -24274,7 +24274,7 @@
               "active": true,
               "explanation": "",
               "userRequest": "../../components/CustomAlert",
-              "loc": "218:184-206",
+              "loc": "218:202-224",
               "moduleId": 7522,
               "resolvedModuleId": 7522
             },
@@ -25026,7 +25026,7 @@
       "auxiliaryFiles": [
         "app~b308cbaf6618d604a4c46c836132.bundle.js.map"
       ],
-      "hash": "bda0eb8371e4db17e163",
+      "hash": "1451bd57e86db6d60c54",
       "childrenByOrder": {},
       "id": 890,
       "siblings": [
@@ -28458,9 +28458,9 @@
       "initial": true,
       "entry": false,
       "recorded": false,
-      "size": 60339,
+      "size": 60393,
       "sizes": {
-        "javascript": 60339
+        "javascript": 60393
       },
       "names": [
         "app~0346aa0d"
@@ -28470,12 +28470,12 @@
         "app"
       ],
       "files": [
-        "app~0346aa0d3ca48108c3bf807adb0c.bundle.js"
+        "app~0346aa0dde4ce25bf4160045ee21.bundle.js"
       ],
       "auxiliaryFiles": [
-        "app~0346aa0d3ca48108c3bf807adb0c.bundle.js.map"
+        "app~0346aa0dde4ce25bf4160045ee21.bundle.js.map"
       ],
-      "hash": "9b8442cc032c23aab560",
+      "hash": "b343ac3b6a499dfdd7f1",
       "childrenByOrder": {},
       "id": 985,
       "siblings": [
@@ -28503,9 +28503,9 @@
           "type": "module",
           "moduleType": "javascript/auto",
           "layer": null,
-          "size": 23866,
+          "size": 23920,
           "sizes": {
-            "javascript": 23866
+            "javascript": 23920
           },
           "built": true,
           "codeGenerated": true,
@@ -28867,9 +28867,9 @@
       "type": "module",
       "moduleType": "javascript/esm",
       "layer": null,
-      "size": 24444,
+      "size": 24466,
       "sizes": {
-        "javascript": 24444
+        "javascript": 24466
       },
       "built": true,
       "codeGenerated": true,
@@ -29067,9 +29067,9 @@
           "type": "module",
           "moduleType": "javascript/auto",
           "layer": null,
-          "size": 5279,
+          "size": 5301,
           "sizes": {
-            "javascript": 5279
+            "javascript": 5301
           },
           "built": true,
           "codeGenerated": true,
@@ -29231,7 +29231,7 @@
               "active": true,
               "explanation": "",
               "userRequest": "./config",
-              "loc": "41:14-28",
+              "loc": "42:14-28",
               "moduleId": 857,
               "resolvedModuleId": 857
             },
@@ -31041,9 +31041,9 @@
       "type": "module",
       "moduleType": "javascript/auto",
       "layer": null,
-      "size": 5279,
+      "size": 5301,
       "sizes": {
-        "javascript": 5279
+        "javascript": 5301
       },
       "built": true,
       "codeGenerated": true,
@@ -31205,7 +31205,7 @@
           "active": true,
           "explanation": "",
           "userRequest": "./config",
-          "loc": "41:14-28",
+          "loc": "42:14-28",
           "moduleId": 857,
           "resolvedModuleId": 857
         },
@@ -34948,9 +34948,9 @@
       "type": "module",
       "moduleType": "javascript/auto",
       "layer": null,
-      "size": 23866,
+      "size": 23920,
       "sizes": {
-        "javascript": 23866
+        "javascript": 23920
       },
       "built": true,
       "codeGenerated": true,
@@ -35756,7 +35756,7 @@
           "active": true,
           "explanation": "",
           "userRequest": "../../components/CustomAlert",
-          "loc": "210:142-164",
+          "loc": "210:160-182",
           "moduleId": 7522,
           "resolvedModuleId": 7522
         },
@@ -35770,7 +35770,7 @@
           "active": true,
           "explanation": "",
           "userRequest": "../../components/CustomAlert",
-          "loc": "210:174-196",
+          "loc": "210:192-214",
           "moduleId": 7522,
           "resolvedModuleId": 7522
         },
@@ -35798,7 +35798,7 @@
           "active": true,
           "explanation": "",
           "userRequest": "../../components/CustomAlert",
-          "loc": "218:150-174",
+          "loc": "218:168-192",
           "moduleId": 7522,
           "resolvedModuleId": 7522
         },
@@ -35812,7 +35812,7 @@
           "active": true,
           "explanation": "",
           "userRequest": "../../components/CustomAlert",
-          "loc": "218:184-206",
+          "loc": "218:202-224",
           "moduleId": 7522,
           "resolvedModuleId": 7522
         },
@@ -37676,9 +37676,9 @@
       "type": "module",
       "moduleType": "javascript/auto",
       "layer": null,
-      "size": 2779,
+      "size": 2702,
       "sizes": {
-        "javascript": 2779
+        "javascript": 2702
       },
       "built": true,
       "codeGenerated": true,
@@ -38559,7 +38559,7 @@
           "active": true,
           "explanation": "",
           "userRequest": "../../globals/consts",
-          "loc": "62:31-62",
+          "loc": "68:19-41",
           "moduleId": 4989,
           "resolvedModuleId": 4989
         },
@@ -39679,7 +39679,7 @@
           "active": true,
           "explanation": "",
           "userRequest": "../../../globals/consts",
-          "loc": "210:41-79",
+          "loc": "210:41-88",
           "moduleId": 7522,
           "resolvedModuleId": 7522
         },
@@ -39693,7 +39693,7 @@
           "active": true,
           "explanation": "",
           "userRequest": "../../../globals/consts",
-          "loc": "210:92-132",
+          "loc": "210:101-150",
           "moduleId": 7522,
           "resolvedModuleId": 7522
         },
@@ -39707,7 +39707,7 @@
           "active": true,
           "explanation": "",
           "userRequest": "../../../globals/consts",
-          "loc": "218:41-83",
+          "loc": "218:41-92",
           "moduleId": 7522,
           "resolvedModuleId": 7522
         },
@@ -39721,7 +39721,7 @@
           "active": true,
           "explanation": "",
           "userRequest": "../../../globals/consts",
-          "loc": "218:96-140",
+          "loc": "218:105-158",
           "moduleId": 7522,
           "resolvedModuleId": 7522
         },
@@ -40219,7 +40219,7 @@
         "Strings"
       ],
       "optimizationBailout": [
-        "Statement (VariableDeclaration) with side effects in source code at 2:0-25:2",
+        "Statement (VariableDeclaration) with side effects in source code at 2:0-26:2",
         "ModuleConcatenation bailout: Cannot concat with ./src/globals/config.js: Module ./src/globals/config.js is referenced from different chunks by these modules: ./src/app/core/Api.js, ./src/app/core/Auth.js, ./src/app/process/auth.js, ./src/utils/logger.js"
       ],
       "depth": 3
@@ -43849,9 +43849,9 @@
       "type": "module",
       "moduleType": "javascript/auto",
       "layer": null,
-      "size": 19218,
+      "size": 19321,
       "sizes": {
-        "javascript": 19218
+        "javascript": 19321
       },
       "built": true,
       "codeGenerated": true,
@@ -43934,7 +43934,7 @@
           "active": true,
           "explanation": "",
           "userRequest": "../../process/landing",
-          "loc": "15:0-50",
+          "loc": "15:0-59",
           "moduleId": 7522,
           "resolvedModuleId": 7522
         },
@@ -43948,18 +43948,18 @@
           "active": true,
           "explanation": "",
           "userRequest": "../../process/landing",
-          "loc": "203:8-17",
+          "loc": "203:8-26",
           "moduleId": 7522,
           "resolvedModuleId": 7522
         }
       ],
       "usedExports": [
         "getPinnedProjects",
-        "sendEmail"
+        "sendContactMessage"
       ],
       "providedExports": [
         "getPinnedProjects",
-        "sendEmail"
+        "sendContactMessage"
       ],
       "optimizationBailout": [
         "Dependency (harmony side effect evaluation) with side effects at 5:0-46",
@@ -49492,7 +49492,7 @@
           "active": true,
           "explanation": "",
           "userRequest": "../core/Api",
-          "loc": "62:17-30",
+          "loc": "68:10-18",
           "moduleId": 4989,
           "resolvedModuleId": 4989
         },
@@ -59939,8 +59939,8 @@
           "size": 24255
         },
         {
-          "name": "app~981768b2026cc0e2a1197958b695.bundle.js",
-          "size": 18349
+          "name": "app~981768b262239c0c5dc8b8feb840.bundle.js",
+          "size": 18440
         },
         {
           "name": "app~5f6c88c333543e3ba31bd006d417.bundle.js",
@@ -59951,12 +59951,12 @@
           "size": 19074
         },
         {
-          "name": "app~0346aa0d3ca48108c3bf807adb0c.bundle.js",
-          "size": 31355
+          "name": "app~0346aa0dde4ce25bf4160045ee21.bundle.js",
+          "size": 31391
         },
         {
-          "name": "app~d91a9049ed459e151a5f260b338a.bundle.js",
-          "size": 25940
+          "name": "app~d91a904966126ee5a82effa103d4.bundle.js",
+          "size": 25881
         },
         {
           "name": "app~197747e8.css",
@@ -59968,15 +59968,15 @@
         }
       ],
       "filteredAssets": 0,
-      "assetsSize": 321037,
+      "assetsSize": 321105,
       "auxiliaryAssets": [
         {
           "name": "66690c8e43b486c70a863b9.bundle.js.map",
           "size": 37181
         },
         {
-          "name": "app~0346aa0d3ca48108c3bf807adb0c.bundle.js.map",
-          "size": 53072
+          "name": "app~0346aa0dde4ce25bf4160045ee21.bundle.js.map",
+          "size": 53155
         },
         {
           "name": "app~1347f5f82bc93a2fc41be0f85a1f.bundle.js.map",
@@ -60015,8 +60015,8 @@
           "size": 38023
         },
         {
-          "name": "app~981768b2026cc0e2a1197958b695.bundle.js.map",
-          "size": 28655
+          "name": "app~981768b262239c0c5dc8b8feb840.bundle.js.map",
+          "size": 28939
         },
         {
           "name": "app~b308cbaf6618d604a4c46c836132.bundle.js.map",
@@ -60031,8 +60031,8 @@
           "size": 14390
         },
         {
-          "name": "app~d91a9049ed459e151a5f260b338a.bundle.js.map",
-          "size": 44710
+          "name": "app~d91a904966126ee5a82effa103d4.bundle.js.map",
+          "size": 44689
         },
         {
           "name": "app~e019dbda494688937bc4fdd78263.bundle.js.map",
@@ -60040,7 +60040,7 @@
         }
       ],
       "filteredAuxiliaryAssets": 0,
-      "auxiliaryAssetsSize": 531148,
+      "auxiliaryAssetsSize": 531494,
       "children": {},
       "childAssets": {},
       "isOverSizeLimit": true
@@ -60070,11 +60070,11 @@
         },
         {
           "name": "sw79c41e3a3db631c03d68.bundle.js.map",
-          "size": 27465
+          "size": 27487
         }
       ],
       "filteredAuxiliaryAssets": 0,
-      "auxiliaryAssetsSize": 64646,
+      "auxiliaryAssetsSize": 64668,
       "children": {},
       "childAssets": {},
       "isOverSizeLimit": false
@@ -60144,8 +60144,8 @@
           "size": 24255
         },
         {
-          "name": "app~981768b2026cc0e2a1197958b695.bundle.js",
-          "size": 18349
+          "name": "app~981768b262239c0c5dc8b8feb840.bundle.js",
+          "size": 18440
         },
         {
           "name": "app~5f6c88c333543e3ba31bd006d417.bundle.js",
@@ -60156,12 +60156,12 @@
           "size": 19074
         },
         {
-          "name": "app~0346aa0d3ca48108c3bf807adb0c.bundle.js",
-          "size": 31355
+          "name": "app~0346aa0dde4ce25bf4160045ee21.bundle.js",
+          "size": 31391
         },
         {
-          "name": "app~d91a9049ed459e151a5f260b338a.bundle.js",
-          "size": 25940
+          "name": "app~d91a904966126ee5a82effa103d4.bundle.js",
+          "size": 25881
         },
         {
           "name": "app~197747e8.css",
@@ -60173,15 +60173,15 @@
         }
       ],
       "filteredAssets": 0,
-      "assetsSize": 321037,
+      "assetsSize": 321105,
       "auxiliaryAssets": [
         {
           "name": "66690c8e43b486c70a863b9.bundle.js.map",
           "size": 37181
         },
         {
-          "name": "app~0346aa0d3ca48108c3bf807adb0c.bundle.js.map",
-          "size": 53072
+          "name": "app~0346aa0dde4ce25bf4160045ee21.bundle.js.map",
+          "size": 53155
         },
         {
           "name": "app~1347f5f82bc93a2fc41be0f85a1f.bundle.js.map",
@@ -60220,8 +60220,8 @@
           "size": 38023
         },
         {
-          "name": "app~981768b2026cc0e2a1197958b695.bundle.js.map",
-          "size": 28655
+          "name": "app~981768b262239c0c5dc8b8feb840.bundle.js.map",
+          "size": 28939
         },
         {
           "name": "app~b308cbaf6618d604a4c46c836132.bundle.js.map",
@@ -60236,8 +60236,8 @@
           "size": 14390
         },
         {
-          "name": "app~d91a9049ed459e151a5f260b338a.bundle.js.map",
-          "size": 44710
+          "name": "app~d91a904966126ee5a82effa103d4.bundle.js.map",
+          "size": 44689
         },
         {
           "name": "app~e019dbda494688937bc4fdd78263.bundle.js.map",
@@ -60245,7 +60245,7 @@
         }
       ],
       "filteredAuxiliaryAssets": 0,
-      "auxiliaryAssetsSize": 531148,
+      "auxiliaryAssetsSize": 531494,
       "children": {},
       "childAssets": {},
       "isOverSizeLimit": true
@@ -60275,11 +60275,11 @@
         },
         {
           "name": "sw79c41e3a3db631c03d68.bundle.js.map",
-          "size": 27465
+          "size": 27487
         }
       ],
       "filteredAuxiliaryAssets": 0,
-      "auxiliaryAssetsSize": 64646,
+      "auxiliaryAssetsSize": 64668,
       "children": {},
       "childAssets": {},
       "isOverSizeLimit": false
@@ -60293,8 +60293,8 @@
       "stack": "AssetsOverSizeLimitWarning: asset size limit: The following asset(s) exceed the recommended size limit (244 KiB).\nThis can impact web performance.\nAssets: \n  ../dist/images/landing/about.png (1.53 MiB)\n  images/landing/about.png (1.53 MiB)\n    at /home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/webpack/lib/performance/SizeLimitsPlugin.js:134:7\n    at _next0 (eval at create (/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:10:1)\n    at eval (eval at create (/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:24:1)\n    at WebpackShellPlugin.<anonymous> (/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/webpack-shell-plugin-next/lib/index.js:198:29)\n    at step (/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/webpack-shell-plugin-next/lib/index.js:38:23)\n    at Object.next (/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/webpack-shell-plugin-next/lib/index.js:19:53)\n    at fulfilled (/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/webpack-shell-plugin-next/lib/index.js:10:58)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)"
     },
     {
-      "message": "entrypoint size limit: The following entrypoint(s) combined asset size exceeds the recommended limit (244 KiB). This can impact web performance.\nEntrypoints:\n  app (314 KiB)\n      66690c8e43b486c70a863b9.bundle.js\n      app~3b90b3c18f8077953f6c108faa49.bundle.js\n      app~c4c4009f532338c20841a6b4f5af.bundle.js\n      app~92fb540d7b3a5f93136552008cd0.bundle.js\n      app~bec0198562302436030b9b0275e9.bundle.js\n      app~1347f5f82bc93a2fc41be0f85a1f.bundle.js\n      app~967cca90832111b954d8d45d23a1.bundle.js\n      app~37b5640b54e588501decd5ea35f1.bundle.js\n      app~b308cbaf6618d604a4c46c836132.bundle.js\n      app~e019dbda494688937bc4fdd78263.bundle.js\n      app~981768b2026cc0e2a1197958b695.bundle.js\n      app~5f6c88c333543e3ba31bd006d417.bundle.js\n      app~1bd56572d9ba5bb2e78be3718995.bundle.js\n      app~0346aa0d3ca48108c3bf807adb0c.bundle.js\n      app~d91a9049ed459e151a5f260b338a.bundle.js\n      app~197747e8.css\n      app~3d62df1619fecf526d4a9a21cbe9.bundle.js\n",
-      "stack": "EntrypointsOverSizeLimitWarning: entrypoint size limit: The following entrypoint(s) combined asset size exceeds the recommended limit (244 KiB). This can impact web performance.\nEntrypoints:\n  app (314 KiB)\n      66690c8e43b486c70a863b9.bundle.js\n      app~3b90b3c18f8077953f6c108faa49.bundle.js\n      app~c4c4009f532338c20841a6b4f5af.bundle.js\n      app~92fb540d7b3a5f93136552008cd0.bundle.js\n      app~bec0198562302436030b9b0275e9.bundle.js\n      app~1347f5f82bc93a2fc41be0f85a1f.bundle.js\n      app~967cca90832111b954d8d45d23a1.bundle.js\n      app~37b5640b54e588501decd5ea35f1.bundle.js\n      app~b308cbaf6618d604a4c46c836132.bundle.js\n      app~e019dbda494688937bc4fdd78263.bundle.js\n      app~981768b2026cc0e2a1197958b695.bundle.js\n      app~5f6c88c333543e3ba31bd006d417.bundle.js\n      app~1bd56572d9ba5bb2e78be3718995.bundle.js\n      app~0346aa0d3ca48108c3bf807adb0c.bundle.js\n      app~d91a9049ed459e151a5f260b338a.bundle.js\n      app~197747e8.css\n      app~3d62df1619fecf526d4a9a21cbe9.bundle.js\n\n    at /home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/webpack/lib/performance/SizeLimitsPlugin.js:142:7\n    at _next0 (eval at create (/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:10:1)\n    at eval (eval at create (/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:24:1)\n    at WebpackShellPlugin.<anonymous> (/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/webpack-shell-plugin-next/lib/index.js:198:29)\n    at step (/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/webpack-shell-plugin-next/lib/index.js:38:23)\n    at Object.next (/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/webpack-shell-plugin-next/lib/index.js:19:53)\n    at fulfilled (/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/webpack-shell-plugin-next/lib/index.js:10:58)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)"
+      "message": "entrypoint size limit: The following entrypoint(s) combined asset size exceeds the recommended limit (244 KiB). This can impact web performance.\nEntrypoints:\n  app (314 KiB)\n      66690c8e43b486c70a863b9.bundle.js\n      app~3b90b3c18f8077953f6c108faa49.bundle.js\n      app~c4c4009f532338c20841a6b4f5af.bundle.js\n      app~92fb540d7b3a5f93136552008cd0.bundle.js\n      app~bec0198562302436030b9b0275e9.bundle.js\n      app~1347f5f82bc93a2fc41be0f85a1f.bundle.js\n      app~967cca90832111b954d8d45d23a1.bundle.js\n      app~37b5640b54e588501decd5ea35f1.bundle.js\n      app~b308cbaf6618d604a4c46c836132.bundle.js\n      app~e019dbda494688937bc4fdd78263.bundle.js\n      app~981768b262239c0c5dc8b8feb840.bundle.js\n      app~5f6c88c333543e3ba31bd006d417.bundle.js\n      app~1bd56572d9ba5bb2e78be3718995.bundle.js\n      app~0346aa0dde4ce25bf4160045ee21.bundle.js\n      app~d91a904966126ee5a82effa103d4.bundle.js\n      app~197747e8.css\n      app~3d62df1619fecf526d4a9a21cbe9.bundle.js\n",
+      "stack": "EntrypointsOverSizeLimitWarning: entrypoint size limit: The following entrypoint(s) combined asset size exceeds the recommended limit (244 KiB). This can impact web performance.\nEntrypoints:\n  app (314 KiB)\n      66690c8e43b486c70a863b9.bundle.js\n      app~3b90b3c18f8077953f6c108faa49.bundle.js\n      app~c4c4009f532338c20841a6b4f5af.bundle.js\n      app~92fb540d7b3a5f93136552008cd0.bundle.js\n      app~bec0198562302436030b9b0275e9.bundle.js\n      app~1347f5f82bc93a2fc41be0f85a1f.bundle.js\n      app~967cca90832111b954d8d45d23a1.bundle.js\n      app~37b5640b54e588501decd5ea35f1.bundle.js\n      app~b308cbaf6618d604a4c46c836132.bundle.js\n      app~e019dbda494688937bc4fdd78263.bundle.js\n      app~981768b262239c0c5dc8b8feb840.bundle.js\n      app~5f6c88c333543e3ba31bd006d417.bundle.js\n      app~1bd56572d9ba5bb2e78be3718995.bundle.js\n      app~0346aa0dde4ce25bf4160045ee21.bundle.js\n      app~d91a904966126ee5a82effa103d4.bundle.js\n      app~197747e8.css\n      app~3d62df1619fecf526d4a9a21cbe9.bundle.js\n\n    at /home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/webpack/lib/performance/SizeLimitsPlugin.js:142:7\n    at _next0 (eval at create (/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:10:1)\n    at eval (eval at create (/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:24:1)\n    at WebpackShellPlugin.<anonymous> (/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/webpack-shell-plugin-next/lib/index.js:198:29)\n    at step (/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/webpack-shell-plugin-next/lib/index.js:38:23)\n    at Object.next (/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/webpack-shell-plugin-next/lib/index.js:19:53)\n    at fulfilled (/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/webpack-shell-plugin-next/lib/index.js:10:58)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)"
     },
     {
       "message": "webpack performance recommendations: \nYou can limit the size of your bundles by using import() or require.ensure to lazy load some parts of your application.\nFor more info visit https://webpack.js.org/guides/code-splitting/",
@@ -60307,8 +60307,8 @@
       "name": "HtmlWebpackCompiler",
       "hash": "99af61e87320cf109d2c",
       "version": "5.88.1",
-      "time": 101,
-      "builtAt": 1688620455090,
+      "time": 133,
+      "builtAt": 1691246963099,
       "publicPath": "",
       "outputPath": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/published_dist",
       "assetsByChunkName": {},
