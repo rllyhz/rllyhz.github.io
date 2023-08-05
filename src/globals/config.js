@@ -124,13 +124,13 @@ const StringResource = {
       Message: "Please enter a valid email!",
       ConfirmText: "Oke",
     },
-    FailedToSendEmail: {
+    FailedToSendContactMessage: {
       Title: "Oppss...",
-      Message: "Failed to send email! 😕",
+      Message: "Failed to send message! 😕",
       ConfirmText: "Oke",
     },
-    SuccessfullySentEmail: {
-      Title: "Email successfully sent 💌",
+    SuccessfullySentContactMessage: {
+      Title: "Message successfully sent 💌",
       Message: "Thank you for contacting me.",
       ConfirmText: "Oke",
     },
