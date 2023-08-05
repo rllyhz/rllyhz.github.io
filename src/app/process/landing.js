@@ -8,7 +8,7 @@ const getPinnedProjects = ({ onSuccess, onFailed }) => {
     .execute();
 };
 
-const sendEmail = async ({
+const sendContactMessage = async ({
   onSuccess,
   onFailed,
   body = { fullname: "", email: "", message: "" },
@@ -49,16 +49,20 @@ const sendEmail = async ({
   formData.append("email", email);
   formData.append("message", message);
 
-  const result = await ApiFetch.post(APIUrl.sendEmailToDocumentSheet, formData);
+  const data = {};
+  formData.forEach((value, key) => { data[key] = value; });
 
-  if (result.success) {
-    onSuccess();
-  } else {
-    onFailed();
-  }
+  const headers = new Headers({
+    "Content-Type": "application/json",
+  });
+
+  Api.post(APIUrl.contactMessages, JSON.stringify(data), headers)
+    .onFailed(onFailed)
+    .onSuccess(onSuccess)
+    .execute();
 };
 
 export {
   getPinnedProjects,
-  sendEmail,
+  sendContactMessage,
 };

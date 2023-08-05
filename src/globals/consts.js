@@ -3,7 +3,6 @@ import { StringResource } from "./config";
 const APIUrl = {
   baseUrl: "https://rllyzhz-github-pages.netlify.app/.netlify/functions/api",
   baseUrlTesting: "http://localhost:9000/.netlify/functions/api",
-  sendEmailToDocumentSheet: "https://script.google.com/macros/s/AKfycbzOIDWk20JB87H-Nl0in0ezxDhpFktSSLZDsAJRZk0fqrRdbhQKAkPL_7gTLTql9Azz/exec",
   getIPDetailClient: "https://ipapi.co/json/",
   login: "/auth/login",
   logout: "/auth/logout",
@@ -17,6 +16,8 @@ const APIUrl = {
   updateConfiguration: "/configuration",
   importProjects: "/data/projects/import",
   exportProjects: "/data/projects/export",
+  contactMessages: "/sheets/messages",
+  emails: "/sheets/emails",
 };
 
 const StatusCode = {

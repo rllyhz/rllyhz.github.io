@@ -3,7 +3,7 @@ import Dom from "../../core/Dom";
 import Component from "../../core/Component";
 import { createPreviewEmptyProjects } from "../../../utils/dummy_data/projects";
 import { toPath } from "../../../utils/route-helper";
-import { sendEmail } from "../../process/landing";
+import { sendContactMessage } from "../../process/landing";
 import { validateEmail } from "../../../utils/data-helpers";
 import CustomAlert from "../../components/CustomAlert";
 import ButtonText from "../../components/ButtonText";
@@ -242,12 +242,12 @@ export default class LandingPage {
       isSendingEmail = true;
       btnSend.loading = true;
 
-      sendEmail({
+      sendContactMessage({
         body: { fullname, email, message },
         onFailed: () => {
           CustomAlert.Builder
-            .setTitle(Strings.Alerts.FailedToSendEmail.Title)
-            .setMessage(Strings.Alerts.FailedToSendEmail.Message)
+            .setTitle(Strings.Alerts.FailedToSendContactMessage.Title)
+            .setMessage(Strings.Alerts.FailedToSendContactMessage.Message)
             .setType(CustomAlert.TYPE.ERROR)
             .setSize(CustomAlert.SIZE.SMALL)
             .setCancel("Oke")
@@ -263,8 +263,8 @@ export default class LandingPage {
           messageInput.value = "";
 
           CustomAlert.Builder
-            .setTitle(Strings.Alerts.SuccessfullySentEmail.Title)
-            .setMessage(Strings.Alerts.SuccessfullySentEmail.Message)
+            .setTitle(Strings.Alerts.SuccessfullySentContactMessage.Title)
+            .setMessage(Strings.Alerts.SuccessfullySentContactMessage.Message)
             .setType(CustomAlert.TYPE.SUCCESS)
             .setSize(CustomAlert.SIZE.SMALL)
             .setCancel("Oke")
