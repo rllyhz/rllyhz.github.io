@@ -1,8 +1,8 @@
 {
   "hash": "d55777cfd860fdf30eca",
   "version": "5.88.1",
-  "time": 7150,
-  "builtAt": 1711177592987,
+  "time": 7320,
+  "builtAt": 1711177608882,
   "publicPath": "auto",
   "outputPath": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/published_dist",
   "assetsByChunkName": {
@@ -16436,9 +16436,9 @@
               "id": 8419
             },
             {
-              "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/views/pages/ProjectDetailPage.js",
-              "name": "./src/app/views/pages/ProjectDetailPage.js",
-              "id": 6019
+              "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/views/pages/ProjectsPage.js",
+              "name": "./src/app/views/pages/ProjectsPage.js",
+              "id": 8971
             },
             {
               "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/controllers/projects.js",
@@ -17451,8 +17451,8 @@
           "optional": false,
           "orphan": false,
           "dependent": false,
-          "issuer": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/process/landing.js",
-          "issuerName": "./src/app/process/landing.js",
+          "issuer": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/process/dashboard.js",
+          "issuerName": "./src/app/process/dashboard.js",
           "issuerPath": [
             {
               "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/scripts/index.js",
@@ -17465,21 +17465,21 @@
               "id": 8419
             },
             {
-              "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/views/pages/LandingPage.js",
-              "name": "./src/app/views/pages/LandingPage.js",
-              "id": 7522
+              "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/views/pages/DashboardPage.js",
+              "name": "./src/app/views/pages/DashboardPage.js",
+              "id": 3000
             },
             {
-              "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/process/landing.js",
-              "name": "./src/app/process/landing.js",
-              "id": 4989
+              "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/process/dashboard.js",
+              "name": "./src/app/process/dashboard.js",
+              "id": 7266
             }
           ],
           "failed": false,
           "errors": 0,
           "warnings": 0,
           "id": 4534,
-          "issuerId": 4989,
+          "issuerId": 7266,
           "chunks": [
             759
           ],
@@ -17951,8 +17951,8 @@
               "optional": false,
               "orphan": false,
               "dependent": true,
-              "issuer": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/views/pages/LoginPage.js",
-              "issuerName": "./src/app/views/pages/LoginPage.js",
+              "issuer": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/views/pages/DashboardPage.js",
+              "issuerName": "./src/app/views/pages/DashboardPage.js",
               "issuerPath": [
                 {
                   "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/scripts/index.js",
@@ -17965,16 +17965,16 @@
                   "id": 8419
                 },
                 {
-                  "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/views/pages/LoginPage.js",
-                  "name": "./src/app/views/pages/LoginPage.js",
-                  "id": 948
+                  "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/views/pages/DashboardPage.js",
+                  "name": "./src/app/views/pages/DashboardPage.js",
+                  "id": 3000
                 }
               ],
               "failed": false,
               "errors": 0,
               "warnings": 0,
               "id": null,
-              "issuerId": 948,
+              "issuerId": 3000,
               "chunks": [],
               "assets": [],
               "reasons": [],
@@ -18026,9 +18026,9 @@
                   "id": 8419
                 },
                 {
-                  "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/views/pages/LoginPage.js",
-                  "name": "./src/app/views/pages/LoginPage.js",
-                  "id": 948
+                  "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/views/pages/DashboardPage.js",
+                  "name": "./src/app/views/pages/DashboardPage.js",
+                  "id": 3000
                 },
                 {
                   "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/core/Auth.js",
@@ -20282,8 +20282,8 @@
           "optional": false,
           "orphan": false,
           "dependent": false,
-          "issuer": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/views/pages/LoginPage.js",
-          "issuerName": "./src/app/views/pages/LoginPage.js",
+          "issuer": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/views/pages/DashboardPage.js",
+          "issuerName": "./src/app/views/pages/DashboardPage.js",
           "issuerPath": [
             {
               "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/scripts/index.js",
@@ -20296,16 +20296,16 @@
               "id": 8419
             },
             {
-              "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/views/pages/LoginPage.js",
-              "name": "./src/app/views/pages/LoginPage.js",
-              "id": 948
+              "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/views/pages/DashboardPage.js",
+              "name": "./src/app/views/pages/DashboardPage.js",
+              "id": 3000
             }
           ],
           "failed": false,
           "errors": 0,
           "warnings": 0,
           "id": 8109,
-          "issuerId": 948,
+          "issuerId": 3000,
           "chunks": [
             759
           ],
@@ -26014,8 +26014,8 @@
           "optional": false,
           "orphan": false,
           "dependent": false,
-          "issuer": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/views/pages/ProjectDetailPage.js",
-          "issuerName": "./src/app/views/pages/ProjectDetailPage.js",
+          "issuer": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/views/pages/ProjectsPage.js",
+          "issuerName": "./src/app/views/pages/ProjectsPage.js",
           "issuerPath": [
             {
               "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/scripts/index.js",
@@ -26028,16 +26028,16 @@
               "id": 8419
             },
             {
-              "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/views/pages/ProjectDetailPage.js",
-              "name": "./src/app/views/pages/ProjectDetailPage.js",
-              "id": 6019
+              "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/views/pages/ProjectsPage.js",
+              "name": "./src/app/views/pages/ProjectsPage.js",
+              "id": 8971
             }
           ],
           "failed": false,
           "errors": 0,
           "warnings": 0,
           "id": 3087,
-          "issuerId": 6019,
+          "issuerId": 8971,
           "chunks": [
             890
           ],
@@ -45209,8 +45209,8 @@
       "cacheable": true,
       "optional": false,
       "orphan": false,
-      "issuer": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/views/pages/LoginPage.js",
-      "issuerName": "./src/app/views/pages/LoginPage.js",
+      "issuer": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/views/pages/DashboardPage.js",
+      "issuerName": "./src/app/views/pages/DashboardPage.js",
       "issuerPath": [
         {
           "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/scripts/index.js",
@@ -45223,16 +45223,16 @@
           "id": 8419
         },
         {
-          "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/views/pages/LoginPage.js",
-          "name": "./src/app/views/pages/LoginPage.js",
-          "id": 948
+          "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/views/pages/DashboardPage.js",
+          "name": "./src/app/views/pages/DashboardPage.js",
+          "id": 3000
         }
       ],
       "failed": false,
       "errors": 0,
       "warnings": 0,
       "id": 8109,
-      "issuerId": 948,
+      "issuerId": 3000,
       "chunks": [
         759
       ],
@@ -45690,8 +45690,8 @@
           "cacheable": true,
           "optional": false,
           "orphan": false,
-          "issuer": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/views/pages/LoginPage.js",
-          "issuerName": "./src/app/views/pages/LoginPage.js",
+          "issuer": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/views/pages/DashboardPage.js",
+          "issuerName": "./src/app/views/pages/DashboardPage.js",
           "issuerPath": [
             {
               "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/scripts/index.js",
@@ -45704,16 +45704,16 @@
               "id": 8419
             },
             {
-              "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/views/pages/LoginPage.js",
-              "name": "./src/app/views/pages/LoginPage.js",
-              "id": 948
+              "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/views/pages/DashboardPage.js",
+              "name": "./src/app/views/pages/DashboardPage.js",
+              "id": 3000
             }
           ],
           "failed": false,
           "errors": 0,
           "warnings": 0,
           "id": null,
-          "issuerId": 948,
+          "issuerId": 3000,
           "chunks": [],
           "assets": [],
           "reasons": [],
@@ -45764,9 +45764,9 @@
               "id": 8419
             },
             {
-              "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/views/pages/LoginPage.js",
-              "name": "./src/app/views/pages/LoginPage.js",
-              "id": 948
+              "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/views/pages/DashboardPage.js",
+              "name": "./src/app/views/pages/DashboardPage.js",
+              "id": 3000
             },
             {
               "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/core/Auth.js",
@@ -46180,8 +46180,8 @@
       "cacheable": true,
       "optional": false,
       "orphan": false,
-      "issuer": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/views/pages/ProjectDetailPage.js",
-      "issuerName": "./src/app/views/pages/ProjectDetailPage.js",
+      "issuer": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/views/pages/ProjectsPage.js",
+      "issuerName": "./src/app/views/pages/ProjectsPage.js",
       "issuerPath": [
         {
           "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/scripts/index.js",
@@ -46194,16 +46194,16 @@
           "id": 8419
         },
         {
-          "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/views/pages/ProjectDetailPage.js",
-          "name": "./src/app/views/pages/ProjectDetailPage.js",
-          "id": 6019
+          "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/views/pages/ProjectsPage.js",
+          "name": "./src/app/views/pages/ProjectsPage.js",
+          "id": 8971
         }
       ],
       "failed": false,
       "errors": 0,
       "warnings": 0,
       "id": 3087,
-      "issuerId": 6019,
+      "issuerId": 8971,
       "chunks": [
         890
       ],
@@ -49280,8 +49280,8 @@
       "cacheable": true,
       "optional": false,
       "orphan": false,
-      "issuer": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/process/landing.js",
-      "issuerName": "./src/app/process/landing.js",
+      "issuer": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/process/dashboard.js",
+      "issuerName": "./src/app/process/dashboard.js",
       "issuerPath": [
         {
           "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/scripts/index.js",
@@ -49294,21 +49294,21 @@
           "id": 8419
         },
         {
-          "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/views/pages/LandingPage.js",
-          "name": "./src/app/views/pages/LandingPage.js",
-          "id": 7522
+          "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/views/pages/DashboardPage.js",
+          "name": "./src/app/views/pages/DashboardPage.js",
+          "id": 3000
         },
         {
-          "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/process/landing.js",
-          "name": "./src/app/process/landing.js",
-          "id": 4989
+          "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/process/dashboard.js",
+          "name": "./src/app/process/dashboard.js",
+          "id": 7266
         }
       ],
       "failed": false,
       "errors": 0,
       "warnings": 0,
       "id": 4534,
-      "issuerId": 4989,
+      "issuerId": 7266,
       "chunks": [
         759
       ],
@@ -49843,9 +49843,9 @@
           "id": 8419
         },
         {
-          "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/views/pages/LoginPage.js",
-          "name": "./src/app/views/pages/LoginPage.js",
-          "id": 948
+          "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/views/pages/DashboardPage.js",
+          "name": "./src/app/views/pages/DashboardPage.js",
+          "id": 3000
         },
         {
           "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/core/Auth.js",
@@ -49949,9 +49949,9 @@
           "id": 8419
         },
         {
-          "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/views/pages/ProjectDetailPage.js",
-          "name": "./src/app/views/pages/ProjectDetailPage.js",
-          "id": 6019
+          "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/views/pages/ProjectsPage.js",
+          "name": "./src/app/views/pages/ProjectsPage.js",
+          "id": 8971
         },
         {
           "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/controllers/projects.js",
@@ -60307,8 +60307,8 @@
       "name": "HtmlWebpackCompiler",
       "hash": "99af61e87320cf109d2c",
       "version": "5.88.1",
-      "time": 82,
-      "builtAt": 1711177585953,
+      "time": 80,
+      "builtAt": 1711177601676,
       "publicPath": "",
       "outputPath": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/published_dist",
       "assetsByChunkName": {},
