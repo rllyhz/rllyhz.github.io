@@ -1,8 +1,8 @@
 {
-  "hash": "de23b803d9b9bb8399c9",
+  "hash": "1292c07e97b47fd3c902",
   "version": "5.88.1",
-  "time": 7377,
-  "builtAt": 1753303424273,
+  "time": 7370,
+  "builtAt": 1753303602694,
   "publicPath": "auto",
   "outputPath": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/published_dist",
   "assetsByChunkName": {
@@ -34,7 +34,7 @@
       "app~37b5640b54e588501decd5ea35f1.bundle.js"
     ],
     "app~b308cbaf": [
-      "app~b308cbaf02ac548cb4052811ff38.bundle.js"
+      "app~b308cbaff810cdc930ec1d0d22e2.bundle.js"
     ],
     "app~e019dbda": [
       "app~e019dbda494688937bc4fdd78263.bundle.js"
@@ -1055,18 +1055,18 @@
     },
     {
       "type": "asset",
-      "name": "app~b308cbaf02ac548cb4052811ff38.bundle.js",
+      "name": "app~b308cbaff810cdc930ec1d0d22e2.bundle.js",
       "size": 14693,
       "emitted": true,
       "comparedForEmit": false,
       "cached": false,
       "info": {
         "immutable": true,
-        "contenthash": "02ac548cb4052811ff38",
+        "contenthash": "f810cdc930ec1d0d22e2",
         "javascriptModule": false,
         "minimized": true,
         "related": {
-          "sourceMap": "app~b308cbaf02ac548cb4052811ff38.bundle.js.map"
+          "sourceMap": "app~b308cbaff810cdc930ec1d0d22e2.bundle.js.map"
         },
         "size": 14693
       },
@@ -1080,7 +1080,7 @@
       "related": [
         {
           "type": "sourceMap",
-          "name": "app~b308cbaf02ac548cb4052811ff38.bundle.js.map",
+          "name": "app~b308cbaff810cdc930ec1d0d22e2.bundle.js.map",
           "size": 17093,
           "emitted": true,
           "comparedForEmit": false,
@@ -16548,9 +16548,9 @@
               "id": 8419
             },
             {
-              "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/views/pages/ProjectsPage.js",
-              "name": "./src/app/views/pages/ProjectsPage.js",
-              "id": 8971
+              "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/views/pages/ProjectDetailPage.js",
+              "name": "./src/app/views/pages/ProjectDetailPage.js",
+              "id": 6019
             },
             {
               "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/controllers/projects.js",
@@ -17563,8 +17563,8 @@
           "optional": false,
           "orphan": false,
           "dependent": false,
-          "issuer": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/process/auth.js",
-          "issuerName": "./src/app/process/auth.js",
+          "issuer": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/process/landing.js",
+          "issuerName": "./src/app/process/landing.js",
           "issuerPath": [
             {
               "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/scripts/index.js",
@@ -17577,21 +17577,21 @@
               "id": 8419
             },
             {
-              "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/views/pages/LoginPage.js",
-              "name": "./src/app/views/pages/LoginPage.js",
-              "id": 948
+              "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/views/pages/LandingPage.js",
+              "name": "./src/app/views/pages/LandingPage.js",
+              "id": 7522
             },
             {
-              "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/process/auth.js",
-              "name": "./src/app/process/auth.js",
-              "id": 1390
+              "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/process/landing.js",
+              "name": "./src/app/process/landing.js",
+              "id": 4989
             }
           ],
           "failed": false,
           "errors": 0,
           "warnings": 0,
           "id": 4534,
-          "issuerId": 1390,
+          "issuerId": 4989,
           "chunks": [
             759
           ],
@@ -25133,12 +25133,12 @@
         "app"
       ],
       "files": [
-        "app~b308cbaf02ac548cb4052811ff38.bundle.js"
+        "app~b308cbaff810cdc930ec1d0d22e2.bundle.js"
       ],
       "auxiliaryFiles": [
-        "app~b308cbaf02ac548cb4052811ff38.bundle.js.map"
+        "app~b308cbaff810cdc930ec1d0d22e2.bundle.js.map"
       ],
-      "hash": "34501a9e31db1286fb06",
+      "hash": "ad7e23409cceb6c41403",
       "childrenByOrder": {},
       "id": 890,
       "siblings": [
@@ -26126,8 +26126,8 @@
           "optional": false,
           "orphan": false,
           "dependent": false,
-          "issuer": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/views/pages/ProjectsPage.js",
-          "issuerName": "./src/app/views/pages/ProjectsPage.js",
+          "issuer": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/views/pages/ProjectDetailPage.js",
+          "issuerName": "./src/app/views/pages/ProjectDetailPage.js",
           "issuerPath": [
             {
               "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/scripts/index.js",
@@ -26140,16 +26140,16 @@
               "id": 8419
             },
             {
-              "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/views/pages/ProjectsPage.js",
-              "name": "./src/app/views/pages/ProjectsPage.js",
-              "id": 8971
+              "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/views/pages/ProjectDetailPage.js",
+              "name": "./src/app/views/pages/ProjectDetailPage.js",
+              "id": 6019
             }
           ],
           "failed": false,
           "errors": 0,
           "warnings": 0,
           "id": 3087,
-          "issuerId": 8971,
+          "issuerId": 6019,
           "chunks": [
             890
           ],
@@ -46320,8 +46320,8 @@
       "cacheable": true,
       "optional": false,
       "orphan": false,
-      "issuer": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/views/pages/ProjectsPage.js",
-      "issuerName": "./src/app/views/pages/ProjectsPage.js",
+      "issuer": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/views/pages/ProjectDetailPage.js",
+      "issuerName": "./src/app/views/pages/ProjectDetailPage.js",
       "issuerPath": [
         {
           "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/scripts/index.js",
@@ -46334,16 +46334,16 @@
           "id": 8419
         },
         {
-          "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/views/pages/ProjectsPage.js",
-          "name": "./src/app/views/pages/ProjectsPage.js",
-          "id": 8971
+          "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/views/pages/ProjectDetailPage.js",
+          "name": "./src/app/views/pages/ProjectDetailPage.js",
+          "id": 6019
         }
       ],
       "failed": false,
       "errors": 0,
       "warnings": 0,
       "id": 3087,
-      "issuerId": 8971,
+      "issuerId": 6019,
       "chunks": [
         890
       ],
@@ -49420,8 +49420,8 @@
       "cacheable": true,
       "optional": false,
       "orphan": false,
-      "issuer": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/process/auth.js",
-      "issuerName": "./src/app/process/auth.js",
+      "issuer": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/process/landing.js",
+      "issuerName": "./src/app/process/landing.js",
       "issuerPath": [
         {
           "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/scripts/index.js",
@@ -49434,21 +49434,21 @@
           "id": 8419
         },
         {
-          "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/views/pages/LoginPage.js",
-          "name": "./src/app/views/pages/LoginPage.js",
-          "id": 948
+          "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/views/pages/LandingPage.js",
+          "name": "./src/app/views/pages/LandingPage.js",
+          "id": 7522
         },
         {
-          "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/process/auth.js",
-          "name": "./src/app/process/auth.js",
-          "id": 1390
+          "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/process/landing.js",
+          "name": "./src/app/process/landing.js",
+          "id": 4989
         }
       ],
       "failed": false,
       "errors": 0,
       "warnings": 0,
       "id": 4534,
-      "issuerId": 1390,
+      "issuerId": 4989,
       "chunks": [
         759
       ],
@@ -50089,9 +50089,9 @@
           "id": 8419
         },
         {
-          "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/views/pages/ProjectsPage.js",
-          "name": "./src/app/views/pages/ProjectsPage.js",
-          "id": 8971
+          "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/views/pages/ProjectDetailPage.js",
+          "name": "./src/app/views/pages/ProjectDetailPage.js",
+          "id": 6019
         },
         {
           "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/controllers/projects.js",
@@ -60071,7 +60071,7 @@
           "size": 11899
         },
         {
-          "name": "app~b308cbaf02ac548cb4052811ff38.bundle.js",
+          "name": "app~b308cbaff810cdc930ec1d0d22e2.bundle.js",
           "size": 14693
         },
         {
@@ -60159,7 +60159,7 @@
           "size": 28939
         },
         {
-          "name": "app~b308cbaf02ac548cb4052811ff38.bundle.js.map",
+          "name": "app~b308cbaff810cdc930ec1d0d22e2.bundle.js.map",
           "size": 17093
         },
         {
@@ -60276,7 +60276,7 @@
           "size": 11899
         },
         {
-          "name": "app~b308cbaf02ac548cb4052811ff38.bundle.js",
+          "name": "app~b308cbaff810cdc930ec1d0d22e2.bundle.js",
           "size": 14693
         },
         {
@@ -60364,7 +60364,7 @@
           "size": 28939
         },
         {
-          "name": "app~b308cbaf02ac548cb4052811ff38.bundle.js.map",
+          "name": "app~b308cbaff810cdc930ec1d0d22e2.bundle.js.map",
           "size": 17093
         },
         {
@@ -60433,8 +60433,8 @@
       "stack": "AssetsOverSizeLimitWarning: asset size limit: The following asset(s) exceed the recommended size limit (244 KiB).\nThis can impact web performance.\nAssets: \n  ../dist/images/landing/about.png (1.53 MiB)\n  ../dist/images/landing/profile-3.png (1.49 MiB)\n  ../dist/images/landing/profile.png (1.46 MiB)\n  images/landing/about.png (1.53 MiB)\n  images/landing/profile-3.png (1.49 MiB)\n  images/landing/profile.png (1.46 MiB)\n    at /home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/webpack/lib/performance/SizeLimitsPlugin.js:134:7\n    at _next0 (eval at create (/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:10:1)\n    at eval (eval at create (/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:24:1)\n    at WebpackShellPlugin.<anonymous> (/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/webpack-shell-plugin-next/lib/index.js:198:29)\n    at step (/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/webpack-shell-plugin-next/lib/index.js:38:23)\n    at Object.next (/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/webpack-shell-plugin-next/lib/index.js:19:53)\n    at fulfilled (/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/webpack-shell-plugin-next/lib/index.js:10:58)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)"
     },
     {
-      "message": "entrypoint size limit: The following entrypoint(s) combined asset size exceeds the recommended limit (244 KiB). This can impact web performance.\nEntrypoints:\n  app (314 KiB)\n      66690c8e43b486c70a863b9.bundle.js\n      app~3b90b3c18f8077953f6c108faa49.bundle.js\n      app~c4c4009f532338c20841a6b4f5af.bundle.js\n      app~92fb540d7b3a5f93136552008cd0.bundle.js\n      app~bec0198562302436030b9b0275e9.bundle.js\n      app~1347f5f82bc93a2fc41be0f85a1f.bundle.js\n      app~967cca90832111b954d8d45d23a1.bundle.js\n      app~37b5640b54e588501decd5ea35f1.bundle.js\n      app~b308cbaf02ac548cb4052811ff38.bundle.js\n      app~e019dbda494688937bc4fdd78263.bundle.js\n      app~981768b262239c0c5dc8b8feb840.bundle.js\n      app~5f6c88c333543e3ba31bd006d417.bundle.js\n      app~1bd56572d9ba5bb2e78be3718995.bundle.js\n      app~0346aa0dde4ce25bf4160045ee21.bundle.js\n      app~d91a9049e2dbfdafd1be917807ab.bundle.js\n      app~197747e8.css\n      app~3d62df1619fecf526d4a9a21cbe9.bundle.js\n",
-      "stack": "EntrypointsOverSizeLimitWarning: entrypoint size limit: The following entrypoint(s) combined asset size exceeds the recommended limit (244 KiB). This can impact web performance.\nEntrypoints:\n  app (314 KiB)\n      66690c8e43b486c70a863b9.bundle.js\n      app~3b90b3c18f8077953f6c108faa49.bundle.js\n      app~c4c4009f532338c20841a6b4f5af.bundle.js\n      app~92fb540d7b3a5f93136552008cd0.bundle.js\n      app~bec0198562302436030b9b0275e9.bundle.js\n      app~1347f5f82bc93a2fc41be0f85a1f.bundle.js\n      app~967cca90832111b954d8d45d23a1.bundle.js\n      app~37b5640b54e588501decd5ea35f1.bundle.js\n      app~b308cbaf02ac548cb4052811ff38.bundle.js\n      app~e019dbda494688937bc4fdd78263.bundle.js\n      app~981768b262239c0c5dc8b8feb840.bundle.js\n      app~5f6c88c333543e3ba31bd006d417.bundle.js\n      app~1bd56572d9ba5bb2e78be3718995.bundle.js\n      app~0346aa0dde4ce25bf4160045ee21.bundle.js\n      app~d91a9049e2dbfdafd1be917807ab.bundle.js\n      app~197747e8.css\n      app~3d62df1619fecf526d4a9a21cbe9.bundle.js\n\n    at /home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/webpack/lib/performance/SizeLimitsPlugin.js:142:7\n    at _next0 (eval at create (/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:10:1)\n    at eval (eval at create (/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:24:1)\n    at WebpackShellPlugin.<anonymous> (/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/webpack-shell-plugin-next/lib/index.js:198:29)\n    at step (/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/webpack-shell-plugin-next/lib/index.js:38:23)\n    at Object.next (/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/webpack-shell-plugin-next/lib/index.js:19:53)\n    at fulfilled (/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/webpack-shell-plugin-next/lib/index.js:10:58)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)"
+      "message": "entrypoint size limit: The following entrypoint(s) combined asset size exceeds the recommended limit (244 KiB). This can impact web performance.\nEntrypoints:\n  app (314 KiB)\n      66690c8e43b486c70a863b9.bundle.js\n      app~3b90b3c18f8077953f6c108faa49.bundle.js\n      app~c4c4009f532338c20841a6b4f5af.bundle.js\n      app~92fb540d7b3a5f93136552008cd0.bundle.js\n      app~bec0198562302436030b9b0275e9.bundle.js\n      app~1347f5f82bc93a2fc41be0f85a1f.bundle.js\n      app~967cca90832111b954d8d45d23a1.bundle.js\n      app~37b5640b54e588501decd5ea35f1.bundle.js\n      app~b308cbaff810cdc930ec1d0d22e2.bundle.js\n      app~e019dbda494688937bc4fdd78263.bundle.js\n      app~981768b262239c0c5dc8b8feb840.bundle.js\n      app~5f6c88c333543e3ba31bd006d417.bundle.js\n      app~1bd56572d9ba5bb2e78be3718995.bundle.js\n      app~0346aa0dde4ce25bf4160045ee21.bundle.js\n      app~d91a9049e2dbfdafd1be917807ab.bundle.js\n      app~197747e8.css\n      app~3d62df1619fecf526d4a9a21cbe9.bundle.js\n",
+      "stack": "EntrypointsOverSizeLimitWarning: entrypoint size limit: The following entrypoint(s) combined asset size exceeds the recommended limit (244 KiB). This can impact web performance.\nEntrypoints:\n  app (314 KiB)\n      66690c8e43b486c70a863b9.bundle.js\n      app~3b90b3c18f8077953f6c108faa49.bundle.js\n      app~c4c4009f532338c20841a6b4f5af.bundle.js\n      app~92fb540d7b3a5f93136552008cd0.bundle.js\n      app~bec0198562302436030b9b0275e9.bundle.js\n      app~1347f5f82bc93a2fc41be0f85a1f.bundle.js\n      app~967cca90832111b954d8d45d23a1.bundle.js\n      app~37b5640b54e588501decd5ea35f1.bundle.js\n      app~b308cbaff810cdc930ec1d0d22e2.bundle.js\n      app~e019dbda494688937bc4fdd78263.bundle.js\n      app~981768b262239c0c5dc8b8feb840.bundle.js\n      app~5f6c88c333543e3ba31bd006d417.bundle.js\n      app~1bd56572d9ba5bb2e78be3718995.bundle.js\n      app~0346aa0dde4ce25bf4160045ee21.bundle.js\n      app~d91a9049e2dbfdafd1be917807ab.bundle.js\n      app~197747e8.css\n      app~3d62df1619fecf526d4a9a21cbe9.bundle.js\n\n    at /home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/webpack/lib/performance/SizeLimitsPlugin.js:142:7\n    at _next0 (eval at create (/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:10:1)\n    at eval (eval at create (/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:24:1)\n    at WebpackShellPlugin.<anonymous> (/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/webpack-shell-plugin-next/lib/index.js:198:29)\n    at step (/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/webpack-shell-plugin-next/lib/index.js:38:23)\n    at Object.next (/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/webpack-shell-plugin-next/lib/index.js:19:53)\n    at fulfilled (/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/webpack-shell-plugin-next/lib/index.js:10:58)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)"
     },
     {
       "message": "webpack performance recommendations: \nYou can limit the size of your bundles by using import() or require.ensure to lazy load some parts of your application.\nFor more info visit https://webpack.js.org/guides/code-splitting/",
@@ -60447,8 +60447,8 @@
       "name": "HtmlWebpackCompiler",
       "hash": "99af61e87320cf109d2c",
       "version": "5.88.1",
-      "time": 94,
-      "builtAt": 1753303417026,
+      "time": 84,
+      "builtAt": 1753303595443,
       "publicPath": "",
       "outputPath": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/published_dist",
       "assetsByChunkName": {},
