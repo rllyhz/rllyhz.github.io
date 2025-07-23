@@ -43,6 +43,7 @@ const Social = {
   linkedIn: "https://www.linkedin.com/in/rully-ihza-mahendra/",
   github: "https://github.com/rllyhz/",
   stackOverflow: "https://stackoverflow.com/users/17045891/rllyhz",
+  playStore: "https://play.google.com/store/apps/dev?id=8076760949768819275",
   facebook: "https://www.facebook.com/rully.ihza",
   instagram: "https://www.instagram.com/rllyhz/",
   twitter: "https://twitter.com/rllyhz",
