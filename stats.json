@@ -1,8 +1,8 @@
 {
   "hash": "d55777cfd860fdf30eca",
   "version": "5.88.1",
-  "time": 7114,
-  "builtAt": 1711178045588,
+  "time": 7342,
+  "builtAt": 1753300773183,
   "publicPath": "auto",
   "outputPath": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/published_dist",
   "assetsByChunkName": {
@@ -103,14 +103,14 @@
     },
     {
       "type": "asset",
-      "name": "../dist/images/landing/profile.png",
+      "name": "../dist/images/landing/profile-2.png",
       "size": 134614,
       "emitted": true,
       "comparedForEmit": false,
       "cached": false,
       "info": {
         "copied": true,
-        "sourceFilename": "src/public/images/landing/profile.png",
+        "sourceFilename": "src/public/images/landing/profile-2.png",
         "size": 134614
       },
       "chunkNames": [],
@@ -124,14 +124,14 @@
     },
     {
       "type": "asset",
-      "name": "images/landing/profile.png",
+      "name": "images/landing/profile-2.png",
       "size": 134614,
       "emitted": true,
       "comparedForEmit": false,
       "cached": false,
       "info": {
         "copied": true,
-        "sourceFilename": "src/public/images/landing/profile.png",
+        "sourceFilename": "src/public/images/landing/profile-2.png",
         "size": 134614
       },
       "chunkNames": [],
@@ -10004,8 +10004,8 @@
           "optional": false,
           "orphan": false,
           "dependent": true,
-          "issuer": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/views/pages/LandingPage.js",
-          "issuerName": "./src/app/views/pages/LandingPage.js",
+          "issuer": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/views/pages/NotFoundPage.js",
+          "issuerName": "./src/app/views/pages/NotFoundPage.js",
           "issuerPath": [
             {
               "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/scripts/index.js",
@@ -10018,16 +10018,16 @@
               "id": 8419
             },
             {
-              "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/views/pages/LandingPage.js",
-              "name": "./src/app/views/pages/LandingPage.js",
-              "id": 7522
+              "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/views/pages/NotFoundPage.js",
+              "name": "./src/app/views/pages/NotFoundPage.js",
+              "id": 9084
             }
           ],
           "failed": false,
           "errors": 0,
           "warnings": 0,
           "id": 857,
-          "issuerId": 7522,
+          "issuerId": 9084,
           "chunks": [
             490
           ],
@@ -17451,8 +17451,8 @@
           "optional": false,
           "orphan": false,
           "dependent": false,
-          "issuer": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/process/landing.js",
-          "issuerName": "./src/app/process/landing.js",
+          "issuer": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/process/auth.js",
+          "issuerName": "./src/app/process/auth.js",
           "issuerPath": [
             {
               "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/scripts/index.js",
@@ -17465,21 +17465,21 @@
               "id": 8419
             },
             {
-              "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/views/pages/LandingPage.js",
-              "name": "./src/app/views/pages/LandingPage.js",
-              "id": 7522
+              "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/views/pages/LoginPage.js",
+              "name": "./src/app/views/pages/LoginPage.js",
+              "id": 948
             },
             {
-              "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/process/landing.js",
-              "name": "./src/app/process/landing.js",
-              "id": 4989
+              "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/process/auth.js",
+              "name": "./src/app/process/auth.js",
+              "id": 1390
             }
           ],
           "failed": false,
           "errors": 0,
           "warnings": 0,
           "id": 4534,
-          "issuerId": 4989,
+          "issuerId": 1390,
           "chunks": [
             759
           ],
@@ -21093,8 +21093,8 @@
           "optional": false,
           "orphan": false,
           "dependent": false,
-          "issuer": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/components/Loading/styles.js",
-          "issuerName": "./src/app/components/Loading/styles.js",
+          "issuer": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/components/HeaderApp/styles.js",
+          "issuerName": "./src/app/components/HeaderApp/styles.js",
           "issuerPath": [
             {
               "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/scripts/index.js",
@@ -21107,18 +21107,18 @@
               "id": 8419
             },
             {
-              "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/components/Loading/index.js",
-              "name": "./src/app/components/Loading/index.js",
+              "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/components/HeaderApp/index.js",
+              "name": "./src/app/components/HeaderApp/index.js",
               "id": null
             },
             {
-              "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/components/Loading/template.js",
-              "name": "./src/app/components/Loading/template.js",
+              "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/components/HeaderApp/template.js",
+              "name": "./src/app/components/HeaderApp/template.js",
               "id": null
             },
             {
-              "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/components/Loading/styles.js",
-              "name": "./src/app/components/Loading/styles.js",
+              "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/components/HeaderApp/styles.js",
+              "name": "./src/app/components/HeaderApp/styles.js",
               "id": null
             }
           ],
@@ -37694,8 +37694,8 @@
       "cacheable": true,
       "optional": false,
       "orphan": false,
-      "issuer": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/views/pages/LandingPage.js",
-      "issuerName": "./src/app/views/pages/LandingPage.js",
+      "issuer": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/views/pages/NotFoundPage.js",
+      "issuerName": "./src/app/views/pages/NotFoundPage.js",
       "issuerPath": [
         {
           "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/scripts/index.js",
@@ -37708,16 +37708,16 @@
           "id": 8419
         },
         {
-          "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/views/pages/LandingPage.js",
-          "name": "./src/app/views/pages/LandingPage.js",
-          "id": 7522
+          "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/views/pages/NotFoundPage.js",
+          "name": "./src/app/views/pages/NotFoundPage.js",
+          "id": 9084
         }
       ],
       "failed": false,
       "errors": 0,
       "warnings": 0,
       "id": 857,
-      "issuerId": 7522,
+      "issuerId": 9084,
       "chunks": [
         490
       ],
@@ -49280,8 +49280,8 @@
       "cacheable": true,
       "optional": false,
       "orphan": false,
-      "issuer": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/process/landing.js",
-      "issuerName": "./src/app/process/landing.js",
+      "issuer": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/process/auth.js",
+      "issuerName": "./src/app/process/auth.js",
       "issuerPath": [
         {
           "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/scripts/index.js",
@@ -49294,21 +49294,21 @@
           "id": 8419
         },
         {
-          "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/views/pages/LandingPage.js",
-          "name": "./src/app/views/pages/LandingPage.js",
-          "id": 7522
+          "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/views/pages/LoginPage.js",
+          "name": "./src/app/views/pages/LoginPage.js",
+          "id": 948
         },
         {
-          "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/process/landing.js",
-          "name": "./src/app/process/landing.js",
-          "id": 4989
+          "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/process/auth.js",
+          "name": "./src/app/process/auth.js",
+          "id": 1390
         }
       ],
       "failed": false,
       "errors": 0,
       "warnings": 0,
       "id": 4534,
-      "issuerId": 4989,
+      "issuerId": 1390,
       "chunks": [
         759
       ],
@@ -50049,8 +50049,8 @@
       "cacheable": true,
       "optional": false,
       "orphan": false,
-      "issuer": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/components/Loading/styles.js",
-      "issuerName": "./src/app/components/Loading/styles.js",
+      "issuer": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/components/HeaderApp/styles.js",
+      "issuerName": "./src/app/components/HeaderApp/styles.js",
       "issuerPath": [
         {
           "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/scripts/index.js",
@@ -50063,18 +50063,18 @@
           "id": 8419
         },
         {
-          "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/components/Loading/index.js",
-          "name": "./src/app/components/Loading/index.js",
+          "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/components/HeaderApp/index.js",
+          "name": "./src/app/components/HeaderApp/index.js",
           "id": null
         },
         {
-          "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/components/Loading/template.js",
-          "name": "./src/app/components/Loading/template.js",
+          "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/components/HeaderApp/template.js",
+          "name": "./src/app/components/HeaderApp/template.js",
           "id": null
         },
         {
-          "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/components/Loading/styles.js",
-          "name": "./src/app/components/Loading/styles.js",
+          "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/components/HeaderApp/styles.js",
+          "name": "./src/app/components/HeaderApp/styles.js",
           "id": null
         }
       ],
@@ -58019,18 +58019,18 @@
           "id": 8419
         },
         {
-          "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/components/Loading/index.js",
-          "name": "./src/app/components/Loading/index.js",
+          "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/components/HeaderApp/index.js",
+          "name": "./src/app/components/HeaderApp/index.js",
           "id": null
         },
         {
-          "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/components/Loading/template.js",
-          "name": "./src/app/components/Loading/template.js",
+          "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/components/HeaderApp/template.js",
+          "name": "./src/app/components/HeaderApp/template.js",
           "id": null
         },
         {
-          "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/components/Loading/styles.js",
-          "name": "./src/app/components/Loading/styles.js",
+          "identifier": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[1].use[0]!/home/runner/work/rllyhz.github.io/rllyhz.github.io/src/app/components/HeaderApp/styles.js",
+          "name": "./src/app/components/HeaderApp/styles.js",
           "id": null
         },
         {
@@ -60307,8 +60307,8 @@
       "name": "HtmlWebpackCompiler",
       "hash": "99af61e87320cf109d2c",
       "version": "5.88.1",
-      "time": 82,
-      "builtAt": 1711178038590,
+      "time": 84,
+      "builtAt": 1753300765960,
       "publicPath": "",
       "outputPath": "/home/runner/work/rllyhz.github.io/rllyhz.github.io/published_dist",
       "assetsByChunkName": {},
